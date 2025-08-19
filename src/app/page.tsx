@@ -28,6 +28,7 @@ export default function HomePage() {
         <a href="/about" className="mt-6 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           About Us
         </a>
+        
         <a href="/aesthetic-services" className="mt-6 inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           Services
         </a>
