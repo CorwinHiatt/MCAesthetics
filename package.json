@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel-build": "npm install --platform=linux --arch=x64 && npm run build",
+    "postinstall": "npm rebuild lightningcss --platform=linux --arch=x64 --libc=glibc"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
