@@ -1,4 +1,6 @@
-import Navigation from '../app/components/Navigation'
+
+// import Navigation from './components/Navigation';
+import Navbar from './components/Navbar';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -18,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-white">
-        <Navigation />
         <header className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <h1 className="text-2xl font-bold text-indigo-600">MC Aesthetics</h1>
-            {/* Navigation will go here */}
+            <div className="flex justify-between items-center">
+              <h1 className="text-2xl font-bold text-indigo-600">MC Aesthetics</h1>
+              {/* <Navigation /> */}
+              <Navbar />
+            </div>
           </div>
         </header>
         
