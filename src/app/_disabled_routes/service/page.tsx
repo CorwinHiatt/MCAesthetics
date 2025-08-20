@@ -1,18 +1,18 @@
+// app/aesthetic-services/[service]/page.tsx - CORRECTED
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { serviceCategories, ServiceCategory, SubService } from '@/data/services';
 import Image from 'next/image';
 
 interface ServicePageProps {
-  params: Promise<{
+  params: {
     service: string;
-  }>;
+  };
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-  // Await the params object before accessing its properties
-  const resolvedParams = await params;
-  const serviceSlug = resolvedParams.service;
+  const serviceSlug = params.service;
+
   
   // Find the service category based on the slug
   const serviceData = serviceCategories.find(cat => cat.slug === serviceSlug);
@@ -76,27 +76,39 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </>
             )}
             
-            {/* Sub-services section */}
+            {/* Sub-services section - UPDATED to link to subservice pages */}
             {serviceData.subServices && serviceData.subServices.length > 0 && (
               <>
                 <h3>Treatment Options</h3>
                 <div className="space-y-6">
                   {serviceData.subServices.map((subService, index) => (
                     <div key={index} className="border-b pb-6">
-                      <h4 className="font-medium text-xl">{subService.name}</h4>
+                      <h4 className="font-medium text-xl">
+                        <Link 
+                          href={`/aesthetic-services/${serviceData.slug}/${subService.slug}`}
+                          className="text-primary hover:underline"
+                        >
+                          {subService.name}
+                        </Link>
+                      </h4>
                       <p className="mb-4">{subService.description}</p>
                       
-                      {/* Sub-service benefits */}
+                      {/* Brief benefits preview if available */}
                       {subService.benefits && subService.benefits.length > 0 && (
-                        <div className="mt-4">
-                          <h5 className="font-medium text-lg">Benefits</h5>
-                          <ul className="list-disc pl-5 mt-2">
-                            {subService.benefits.map((benefit, idx) => (
-                              <li key={idx} className="mb-1">{benefit}</li>
-                            ))}
-                          </ul>
+                        <div className="mt-2 mb-3">
+                          <span className="font-medium">Key benefits:</span>{' '}
+                          {subService.benefits.slice(0, 2).join(', ')}
+                          {subService.benefits.length > 2 && '...'}
                         </div>
                       )}
+                      
+                      {/* Add a "Learn more" link */}
+                      <Link 
+                        href={`/aesthetic-services/${serviceData.slug}/${subService.slug}`}
+                        className="text-primary hover:underline inline-block mt-2"
+                      >
+                        Learn more about {subService.name} →
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -125,19 +137,19 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-semibold mb-4">Service Details</h3>
             
-            {/* Sub-services quick links */}
+            {/* Sub-services quick links - UPDATED to link to subservice pages */}
             {serviceData.subServices && serviceData.subServices.length > 0 && (
               <div className="mb-6">
                 <h4 className="text-sm text-gray-500 mb-2">Available Treatments</h4>
                 <ul className="space-y-2">
                   {serviceData.subServices.map((sub, index) => (
                     <li key={index}>
-                      <a 
-                        href={`#${sub.slug}`} 
+                      <Link 
+                        href={`/aesthetic-services/${serviceData.slug}/${sub.slug}`} 
                         className="text-primary hover:underline"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

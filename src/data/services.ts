@@ -1,9 +1,17 @@
+// app/data/services.ts
+
+
 export interface SubService {
   id: number;
   name: string;
   slug: string;
   description: string;
+  imageUrl?: string;
   benefits?: string[];
+  process?: string;
+  results?: string;
+  duration?: string;
+  recoveryTime?: string;
 }
 
 export interface FAQ {
@@ -35,36 +43,51 @@ export const serviceCategories: ServiceCategory[] = [
         name: 'Botox',
         slug: 'botox',
         description: 'A popular injectable treatment that temporarily reduces the appearance of facial wrinkles by relaxing the underlying muscles.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Reduces appearance of fine lines and wrinkles',
           'Prevents formation of new wrinkles',
           'Quick procedure with minimal downtime',
           'Results typically last 3-4 months'
-        ]
+        ],
+        process: 'Botox is administered through a series of small injections directly into the targeted muscles. The procedure typically takes 10-15 minutes and requires no anesthesia or recovery time.',
+        results: 'Results begin to appear within 24-48 hours after treatment, with full effects visible within 7-14 days. The reduction in wrinkles and fine lines typically lasts 3-4 months before a touch-up is needed.',
+        duration: '10-15 minutes',
+        recoveryTime: 'No downtime required. Patients can return to normal activities immediately after treatment.'
       },
       {
         id: 102,
         name: 'Dysport',
         slug: 'dysport',
         description: 'Similar to Botox, Dysport is an injectable that reduces moderate to severe frown lines between the eyebrows.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Smooths frown lines and wrinkles',
           'Natural-looking results',
           'Quick treatment sessions',
           'May spread to a wider area than Botox'
-        ]
+        ],
+        process: 'Dysport is injected directly into the muscles that cause frown lines and wrinkles. The procedure is quick, typically taking about 10-20 minutes to complete.',
+        results: 'Results may be visible within 2-3 days after treatment, with maximum results appearing within 7-10 days. Effects typically last 3-4 months before a maintenance treatment is needed.',
+        duration: '10-20 minutes',
+        recoveryTime: 'Minimal to no downtime. Some patients may experience slight bruising or swelling at injection sites that resolves within a day or two.'
       },
       {
         id: 103,
         name: 'Jeuveau',
         slug: 'jeuveau',
         description: 'A newer neurotoxin treatment specifically designed for aesthetic use to improve the appearance of moderate to severe frown lines.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Effectively reduces frown lines',
           'Modern formulation',
           'Comparable results to other neurotoxins',
           'May have a quicker onset than alternatives'
-        ]
+        ],
+        process: 'Jeuveau is administered through precise injections into the muscles responsible for creating frown lines. The treatment is performed in-office and typically takes about 15-20 minutes.',
+        results: 'Many patients notice improvement within 2-3 days, with full results visible within 7-10 days. Results typically last 3-4 months before a follow-up treatment is recommended.',
+        duration: '15-20 minutes',
+        recoveryTime: 'No significant downtime. Patients can return to normal activities immediately, though some may experience minor redness or swelling at injection sites for a few hours.'
       }
     ],
     faqs: [
@@ -94,36 +117,51 @@ export const serviceCategories: ServiceCategory[] = [
         name: 'Juvederm',
         slug: 'juvederm',
         description: 'A collection of hyaluronic acid fillers that add volume to different areas of the face, including lips, cheeks, and around the mouth.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Instantly adds volume to facial features',
           'Smooths moderate to severe facial wrinkles',
           'Results can last 1-2 years depending on the specific product',
           'Natural-looking results'
-        ]
+        ],
+        process: 'After a consultation to determine your aesthetic goals, the provider will inject Juvederm into targeted areas using a fine needle or cannula. The procedure may include topical or local anesthetic for comfort.',
+        results: 'Results are visible immediately after treatment, with some potential swelling that resolves within a few days. The enhanced volume and reduced wrinkles typically last 1-2 years depending on the specific Juvederm product used.',
+        duration: '30-60 minutes',
+        recoveryTime: 'Minimal downtime of 24-48 hours. Some patients may experience swelling, bruising, or tenderness at injection sites that typically resolves within a week.'
       },
       {
         id: 202,
         name: 'Restylane',
         slug: 'restylane',
         description: 'A line of hyaluronic acid fillers designed to add fullness to the face and lips and reduce the appearance of wrinkles and folds.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Reduces appearance of fine lines and wrinkles',
           'Enhances lip fullness and definition',
           'Restores lost volume in cheeks and under eyes',
           'Results typically last 6-18 months'
-        ]
+        ],
+        process: 'After cleansing the treatment area and applying a topical anesthetic if desired, Restylane is precisely injected into targeted areas using a fine needle. The provider may massage the area to ensure proper placement and a natural appearance.',
+        results: 'Results are immediately visible, with full effects apparent once any swelling subsides. Depending on the specific Restylane product and treatment area, results typically last 6-18 months.',
+        duration: '30-45 minutes',
+        recoveryTime: 'Most patients return to normal activities within 24 hours. Some swelling, redness, or bruising may occur at injection sites and typically resolves within 3-7 days.'
       },
       {
         id: 203,
         name: 'Radiesse',
         slug: 'radiesse',
         description: 'A calcium hydroxylapatite filler that stimulates natural collagen production while providing immediate volume.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Provides immediate volume correction',
           'Stimulates natural collagen production',
           'Longer-lasting results (up to 15 months)',
           'Effective for deeper wrinkles and folds'
-        ]
+        ],
+        process: 'After applying a topical anesthetic, Radiesse is injected beneath the skin using a fine needle. The treatment focuses on areas needing volume restoration and wrinkle reduction, particularly nasolabial folds and marionette lines.',
+        results: 'Immediate volume enhancement is visible after treatment, with continued improvement over time as collagen production increases. Results typically last 12-15 months as the body gradually metabolizes the product.',
+        duration: '30-60 minutes',
+        recoveryTime: 'Most patients experience minimal downtime of 24-48 hours. Some swelling, redness, or bruising at injection sites may occur and typically resolves within a week.'
       }
     ],
     faqs: [
@@ -211,36 +249,51 @@ export const serviceCategories: ServiceCategory[] = [
         name: 'Superficial Peels',
         slug: 'superficial-peels',
         description: 'Mild peels that exfoliate the outermost layer of the skin to improve texture, minor discoloration, and refresh the skin\'s appearance.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Minimal downtime',
           'Improves skin texture and tone',
           'Reduces fine lines and minor blemishes',
           'Can be performed regularly for maintenance'
-        ]
+        ],
+        process: 'After cleansing the skin, the chemical solution (typically containing alpha-hydroxy acids like glycolic acid) is applied to the face. The solution remains on the skin for a few minutes before being neutralized and removed. A soothing mask or cream may be applied afterward.',
+        results: 'The skin appears fresher and more radiant immediately after treatment, with continued improvement in texture and tone over the next week as the skin completes its renewal process.',
+        duration: '30 minutes',
+        recoveryTime: '1-3 days of mild redness and peeling, similar to a light sunburn. Most patients can apply makeup the next day.'
       },
       {
         id: 502,
         name: 'Medium Peels',
         slug: 'medium-peels',
         description: 'Peels that penetrate to the middle layers of the skin to remove damaged cells, addressing more significant skin concerns.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Reduces moderate wrinkles and discoloration',
           'Improves age spots and freckles',
           'Treats some precancerous skin growths',
           'More dramatic results than superficial peels'
-        ]
+        ],
+        process: 'The skin is thoroughly cleansed before applying the chemical solution (typically containing trichloroacetic acid). The solution remains on the skin for a specified time before being neutralized. Cool compresses may be applied to alleviate any burning sensation.',
+        results: 'After the recovery period, patients notice significant improvement in skin tone, texture, and pigmentation. Fine lines are reduced, and the skin appears smoother and more youthful.',
+        duration: '45 minutes',
+        recoveryTime: '7-14 days. The skin will redden, swell, and blister before peeling. Most patients take about a week off from work and social activities.'
       },
       {
         id: 503,
         name: 'Deep Peels',
         slug: 'deep-peels',
         description: 'The most aggressive type of chemical peel that penetrates to the lower dermal layer to address more severe skin concerns.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Treats deeper wrinkles and scars',
           'Addresses significant sun damage and discoloration',
           'Provides the most dramatic results',
           'Long-lasting effects'
-        ]
+        ],
+        process: 'The procedure begins with sedation or local anesthesia for comfort. After thorough cleansing, the chemical solution (typically phenol-based) is applied in a precise manner, often in sections. The procedure is carefully timed and monitored to ensure safety and effectiveness.',
+        results: 'Once healed, the skin appears dramatically smoother, tighter, and more even-toned. Deep wrinkles are significantly reduced, and overall skin quality is greatly improved. Results can last for years with proper sun protection.',
+        duration: '1-2 hours',
+        recoveryTime: '14-21 days. The face will be bandaged after treatment. Significant swelling, redness, and peeling occur during recovery. Most patients take 2-3 weeks off from work and social activities.'
       }
     ],
     faqs: [
@@ -299,24 +352,34 @@ export const serviceCategories: ServiceCategory[] = [
         name: 'Traditional Microneedling',
         slug: 'traditional-microneedling',
         description: 'Uses a device with fine needles to create tiny punctures in the top layer of the skin, triggering the body to create new collagen and elastin.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Improves skin texture and firmness',
           'Reduces scars, pore size, and stretch marks',
           'Minimal downtime',
           'Safe for most skin types'
-        ]
+        ],
+        process: 'After applying a topical numbing cream, a specialized device with fine needles is moved across the skin, creating thousands of microscopic channels. These controlled micro-injuries trigger the skins natural healing process, stimulating collagen and elastin production.',
+        results: 'Immediately after treatment, the skin appears flushed. As healing progresses over the next few weeks, skin texture and tone improve, with continued enhancement for up to 6 months as collagen remodeling occurs.',
+        duration: '30-60 minutes',
+        recoveryTime: '24-72 hours of redness and mild swelling, similar to a sunburn. Most patients can resume normal activities within 1-2 days, though complete healing takes about a week.'
       },
       {
         id: 702,
         name: 'Microneedling with PRP',
         slug: 'microneedling-with-prp',
         description: 'Combines traditional microneedling with platelet-rich plasma (PRP) derived from your own blood to enhance results.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Enhanced collagen production',
           'Accelerated healing process',
           'More significant improvement in skin texture and tone',
           'Better results for scars and deep wrinkles'
-        ]
+        ],
+        process: 'The treatment begins with a blood draw to obtain PRP. After applying numbing cream, the microneedling device creates controlled micro-injuries in the skin. The PRP is then applied topically or injected into specific areas, allowing the growth factors to penetrate deeply and enhance the healing process.',
+        results: 'Initial redness subsides within a few days, revealing improved skin texture. Significant improvements in skin quality, including reduced scarring and fine lines, develop over 4-6 weeks and continue to improve for up to 6 months.',
+        duration: '60-90 minutes',
+        recoveryTime: '2-4 days of redness and mild swelling. The skin may feel tight and dry for several days. Most patients can resume normal activities within 48 hours, though complete healing takes about a week.'
       }
     ],
     faqs: [
@@ -375,36 +438,51 @@ export const serviceCategories: ServiceCategory[] = [
         name: 'ZO Daily Skincare',
         slug: 'zo-daily-skincare',
         description: 'Comprehensive daily skincare regimens designed to maintain healthy skin and prevent common concerns.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Maintains skin health',
           'Prevents signs of aging',
           'Protects against environmental damage',
           'Customizable for different skin types'
-        ]
+        ],
+        process: 'After a personalized skin assessment, a ZO specialist will recommend a customized daily regimen typically including cleanser, exfoliant, toner, and targeted treatments. Products are applied in a specific sequence for maximum effectiveness.',
+        results: 'With consistent use, patients notice improved skin clarity, texture, and tone within 4-6 weeks. Long-term use helps maintain skin health and prevent signs of aging.',
+        duration: 'Daily use as part of morning and evening skincare routines',
+        recoveryTime: 'No downtime. Some products may cause initial redness or peeling as the skin adjusts, typically resolving within 1-2 weeks.'
       },
       {
         id: 902,
         name: 'ZO Treatment Products',
         slug: 'zo-treatment-products',
         description: 'Targeted treatments that address specific skin concerns such as hyperpigmentation, acne, and aging.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Addresses specific skin concerns',
           'Contains potent active ingredients',
           'Provides visible results',
           'Complements professional treatments'
-        ]
+        ],
+        process: 'After identifying specific skin concerns, targeted ZO treatment products are incorporated into the daily skincare routine. These products contain higher concentrations of active ingredients to address particular issues like pigmentation, acne, or aging.',
+        results: 'Improvement in specific skin concerns becomes noticeable within 6-8 weeks of consistent use. Results continue to improve with ongoing application as directed.',
+        duration: 'Used as directed as part of daily skincare routine, typically applied once or twice daily',
+        recoveryTime: 'Some products may cause temporary redness, dryness, or peeling as the skin adjusts to active ingredients. This typically subsides within 2-3 weeks as the skin adapts.'
       },
       {
         id: 903,
         name: 'ZO Skin Brightening',
         slug: 'zo-skin-brightening',
         description: 'Products specifically formulated to reduce hyperpigmentation and even skin tone for a brighter complexion.',
+        imageUrl: 'https://picsum.photos/1200/600',
         benefits: [
           'Reduces dark spots and discoloration',
           'Evens skin tone',
           'Prevents new pigmentation',
           'Brightens overall complexion'
-        ]
+        ],
+        process: 'After cleansing and toning, ZO brightening products are applied to target areas of hyperpigmentation or all over the face for general brightening. These products contain ingredients that inhibit melanin production and promote cell turnover to reveal brighter skin.',
+        results: 'Initial brightening effects may be noticed within 2-4 weeks, with significant improvement in pigmentation and overall skin tone after 8-12 weeks of consistent use.',
+        duration: 'Applied daily as part of morning and/or evening skincare routine',
+        recoveryTime: 'Some initial sensitivity or mild peeling may occur as the skin adjusts to the active ingredients. This typically resolves within 1-2 weeks.'
       }
     ],
     faqs: [
