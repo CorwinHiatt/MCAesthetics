@@ -1,6 +1,8 @@
 
 // import Navigation from './components/Navigation';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -20,23 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-white">
-        <header className="bg-white shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div className="flex justify-between items-center">
-              <h1 className="text-2xl font-bold text-indigo-600">MC Aesthetics</h1>
-              {/* <Navigation /> */}
-              <Navbar />
-            </div>
-          </div>
-        </header>
+        <Header />
+         
+              {/* <Navbar /> */}
+          
         
         <main>{children}</main>
-        
-        <footer className="bg-gray-50 mt-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <p className="text-gray-500 text-center">© {new Date().getFullYear()} MC Aesthetics. All rights reserved.</p>
-          </div>
-        </footer>
+
+        <Footer />
       </body>
     </html>
   );
