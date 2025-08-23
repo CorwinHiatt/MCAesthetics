@@ -1,18 +1,100 @@
 "use client"
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Header2.module.css';
 
 export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aestheticDropdownOpen, setAestheticDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef(null);
 
   // Reset mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
+    setAestheticDropdownOpen(false);
   }, [pathname]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        event.target &&
+        !(dropdownRef.current as HTMLDivElement).contains(event.target as Node)
+      ) {
+        setAestheticDropdownOpen(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Aesthetic services structure with categories and sub-items
+  const aestheticServices = [
+    { 
+      category: "Wrinkle Reducers",
+      items: [
+        { name: "Xeomin", href: "/aesthetic-services/xeomin" },
+        { name: "Dysport", href: "/aesthetic-services/dysport" },
+        { name: "DAXXIFY", href: "/aesthetic-services/daxxify" },
+        { name: "Jeuveau", href: "/aesthetic-services/jeuveau" }
+      ]
+    },
+    {
+      category: "Dermal Fillers",
+      items: [
+        { name: "Sculptra", href: "/aesthetic-services/sculptra" },
+        { name: "Restylane", href: "/aesthetic-services/restylane" },
+        { name: "RHA", href: "/aesthetic-services/rha" },
+        { name: "Revanesse", href: "/aesthetic-services/revanesse" },
+        { name: "Belotero", href: "/aesthetic-services/belotero" },
+        { name: "Radiesse", href: "/aesthetic-services/radiesse" }
+      ]
+    },
+    {
+      category: null,
+      items: [
+        { name: "Kybella", href: "/aesthetic-services/kybella" },
+        { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
+        { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
+        { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" }
+      ]
+    },
+    {
+      category: null,
+      items: [
+        { name: "All Aesthetic Services", href: "/aesthetic-services" }
+      ]
+    }
+  ];
+
+  // Mobile submenu state
+  const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
+  const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
+
+  // Toggle mobile category expansion
+  interface AestheticServiceItem {
+    name: string;
+    href: string;
+  }
+
+  interface AestheticServiceSection {
+    category: string | null;
+    items: AestheticServiceItem[];
+  }
+
+  const toggleMobileCategory = (category: string) => {
+    setMobileExpandedCategories((prev: Record<string, boolean>) => ({
+      ...prev,
+      [category]: !prev[category]
+    }));
+  };
 
   return (
     <div className={styles.header2Wrapper}>
@@ -91,12 +173,57 @@ export default function Header2() {
                 >
                   Contact
                 </Link>
-                <Link
-                  href="/aesthetic-services"
-                  className={`${styles.header2NavLink} ${pathname === '/aesthetic-services' ? styles.header2Active : ''}`}
-                >
-                  Aesthetic Services
-                </Link>
+                
+                {/* Aesthetic Services Dropdown */}
+                <div className={styles.header2DropdownContainer} ref={dropdownRef}>
+                  <button 
+                    className={`${styles.header2NavLink} ${styles.header2DropdownButton} ${
+                      pathname.startsWith('/aesthetic-services') ? styles.header2Active : ''
+                    }`}
+                    onClick={() => setAestheticDropdownOpen(!aestheticDropdownOpen)}
+                    aria-expanded={aestheticDropdownOpen}
+                    aria-haspopup="true"
+                  >
+                    Aesthetic Services
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      className={`${styles.header2DropdownArrow} ${aestheticDropdownOpen ? styles.header2DropdownArrowOpen : ''}`}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {aestheticDropdownOpen && (
+                    <div className={styles.header2DropdownMenu}>
+                      {aestheticServices.map((section, sectionIndex) => (
+                        <div key={sectionIndex} className={styles.header2DropdownSection}>
+                          {section.category && (
+                            <div className={styles.header2DropdownCategory}>
+                              {section.category}
+                            </div>
+                          )}
+                          {section.items.map((item, itemIndex) => (
+                            <Link 
+                              key={itemIndex}
+                              href={item.href}
+                              className={`${styles.header2DropdownItem} ${
+                                pathname === item.href ? styles.header2DropdownItemActive : ''
+                              }`}
+                              onClick={() => setAestheticDropdownOpen(false)}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
                 <Link href="/book" className={styles.header2BookButton}>
                   Book Now
                 </Link>
@@ -155,9 +282,89 @@ export default function Header2() {
                 <Link href="/contact" className={styles.header2MobileNavLink}>
                   Contact
                 </Link>
-                <Link href="/aesthetic-services" className={styles.header2MobileNavLink}>
-                  Aesthetic Services
-                </Link>
+                
+                {/* Mobile Aesthetic Services Accordion */}
+                <div className={styles.header2MobileAccordion}>
+                  <button 
+                    className={`${styles.header2MobileAccordionButton} ${
+                      mobileAestheticExpanded ? styles.header2MobileAccordionExpanded : ''
+                    }`}
+                    onClick={() => setMobileAestheticExpanded(!mobileAestheticExpanded)}
+                    aria-expanded={mobileAestheticExpanded}
+                  >
+                    Aesthetic Services
+                    <svg 
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor"
+                      className={`${styles.header2MobileAccordionArrow} ${
+                        mobileAestheticExpanded ? styles.header2MobileAccordionArrowExpanded : ''
+                      }`}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {mobileAestheticExpanded && (
+                    <div className={styles.header2MobileAccordionContent}>
+                      {aestheticServices.map((section, sectionIndex) => (
+                        <div key={sectionIndex} className={styles.header2MobileAccordionSection}>
+                          {section.category ? (
+                            <>
+                              <button 
+                                className={styles.header2MobileSubCategory}
+                                onClick={() => toggleMobileCategory(section.category)}
+                                aria-expanded={!!mobileExpandedCategories[section.category]}
+                              >
+                                {section.category}
+                                <svg 
+                                  width="16" 
+                                  height="16" 
+                                  viewBox="0 0 24 24" 
+                                  fill="none" 
+                                  stroke="currentColor"
+                                  className={`${styles.header2MobileSubCategoryArrow} ${
+                                    mobileExpandedCategories[section.category] ? styles.header2MobileSubCategoryArrowExpanded : ''
+                                  }`}
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </button>
+                              {mobileExpandedCategories[section.category] && (
+                                <div className={styles.header2MobileSubItems}>
+                                  {section.items.map((item, itemIndex) => (
+                                    <Link 
+                                      key={itemIndex}
+                                      href={item.href}
+                                      className={styles.header2MobileSubNavLink}
+                                    >
+                                      {item.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              {section.items.map((item, itemIndex) => (
+                                <Link 
+                                  key={itemIndex}
+                                  href={item.href}
+                                  className={styles.header2MobileSubNavLink}
+                                >
+                                  {item.name}
+                                </Link>
+                              ))}
+                            </>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                
                 <Link href="/book" className={`${styles.header2MobileNavLink} ${styles.header2MobileBookLink}`}>
                   Book Now
                 </Link>

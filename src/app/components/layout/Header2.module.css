@@ -255,3 +255,258 @@ transform: scale(1.05);
 color: #3B5998;
 }
 
+/* Dropdown container */
+.header2DropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.header2DropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  padding: var(--nav-link-padding, 0.5rem 0.75rem);
+  color: inherit;
+}
+
+/* Dropdown arrow */
+.header2DropdownArrow {
+  transition: transform 0.2s ease;
+}
+
+.header2DropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.header2DropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+
+/* Dropdown items */
+.header2DropdownItem {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.header2DropdownItem:hover {
+  background-color: #f5f5f5;
+}
+
+.header2DropdownItemActive {
+  background-color: #f0f0f0;
+  font-weight: 500;
+}
+
+/* Mobile accordion styles */
+.header2MobileAccordion {
+  width: 100%;
+}
+
+.header2MobileAccordionButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.header2MobileAccordionArrow {
+  transition: transform 0.2s ease;
+}
+
+.header2MobileAccordionArrowExpanded {
+  transform: rotate(180deg);
+}
+
+.header2MobileAccordionContent {
+  padding-left: 1rem;
+}
+
+.header2MobileSubNavLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.95em;
+}
+/* Dropdown container */
+.header2DropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.header2DropdownButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  padding: var(--nav-link-padding, 0.5rem 0.75rem);
+  color: inherit;
+}
+
+/* Dropdown arrow */
+.header2DropdownArrow {
+  transition: transform 0.2s ease;
+}
+
+.header2DropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.header2DropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 280px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  padding: 0.75rem 0;
+  margin-top: 0.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Dropdown section */
+.header2DropdownSection {
+  margin-bottom: 0.5rem;
+}
+
+.header2DropdownSection:last-child {
+  margin-bottom: 0;
+}
+
+/* Dropdown category */
+.header2DropdownCategory {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  color: #333;
+  font-size: 0.95em;
+  background-color: #f7f7f7;
+}
+
+/* Dropdown items */
+.header2DropdownItem {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  font-size: 0.9em;
+}
+
+.header2DropdownItem:hover {
+  background-color: #f5f5f5;
+}
+
+.header2DropdownItemActive {
+  background-color: #f0f0f0;
+  font-weight: 500;
+}
+
+/* Mobile accordion styles */
+.header2MobileAccordion {
+  width: 100%;
+}
+
+.header2MobileAccordionButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.header2MobileAccordionArrow {
+  transition: transform 0.2s ease;
+}
+
+.header2MobileAccordionArrowExpanded {
+  transform: rotate(180deg);
+}
+
+.header2MobileAccordionContent {
+  padding-left: 0.5rem;
+}
+
+.header2MobileAccordionSection {
+  margin-bottom: 0.5rem;
+}
+
+.header2MobileSubCategory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #f7f7f7;
+  border: none;
+  color: #333;
+  font-size: 0.95em;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.header2MobileSubCategoryArrow {
+  transition: transform 0.2s ease;
+}
+
+.header2MobileSubCategoryArrowExpanded {
+  transform: rotate(180deg);
+}
+
+.header2MobileSubItems {
+  padding-left: 0.5rem;
+}
+
+.header2MobileSubNavLink {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9em;
+}
