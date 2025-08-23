@@ -1,0 +1,182 @@
+/* Container for the entire Financing page */
+.financingPageWrapper {
+background-color: #f8f9fa;
+min-height: 100vh;
+padding: 3rem 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/* Main title for the page */
+.financingMainTitle {
+font-size: 2.25rem;
+font-weight: 700;
+margin-bottom: 2rem;
+text-align: center;
+color: #4267B2;
+transition: color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+.financingMainTitle {
+font-size: 2.75rem;
+}
+}
+
+@media (max-width: 640px) {
+.financingMainTitle {
+font-size: 1.875rem;
+}
+}
+
+/* Subtitle or tagline */
+.financingSubtitle {
+font-size: 1.5rem;
+font-weight: 500;
+margin-bottom: 2.5rem;
+text-align: center;
+color: #3B5998;
+}
+
+@media (max-width: 640px) {
+.financingSubtitle {
+font-size: 1.25rem;
+}
+}
+
+/* Section headings */
+.financingSectionHeading {
+font-size: 1.75rem;
+font-weight: 600;
+margin-bottom: 1.5rem;
+color: #3B5998;
+text-align: center;
+}
+
+@media (max-width: 640px) {
+.financingSectionHeading {
+font-size: 1.5rem;
+}
+}
+
+/* Content section container */
+.financingContentSection {
+max-width: 48rem;
+margin-bottom: 3rem;
+width: 100%;
+}
+
+/* Paragraph text in sections */
+.financingContentText {
+font-size: 1rem;
+color: #4a5568;
+line-height: 1.7;
+margin-bottom: 1rem;
+text-align: justify;
+}
+
+@media (max-width: 640px) {
+.financingContentText {
+font-size: 0.875rem;
+}
+}
+
+/* List styling */
+.financingListContainer {
+margin-bottom: 1.5rem;
+padding-left: 1.5rem;
+}
+
+.financingListItem {
+font-size: 1rem;
+color: #4a5568;
+line-height: 1.6;
+margin-bottom: 0.75rem;
+position: relative;
+padding-left: 1.25rem;
+}
+
+.financingListItem::before {
+content: "•";
+position: absolute;
+left: 0;
+color: #4267B2;
+font-size: 1.25rem;
+}
+
+@media (max-width: 640px) {
+.financingListItem {
+font-size: 0.875rem;
+}
+}
+
+/* Call to action section */
+.financingCallToAction {
+background-color: white;
+border-radius: 0.75rem;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 2rem;
+text-align: center;
+max-width: 48rem;
+margin: 2rem auto;
+border: 1px solid #e2e8f0;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.financingCallToAction:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.financingCtaText {
+font-size: 1.5rem;
+color: #3B5998;
+font-weight: 600;
+margin-bottom: 1.5rem;
+}
+
+.financingCtaButton {
+display: inline-block;
+background: linear-gradient(to right, #4267B2, #3B5998);
+color: white;
+font-size: 1.125rem;
+font-weight: 600;
+padding: 0.75rem 1.5rem;
+border-radius: 0.5rem;
+text-decoration: none;
+transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.financingCtaButton:hover {
+background: linear-gradient(to right, #3B5998, #4267B2);
+transform: scale(1.05);
+}
+
+@media (max-width: 640px) {
+.financingCtaText {
+font-size: 1.25rem;
+}
+.financingCtaButton {
+font-size: 1rem;
+padding: 0.625rem 1.25rem;
+}
+.financingCallToAction {
+padding: 1.5rem;
+}
+}
+
+/* Disclaimer text */
+.financingDisclaimer {
+font-size: 0.875rem;
+color: #718096;
+text-align: center;
+margin-top: 1rem;
+max-width: 48rem;
+}
+
+@media (max-width: 640px) {
+.financingDisclaimer {
+font-size: 0.75rem;
+}
+}

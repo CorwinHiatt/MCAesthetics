@@ -1,44 +1,75 @@
-import React from 'react';
-import Link from 'next/link';
+import styles from './ZoSkinHealth.module.css';
 
-// Sample product data
-const products = [
-  { id: 1, name: 'Daily Power Defense', category: 'Anti-Aging', price: '$150' },
-  { id: 2, name: 'Growth Factor Serum', category: 'Brightening', price: '$148' },
-  { id: 3, name: 'Exfoliating Polish', category: 'Exfoliation', price: '$67' },
-  { id: 4, name: 'Sunscreen + Primer', category: 'Sun Protection', price: '$68' },
-];
-
-export default function ZOSkinHealthPage() {
+export default function ZoSkinHealthPage() {
   return (
-    <div className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold mb-6">ZO Skin Health Products</h1>
-      <p className="mb-8">
-        We are proud to offer ZO Skin Health products, developed by renowned dermatologist Dr. Zein Obagi.
-        These medical-grade skincare products deliver optimal skin health through advanced technology and potent ingredients.
-      </p>
-      
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <div key={product.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-              <h3 className="font-semibold mb-2">{product.name}</h3>
-              <p className="text-sm text-gray-600 mb-1">{product.category}</p>
-              <p className="font-medium">{product.price}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      
-      <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-xl font-semibold mb-3">Skin Consultation</h2>
-        <p className="mb-4">
-          Schedule a personalized skin consultation to determine the best ZO Skin Health products for your specific needs.
+    <div className={styles.zoSkinPageWrapper}>
+      {/* Main Title */}
+      <h1 className={styles.zoSkinMainTitle}>ZO® Skin Health Products in McMinnville</h1>
+
+      {/* Introduction Section */}
+      <div className={styles.zoSkinIntroSection}>
+        <p className={styles.zoSkinIntroText}>
+          ZO® Skin Health is one of the only true medical-grade skin care lines exclusively offered by licensed medical practitioners. It provides comprehensive solutions for creating and maintaining healthy skin for anyone regardless of age, ethnicity, unique skin condition, or skin type. From correcting sun damage and pigmentation, to preventing and protecting against future damage, ZO has your skin health covered.
         </p>
-        <Link href="/book" className="text-blue-600 hover:underline">
-          Book a Consultation
-        </Link>
+        <p className={styles.zoSkinIntroText}>
+          For more than 35 years, Dr. Zein Obagi, Board-Certified Dermatologist, has pioneered advanced skincare solutions based on his philosophy of creating healthy skin as opposed to merely treating disease and damage. His visionary approach has earned him an international reputation as a leading authority on skin health and rejuvenation.
+        </p>
+        <p className={styles.zoSkinIntroText}>
+          If you’re looking for proven skin care products in McMinnville, ZO® offers targeted formulas that go beyond the surface, addressing the root causes of premature aging, inflammation, acne, and pigmentation concerns.
+        </p>
+      </div>
+
+      {/* Call to Action */}
+      <div className={styles.zoSkinCallToAction}>
+        <p className={styles.zoSkinCtaText}>Contact us for more information on ZO® Skin Health Products</p>
+      </div>
+
+      {/* Why We Trust ZO Section */}
+      <div className={styles.zoSkinContentSection}>
+        <h2 className={styles.zoSkinSectionHeading}>Why We Trust ZO® Skin Care Products in McMinnville</h2>
+        <p className={styles.zoSkinContentText}>
+          At our med spa in McMinnville, we offer ZO® Skin Health because it gives our clients more than cosmetic improvement—it supports true skin health from the inside out. ZO® skin health products are backed by clinical science and carefully developed to deliver real results through high-quality, medical-grade ingredients.
+        </p>
+      </div>
+
+      {/* ZO Line Includes Section */}
+      <div className={styles.zoSkinContentSection}>
+        <h2 className={styles.zoSkinSectionHeading}>The ZO® Line Includes:</h2>
+        <ul className={styles.zoSkinListContainer}>
+          <li className={styles.zoSkinListItem}>Cleansers and exfoliants</li>
+          <li className={styles.zoSkinListItem}>Serums for brightening and hydration</li>
+          <li className={styles.zoSkinListItem}>Targeted treatments for acne, melasma, and hyperpigmentation</li>
+          <li className={styles.zoSkinListItem}>Retinol-based products for skin renewal</li>
+          <li className={styles.zoSkinListItem}>Broad-spectrum sun protection</li>
+        </ul>
+      </div>
+
+      {/* Benefits Section */}
+      <div className={styles.zoSkinContentSection}>
+        <h2 className={styles.zoSkinSectionHeading}>Benefits of Using ZO® Skin Health</h2>
+        <p className={styles.zoSkinContentText}>
+          ZO® products promote long-term skin resilience, reduce inflammation, and visibly brighten your complexion. They’re safe for all skin types and formulated for lasting results.
+        </p>
+        <p className={styles.zoSkinContentText}>
+          As part of our comprehensive approach to skin care, we guide you through choosing the best ZO® regimen for your skin concerns. We also help you understand how to layer your products, when to adjust your routine, and what to expect as your skin transforms.
+        </p>
+      </div>
+
+      {/* FAQ Section */}
+      <div className={styles.zoSkinContentSection}>
+        <h2 className={styles.zoSkinSectionHeading}>Frequently Asked Questions</h2>
+        <div>
+          <p className={styles.zoSkinFaqQuestion}>What Makes ZO® Skin Care Different from Over-the-Counter Products?</p>
+          <p className={styles.zoSkinFaqAnswer}>
+            ZO® offers medical-grade formulations with higher concentrations of active ingredients, meaning they work deeper in the skin and deliver faster, more noticeable results.
+          </p>
+        </div>
+        <div>
+          <p className={styles.zoSkinFaqQuestion}>Do I Need a Prescription for ZO® Skin Health Products?</p>
+          <p className={styles.zoSkinFaqAnswer}>
+            While you don’t need a prescription, ZO® products are only available through licensed providers. This ensures you receive expert guidance for your specific skin concerns.
+          </p>
+        </div>
       </div>
     </div>
   );

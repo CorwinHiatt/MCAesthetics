@@ -1,79 +1,90 @@
-import React from 'react';
+import styles from './Contact.module.css';
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      <p className="mb-8">
-        We're here to answer your questions and help you schedule your appointments.
-        Reach out to us through any of the methods below.
+    <div className={styles.contactPageWrapper}>
+      {/* Main Title */}
+      <h1 className={styles.contactMainTitle}>Contact MC Aesthetics</h1>
+
+      {/* Introduction Text */}
+      <p className={styles.contactIntroText}>
+        We’d love to hear from you! Whether you have questions about our services, want to book an appointment, or need more information, feel free to reach out. Fill out the form below, and we’ll get back to you as soon as possible.
       </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-3">Contact Information</h2>
-          <div className="space-y-3">
-            <p><strong>Phone:</strong> (555) 123-4567</p>
-            <p><strong>Email:</strong> info@aestheticclinic.com</p>
-            <p><strong>Address:</strong> 123 Beauty Lane, Suite 100, Anytown, USA 12345</p>
-            <p><strong>Hours:</strong></p>
-            <ul className="pl-5">
-              <li>Monday - Friday: 9am - 7pm</li>
-              <li>Saturday: 10am - 4pm</li>
-              <li>Sunday: Closed</li>
-            </ul>
+
+      {/* Contact Form */}
+      <div className={styles.contactFormContainer}>
+        <h2 className={styles.contactFormHeading}>Send Us a Message</h2>
+        <form>
+          <div className={styles.contactFormField}>
+            <label htmlFor="name" className={styles.contactFormLabel}>
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className={styles.contactFormInput}
+              placeholder="Your Name"
+              required
+            />
           </div>
-        </div>
-        
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-3">Send Us a Message</h2>
-          <form className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block mb-1">Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                className="w-full px-3 py-2 border rounded-md"
-                placeholder="Your name"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="email" className="block mb-1">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                className="w-full px-3 py-2 border rounded-md"
-                placeholder="Your email"
-              />
-            </div>
-            
-            <div>
-              <label htmlFor="message" className="block mb-1">Message</label>
-              <textarea 
-                id="message" 
-                rows={4} 
-                className="w-full px-3 py-2 border rounded-md"
-                placeholder="Your message"
-              ></textarea>
-            </div>
-            
-            <button 
-              type="submit" 
-              className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
+          <div className={styles.contactFormField}>
+            <label htmlFor="email" className={styles.contactFormLabel}>
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className={styles.contactFormInput}
+              placeholder="Your Email"
+              required
+            />
+          </div>
+          <div className={styles.contactFormField}>
+            <label htmlFor="phone" className={styles.contactFormLabel}>
+              Phone (Optional)
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              className={styles.contactFormInput}
+              placeholder="Your Phone Number"
+            />
+          </div>
+          <div className={styles.contactFormField}>
+            <label htmlFor="message" className={styles.contactFormLabel}>
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              className={styles.contactFormTextarea}
+              placeholder="How can we help you?"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" className={styles.contactSubmitButton}>
+            Send Message
+          </button>
+        </form>
       </div>
-      
-      <div className="bg-gray-100 p-6 rounded-lg">
-        <h2 className="text-xl font-semibold mb-3">Location</h2>
-        <div className="aspect-w-16 aspect-h-9 bg-gray-300 rounded-lg flex items-center justify-center">
-          <p className="text-gray-600">Map would be displayed here</p>
-          {/* In a real implementation, you would embed a Google Map or similar here */}
-        </div>
+
+      {/* Contact Info Placeholder */}
+      <div className={styles.contactInfoSection}>
+        <p className={styles.contactInfoText}>
+          <strong>Location:</strong> McMinnville, OR (Full address coming soon)
+        </p>
+        <p className={styles.contactInfoText}>
+          <strong>Phone:</strong> Contact number available soon
+        </p>
+        <p className={styles.contactInfoText}>
+          <strong>Email:</strong> Email address coming soon
+        </p>
+        <p className={styles.contactInfoText}>
+          Stay tuned for updated contact details as we finalize our communication channels. In the meantime, use the form above to reach out!
+        </p>
       </div>
     </div>
   );

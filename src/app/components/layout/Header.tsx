@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import styles from './Header2.module.css';
 
-export default function Header() {
+export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -13,133 +14,90 @@ export default function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (target && !target.closest('header') && !target.closest('#mobile-menu-button')) {
-        setMobileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
   return (
-    <div className="border-8 border-purple-800 mb-16" style={{ borderWidth: '12px' }}>
-      <header className="relative bg-white shadow-lg" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
-        <div className="container mx-auto px-8">
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center" style={{ minHeight: '150px' }}>
-            {/* Logo and Mobile Menu Toggle */}
-            <div className="flex justify-between items-center mb-8 md:mb-0">
-              <Link href="/" className="text-6xl font-bold text-purple-800 relative z-10" style={{ fontSize: '4rem' }}>
-                MC Aesthetics
-              </Link>
+    <div className={styles.header2Wrapper}>
+      <header className={styles.header2}>
+        <div className={styles.header2Container}>
+          <div className={styles.header2Content}>
+            {/* Logo Section with Placeholder */}
+            <Link href="/" className={styles.header2LogoContainer}>
+              {/* Placeholder for image logo */}
+              <div className={styles.header2LogoPlaceholder}>
+                {/* Replace this div with <Image src="/path-to-logo.png" alt="MC Aesthetics Logo" width={50} height={50} /> */}
+              </div>
+              <span className={styles.header2LogoText}>MC Aesthetics</span>
+            </Link>
 
-              {/* Mobile menu button */}
-              <button 
-                id="mobile-menu-button"
-                className="md:hidden relative z-10 p-6 rounded-md hover:bg-gray-100 transition-colors"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={mobileMenuOpen}
-                style={{ padding: '24px' }}
+            {/* Mobile menu button */}
+            <button
+              className={styles.header2MobileMenuButton}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              <svg
+                width="32"
+                height="32"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className={styles.header2MenuIcon}
               >
-                <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ width: '48px', height: '48px' }}>
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={3} 
-                    d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} 
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
 
-            {/* Desktop Navigation - Simplified with mega menu approach */}
-            <nav className="hidden md:block">
-              <div className="flex flex-wrap items-center justify-end gap-4">
-                <Link 
-                  href="/about" 
-                  className={`px-6 py-4 rounded-md hover:bg-purple-100 transition-colors text-2xl ${pathname === '/about' ? 'text-purple-800 font-medium' : ''}`}
-                  aria-current={pathname === '/about' ? 'page' : undefined}
-                  style={{ padding: '16px 24px', fontSize: '1.5rem' }}
+            {/* Desktop Navigation */}
+            <nav className={styles.header2DesktopNav}>
+              <div className={styles.header2NavLinks}>
+                <Link
+                  href="/about"
+                  className={`${styles.header2NavLink} ${pathname === '/about' ? styles.header2Active : ''}`}
                 >
                   About
                 </Link>
-                
-                {/* Services Section - Mega Menu Style */}
-                <div className="group relative">
-                  <button
-                    className={`px-6 py-4 rounded-md hover:bg-purple-100 transition-colors text-2xl group-hover:bg-purple-100 ${pathname.includes('/services') || pathname.includes('/aesthetic-services') || pathname.includes('/laser-hair') || pathname.includes('/zo-skin-health') ? 'text-purple-800 font-medium' : ''}`}
-                    style={{ padding: '16px 24px', fontSize: '1.5rem' }}
-                  >
-                    Services
-                  </button>
-                  
-                  {/* Mega Menu - Shows on hover */}
-                  <div className="absolute left-0 mt-2 w-64 bg-white border border-gray-200 shadow-xl z-20 rounded-md overflow-hidden hidden group-hover:block">
-                    <div className="p-4">
-                      <Link 
-                        href="/aesthetic-services" 
-                        className={`block py-3 text-xl hover:text-purple-800 ${pathname === '/aesthetic-services' ? 'text-purple-800 font-medium' : ''}`}
-                        style={{ paddingTop: '12px', paddingBottom: '12px', fontSize: '1.25rem' }}
-                      >
-                        Aesthetic Services
-                      </Link>
-                      
-                      <Link 
-                        href="/laser-hair" 
-                        className={`block py-3 text-xl hover:text-purple-800 ${pathname === '/laser-hair' ? 'text-purple-800 font-medium' : ''}`}
-                        style={{ paddingTop: '12px', paddingBottom: '12px', fontSize: '1.25rem' }}
-                      >
-                        Laser Hair
-                      </Link>
-                      
-                      <Link 
-                        href="/zo-skin-health" 
-                        className={`block py-3 text-xl hover:text-purple-800 ${pathname === '/zo-skin-health' ? 'text-purple-800 font-medium' : ''}`}
-                        style={{ paddingTop: '12px', paddingBottom: '12px', fontSize: '1.25rem' }}
-                      >
-                        ZO Skin Health
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="/financing" 
-                  className={`px-6 py-4 rounded-md hover:bg-purple-100 transition-colors text-2xl ${pathname === '/financing' ? 'text-purple-800 font-medium' : ''}`}
-                  aria-current={pathname === '/financing' ? 'page' : undefined}
-                  style={{ padding: '16px 24px', fontSize: '1.5rem' }}
+                <Link
+                  href="/zo-skin-health"
+                  className={`${styles.header2NavLink} ${pathname === '/zo-skin-health' ? styles.header2Active : ''}`}
                 >
-                  Financing
+                  Zo Skin Health
                 </Link>
-                
-                <Link 
-                  href="/gift-cards" 
-                  className={`px-6 py-4 rounded-md hover:bg-purple-100 transition-colors text-2xl ${pathname === '/gift-cards' ? 'text-purple-800 font-medium' : ''}`}
-                  aria-current={pathname === '/gift-cards' ? 'page' : undefined}
-                  style={{ padding: '16px 24px', fontSize: '1.5rem' }}
+                <Link
+                  href="/laser-hair"
+                  className={`${styles.header2NavLink} ${pathname === '/laser-hair' ? styles.header2Active : ''}`}
+                >
+                  Laser Hair
+                </Link>
+                <Link
+                  href="/gift-cards"
+                  className={`${styles.header2NavLink} ${pathname === '/gift-cards' ? styles.header2Active : ''}`}
                 >
                   Gift Cards
                 </Link>
-                
-                <Link 
-                  href="/contact" 
-                  className={`px-6 py-4 rounded-md hover:bg-purple-100 transition-colors text-2xl ${pathname === '/contact' ? 'text-purple-800 font-medium' : ''}`}
-                  aria-current={pathname === '/contact' ? 'page' : undefined}
-                  style={{ padding: '16px 24px', fontSize: '1.5rem' }}
+                <Link
+                  href="/financing"
+                  className={`${styles.header2NavLink} ${pathname === '/financing' ? styles.header2Active : ''}`}
+                >
+                  Financing
+                </Link>
+                <Link
+                  href="/contact"
+                  className={`${styles.header2NavLink} ${pathname === '/contact' ? styles.header2Active : ''}`}
                 >
                   Contact
                 </Link>
-                
-                <Link 
-                  href="/book" 
-                  className="ml-4 px-8 py-4 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition-colors font-medium text-2xl"
-                  style={{ padding: '16px 32px', fontSize: '1.5rem', marginLeft: '16px' }}
+                <Link
+                  href="/aesthetic-services"
+                  className={`${styles.header2NavLink} ${pathname === '/aesthetic-services' ? styles.header2Active : ''}`}
                 >
+                  Aesthetic Services
+                </Link>
+                <Link href="/book" className={styles.header2BookButton}>
                   Book Now
                 </Link>
               </div>
@@ -147,100 +105,63 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation - Full Screen Overlay */}
+        {/* Mobile Navigation - full screen overlay */}
         {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 z-50 bg-white">
-            <div className="pt-20 pb-6 h-full overflow-y-auto">
-              <div className="container mx-auto px-8">
-                {/* Close button */}
-                <button 
-                  className="absolute top-8 right-8 p-4 rounded-md hover:bg-gray-100 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                  style={{ padding: '16px', top: '32px', right: '32px' }}
+          <div className={styles.header2MobileMenuOverlay}>
+            <div className={styles.header2MobileMenuContent}>
+              {/* Close button */}
+              <button
+                className={styles.header2MobileCloseButton}
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className={styles.header2CloseIcon}
                 >
-                  <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ width: '40px', height: '40px' }}>
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-                
-                {/* Mobile menu links - Simplified with section headers */}
-                <nav className="space-y-6">
-                  <Link 
-                    href="/about" 
-                    className="block py-5 text-3xl font-medium border-b border-gray-200"
-                    style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem' }}
-                  >
-                    About
-                  </Link>
-                  
-                  {/* Services Section - with clear section header */}
-                  <div>
-                    <h2 className="py-5 text-3xl font-medium border-b border-gray-200 text-purple-800"
-                        style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem' }}>
-                      Services
-                    </h2>
-                    
-                    <div className="py-4 pl-6">
-                      <Link 
-                        href="/aesthetic-services" 
-                        className="block py-4 text-2xl"
-                        style={{ paddingTop: '16px', paddingBottom: '16px', fontSize: '1.5rem' }}
-                      >
-                        Aesthetic Services
-                      </Link>
-                      
-                      <Link 
-                        href="/laser-hair" 
-                        className="block py-4 text-2xl"
-                        style={{ paddingTop: '16px', paddingBottom: '16px', fontSize: '1.5rem' }}
-                      >
-                        Laser Hair
-                      </Link>
-                      
-                      <Link 
-                        href="/zo-skin-health" 
-                        className="block py-4 text-2xl"
-                        style={{ paddingTop: '16px', paddingBottom: '16px', fontSize: '1.5rem' }}
-                      >
-                        ZO Skin Health
-                      </Link>
-                    </div>
-                  </div>
-                  
-                  <Link 
-                    href="/financing" 
-                    className="block py-5 text-3xl font-medium border-b border-gray-200"
-                    style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem' }}
-                  >
-                    Financing
-                  </Link>
-                  
-                  <Link 
-                    href="/gift-cards" 
-                    className="block py-5 text-3xl font-medium border-b border-gray-200"
-                    style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem' }}
-                  >
-                    Gift Cards
-                  </Link>
-                  
-                  <Link 
-                    href="/contact" 
-                    className="block py-5 text-3xl font-medium border-b border-gray-200"
-                    style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem' }}
-                  >
-                    Contact
-                  </Link>
-                  
-                  <Link 
-                    href="/book" 
-                    className="block py-5 mt-6 bg-purple-800 text-white text-center rounded-md text-3xl font-medium"
-                    style={{ paddingTop: '20px', paddingBottom: '20px', fontSize: '2rem', marginTop: '24px' }}
-                  >
-                    Book Now
-                  </Link>
-                </nav>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              {/* Mobile menu links */}
+              <nav className={styles.header2MobileNav}>
+                <Link href="/" className={styles.header2MobileNavLink}>
+                  Home
+                </Link>
+                <Link href="/about" className={styles.header2MobileNavLink}>
+                  About
+                </Link>
+                <Link href="/zo-skin-health" className={styles.header2MobileNavLink}>
+                  Zo Skin Health
+                </Link>
+                <Link href="/laser-hair" className={styles.header2MobileNavLink}>
+                  Laser Hair
+                </Link>
+                <Link href="/gift-cards" className={styles.header2MobileNavLink}>
+                  Gift Cards
+                </Link>
+                <Link href="/financing" className={styles.header2MobileNavLink}>
+                  Financing
+                </Link>
+                <Link href="/contact" className={styles.header2MobileNavLink}>
+                  Contact
+                </Link>
+                <Link href="/aesthetic-services" className={styles.header2MobileNavLink}>
+                  Aesthetic Services
+                </Link>
+                <Link href="/book" className={`${styles.header2MobileNavLink} ${styles.header2MobileBookLink}`}>
+                  Book Now
+                </Link>
+              </nav>
             </div>
           </div>
         )}

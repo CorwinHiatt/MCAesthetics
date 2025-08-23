@@ -1,57 +1,70 @@
-import React from 'react';
-import Link from 'next/link';
+import styles from './Financing.module.css';
 
 export default function FinancingPage() {
   return (
-    <div className="min-h-screen p-8">
-      <h1 className="text-3xl font-bold mb-6">Financing Options</h1>
-      <p className="mb-8">
-        We believe that everyone deserves access to quality aesthetic treatments. 
-        That's why we offer flexible financing options to help make your treatments more affordable.
+    <div className={styles.financingPageWrapper}>
+      {/* Main Title */}
+      <h1 className={styles.financingMainTitle}>MC Aesthetics Payment Plans</h1>
+      <h2 className={styles.financingSubtitle}>With Cherry Financing</h2>
+
+      {/* How Cherry Works Section */}
+      <div className={styles.financingContentSection}>
+        <h2 className={styles.financingSectionHeading}>How Cherry Works</h2>
+        <p className={styles.financingContentText}>
+          No hidden fees. No paperwork. No hassle. No hard credit checks. Cherry Financing offers a seamless way to afford your med spa treatments at MC Aesthetics.
+        </p>
+        <p className={styles.financingContentText}>
+          <strong>Buy now. Pay monthly.</strong> Split your payments and pay over time with plans tailored to fit any budget.
+        </p>
+      </div>
+
+      {/* Payment Plans Section */}
+      <div className={styles.financingContentSection}>
+        <h2 className={styles.financingSectionHeading}>A Plan For Any Budget</h2>
+        <p className={styles.financingContentText}>
+          Choose from 3, 6, 12, 18, or 24-month payment plans, with some qualifying for as low as 0% APR. Enjoy your purchase in no time with our fast approval process. All we require is your state ID and mobile phone number.
+        </p>
+        <p className={styles.financingContentText}>
+          <strong>Pay Over Time:</strong> Autopay and 24/7 access to Cherry’s self-serve customer portal give you more ways to pay and the power to manage your payments.
+        </p>
+        <p className={styles.financingContentText}>
+          <strong>Flexible Payments For Any Budget:</strong> Cherry makes financing simple and accessible for everyone.
+        </p>
+      </div>
+
+      {/* Reasons to Love Cherry Section */}
+      <div className={styles.financingContentSection}>
+        <h2 className={styles.financingSectionHeading}>3 Reasons Why Patients Love Cherry Financing</h2>
+        <ul className={styles.financingListContainer}>
+          <li className={styles.financingListItem}>
+            Qualification for up to $10,000 in financing.
+          </li>
+          <li className={styles.financingListItem}>
+            There is no hard credit check required.
+          </li>
+          <li className={styles.financingListItem}>
+            0% APR financing available (subject to eligibility).
+          </li>
+        </ul>
+      </div>
+
+      {/* Call to Action */}
+      <div className={styles.financingCallToAction}>
+        <p className={styles.financingCtaText}>Apply Today for Med Spa Treatment Financing</p>
+        <a
+          href="https://pay.withcherry.com/mcaestheticsclinic?utm_source=merchant&utm_medium=website"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.financingCtaButton}
+        >
+          Apply for Cherry Financing
+        </a>
+      </div>
+
+      {/* Disclaimer */}
+      <p className={styles.financingDisclaimer}>
+        *0% APR and other promotional rates subject to eligibility. Regular APR 9.99% – 35.99%. Down payment may be required.
       </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-3">CareCredit</h2>
-          <p className="mb-4">
-            CareCredit is a healthcare credit card designed for your health and wellness needs.
-            It's a way to pay for the costs of many treatments and procedures and allows you to make 
-            convenient monthly payments.
-          </p>
-          <a href="https://www.carecredit.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            Learn more about CareCredit
-          </a>
-        </div>
-        
-        <div className="bg-gray-50 p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-3">In-House Payment Plans</h2>
-          <p className="mb-4">
-            We offer flexible in-house payment plans for select treatments. 
-            Our team will work with you to create a payment schedule that fits your budget.
-          </p>
-          <Link href="/contact" className="text-blue-600 hover:underline">
-            Contact us for details
-          </Link>
-        </div>
-      </div>
-      
-      <div className="bg-gray-100 p-6 rounded-lg">
-        <h2 className="text-xl font-semibold mb-3">Financing FAQ</h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-medium">How do I apply for financing?</h3>
-            <p>You can apply during your consultation or contact our office for assistance.</p>
-          </div>
-          <div>
-            <h3 className="font-medium">Is there a credit check?</h3>
-            <p>CareCredit requires a credit check, while our in-house options may have more flexible requirements.</p>
-          </div>
-          <div>
-            <h3 className="font-medium">What treatments can be financed?</h3>
-            <p>Most of our treatments can be financed. Please contact us for specific details.</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
