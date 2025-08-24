@@ -4,7 +4,7 @@
 import Header from './components/layout/Header';
 // import Footer from './components/layout/Footer';
 import Footer2 from './components/layout/Footer2';
-import Carousel from './components/features/Carousel';
+// import Carousel from './components/features/Carousel';
 
 import type { Metadata } from 'next';
 import './globals.css';
@@ -31,7 +31,7 @@ export default function RootLayout({
           
         
         <main>{children}</main>
-        <Carousel/>
+        {/* <Carousel/> */}
         <Footer2 />
       </body>
     </html>

@@ -356,7 +356,7 @@ export default function Carousel() {
       {/* Review Call-to-Action Section */}
       <div className={styles.reviewCta}>
         <h3 className={styles.reviewCtaTitle}>
-          Been a customer? Tell us what you think!
+          Reviews build trust and help your Business Profile stand out to customers
         </h3>
         
         {/* Social Sharing Options */}
@@ -374,22 +374,28 @@ export default function Carousel() {
         
         {/* Review Link Section */}
         <div className={styles.reviewLinkSection}>
-          {/* <h4 className={styles.reviewLinkTitle}>Review link</h4> */}
-          {/* <div className={styles.reviewLinkContainer}> */}
-            {/* <input 
+          <h4 className={styles.reviewLinkTitle}>Review link</h4>
+          <div className={styles.reviewLinkContainer}>
+            <input 
               type="text" 
               value={googleReviewLink} 
               readOnly 
               className={styles.reviewLinkInput}
               aria-label="Google review link"
-            /> */}
-          
-          {/* </div> */}
-          {/* <div id="copyMessage" className={styles.copyMessage}>Review link copied</div> */}
+            />
+            <button 
+              onClick={copyReviewLink} 
+              className={styles.copyButton}
+              aria-label="Copy review link"
+            >
+              <span className={styles.copyIcon}>📋</span>
+            </button>
+          </div>
+          <div id="copyMessage" className={styles.copyMessage}>Review link copied</div>
         </div>
         
         {/* QR Code Section */}
-        {/* <div className={styles.qrCodeSection}>
+        <div className={styles.qrCodeSection}>
           <h4 className={styles.qrCodeTitle}>Share your reviews QR code</h4>
           <p className={styles.qrCodeInstructions}>
             Right-click and select "Save Image As..." so you can share your QR code with customers
@@ -404,7 +410,7 @@ export default function Carousel() {
           <a href="https://support.google.com/business/answer/3474122" className={styles.learnMoreLink}>
             Learn more about best practices for asking for reviews
           </a>
-        </div> */}
+        </div>
         
         {/* Direct Review Button */}
         <a 
