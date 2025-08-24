@@ -1,231 +1,379 @@
 /* Container for the entire Carousel component */
 .carouselContainer {
-background-color: #f8f9fa;
-padding: 3rem 1rem;
-max-width: 64rem;
-margin: 0 auto;
-text-align: center;
+  background-color: #f8f9fa;
+  padding: 3rem 1rem;
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .carouselTitle {
-font-size: 1.75rem;
-font-weight: 600;
-color: #3B5998;
-margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #3B5998;
+  margin-bottom: 0.5rem;
 }
 
 .carouselSubtitle {
-font-size: 1.25rem;
-font-weight: 500;
-color: #4267B2;
-margin-bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #4267B2;
+  margin-bottom: 2rem;
 }
 
 .carouselWrapper {
-position: relative;
-width: 100%;
-overflow: hidden;
-margin-bottom: 1.5rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }
 
 .carouselContent {
-width: 100%;
-overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .carouselSlider {
-display: flex;
-width: 100%;
-transition: transform 0.5s ease-in-out;
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
 }
 
 .carouselItem {
-min-width: 100%;
-display: flex;
-justify-content: center;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .reviewCard {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 1.5rem;
-width: 90%;
-text-align: left;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  width: 90%;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .reviewCard:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
 .reviewerName {
-font-size: 1.25rem;
-font-weight: 600;
-color: #4267B2;
-margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4267B2;
+  margin-bottom: 0.5rem;
+}
+
+.starRating {
+  color: #FFD700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .reviewDate {
-font-size: 0.75rem;
-color: #718096;
-margin-bottom: 1rem;
+  font-size: 0.75rem;
+  color: #718096;
+  margin-bottom: 1rem;
 }
 
 .reviewText {
-font-size: 0.875rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .ownerResponse {
-background-color: #f1f5f9;
-padding: 1rem;
-border-radius: 0.5rem;
-margin-top: 1rem;
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
 }
 
 .responseTitle {
-font-size: 0.875rem;
-font-weight: 600;
-color: #3B5998;
-margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3B5998;
+  margin-bottom: 0.25rem;
 }
 
 .responseDate {
-font-size: 0.75rem;
-color: #718096;
-margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
 }
 
 .responseText {
-font-size: 0.875rem;
-color: #4a5568;
-line-height: 1.6;
+  font-size: 0.875rem;
+  color: #4a5568;
+  line-height: 1.6;
 }
 
 .carouselArrowLeft,
 .carouselArrowRight {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background: rgba(255, 255, 255, 0.8);
-border: none;
-border-radius: 50%;
-width: 2.5rem;
-height: 2.5rem;
-font-size: 1.5rem;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-transition: background 0.3s ease, transform 0.2s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 10;
 }
 
 .carouselArrowLeft:hover,
 .carouselArrowRight:hover {
-background: rgba(255, 255, 255, 1);
-transform: translateY(-50%) scale(1.1);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carouselArrowLeft {
-left: 1rem;
+  left: 1rem;
 }
 
 .carouselArrowRight {
-right: 1rem;
+  right: 1rem;
 }
 
 .carouselDots {
-display: flex;
-justify-content: center;
-gap: 0.5rem;
-margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 .carouselDot {
-width: 0.5rem;
-height: 0.5rem;
-border-radius: 50%;
-background-color: #cbd5e0;
-border: none;
-cursor: pointer;
-transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #cbd5e0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .carouselDot:hover {
-background-color: #718096;
-transform: scale(1.2);
+  background-color: #718096;
+  transform: scale(1.2);
 }
 
 .activeDot {
-background-color: #4267B2;
-transform: scale(1.2);
+  background-color: #4267B2;
+  transform: scale(1.2);
 }
 
+/* Review CTA Section */
+.reviewCta {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.reviewCtaTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3B5998;
+  margin-bottom: 1.5rem;
+}
+
+/* Review Link Section */
+.reviewLinkSection {
+  margin: 2rem 0;
+}
+
+.reviewLinkTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4267B2;
+  margin-bottom: 0.75rem;
+}
+
+.reviewLinkContainer {
+  display: flex;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.reviewLinkInput {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e0;
+  border-right: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.copyButton {
+  padding: 0.75rem 1rem;
+  background-color: #4267B2;
+  color: white;
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.copyButton:hover {
+  background-color: #3B5998;
+}
+
+.copyIcon {
+  font-size: 1rem;
+}
+
+.copyMessage {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4267B2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* QR Code Section */
+.qrCodeSection {
+  margin: 2rem 0;
+}
+
+.qrCodeTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #4267B2;
+  margin-bottom: 0.75rem;
+}
+
+.qrCodeInstructions {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 1rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.qrCodeContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.qrCode {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.learnMoreLink {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: #4267B2;
+  text-decoration: underline;
+  margin-bottom: 1.5rem;
+}
+
+.learnMoreLink:hover {
+  color: #3B5998;
+}
+
+/* Direct Review Button */
 .reviewButton {
-display: inline-block;
-background: linear-gradient(to right, #4267B2, #3B5998);
-color: white;
-font-size: 1.125rem;
-font-weight: 600;
-padding: 0.75rem 1.5rem;
-border: none;
-border-radius: 0.5rem;
-cursor: pointer;
-text-decoration: none;
-margin-top: 2rem;
-transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  background: linear-gradient(to right, #4267B2, #3B5998);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .reviewButton:hover {
-background: linear-gradient(to right, #3B5998, #4267B2);
-transform: scale(1.05);
+  background: linear-gradient(to right, #3B5998, #4267B2);
+  transform: scale(1.05);
 }
 
 @media (max-width: 640px) {
-.carouselTitle {
-font-size: 1.5rem;
-}
+  .carouselTitle {
+    font-size: 1.5rem;
+  }
 
-.carouselSubtitle {
-font-size: 1.125rem;
-}
+  .carouselSubtitle {
+    font-size: 1.125rem;
+  }
 
-.reviewCard {
-padding: 1rem;
-width: 95%;
-}
+  .reviewCard {
+    padding: 1rem;
+    width: 95%;
+  }
 
-.reviewerName {
-font-size: 1.125rem;
-}
+  .reviewerName {
+    font-size: 1.125rem;
+  }
 
-.reviewText,
-.responseText {
-font-size: 0.75rem;
-}
+  .reviewText,
+  .responseText {
+    font-size: 0.75rem;
+  }
 
-.carouselArrowLeft,
-.carouselArrowRight {
-width: 2rem;
-height: 2rem;
-font-size: 1.25rem;
-}
+  .carouselArrowLeft,
+  .carouselArrowRight {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
+  }
 
-.carouselArrowLeft {
-left: 0.5rem;
-}
+  .carouselArrowLeft {
+    left: 0.5rem;
+  }
 
-.carouselArrowRight {
-right: 0.5rem;
-}
+  .carouselArrowRight {
+    right: 0.5rem;
+  }
 
-.reviewButton {
-font-size: 1rem;
-padding: 0.625rem 1.25rem;
-}
+  .reviewCtaTitle {
+    font-size: 1.25rem;
+  }
+
+  .reviewLinkTitle,
+  .qrCodeTitle {
+    font-size: 1rem;
+  }
+
+  .reviewLinkInput,
+  .copyButton {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .qrCodeInstructions {
+    font-size: 0.75rem;
+  }
+
+  .qrCode {
+    width: 120px;
+    height: 120px;
+  }
+
+  .reviewButton {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+  }
 }

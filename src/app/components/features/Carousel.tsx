@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useState } from 'react';
 import styles from './Carousel.module.css';
 
@@ -30,28 +31,28 @@ export default function Carousel() {
     },
     {
       reviewer: 'Karee Wasson',
-      reviewText: 'I recently had the pleasure of visiting Melissa and I couldn’t be more impressed with the experience! From the moment I walked in, I felt welcomed and at ease. She took the time to assess my skin and customize the treatment to my needs...',
+      reviewText: 'I recently had the pleasure of visiting Melissa and I couldn\'t be more impressed with the experience! From the moment I walked in, I felt welcomed and at ease. She took the time to assess my skin and customize the treatment to my needs...',
       reviewDate: '5 months ago',
       ownerResponse: 'Thank you for your wonderful review, Karee! We\'re thrilled to hear about your positive experience with Melissa and the fantastic results you achieved. Your satisfaction means a lot to us, and we look forward to welcoming you back for more treatments!',
       ownerResponseDate: '5 months ago',
     },
     {
       reviewer: 'Maureen Cook',
-      reviewText: 'I hope this review finds others like me…. A nearly 60 year old, farm girl with soap and some lotion being my only beauty routine … Melissa introduced me to a skincare line called “ZO” …',
+      reviewText: 'I hope this review finds others like me…. A nearly 60 year old, farm girl with soap and some lotion being my only beauty routine … Melissa introduced me to a skincare line called "ZO" …',
       reviewDate: 'a week ago',
-      ownerResponse: 'Thank you so much for your heartfelt review! We\'re thrilled to hear that you\'ve had such a positive experience and that Melissa was able to introduce you to a skincare routine that shows great results. We believe everyone deserves to feel good about themselves, and it’s wonderful to know that you’ve noticed improvements in your skin. We appreciate your trust and recommendation. Please don\'t hesitate to reach out if you need any further assistance or guidance on your beauty journey.',
+      ownerResponse: 'Thank you so much for your heartfelt review! We\'re thrilled to hear that you\'ve had such a positive experience and that Melissa was able to introduce you to a skincare routine that shows great results. We believe everyone deserves to feel good about themselves, and it\'s wonderful to know that you\'ve noticed improvements in your skin. We appreciate your trust and recommendation. Please don\'t hesitate to reach out if you need any further assistance or guidance on your beauty journey.',
       ownerResponseDate: '3 days ago',
     },
     {
       reviewer: 'Brianna Bracelin',
-      reviewText: 'Maleah is amazing, she makes you feel very comfortable and does a seamless job! My Botox lasted and my lip filler is perfect. Very knowledgeable and precise work. I’ve seen a few injectors over the years and Maleah has done an exceptional job for me. Ive found my forever injector!',
+      reviewText: 'Maleah is amazing, she makes you feel very comfortable and does a seamless job! My Botox lasted and my lip filler is perfect. Very knowledgeable and precise work. I\'ve seen a few injectors over the years and Maleah has done an exceptional job for me. Ive found my forever injector!',
       reviewDate: '4 weeks ago',
       ownerResponse: 'Thank you so much for your amazing review! We\'re thrilled to hear that Maleah made you feel comfortable and delivered such perfect results with your Botox and lip filler. Your kind words about her knowledge and precision mean the world to us. We\'re honored that you\'ve found your forever injector with us at MC Aesthetics! Looking forward to seeing you again soon! 😊',
       ownerResponseDate: '2 weeks ago',
     },
     {
       reviewer: 'Desteny',
-      reviewText: 'I have had Xeomin injections numerous times at two different clinics and my appointment with Maleah was the best injection experience I’ve had— there was no bruising or swelling, and I have always bruised before! My results are great and I will definitely be booking with her again in the future!',
+      reviewText: 'I have had Xeomin injections numerous times at two different clinics and my appointment with Maleah was the best injection experience I\'ve had— there was no bruising or swelling, and I have always bruised before! My results are great and I will definitely be booking with her again in the future!',
       reviewDate: 'a month ago',
       ownerResponse: 'We are so happy that you had a great experience with us! Thank you for taking the time to leave us a review. We really appreciate it! Hope to see you again soon',
       ownerResponseDate: 'a month ago',
@@ -121,21 +122,21 @@ export default function Carousel() {
     },
     {
       reviewer: 'Elsa',
-      reviewText: 'I’ve had such wonderful experiences here. Melissa is warm and kind, the office is lovely, and for the first time in years, I don’t have a headache every day- plus my forehead looks great! I have had migraines, tension headaches, and TMJ my...',
+      reviewText: 'I\'ve had such wonderful experiences here. Melissa is warm and kind, the office is lovely, and for the first time in years, I don\'t have a headache every day- plus my forehead looks great! I have had migraines, tension headaches, and TMJ my entire adult life, and after seeing Melissa, my pain is gone and I feel so much better!',
       reviewDate: '3 years ago',
       ownerResponse: 'Thank you so much for the review! I am so happy your daily chronic pain is gone!',
       ownerResponseDate: '3 years ago',
     },
     {
       reviewer: 'Raelene Venteicher',
-      reviewText: 'Melissa makes you feel like a million bucks right as you walk in the door and I felt so comfortable with her doing what she needed to so that I wouldn’t see the deep crease or wrinkles I don’t like! Dramatic Results I could see within 2...',
+      reviewText: "Melissa makes you feel like a million bucks right as you walk in the door and I felt so comfortable with her doing what she needed to so that I wouldn't see the deep crease or wrinkles I don't like! Dramatic Results I could see within 2...",
       reviewDate: '4 years ago',
       ownerResponse: 'Thank you so much for your review! This is exactly why I do what I do- help make clients feel their best and I love hearing from my clients. Thanks again!',
       ownerResponseDate: '4 years ago',
     },
     {
       reviewer: 'Ireland Lynn',
-      reviewText: 'I never leave reviews on anything... but I’ve also never had such a great experience with a practitioner before either! I feel compelled to share! Melissa literally saved my face after a terrible experience with another practitioner! She’s...',
+      reviewText: 'I never leave reviews on anything... but I\'ve also never had such a great experience with a practitioner before either! I feel compelled to share! Melissa literally saved my face after a terrible experience with another practitioner! She\'s...',
       reviewDate: '3 years ago',
       ownerResponse: 'Thank you very much for the glowing review!',
       ownerResponseDate: 'Edited 3 years ago',
@@ -163,7 +164,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'Shelby Imlah',
-      reviewText: 'I’m so in love with my results! Thank you for taking extra time with me to ensure the best results. I will absolutely be back! For anyone in question, Melissa is extremely knowledgeable, calming and felt in the best care with her. ❤️...',
+      reviewText: "I'm so in love with my results! Thank you for taking extra time with me to ensure the best results. I will absolutely be back! For anyone in question, Melissa is extremely knowledgeable, calming and felt in the best care with her. ❤️...",
       reviewDate: '2 years ago',
       ownerResponse: 'Thank you for the review Shelby!',
       ownerResponseDate: '2 weeks ago',
@@ -179,7 +180,7 @@ export default function Carousel() {
       reviewer: 'Andrea',
       reviewText: 'Melissa is WONDERFUL! She is extremely knowledgeable and was able to answer all of my questions and concerns. I left there feeling really good about our conversation and I felt very comfortable in her care.',
       reviewDate: '3 years ago',
-      ownerResponse: 'Thank you so much Andrea! I really appreciate you sharing your experience with others! It’s so important for patients to feel comfortable and trust their aesthetic provider. Thank you for putting your trust in me!',
+      ownerResponse: 'Thank you so much Andrea! I really appreciate you sharing your experience with others! It\'s so important for patients to feel comfortable and trust their aesthetic provider. Thank you for putting your trust in me!',
       ownerResponseDate: '3 years ago',
     },
     {
@@ -205,7 +206,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'Irma Del Rayo',
-      reviewText: 'I’ve been doing Botox and skin care! Very happy with my results! Best skin care products! Highly recommend!...',
+      reviewText: "I've been doing Botox and skin care! Very happy with my results! Best skin care products! Highly recommend!...",
       reviewDate: '3 years ago',
       ownerResponse: 'Thank you very much. I am so glad you are happy with your results!!',
       ownerResponseDate: '3 years ago',
@@ -219,7 +220,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'Lee McCollins',
-      reviewText: 'I’ve only had wonderful experiences and great results! I highly recommend Melissa.',
+      reviewText: "I've only had wonderful experiences and great results! I highly recommend Melissa.",
       reviewDate: '3 years ago',
       ownerResponse: 'Thank you so much for the review!🌟',
       ownerResponseDate: '3 years ago',
@@ -255,6 +256,26 @@ export default function Carousel() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showShareOptions, setShowShareOptions] = useState(false);
+
+  // Google review link from the screenshot
+  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
+
+  // Social sharing URLs
+  const getEmailShareUrl = () => {
+    const subject = encodeURIComponent("Check out MC Aesthetics");
+    const body = encodeURIComponent(`I thought you might be interested in MC Aesthetics. You can leave a review here: ${googleReviewLink}`);
+    return `mailto:?subject=${subject}&body=${body}`;
+  };
+
+  const getWhatsappShareUrl = () => {
+    const text = encodeURIComponent(`Check out MC Aesthetics and leave a review: ${googleReviewLink}`);
+    return `https://wa.me/?text=${text}`;
+  };
+
+  const getFacebookShareUrl = () => {
+    return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(googleReviewLink)}`;
+  };
 
   const nextReview = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
@@ -268,12 +289,26 @@ export default function Carousel() {
     setCurrentIndex(index);
   };
 
+  // Function to copy review link to clipboard
+  const copyReviewLink = () => {
+    navigator.clipboard.writeText(googleReviewLink);
+    // Show a temporary "copied" message
+    const copyMessage = document.getElementById('copyMessage');
+    if (copyMessage) {
+      copyMessage.style.opacity = '1';
+      setTimeout(() => {
+        copyMessage.style.opacity = '0';
+      }, 2000);
+    }
+  };
+
   return (
     <div className={styles.carouselContainer}>
       <h2 className={styles.carouselTitle}>What Our Clients Say</h2>
       <p className={styles.carouselSubtitle}>Proudly Showcasing 34 Five-Star Reviews!</p>
+      
       <div className={styles.carouselWrapper}>
-        <button className={styles.carouselArrowLeft} onClick={prevReview}>
+        <button className={styles.carouselArrowLeft} onClick={prevReview} aria-label="Previous review">
           &#8249;
         </button>
         <div className={styles.carouselContent}>
@@ -285,6 +320,7 @@ export default function Carousel() {
               <div key={index} className={styles.carouselItem}>
                 <div className={styles.reviewCard}>
                   <h3 className={styles.reviewerName}>{review.reviewer}</h3>
+                  <div className={styles.starRating}>★★★★★</div>
                   <p className={styles.reviewDate}>{review.reviewDate}</p>
                   {review.reviewText && (
                     <p className={styles.reviewText}>{review.reviewText}</p>
@@ -301,22 +337,85 @@ export default function Carousel() {
             ))}
           </div>
         </div>
-        <button className={styles.carouselArrowRight} onClick={nextReview}>
+        <button className={styles.carouselArrowRight} onClick={nextReview} aria-label="Next review">
           &#8250;
         </button>
       </div>
+      
       <div className={styles.carouselDots}>
         {reviews.map((_, index) => (
           <button
             key={index}
             className={`${styles.carouselDot} ${index === currentIndex ? styles.activeDot : ''}`}
             onClick={() => goToReview(index)}
+            aria-label={`Go to review ${index + 1}`}
           />
         ))}
       </div>
-      <a href="#" className={styles.reviewButton}>
-        Been a Customer? Review Us to Support Our Mission
-      </a>
+      
+      {/* Review Call-to-Action Section */}
+      <div className={styles.reviewCta}>
+        <h3 className={styles.reviewCtaTitle}>
+          Been a customer? Tell us what you think!
+        </h3>
+        
+        {/* Social Sharing Options */}
+        {/* <div className={styles.socialShareButtons}>
+          <a href={getEmailShareUrl()} className={styles.socialButton} aria-label="Share via Email">
+            <span className={styles.emailIcon}>✉️</span> Email
+          </a>
+          <a href={getWhatsappShareUrl()} className={styles.socialButton} aria-label="Share via WhatsApp">
+            <span className={styles.whatsappIcon}>📱</span> Whatsapp
+          </a>
+          <a href={getFacebookShareUrl()} className={styles.socialButton} aria-label="Share via Facebook">
+            <span className={styles.facebookIcon}>f</span> Facebook
+          </a>
+        </div> */}
+        
+        {/* Review Link Section */}
+        <div className={styles.reviewLinkSection}>
+          {/* <h4 className={styles.reviewLinkTitle}>Review link</h4> */}
+          {/* <div className={styles.reviewLinkContainer}> */}
+            {/* <input 
+              type="text" 
+              value={googleReviewLink} 
+              readOnly 
+              className={styles.reviewLinkInput}
+              aria-label="Google review link"
+            /> */}
+          
+          {/* </div> */}
+          {/* <div id="copyMessage" className={styles.copyMessage}>Review link copied</div> */}
+        </div>
+        
+        {/* QR Code Section */}
+        {/* <div className={styles.qrCodeSection}>
+          <h4 className={styles.qrCodeTitle}>Share your reviews QR code</h4>
+          <p className={styles.qrCodeInstructions}>
+            Right-click and select "Save Image As..." so you can share your QR code with customers
+          </p>
+          <div className={styles.qrCodeContainer}>
+            <img 
+              src="/qr-code.png" 
+              alt="QR Code for Google Reviews" 
+              className={styles.qrCode}
+            />
+          </div>
+          <a href="https://support.google.com/business/answer/3474122" className={styles.learnMoreLink}>
+            Learn more about best practices for asking for reviews
+          </a>
+        </div> */}
+        
+        {/* Direct Review Button */}
+        <a 
+          href={googleReviewLink} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className={styles.reviewButton}
+        >
+          Leave a Review
+        </a>
+      </div>
     </div>
   );
 }
