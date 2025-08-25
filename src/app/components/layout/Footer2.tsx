@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import logo from '../../../images/logo.png';
 import styles from './Footer2.module.css';
 
 export default function Footer2() {
@@ -79,7 +80,7 @@ export default function Footer2() {
             <h2 className={styles.sectionTitle}>Find Us Here</h2>
             <div className={styles.mapContainer}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.123456789!2d-123.1986!3d45.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDA3JzM0LjIiTiAxMjPCsDExJzU1LjAiVw!5e0!3m2!1sen!2sus!4v1629123456789!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.123456789!2d-123.1986!3d45.21034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5494469c3b7b2f4d%3A0x1d4d3a1e8f4f8e9c!2s609%20NE%20Baker%20St%20%23130%2C%20McMinnville%2C%20OR%2097128!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -90,7 +91,7 @@ export default function Footer2() {
               ></iframe>
             </div>
             <a 
-              href="https://goo.gl/maps/yourmaplink" 
+              href="https://www.google.com/maps/place/609+NE+Baker+St+%23130,+McMinnville,+OR+97128/@45.21034,-123.1986,17z/data=!3m1!4b1!4m6!3m5!1s0x5494469c3b7b2f4d:0x1d4d3a1e8f4f8e9c!8m2!3d45.21034!4d-123.1986!16s%2Fg%2F11t4b6v4p_?entry=ttu"
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.mapLink}
@@ -140,7 +141,7 @@ export default function Footer2() {
         {/* Bottom Section */}
         <div className={styles.bottomSection}>
           <div className={styles.logoContainer}>
-            <img src="/logo.png" alt="MC Aesthetics" className={styles.logo} />
+            <img src={logo.src} alt="MC Aesthetics" className={styles.logo} />
           </div>
           
           <div className={styles.bottomLinks}>
@@ -148,8 +149,8 @@ export default function Footer2() {
               Privacy Policy
             </Link>
             <span className="mx-2">|</span>
-            <Link href="/terms" className={styles.link}>
-              Terms of Service
+            <Link href="/accessibility" className={styles.link}>
+              Accessibility
             </Link>
           </div>
           

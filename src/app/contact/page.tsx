@@ -1,3 +1,4 @@
+//MC Aesthetics Contact Page with Updated Info
 import styles from './Contact.module.css';
 
 export default function ContactPage() {
@@ -71,19 +72,19 @@ export default function ContactPage() {
         </form>
       </div>
 
-      {/* Contact Info Placeholder */}
+      {/* Contact Info Section */}
       <div className={styles.contactInfoSection}>
         <p className={styles.contactInfoText}>
-          <strong>Location:</strong> McMinnville, OR (Full address coming soon)
+          <strong>Location:</strong> 609 NE Baker St Suite #130, McMinnville, OR 97128
         </p>
         <p className={styles.contactInfoText}>
-          <strong>Phone:</strong> Contact number available soon
+          <strong>Phone:</strong> 971-267-2322
         </p>
         <p className={styles.contactInfoText}>
-          <strong>Email:</strong> Email address coming soon
+          <strong>Email:</strong> admin@mcaestheticsclinic.com
         </p>
         <p className={styles.contactInfoText}>
-          Stay tuned for updated contact details as we finalize our communication channels. In the meantime, use the form above to reach out!
+          Reach out to us directly using the details above, or use the form to send a message. We’re excited to connect with you!
         </p>
       </div>
     </div>

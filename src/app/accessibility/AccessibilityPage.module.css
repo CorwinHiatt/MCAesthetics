@@ -1,0 +1,142 @@
+.accessibilityWrapper {
+width: 100%;
+min-height: 100vh;
+background-color: #f9f9f9;
+padding: 1.5rem 1rem;
+}
+
+.accessibilityMain {
+max-width: 1200px;
+margin: 0 auto;
+background-color: #ffffff;
+padding: 2rem 1.5rem;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+}
+
+.accessibilityHeader {
+text-align: center;
+margin-bottom: 2rem;
+}
+
+.accessibilityTitle {
+font-size: 2rem;
+font-weight: 700;
+color: #2c3e50;
+margin: 0;
+}
+
+.accessibilitySection {
+margin-bottom: 2.5rem;
+}
+
+.accessibilitySubtitle {
+font-size: 1.5rem;
+font-weight: 600;
+color: #34495e;
+margin-bottom: 1rem;
+}
+
+.accessibilityText {
+font-size: 1rem;
+line-height: 1.6;
+color: #4a4a4a;
+margin-bottom: 1rem;
+}
+
+.accessibilityList {
+list-style: none;
+padding-left: 0;
+margin-bottom: 1.5rem;
+}
+
+.accessibilityListItem {
+font-size: 1rem;
+line-height: 1.6;
+color: #4a4a4a;
+margin-bottom: 0.75rem;
+padding-left: 1.5rem;
+position: relative;
+}
+
+.accessibilityListItem::before {
+content: "•";
+position: absolute;
+left: 0;
+color: #3498db;
+font-size: 1.2rem;
+}
+
+.accessibilityLink {
+color: #3498db;
+text-decoration: none;
+transition: color 0.2s ease;
+}
+
+.accessibilityLink:hover,
+.accessibilityLink:focus {
+color: #2980b9;
+text-decoration: underline;
+}
+
+.accessibilityLink:focus {
+outline: 2px solid #3498db;
+outline-offset: 2px;
+border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+.accessibilityWrapper {
+padding: 2rem;
+}
+
+.accessibilityMain {
+padding: 3rem 2.5rem;
+}
+
+.accessibilityTitle {
+font-size: 2.5rem;
+}
+
+.accessibilitySubtitle {
+font-size: 1.75rem;
+}
+
+.accessibilityText,
+.accessibilityListItem {
+font-size: 1.1rem;
+}
+}
+
+@media (min-width: 1024px) {
+.accessibilityMain {
+padding: 3.5rem;
+}
+}
+
+@media (prefers-contrast: high) {
+.accessibilityTitle,
+.accessibilitySubtitle {
+color: #000000;
+}
+
+.accessibilityText,
+.accessibilityListItem {
+color: #000000;
+}
+
+.accessibilityLink {
+color: #0000ee;
+}
+
+.accessibilityLink:hover,
+.accessibilityLink:focus {
+color: #000099;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.accessibilityLink {
+transition: none;
+}
+}

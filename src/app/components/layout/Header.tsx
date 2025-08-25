@@ -1,9 +1,11 @@
 "use client"
 
 import Link from 'next/link';
+import Image from 'next/image'; // Added for optimized image handling
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Header2.module.css';
+import logo from '../../../images/logo.png'; // Added as requested
 
 export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -101,13 +103,15 @@ export default function Header2() {
       <header className={styles.header2}>
         <div className={styles.header2Container}>
           <div className={styles.header2Content}>
-            {/* Logo Section with Placeholder */}
+            {/* Logo Section with Enlarged Logo Only */}
             <Link href="/" className={styles.header2LogoContainer}>
-              {/* Placeholder for image logo */}
-              <div className={styles.header2LogoPlaceholder}>
-                {/* Replace this div with <Image src="/path-to-logo.png" alt="MC Aesthetics Logo" width={50} height={50} /> */}
-              </div>
-              <span className={styles.header2LogoText}>MC Aesthetics</span>
+              <Image 
+                src={logo}
+                alt="MC Aesthetics Logo"
+                width={100} // Enlarged for better visibility
+                height={100} // Enlarged for better visibility
+                className={styles.header2LogoImage}
+              />
             </Link>
 
             {/* Mobile menu button */}
