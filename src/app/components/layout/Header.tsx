@@ -1,11 +1,11 @@
 "use client"
 
 import Link from 'next/link';
-import Image from 'next/image'; // Added for optimized image handling
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Header2.module.css';
-import logo from '../../../images/logo.png'; // Added as requested
+import logo from '../../../images/logo.png';
 
 export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,13 +13,11 @@ export default function Header2() {
   const pathname = usePathname();
   const dropdownRef = useRef(null);
 
-  // Reset mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
     setAestheticDropdownOpen(false);
   }, [pathname]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -37,7 +35,6 @@ export default function Header2() {
     };
   }, []);
 
-  // Aesthetic services structure with categories and sub-items
   const aestheticServices = [
     { 
       category: "Wrinkle Reducers",
@@ -76,11 +73,9 @@ export default function Header2() {
     }
   ];
 
-  // Mobile submenu state
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
 
-  // Toggle mobile category expansion
   interface AestheticServiceItem {
     name: string;
     href: string;
@@ -103,18 +98,16 @@ export default function Header2() {
       <header className={styles.header2}>
         <div className={styles.header2Container}>
           <div className={styles.header2Content}>
-            {/* Logo Section with Enlarged Logo Only */}
             <Link href="/" className={styles.header2LogoContainer}>
               <Image 
                 src={logo}
                 alt="MC Aesthetics Logo"
-                width={100} // Enlarged for better visibility
-                height={100} // Enlarged for better visibility
+                width={100}
+                height={100}
                 className={styles.header2LogoImage}
               />
             </Link>
 
-            {/* Mobile menu button */}
             <button
               className={styles.header2MobileMenuButton}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -138,7 +131,6 @@ export default function Header2() {
               </svg>
             </button>
 
-            {/* Desktop Navigation */}
             <nav className={styles.header2DesktopNav}>
               <div className={styles.header2NavLinks}>
                 <Link
@@ -178,7 +170,6 @@ export default function Header2() {
                   Contact
                 </Link>
                 
-                {/* Aesthetic Services Dropdown */}
                 <div className={styles.header2DropdownContainer} ref={dropdownRef}>
                   <button 
                     className={`${styles.header2NavLink} ${styles.header2DropdownButton} ${
@@ -228,7 +219,12 @@ export default function Header2() {
                   )}
                 </div>
                 
-                <Link href="/book" className={styles.header2BookButton}>
+                <Link 
+                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
+                  className={styles.header2BookButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book Now
                 </Link>
               </div>
@@ -236,11 +232,9 @@ export default function Header2() {
           </div>
         </div>
 
-        {/* Mobile Navigation - full screen overlay */}
         {mobileMenuOpen && (
           <div className={styles.header2MobileMenuOverlay}>
             <div className={styles.header2MobileMenuContent}>
-              {/* Close button */}
               <button
                 className={styles.header2MobileCloseButton}
                 onClick={() => setMobileMenuOpen(false)}
@@ -263,7 +257,6 @@ export default function Header2() {
                 </svg>
               </button>
 
-              {/* Mobile menu links */}
               <nav className={styles.header2MobileNav}>
                 <Link href="/" className={styles.header2MobileNavLink}>
                   Home
@@ -287,7 +280,6 @@ export default function Header2() {
                   Contact
                 </Link>
                 
-                {/* Mobile Aesthetic Services Accordion */}
                 <div className={styles.header2MobileAccordion}>
                   <button 
                     className={`${styles.header2MobileAccordionButton} ${
@@ -369,7 +361,12 @@ export default function Header2() {
                   )}
                 </div>
                 
-                <Link href="/book" className={`${styles.header2MobileNavLink} ${styles.header2MobileBookLink}`}>
+                <Link 
+                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
+                  className={`${styles.header2MobileNavLink} ${styles.header2MobileBookLink}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Book Now
                 </Link>
               </nav>
