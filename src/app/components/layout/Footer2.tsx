@@ -6,16 +6,13 @@ import styles from './Footer2.module.css';
 export default function Footer2() {
   return (
     <footer className={styles.footer}>
-      {/* Decorative top border */}
       <div className={styles.topBorder}></div>
       
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Get in Touch Section */}
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Get in Touch</h2>
             
-            {/* Call Us */}
             <div className={styles.contactItem}>
               <div className={styles.iconWrapper}>
                 <Phone size={18} className={styles.icon} />
@@ -26,7 +23,6 @@ export default function Footer2() {
               </div>
             </div>
             
-            {/* Email Us */}
             <div className={styles.contactItem}>
               <div className={styles.iconWrapper}>
                 <Mail size={18} className={styles.icon} />
@@ -37,7 +33,6 @@ export default function Footer2() {
               </div>
             </div>
             
-            {/* Our Address */}
             <div className={styles.contactItem}>
               <div className={styles.iconWrapper}>
                 <MapPin size={18} className={styles.icon} />
@@ -49,12 +44,13 @@ export default function Footer2() {
               </div>
             </div>
             
-            {/* Social Media Icons */}
             <div className={styles.socialContainer}>
               <a 
-                href="#" 
+                href="https://www.facebook.com/MCAesthetics23" 
                 aria-label="Facebook" 
                 className={styles.socialIcon}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -62,9 +58,11 @@ export default function Footer2() {
               </a>
               
               <a 
-                href="#" 
+                href="https://www.instagram.com/mcaesthetics23" 
                 aria-label="Instagram" 
                 className={styles.socialIcon}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -75,7 +73,6 @@ export default function Footer2() {
             </div>
           </div>
           
-          {/* Find Us Here Section */}
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Find Us Here</h2>
             <div className={styles.mapContainer}>
@@ -105,14 +102,12 @@ export default function Footer2() {
             </a>
           </div>
           
-          {/* Join Our List Section */}
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>Join Our List</h2>
             <p className={styles.sectionText}>
               Join our email list for new treatment updates, promotions, special events and more.
             </p>
             
-            {/* Newsletter Form */}
             <form className={styles.form}>
               <div className={styles.inputGroup}>
                 <input 
@@ -138,7 +133,6 @@ export default function Footer2() {
           </div>
         </div>
         
-        {/* Bottom Section */}
         <div className={styles.bottomSection}>
           <div className={styles.logoContainer}>
             <img src={logo.src} alt="MC Aesthetics" className={styles.logo} />
