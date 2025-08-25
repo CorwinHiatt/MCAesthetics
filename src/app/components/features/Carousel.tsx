@@ -253,29 +253,9 @@ export default function Carousel() {
       ownerResponse: 'Thank you!',
       ownerResponseDate: '2 weeks ago',
     }
-  ];
+     ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showShareOptions, setShowShareOptions] = useState(false);
-
-  // Google review link from the screenshot
-  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
-
-  // Social sharing URLs
-  const getEmailShareUrl = () => {
-    const subject = encodeURIComponent("Check out MC Aesthetics");
-    const body = encodeURIComponent(`I thought you might be interested in MC Aesthetics. You can leave a review here: ${googleReviewLink}`);
-    return `mailto:?subject=${subject}&body=${body}`;
-  };
-
-  const getWhatsappShareUrl = () => {
-    const text = encodeURIComponent(`Check out MC Aesthetics and leave a review: ${googleReviewLink}`);
-    return `https://wa.me/?text=${text}`;
-  };
-
-  const getFacebookShareUrl = () => {
-    return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(googleReviewLink)}`;
-  };
 
   const nextReview = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % reviews.length);
@@ -289,24 +269,11 @@ export default function Carousel() {
     setCurrentIndex(index);
   };
 
-  // Function to copy review link to clipboard
-  const copyReviewLink = () => {
-    navigator.clipboard.writeText(googleReviewLink);
-    // Show a temporary "copied" message
-    const copyMessage = document.getElementById('copyMessage');
-    if (copyMessage) {
-      copyMessage.style.opacity = '1';
-      setTimeout(() => {
-        copyMessage.style.opacity = '0';
-      }, 2000);
-    }
-  };
+  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
 
   return (
     <div className={styles.carouselContainer}>
-      <h2 className={styles.carouselTitle}>What Our Clients Say</h2>
-      <p className={styles.carouselSubtitle}>Proudly Showcasing 34 Five-Star Reviews!</p>
-      
+      <h2 className={styles.showcaseTitle}>35 Five-Star Reviews & Counting!</h2>
       <div className={styles.carouselWrapper}>
         <button className={styles.carouselArrowLeft} onClick={prevReview} aria-label="Previous review">
           &#8249;
@@ -353,73 +320,15 @@ export default function Carousel() {
         ))}
       </div>
       
-      {/* Review Call-to-Action Section */}
       <div className={styles.reviewCta}>
-        <h3 className={styles.reviewCtaTitle}>
-          Reviews build trust and help your Business Profile stand out to customers
-        </h3>
-        
-        {/* Social Sharing Options */}
-        {/* <div className={styles.socialShareButtons}>
-          <a href={getEmailShareUrl()} className={styles.socialButton} aria-label="Share via Email">
-            <span className={styles.emailIcon}>✉️</span> Email
-          </a>
-          <a href={getWhatsappShareUrl()} className={styles.socialButton} aria-label="Share via WhatsApp">
-            <span className={styles.whatsappIcon}>📱</span> Whatsapp
-          </a>
-          <a href={getFacebookShareUrl()} className={styles.socialButton} aria-label="Share via Facebook">
-            <span className={styles.facebookIcon}>f</span> Facebook
-          </a>
-        </div> */}
-        
-        {/* Review Link Section */}
-        <div className={styles.reviewLinkSection}>
-          <h4 className={styles.reviewLinkTitle}>Review link</h4>
-          <div className={styles.reviewLinkContainer}>
-            <input 
-              type="text" 
-              value={googleReviewLink} 
-              readOnly 
-              className={styles.reviewLinkInput}
-              aria-label="Google review link"
-            />
-            <button 
-              onClick={copyReviewLink} 
-              className={styles.copyButton}
-              aria-label="Copy review link"
-            >
-              <span className={styles.copyIcon}>📋</span>
-            </button>
-          </div>
-          <div id="copyMessage" className={styles.copyMessage}>Review link copied</div>
-        </div>
-        
-        {/* QR Code Section */}
-        <div className={styles.qrCodeSection}>
-          <h4 className={styles.qrCodeTitle}>Share your reviews QR code</h4>
-          <p className={styles.qrCodeInstructions}>
-            Right-click and select "Save Image As..." so you can share your QR code with customers
-          </p>
-          <div className={styles.qrCodeContainer}>
-            <img 
-              src="/qr-code.png" 
-              alt="QR Code for Google Reviews" 
-              className={styles.qrCode}
-            />
-          </div>
-          <a href="https://support.google.com/business/answer/3474122" className={styles.learnMoreLink}>
-            Learn more about best practices for asking for reviews
-          </a>
-        </div>
-        
-        {/* Direct Review Button */}
+        <h3 className={styles.reviewCtaTitle}>Been a customer?</h3>
         <a 
           href={googleReviewLink} 
           target="_blank" 
           rel="noopener noreferrer" 
           className={styles.reviewButton}
         >
-          Leave a Review
+          Tell us how we did
         </a>
       </div>
     </div>
