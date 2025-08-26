@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
+import aestheticServicesData from '@/data/services';
 import styles from './AestheticServices.module.css';
 
 export default function AestheticServicesPage() {
@@ -11,40 +13,6 @@ export default function AestheticServicesPage() {
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
-  // Sample service categories (replace or expand as needed)
-  const services = [
-    {
-      title: 'Facials & Skin Care',
-      description: 'Indulge in our customized facials and skin care treatments designed to rejuvenate and hydrate your skin. From deep cleansing to anti-aging solutions, we’ve got you covered.',
-      link: '#', // Placeholder until individual page is built
-      linkText: 'Learn More About Facials',
-    },
-    {
-      title: 'Injectables & Fillers',
-      description: 'Enhance your natural beauty with our expert-administered injectables and fillers. Smooth out fine lines, add volume, and achieve a youthful glow with Botox, dermal fillers, and more.',
-      link: '#', // Placeholder until individual page is built
-      linkText: 'Explore Injectables',
-    },
-    {
-      title: 'Laser Hair Removal',
-      description: 'Say goodbye to unwanted hair with our state-of-the-art laser hair removal services. Safe, effective, and long-lasting results for all skin types.',
-      link: '/laser-hair-removal', // Assuming this page exists or will be linked
-      linkText: 'Discover Laser Hair Removal',
-    },
-    {
-      title: 'Body Contouring',
-      description: 'Sculpt and refine your silhouette with non-invasive body contouring treatments. Target stubborn fat and tighten skin for a more confident you.',
-      link: '#', // Placeholder until individual page is built
-      linkText: 'Learn About Body Contouring',
-    },
-    {
-      title: 'Chemical Peels',
-      description: 'Reveal brighter, smoother skin with our professional chemical peels. Address acne, hyperpigmentation, and uneven texture with personalized peel strengths.',
-      link: '#', // Placeholder until individual page is built
-      linkText: 'See Chemical Peel Options',
-    },
-  ];
 
   return (
     <div className={styles.aestheticServicesPageWrapper}>
@@ -58,7 +26,7 @@ export default function AestheticServicesPage() {
 
       {/* Accordion for Services */}
       <div className={styles.aestheticServicesAccordionContainer}>
-        {services.map((service, index) => (
+        {aestheticServicesData.items.map((service, index) => (
           <div key={index} className={styles.aestheticServicesAccordionItem}>
             <div
               className={styles.aestheticServicesAccordionHeader}
@@ -67,7 +35,7 @@ export default function AestheticServicesPage() {
               aria-expanded={openIndex === index}
               aria-controls={`service-panel-${index}`}
             >
-              <h2 className={styles.aestheticServicesAccordionTitle}>{service.title}</h2>
+              <h2 className={styles.aestheticServicesAccordionTitle}>{service.name}</h2>
               <span
                 className={`${styles.aestheticServicesAccordionIcon} ${openIndex === index ? styles.open : ''}`}
               >
@@ -77,16 +45,37 @@ export default function AestheticServicesPage() {
             <div
               id={`service-panel-${index}`}
               className={`${styles.aestheticServicesAccordionContent} ${openIndex === index ? styles.open : ''}`}
-              style={{ maxHeight: openIndex === index ? '500px' : '0' }} // Adjust maxHeight based on content
+              style={{ maxHeight: openIndex === index ? '500px' : '0' }}
             >
-              <p className={styles.aestheticServicesAccordionDescription}>{service.description}</p>
-              <a
-                href={service.link}
+              <img
+                src={service.imageUrl}
+                alt={service.name}
+                className="w-full h-48 object-cover rounded-md mb-3"
+              />
+              <p className={styles.aestheticServicesAccordionDescription}>{service.meta.description}</p>
+              <Link
+                href={`/aesthetic-services/${encodeURIComponent(service.name.toLowerCase().replace(/\s+/g, '-'))}`}
                 className={styles.aestheticServicesAccordionLink}
-                onClick={(e) => service.link === '#' && e.preventDefault()} // Prevent default for placeholders
               >
-                {service.linkText}
-              </a>
+                Learn More About {service.name}
+              </Link>
+              {service.nested && (
+                <div className="mt-3">
+                  <h3 className="text-md font-medium text-gray-700 mb-2">Options Available:</h3>
+                  <ul className="space-y-2">
+                    {service.nested.map((item, subIndex) => (
+                      <li key={subIndex} className="text-sm text-gray-600">
+                        <Link
+                          href={`/aesthetic-services/${encodeURIComponent(service.name.toLowerCase().replace(/\s+/g, '-'))}/${encodeURIComponent(item.name.toLowerCase().replace(/\s+/g, '-'))}`}
+                          className="hover:text-blue-500 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         ))}

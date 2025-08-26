@@ -35,43 +35,43 @@ export default function Header2() {
     };
   }, []);
 
-  const aestheticServices = [
-    { 
-      category: "Wrinkle Reducers",
-      items: [
-        { name: "Xeomin", href: "/aesthetic-services/xeomin" },
-        { name: "Dysport", href: "/aesthetic-services/dysport" },
-        { name: "DAXXIFY", href: "/aesthetic-services/daxxify" },
-        { name: "Jeuveau", href: "/aesthetic-services/jeuveau" }
-      ]
-    },
-    {
-      category: "Dermal Fillers",
-      items: [
-        { name: "Sculptra", href: "/aesthetic-services/sculptra" },
-        { name: "Restylane", href: "/aesthetic-services/restylane" },
-        { name: "RHA", href: "/aesthetic-services/rha" },
-        { name: "Revanesse", href: "/aesthetic-services/revanesse" },
-        { name: "Belotero", href: "/aesthetic-services/belotero" },
-        { name: "Radiesse", href: "/aesthetic-services/radiesse" }
-      ]
-    },
-    {
-      category: null,
-      items: [
-        { name: "Kybella", href: "/aesthetic-services/kybella" },
-        { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
-        { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
-        { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" }
-      ]
-    },
-    {
-      category: null,
-      items: [
-        { name: "All Aesthetic Services", href: "/aesthetic-services" }
-      ]
-    }
-  ];
+ const aestheticServices = [
+  { 
+    category: "Wrinkle Reducers",
+    items: [
+      { name: "Xeomin", href: "/aesthetic-services/wrinkle-reducers/xeomin" },
+      { name: "Dysport", href: "/aesthetic-services/wrinkle-reducers/dysport" },
+      { name: "DAXXIFY", href: "/aesthetic-services/wrinkle-reducers/daxxify" },
+      { name: "Jeuveau", href: "/aesthetic-services/wrinkle-reducers/jeuveau" }
+    ]
+  },
+  {
+    category: "Dermal Fillers",
+    items: [
+      { name: "Sculptra", href: "/aesthetic-services/dermal-fillers/sculptra" },
+      { name: "Restylane", href: "/aesthetic-services/dermal-fillers/restylane" },
+      { name: "RHA", href: "/aesthetic-services/dermal-fillers/rha" },
+      { name: "Revanesse", href: "/aesthetic-services/dermal-fillers/revanesse" },
+      { name: "Belotero", href: "/aesthetic-services/dermal-fillers/belotero" },
+      { name: "Radiesse", href: "/aesthetic-services/dermal-fillers/radiesse" }
+    ]
+  },
+  {
+    category: null,
+    items: [
+      { name: "Kybella", href: "/aesthetic-services/kybella" },
+      { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
+      { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
+      { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" }
+    ]
+  },
+  {
+    category: null,
+    items: [
+      { name: "All Aesthetic Services", href: "/aesthetic-services" }
+    ]
+  }
+];
 
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
