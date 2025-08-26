@@ -1,22 +1,19 @@
 /* HomeLuxury.module.css - Bold Luxury Styling for MC Aesthetics Homepage with Blue Accents */
-/* Color Palette for Rich, Distinctive Luxury */
-:root {
+/* Color Palette for Rich, Distinctive Luxury scoped to Wrapper */
+.mcaLuxHomeWrapper {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #F1EDE4; /* Ivory for soft backgrounds */
+  color: #1A1A1A; /* Near-black for strong text contrast */
+  overflow-x: hidden;
+  font-family: 'Lora', serif; /* Assuming global font for body */
+  /* Define custom properties within the scoped wrapper class */
   --mca-sapphire-deep: #1E3A5F; /* Deep sapphire blue for sophistication */
   --mca-rose-gold: #B76E79; /* Rose gold for warm elegance */
   --mca-ivory-light: #F1EDE4; /* Ivory for soft backgrounds */
   --mca-text-dark: #1A1A1A; /* Near-black for strong text contrast */
   --mca-text-light: #FFFFFF; /* Pure white for text on dark backgrounds */
   --mca-shadow-rich: rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
-}
-
-/* Base Wrapper for Homepage */
-.mcaLuxHomeWrapper {
-  width: 100%;
-  margin: 0 auto;
-  background-color: var(--mca-ivory-light);
-  color: var(--mca-text-dark);
-  overflow-x: hidden;
-  font-family: 'Lora', serif; /* Assuming global font for body */
 }
 
 /* Hero Section - Bold & Dramatic */
