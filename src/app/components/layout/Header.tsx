@@ -62,7 +62,8 @@ export default function Header2() {
       { name: "Kybella", href: "/aesthetic-services/kybella" },
       { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
       { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
-      { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" }
+      { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
+      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel%20co2%20laser" }
     ]
   },
   {
