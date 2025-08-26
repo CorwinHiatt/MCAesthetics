@@ -139,7 +139,7 @@ export default function Footer2() {
           </div>
           
           <div className={styles.bottomLinks}>
-            <Link href="/privacy" className={styles.link}>
+            <Link href="/privacy-policy" className={styles.link}>
               Privacy Policy
             </Link>
             <span className="mx-2">|</span>
