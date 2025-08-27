@@ -22,7 +22,7 @@
   height: 80vh;
   min-height: 400px;
   width: 100%;
-  background-image: linear-gradient(rgba(30, 58, 95, 0.5), rgba(30, 58, 95, 0.5)), url('https://picsum.photos/seed/10/1600/900');
+  background-image: linear-gradient(rgba(30, 58, 95, 0.5), rgba(30, 58, 95, 0.5)), url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80');
   background-size: cover;
   background-position: center 30%;
   background-attachment: fixed; /* Parallax-like effect */

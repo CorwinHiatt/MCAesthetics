@@ -1,360 +1,280 @@
 .header2Wrapper {
-border-width: 8px;
-border-style: solid;
-border-color: #4267B2;
-margin-bottom: 4rem;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #4267B2;
+  margin-bottom: 4rem;
 }
 
 .header2 {
-position: relative;
-background: linear-gradient(to bottom, #4267B2, #3B5998);
-color: white;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 1.5rem 0;
-z-index: 40;
+  position: relative;
+  background: linear-gradient(to bottom, #4267B2, #3B5998);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 0;
+  z-index: 40;
 }
 
 .header2Container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .header2Content {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header2LogoContainer {
-display: flex;
-align-items: center;
-text-decoration: none;
-transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  margin-right: 1rem; /* Added spacing */
 }
 
 .header2LogoContainer:hover {
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .header2LogoPlaceholder {
-width: 3rem;
-height: 3rem;
-background-color: rgba(255, 255, 255, 0.3);
-border-radius: 50%;
-margin-right: 0.75rem;
-display: flex;
-align-items: center;
-justify-content: center;
-color: white;
-font-size: 0.9rem;
-text-align: center;
-line-height: 1.2;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  line-height: 1.2;
 }
 
 @media (max-width: 640px) {
-.header2LogoPlaceholder {
-width: 2.5rem;
-height: 2.5rem;
-margin-right: 0.5rem;
-}
+  .header2LogoPlaceholder {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .header2LogoText {
-font-size: 2.25rem;
-font-weight: bold;
-color: white;
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: white;
 }
 
 @media (max-width: 640px) {
-.header2LogoText {
-font-size: 1.75rem;
+  .header2LogoText {
+    font-size: 1.75rem;
+  }
 }
+
+.header2LogoImage {
+  object-fit: contain; /* Keeps logo proportions */
+  max-width: 200px;    /* Match new width */
+  height: auto;        /* Maintain aspect ratio */
+}
+
+/* Add responsive adjustments for logo */
+@media (max-width: 768px) {
+  .header2LogoImage {
+    max-width: 150px; /* Slightly smaller on tablets */
+  }
+}
+
+@media (max-width: 640px) {
+  .header2LogoImage {
+    max-width: 120px; /* Even smaller on mobile phones */
+  }
 }
 
 .header2MobileMenuButton {
-display: block;
-padding: 0.75rem;
-background-color: transparent;
-border: none;
-cursor: pointer;
-border-radius: 0.375rem;
-transition: background-color 0.2s ease;
+  display: block;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
 }
 
 .header2MobileMenuButton:hover {
-background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header2MenuIcon {
-color: white;
-transition: transform 0.2s ease;
+  color: white;
+  transition: transform 0.2s ease;
 }
 
 .header2MobileMenuButton:hover .header2MenuIcon {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .header2DesktopNav {
-display: none;
+  display: none;
 }
 
 @media (min-width: 768px) {
-.header2DesktopNav {
-display: block;
-}
-.header2MobileMenuButton {
-display: none;
-}
+  .header2DesktopNav {
+    display: block;
+  }
+  .header2MobileMenuButton {
+    display: none;
+  }
 }
 
 .header2NavLinks {
-display: flex;
-align-items: center;
-gap: 0.75rem;
-flex-wrap: wrap;
-justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .header2NavLink {
-padding: 0.5rem 0.75rem;
-border-radius: 0.375rem;
-color: rgba(255, 255, 255, 0.9);
-text-decoration: none;
-font-weight: normal;
-font-size: 0.9rem;
-transition: color 0.2s ease, background-color 0.2s ease;
-white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .header2NavLink:hover {
-color: white;
-background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header2Active {
-color: white;
-font-weight: 500;
-background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .header2BookButton {
-margin-left: 0.75rem;
-padding: 0.5rem 1.25rem;
-background-color: white;
-color: #4267B2;
-border-radius: 0.375rem;
-text-decoration: none;
-font-weight: 500;
-font-size: 0.9rem;
-transition: background-color 0.2s ease, transform 0.2s ease;
-white-space: nowrap;
+  margin-left: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  background-color: white;
+  color: #4267B2;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
 .header2BookButton:hover {
-background-color: rgba(255, 255, 255, 0.9);
-transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
 }
 
 .header2MobileMenuOverlay {
-position: fixed;
-inset: 0;
-z-index: 50;
-background: linear-gradient(to bottom, #4267B2, #3B5998);
-display: block;
-overflow-y: auto;
-opacity: 0;
-animation: slideIn 0.3s ease forwards;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: linear-gradient(to bottom, #4267B2, #3B5998);
+  display: block;
+  overflow-y: auto;
+  opacity: 0;
+  animation: slideIn 0.3s ease forwards;
 }
 
 @keyframes slideIn {
-to {
-opacity: 1;
-}
+  to {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 768px) {
-.header2MobileMenuOverlay {
-display: none;
-}
+  .header2MobileMenuOverlay {
+    display: none;
+  }
 }
 
 .header2MobileMenuContent {
-padding-top: 5rem;
-padding-bottom: 1.5rem;
-height: 100%;
-overflow-y: auto;
-position: relative;
+  padding-top: 5rem;
+  padding-bottom: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
 }
 
 .header2MobileCloseButton {
-position: absolute;
-top: 1rem;
-right: 1rem;
-padding: 0.75rem;
-background-color: transparent;
-border: none;
-cursor: pointer;
-border-radius: 0.375rem;
-transition: background-color 0.2s ease;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
 }
 
 .header2MobileCloseButton:hover {
-background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header2CloseIcon {
-color: white;
-width: 1.5rem;
-height: 1.5rem;
-transition: transform 0.2s ease;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.2s ease;
 }
 
 .header2MobileCloseButton:hover .header2CloseIcon {
-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .header2MobileNav {
-display: flex;
-flex-direction: column;
-gap: 1.5rem;
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .header2MobileNavLink {
-display: block;
-padding: 1rem 0;
-font-size: 1.5rem;
-font-weight: 500;
-color: rgba(255, 255, 255, 0.9);
-border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-text-decoration: none;
-transition: color 0.2s ease, transform 0.2s ease;
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .header2MobileNavLink:hover {
-color: white;
-transform: translateX(5px);
+  color: white;
+  transform: translateX(5px);
 }
 
 .header2MobileBookLink {
-background-color: white;
-color: #4267B2;
-text-align: center;
-border-radius: 0.5rem;
-padding: 1rem;
-margin-top: 1rem;
-transition: background-color 0.2s ease, transform 0.2s ease;
+  background-color: white;
+  color: #4267B2;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .header2MobileBookLink:hover {
-background-color: rgba(255, 255, 255, 0.9);
-transform: scale(1.05);
-color: #3B5998;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+  color: #3B5998;
 }
 
-/* Dropdown container */
-.header2DropdownContainer {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown button */
-.header2DropdownButton {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: inherit;
-  font-family: inherit;
-  padding: var(--nav-link-padding, 0.5rem 0.75rem);
-  color: inherit;
-}
-
-/* Dropdown arrow */
-.header2DropdownArrow {
-  transition: transform 0.2s ease;
-}
-
-.header2DropdownArrowOpen {
-  transform: rotate(180deg);
-}
-
-/* Dropdown menu */
-.header2DropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 200px;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  padding: 0.5rem 0;
-  margin-top: 0.5rem;
-}
-
-/* Dropdown items */
-.header2DropdownItem {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.2s;
-}
-
-.header2DropdownItem:hover {
-  background-color: #f5f5f5;
-}
-
-.header2DropdownItemActive {
-  background-color: #f0f0f0;
-  font-weight: 500;
-}
-
-/* Mobile accordion styles */
-.header2MobileAccordion {
-  width: 100%;
-}
-
-.header2MobileAccordionButton {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1rem;
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.header2MobileAccordionArrow {
-  transition: transform 0.2s ease;
-}
-
-.header2MobileAccordionArrowExpanded {
-  transform: rotate(180deg);
-}
-
-.header2MobileAccordionContent {
-  padding-left: 1rem;
-}
-
-.header2MobileSubNavLink {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: inherit;
-  text-decoration: none;
-  font-size: 0.95em;
-}
 /* Dropdown container */
 .header2DropdownContainer {
   position: relative;
@@ -509,13 +429,4 @@ color: #3B5998;
   color: inherit;
   text-decoration: none;
   font-size: 0.9em;
-}
-.header2LogoContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header2LogoImage {
-  object-fit: contain; /* Keeps logo proportions */
 }

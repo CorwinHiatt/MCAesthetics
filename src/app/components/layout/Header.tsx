@@ -103,8 +103,8 @@ export default function Header2() {
               <Image 
                 src={logo}
                 alt="MC Aesthetics Logo"
-                width={100}
-                height={100}
+                width={175}
+                height={175}
                 className={styles.header2LogoImage}
               />
             </Link>
