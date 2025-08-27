@@ -3,6 +3,7 @@
 // import Navbar from './components/Navbar';
 import Header from './components/layout/Header';
 // import Footer from './components/layout/Footer';
+// import AboutPage from './about/page';
 import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
 
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen bg-white">
         <Header />
+        {/* <AboutPage/> */}
          
               {/* <Navbar /> */}
           

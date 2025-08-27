@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import meta from '../images/meta.png';
+import melissaImg from '../images/melissa.png';
+import maleahImg from '../images/maleah.png';
 import styles from './HomeLuxury.module.css';
 
 // Metadata for SEO and Social Previews (App Router style)
@@ -143,7 +146,7 @@ export default function HomePage() {
         <div className={styles.mcaLuxHomeHeroContentBox}>
           <h1 className={styles.mcaLuxHomeHeroMainText}>Elevate Your Beauty at MC Aesthetics</h1>
           <p className={styles.mcaLuxHomeHeroSubText}>
-            McMinnville’s premier destination for bespoke skin care and anti-aging treatments. Discover radiance in every detail.
+            McMinnville's premier destination for bespoke skin care and anti-aging treatments. Discover radiance in every detail.
           </p>
           <Link href="/contact" className={styles.mcaLuxHomeHeroActionBtn}>
             Book Your Consultation
@@ -151,25 +154,79 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Team Section - Meet Our Professionals */}
+      <section className={styles.mcaLuxHomeTeamSection}>
+        <div className={styles.mcaLuxHomeTeamContainer}>
+          <h2 className={styles.mcaLuxHomeTeamHeader}>About MC Aesthetics</h2>
+          <p className={styles.mcaLuxHomeTeamIntro}>
+            At MC Aesthetics, we are dedicated to enhancing your natural beauty with personalized, safe, and precise treatments. Meet our passionate team of professionals who bring expertise, warmth, and a commitment to excellence to every client.
+          </p>
+          
+          <div className={styles.mcaLuxHomeTeamCards}>
+            {/* Melissa's Card */}
+            <div className={styles.mcaLuxHomeTeamCard}>
+              <div className={styles.mcaLuxHomeTeamPhotoWrapper}>
+                <Image 
+                  src={melissaImg}
+                  alt="Melissa Cook, Nurse Practitioner & Owner of MC Aesthetics"
+                  className={styles.mcaLuxHomeTeamPhoto}
+                  width={400}
+                  height={400}
+                  priority
+                />
+              </div>
+              <div className={styles.mcaLuxHomeTeamDetails}>
+                <h3 className={styles.mcaLuxHomeTeamName}>Melissa Cook</h3>
+                <h4 className={styles.mcaLuxHomeTeamTitle}>Nurse Practitioner & Owner of MC Aesthetics</h4>
+                <p className={styles.mcaLuxHomeTeamBio}>
+                  Melissa is a board-certified nurse practitioner with over 21 years of clinical experience and 11 years of experience in aesthetic medicine. As the founder and owner of MC Aesthetics for the past six years, she has built a practice rooted in trust, results, and a deep understanding of women's health and aging. Her background spans primary care, reproductive and women's health, and aesthetics, giving her a well-rounded, thoughtful approach to patient care. Known for her skilled, gentle hands and honest communication, Melissa is passionate about helping women look refreshed—not overdone—enhancing their natural beauty while prioritizing safety, precision, and education. She continues to invest in advanced training and techniques, ensuring her clients receive the highest standard of care in a warm and welcoming environment.
+                </p>
+              </div>
+            </div>
+            
+            {/* Maleah's Card */}
+            <div className={styles.mcaLuxHomeTeamCard}>
+              <div className={styles.mcaLuxHomeTeamPhotoWrapper}>
+                <Image 
+                  src={maleahImg}
+                  alt="Maleah Espinoza, Nurse Injector at MC Aesthetics"
+                  className={styles.mcaLuxHomeTeamPhoto}
+                  width={400}
+                  height={400}
+                  priority
+                />
+              </div>
+              <div className={styles.mcaLuxHomeTeamDetails}>
+                <h3 className={styles.mcaLuxHomeTeamName}>Maleah Espinoza</h3>
+                <h4 className={styles.mcaLuxHomeTeamTitle}>Nurse Injector</h4>
+                <p className={styles.mcaLuxHomeTeamBio}>
+                  Maleah is a licensed nurse with over five years of experience in the healthcare field. Her journey into aesthetics stems from a long-standing passion for beauty, wellness, and helping others feel confident in their own skin. Although she is new to injecting, she brings a strong clinical background, a gentle touch, and a commitment to safety and precision in every treatment. Maleah believes aesthetic treatments should enhance—not change—your natural features. She's dedicated to providing personalized care with a warm, welcoming approach while continuously learning and staying up to date on the latest techniques in aesthetic medicine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Section - Personal & Inviting */}
       <section className={styles.mcaLuxHomeAboutArea}>
         <div className={styles.mcaLuxHomeAboutContainer}>
           <div className={styles.mcaLuxHomeAboutTextBlock}>
-            <h2 className={styles.mcaLuxHomeAboutHeadline}>Meet Melissa & MC Aesthetics</h2>
+            <h2 className={styles.mcaLuxHomeAboutHeadline}>Our Approach to Beauty</h2>
             <p className={styles.mcaLuxHomeAboutParagraph}>
-              Melissa, our visionary founder, infuses every treatment with passion and precision. Her dedication to personalized care transforms each visit into a rejuvenating experience.
+              At MC Aesthetics, we believe in enhancing your natural beauty, not changing it. Our personalized approach ensures that each treatment is tailored to your unique features and goals.
             </p>
             <p className={styles.mcaLuxHomeAboutParagraph}>
-              Nestled in the heart of McMinnville, OR, MC Aesthetics offers an oasis of luxury with services ranging from wrinkle reducers to CoolPeel CO2 Laser. Our mission? To unveil your timeless beauty.
+              Nestled in the heart of McMinnville, OR, MC Aesthetics offers an oasis of luxury with services ranging from wrinkle reducers to CoolPeel CO2 Laser. Our mission? To unveil your timeless beauty while prioritizing safety, education, and natural-looking results.
             </p>
             <Link href="/about" className={styles.mcaLuxHomeAboutNavLink}>
-              Discover Our Story
+              Learn More About Our Philosophy
             </Link>
           </div>
           <div className={styles.mcaLuxHomeAboutVisual}>
             <img 
               src="https://picsum.photos/seed/7/400/500" 
-              alt="Melissa, Founder of MC Aesthetics McMinnville" 
+              alt="MC Aesthetics McMinnville Clinic Interior" 
               className={styles.mcaLuxHomeAboutPortrait} 
               loading="lazy" 
             />
@@ -189,7 +246,7 @@ export default function HomePage() {
               <h3 className={styles.mcaLuxHomeServiceTileTitle}>{serviceGroup.category}</h3>
               <p className={styles.mcaLuxHomeServiceTileDesc}>{serviceGroup.description}</p>
               <ul className={styles.mcaLuxHomeServiceTileItems}>
-                {serviceGroup.items.slice(0, 3).map((item, itemIndex) => (
+                {serviceGroup.items.slice(0, 3).map((item) => (
                   <li key={item.name} className={styles.mcaLuxHomeServiceTileEntry}>
                     <Link href={item.href} className={styles.mcaLuxHomeServiceTileLink}>
                       {item.name}
