@@ -475,7 +475,7 @@
   font-size: 0.9rem;
   line-height: 1.5;
 }
-/* Team Section - Meet Our Professionals */
+/*  Team Section - Meet Our Professionals */
 .mcaLuxHomeTeamSection {
   padding: 5rem 2rem;
   background-color: var(--mca-ivory-light);
@@ -537,15 +537,23 @@
   position: relative;
 }
 
+.mcaLuxHomeTeamPhotoContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .mcaLuxHomeTeamPhoto {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%; /* This positions the image to show more of the body, less of the top */
   transition: transform 0.5s ease;
+  transform: scale(0.85); /* Zoom out by default to show more of the person */
 }
 
 .mcaLuxHomeTeamCard:hover .mcaLuxHomeTeamPhoto {
-  transform: scale(1.05);
+  transform: scale(0.9); /* Slightly zoom in on hover, but still zoomed out from original */
 }
 
 .mcaLuxHomeTeamDetails {
@@ -589,6 +597,16 @@
   .mcaLuxHomeTeamDetails {
     width: 60%;
     padding: 2.5rem;
+  }
+  
+  /* Adjust image positioning for desktop view */
+  .mcaLuxHomeTeamPhoto {
+    object-position: center 15%; /* Slightly different positioning for desktop */
+    transform: scale(0.9); /* Less zoom out needed on desktop */
+  }
+  
+  .mcaLuxHomeTeamCard:hover .mcaLuxHomeTeamPhoto {
+    transform: scale(0.95); /* Slightly zoom in on hover for desktop */
   }
 }
 

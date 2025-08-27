@@ -166,14 +166,18 @@ export default function HomePage() {
             {/* Melissa's Card */}
             <div className={styles.mcaLuxHomeTeamCard}>
               <div className={styles.mcaLuxHomeTeamPhotoWrapper}>
-                <Image 
-                  src={melissaImg}
-                  alt="Melissa Cook, Nurse Practitioner & Owner of MC Aesthetics"
-                  className={styles.mcaLuxHomeTeamPhoto}
-                  width={400}
-                  height={400}
-                  priority
-                />
+                <div className={styles.mcaLuxHomeTeamPhotoContainer}>
+                  <Image 
+                    src={melissaImg}
+                    alt="Melissa Cook, Nurse Practitioner & Owner of MC Aesthetics"
+                    className={styles.mcaLuxHomeTeamPhoto}
+                    width={400}
+                    height={400}
+                    priority
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                </div>
               </div>
               <div className={styles.mcaLuxHomeTeamDetails}>
                 <h3 className={styles.mcaLuxHomeTeamName}>Melissa Cook</h3>
@@ -187,14 +191,18 @@ export default function HomePage() {
             {/* Maleah's Card */}
             <div className={styles.mcaLuxHomeTeamCard}>
               <div className={styles.mcaLuxHomeTeamPhotoWrapper}>
-                <Image 
-                  src={maleahImg}
-                  alt="Maleah Espinoza, Nurse Injector at MC Aesthetics"
-                  className={styles.mcaLuxHomeTeamPhoto}
-                  width={400}
-                  height={400}
-                  priority
-                />
+                <div className={styles.mcaLuxHomeTeamPhotoContainer}>
+                  <Image 
+                    src={maleahImg}
+                    alt="Maleah Espinoza, Nurse Injector at MC Aesthetics"
+                    className={styles.mcaLuxHomeTeamPhoto}
+                    width={400}
+                    height={400}
+                    priority
+                    objectFit="cover"
+                    objectPosition="center"
+                  />
+                </div>
               </div>
               <div className={styles.mcaLuxHomeTeamDetails}>
                 <h3 className={styles.mcaLuxHomeTeamName}>Maleah Espinoza</h3>
