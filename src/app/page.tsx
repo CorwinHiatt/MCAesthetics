@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import meta from '../images/meta.png';
 import styles from './HomeLuxury.module.css';
 
 // Metadata for SEO and Social Previews (App Router style)
@@ -7,19 +8,19 @@ export const metadata = {
   title: "MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise",
   description: "Experience unparalleled skin care at MC Aesthetics in McMinnville, Oregon. Specializing in wrinkle reducers, dermal fillers, CoolPeel CO2 Laser, and bespoke aesthetic treatments.",
   keywords: "MC Aesthetics McMinnville, luxury skin care Oregon, anti-aging expertise, dermal fillers, wrinkle reducers, CoolPeel laser, facial rejuvenation, premium aesthetics McMinnville",
-  metadataBase: new URL("https://mc-aesthetics-bbwphtpx6-corwin-hiatts-projects.vercel.app"),
+  metadataBase: new URL("https://mc-aesthetics.vercel.app/"),
   openGraph: {
     title: "MC Aesthetics McMinnville - Elevate Your Beauty",
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
     images: [
       {
-        url: "/images/meta-luxury.png", // Primary image (ideally 1200x630 for 1.91:1 ratio)
+        url: meta.src, // Primary image (ideally 1200x630 for 1.91:1 ratio)
         width: 1200,
         height: 630,
         alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
       },
       {
-        url: "/images/meta-square-luxury.png", // Fallback square image for Instagram (1080x1080)
+        url: meta.src, // Fallback square image for Instagram (1080x1080)
         width: 1080,
         height: 1080,
         alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
@@ -33,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "MC Aesthetics McMinnville - Elevate Your Beauty",
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!",
-    images: ["/images/meta-luxury.png"],
+    images: [meta.src],
   },
   icons: {
     apple: [
