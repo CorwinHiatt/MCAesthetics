@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import meta from '../images/meta.png';
 import melissaImg from '../images/melissa.png';
 import maleahImg from '../images/maleah.png';
@@ -153,7 +153,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
       {/* Team Section - Meet Our Professionals */}
       <section className={styles.mcaLuxHomeTeamSection}>
         <div className={styles.mcaLuxHomeTeamContainer}>
@@ -215,7 +214,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* About Section - Personal & Inviting */}
       <section className={styles.mcaLuxHomeAboutArea}>
         <div className={styles.mcaLuxHomeAboutContainer}>
@@ -241,7 +239,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Services Section - Interactive Cards */}
       <section className={styles.mcaLuxHomeServicesZone}>
         <h2 className={styles.mcaLuxHomeServicesHeader}>Our Signature Aesthetic Services</h2>
@@ -273,7 +270,6 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-
       {/* Featured Services Gallery - Visual Focus */}
       <section className={styles.mcaLuxHomeGallerySpace}>
         <h2 className={styles.mcaLuxHomeGalleryCaption}>Featured Transformations</h2>

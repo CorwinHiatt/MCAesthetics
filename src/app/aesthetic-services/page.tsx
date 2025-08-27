@@ -18,12 +18,10 @@ export default function AestheticServicesPage() {
     <div className={styles.aestheticServicesPageWrapper}>
       {/* Main Title */}
       <h1 className={styles.aestheticServicesMainTitle}>Aesthetic Services at MC Aesthetics</h1>
-
       {/* Introduction Text */}
       <p className={styles.aestheticServicesIntroText}>
         At MC Aesthetics, we offer a wide range of premium aesthetic services tailored to your unique needs. Explore our offerings below to find the perfect treatment for you. Click on each category to learn more.
       </p>
-
       {/* Accordion for Services */}
       <div className={styles.aestheticServicesAccordionContainer}>
         {aestheticServicesData.items.map((service, index) => (
