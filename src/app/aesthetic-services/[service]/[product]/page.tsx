@@ -4,6 +4,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image'; // Added import for Next.js Image component
 import aestheticServicesData from '../../../../data/services';
 import { notFound, useParams } from 'next/navigation';
 import styles from '../../AestheticServices.module.css';
@@ -13,7 +14,7 @@ interface ProductPageProps {
   params?: Promise<{ service: string; product: string }>;
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({ }: ProductPageProps) {
   const runtimeParams = useParams(); // Use runtime params from hook for Client Component
   
   // Decode slugs and find the matching service and nested product
@@ -75,11 +76,17 @@ export default function ProductPage({ params }: ProductPageProps) {
       {/* Main Content */}
       <div className="max-w-4xl w-full">
         <h1 className={styles.aestheticServicesMainTitle}>{product.name}</h1>
-        <img
-          src={product.imageUrl}
-          alt={product.name}
-          className="w-full h-64 object-cover rounded-md mb-6"
-        />
+        {/* Replaced <img> with Next.js <Image> for better rendering, optimization, and handling of public folder assets */}
+        <div className={styles.aestheticServicesImageContainer}> {/* New container for elegant styling */}
+          <Image
+            src={product.imageUrl}
+            alt={product.name}
+            width={800} // Specify width for optimization
+            height={480} // Specify height for optimization
+            className={styles.aestheticServicesImage} // New class for professional, elegant styling
+            priority // Prioritize loading for main image
+          />
+        </div>
         <p className={styles.aestheticServicesIntroText}>{product.meta.description}</p>
         {/* Additional detailed content can be added here */}
         <div className="mt-6">

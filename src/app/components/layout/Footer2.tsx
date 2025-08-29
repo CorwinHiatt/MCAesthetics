@@ -1,55 +1,57 @@
+
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import logo from '../../../images/logo.png';
+import logo from '../../../images/logo.png'; // Assumes pink logo; update path if needed
 import styles from './Footer2.module.css';
 
 export default function Footer2() {
   return (
-    <footer className={styles.mcFooter_footer}>
-      <div className={styles.mcFooter_topBorder}></div>
+    <footer className={styles.mcaLuxFooter}>
+      <div className={styles.mcaLuxFooterTopBorder}></div>
       
-      <div className={styles.mcFooter_container}>
-        <div className={styles.mcFooter_grid}>
-          <div className={styles.mcFooter_section}>
-            <h2 className={styles.mcFooter_sectionTitle}>Get in Touch</h2>
+      <div className={styles.mcaLuxFooterContainer}>
+        <div className={styles.mcaLuxFooterGrid}>
+          <div className={styles.mcaLuxFooterSection}>
+            <h2 className={styles.mcaLuxFooterSectionTitle}>Get in Touch</h2>
             
-            <div className={styles.mcFooter_contactItem}>
-              <div className={styles.mcFooter_iconWrapper}>
-                <Phone size={18} className={styles.mcFooter_icon} />
+            <div className={styles.mcaLuxFooterContactItem}>
+              <div className={styles.mcaLuxFooterIconWrapper}>
+                <Phone size={18} className={styles.mcaLuxFooterIcon} />
               </div>
               <div>
-                <h3 className={styles.mcFooter_contactTitle}>Call Us</h3>
-                <p className={styles.mcFooter_contactText}>971-267-2322</p>
+                <h3 className={styles.mcaLuxFooterContactTitle}>Call Us</h3>
+                <p className={styles.mcaLuxFooterContactText}>971-267-2322</p>
               </div>
             </div>
             
-            <div className={styles.mcFooter_contactItem}>
-              <div className={styles.mcFooter_iconWrapper}>
-                <Mail size={18} className={styles.mcFooter_icon} />
+            <div className={styles.mcaLuxFooterContactItem}>
+              <div className={styles.mcaLuxFooterIconWrapper}>
+                <Mail size={18} className={styles.mcaLuxFooterIcon} />
               </div>
               <div>
-                <h3 className={styles.mcFooter_contactTitle}>Email Us</h3>
-                <p className={styles.mcFooter_contactText}>admin@mcaestheticsclinic.com</p>
+                <h3 className={styles.mcaLuxFooterContactTitle}>Email Us</h3>
+                <p className={styles.mcaLuxFooterContactText}>admin@mcaestheticsclinic.com</p>
               </div>
             </div>
             
-            <div className={styles.mcFooter_contactItem}>
-              <div className={styles.mcFooter_iconWrapper}>
-                <MapPin size={18} className={styles.mcFooter_icon} />
+            <div className={styles.mcaLuxFooterContactItem}>
+              <div className={styles.mcaLuxFooterIconWrapper}>
+                <MapPin size={18} className={styles.mcaLuxFooterIcon} />
               </div>
               <div>
-                <h3 className={styles.mcFooter_contactTitle}>Our Address</h3>
-                <p className={styles.mcFooter_contactText}>609 NE Baker St. Suite 130</p>
-                <p className={styles.mcFooter_contactText}>McMinnville OR 97128</p>
+                <h3 className={styles.mcaLuxFooterContactTitle}>Our Address</h3>
+                <p className={styles.mcaLuxFooterContactText}>609 NE Baker St. Suite 130</p>
+                <p className={styles.mcaLuxFooterContactText}>McMinnville OR 97128</p>
               </div>
             </div>
             
-            <div className={styles.mcFooter_socialContainer}>
+            <div className={styles.mcaLuxFooterSocialContainer}>
               <a 
                 href="https://www.facebook.com/MCAesthetics23" 
                 aria-label="Facebook" 
-                className={styles.mcFooter_socialIcon}
+                className={styles.mcaLuxFooterSocialIcon}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -61,7 +63,7 @@ export default function Footer2() {
               <a 
                 href="https://www.instagram.com/mcaesthetics23" 
                 aria-label="Instagram" 
-                className={styles.mcFooter_socialIcon}
+                className={styles.mcaLuxFooterSocialIcon}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -74,9 +76,9 @@ export default function Footer2() {
             </div>
           </div>
           
-          <div className={styles.mcFooter_section}>
-            <h2 className={styles.mcFooter_sectionTitle}>Find Us Here</h2>
-            <div className={styles.mcFooter_mapContainer}>
+          <div className={styles.mcaLuxFooterSection}>
+            <h2 className={styles.mcaLuxFooterSectionTitle}>Find Us Here</h2>
+            <div className={styles.mcaLuxFooterMapContainer}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.123456789!2d-123.1986!3d45.21034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5494469c3b7b2f4d%3A0x1d4d3a1e8f4f8e9c!2s609%20NE%20Baker%20St%20%23130%2C%20McMinnville%2C%20OR%2097128!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus"
                 width="100%"
@@ -92,7 +94,7 @@ export default function Footer2() {
               href="https://www.google.com/maps/place/609+NE+Baker+St+%23130,+McMinnville,+OR+97128/@45.21034,-123.1986,17z/data=!3m1!4b1!4m6!3m5!1s0x5494469c3b7b2f4d:0x1d4d3a1e8f4f8e9c!8m2!3d45.21034!4d-123.1986!16s%2Fg%2F11t4b6v4p_?entry=ttu"
               target="_blank" 
               rel="noopener noreferrer"
-              className={styles.mcFooter_mapLink}
+              className={styles.mcaLuxFooterMapLink}
             >
               <span>View larger map</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
@@ -103,30 +105,30 @@ export default function Footer2() {
             </a>
           </div>
           
-          <div className={styles.mcFooter_section}>
-            <h2 className={styles.mcFooter_sectionTitle}>Join Our List</h2>
-            <p className={styles.mcFooter_sectionText}>
+          <div className={styles.mcaLuxFooterSection}>
+            <h2 className={styles.mcaLuxFooterSectionTitle}>Join Our List</h2>
+            <p className={styles.mcaLuxFooterSectionText}>
               Join our email list for new treatment updates, promotions, special events and more.
             </p>
             
-            <form className={styles.mcFooter_form}>
-              <div className={styles.mcFooter_inputGroup}>
+            <form className={styles.mcaLuxFooterForm}>
+              <div className={styles.mcaLuxFooterInputGroup}>
                 <input 
                   type="text" 
                   placeholder="First Name" 
-                  className={styles.mcFooter_input}
+                  className={styles.mcaLuxFooterInput}
                 />
               </div>
-              <div className={styles.mcFooter_inputGroup}>
+              <div className={styles.mcaLuxFooterInputGroup}>
                 <input 
                   type="email" 
                   placeholder="Email" 
-                  className={styles.mcFooter_input}
+                  className={styles.mcaLuxFooterInput}
                 />
               </div>
               <button 
                 type="submit" 
-                className={styles.mcFooter_button}
+                className={styles.mcaLuxFooterButton}
               >
                 Subscribe
               </button>
@@ -134,27 +136,27 @@ export default function Footer2() {
           </div>
         </div>
         
-        <div className={styles.mcFooter_bottomSection}>
-          <div className={styles.mcFooter_logoContainer}>
+        <div className={styles.mcaLuxFooterBottomSection}>
+          <div className={styles.mcaLuxFooterLogoContainer}>
             <Image 
               src={logo} 
               alt="MC Aesthetics" 
-              className={styles.mcFooter_logo} 
+              className={styles.mcaLuxFooterLogo} 
               layout="intrinsic" 
             />
           </div>
           
-          <div className={styles.mcFooter_bottomLinks}>
-            <Link href="/privacy-policy" className={styles.mcFooter_link}>
+          <div className={styles.mcaLuxFooterBottomLinks}>
+            <Link href="/privacy-policy" className={styles.mcaLuxFooterLink}>
               Privacy Policy
             </Link>
             <span className="mx-2">|</span>
-            <Link href="/accessibility" className={styles.mcFooter_link}>
+            <Link href="/accessibility" className={styles.mcaLuxFooterLink}>
               Accessibility
             </Link>
           </div>
           
-          <div className={styles.mcFooter_copyright}>
+          <div className={styles.mcaLuxFooterCopyright}>
             © {new Date().getFullYear()} MC Aesthetics. All rights reserved.
           </div>
         </div>

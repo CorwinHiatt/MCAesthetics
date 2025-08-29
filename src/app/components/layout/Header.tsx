@@ -77,15 +77,7 @@ export default function Header2() {
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
 
-  interface AestheticServiceItem {
-    name: string;
-    href: string;
-  }
 
-  interface AestheticServiceSection {
-    category: string | null;
-    items: AestheticServiceItem[];
-  }
 
   const toggleMobileCategory = (category: string) => {
     setMobileExpandedCategories((prev: Record<string, boolean>) => ({
@@ -95,22 +87,22 @@ export default function Header2() {
   };
 
   return (
-    <div className={styles.header2Wrapper}>
-      <header className={styles.header2}>
-        <div className={styles.header2Container}>
-          <div className={styles.header2Content}>
-            <Link href="/" className={styles.header2LogoContainer}>
+    <div className={styles.mcaLuxHeaderWrapper}>
+      <header className={styles.mcaLuxHeader}>
+        <div className={styles.mcaLuxHeaderContainer}>
+          <div className={styles.mcaLuxHeaderContent}>
+            <Link href="/" className={styles.mcaLuxHeaderLogoContainer}>
               <Image 
                 src={logo}
                 alt="MC Aesthetics Logo"
                 width={175}
                 height={175}
-                className={styles.header2LogoImage}
+                className={styles.mcaLuxHeaderLogoImage}
               />
             </Link>
 
             <button
-              className={styles.header2MobileMenuButton}
+              className={styles.mcaLuxHeaderMobileMenuButton}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
@@ -121,7 +113,7 @@ export default function Header2() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className={styles.header2MenuIcon}
+                className={styles.mcaLuxHeaderMenuIcon}
               >
                 <path
                   strokeLinecap="round"
@@ -132,49 +124,49 @@ export default function Header2() {
               </svg>
             </button>
 
-            <nav className={styles.header2DesktopNav}>
-              <div className={styles.header2NavLinks}>
+            <nav className={styles.mcaLuxHeaderDesktopNav}>
+              <div className={styles.mcaLuxHeaderNavLinks}>
                 <Link
                   href="/about"
-                  className={`${styles.header2NavLink} ${pathname === '/about' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/about' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   About
                 </Link>
                 <Link
                   href="/zo-skin-health"
-                  className={`${styles.header2NavLink} ${pathname === '/zo-skin-health' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/zo-skin-health' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   Zo Skin Health
                 </Link>
                 <Link
                   href="/laser-hair"
-                  className={`${styles.header2NavLink} ${pathname === '/laser-hair' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/laser-hair' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   Laser Hair
                 </Link>
                 <Link
                   href="/gift-cards"
-                  className={`${styles.header2NavLink} ${pathname === '/gift-cards' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/gift-cards' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   Gift Cards
                 </Link>
                 <Link
                   href="/financing"
-                  className={`${styles.header2NavLink} ${pathname === '/financing' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/financing' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   Financing
                 </Link>
                 <Link
                   href="/contact"
-                  className={`${styles.header2NavLink} ${pathname === '/contact' ? styles.header2Active : ''}`}
+                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/contact' ? styles.mcaLuxHeaderActive : ''}`}
                 >
                   Contact
                 </Link>
                 
-                <div className={styles.header2DropdownContainer} ref={dropdownRef}>
+                <div className={styles.mcaLuxHeaderDropdownContainer} ref={dropdownRef}>
                   <button 
-                    className={`${styles.header2NavLink} ${styles.header2DropdownButton} ${
-                      pathname.startsWith('/aesthetic-services') ? styles.header2Active : ''
+                    className={`${styles.mcaLuxHeaderNavLink} ${styles.mcaLuxHeaderDropdownButton} ${
+                      pathname.startsWith('/aesthetic-services') ? styles.mcaLuxHeaderActive : ''
                     }`}
                     onClick={() => setAestheticDropdownOpen(!aestheticDropdownOpen)}
                     aria-expanded={aestheticDropdownOpen}
@@ -187,18 +179,18 @@ export default function Header2() {
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 
-                      className={`${styles.header2DropdownArrow} ${aestheticDropdownOpen ? styles.header2DropdownArrowOpen : ''}`}
+                      className={`${styles.mcaLuxHeaderDropdownArrow} ${aestheticDropdownOpen ? styles.mcaLuxHeaderDropdownArrowOpen : ''}`}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   
                   {aestheticDropdownOpen && (
-                    <div className={styles.header2DropdownMenu}>
+                    <div className={styles.mcaLuxHeaderDropdownMenu}>
                       {aestheticServices.map((section, sectionIndex) => (
-                        <div key={sectionIndex} className={styles.header2DropdownSection}>
+                        <div key={sectionIndex} className={styles.mcaLuxHeaderDropdownSection}>
                           {section.category && (
-                            <div className={styles.header2DropdownCategory}>
+                            <div className={styles.mcaLuxHeaderDropdownCategory}>
                               {section.category}
                             </div>
                           )}
@@ -206,8 +198,8 @@ export default function Header2() {
                             <Link 
                               key={itemIndex}
                               href={item.href}
-                              className={`${styles.header2DropdownItem} ${
-                                pathname === item.href ? styles.header2DropdownItemActive : ''
+                              className={`${styles.mcaLuxHeaderDropdownItem} ${
+                                pathname === item.href ? styles.mcaLuxHeaderDropdownItemActive : ''
                               }`}
                               onClick={() => setAestheticDropdownOpen(false)}
                             >
@@ -222,7 +214,7 @@ export default function Header2() {
                 
                 <Link 
                   href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
-                  className={styles.header2BookButton}
+                  className={styles.mcaLuxHeaderBookButton}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -234,10 +226,10 @@ export default function Header2() {
         </div>
 
         {mobileMenuOpen && (
-          <div className={styles.header2MobileMenuOverlay}>
-            <div className={styles.header2MobileMenuContent}>
+          <div className={styles.mcaLuxHeaderMobileMenuOverlay}>
+            <div className={styles.mcaLuxHeaderMobileMenuContent}>
               <button
-                className={styles.header2MobileCloseButton}
+                className={styles.mcaLuxHeaderMobileCloseButton}
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Close menu"
               >
@@ -247,7 +239,7 @@ export default function Header2() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className={styles.header2CloseIcon}
+                  className={styles.mcaLuxHeaderCloseIcon}
                 >
                   <path
                     strokeLinecap="round"
@@ -258,33 +250,33 @@ export default function Header2() {
                 </svg>
               </button>
 
-              <nav className={styles.header2MobileNav}>
-                <Link href="/" className={styles.header2MobileNavLink}>
+              <nav className={styles.mcaLuxHeaderMobileNav}>
+                <Link href="/" className={styles.mcaLuxHeaderMobileNavLink}>
                   Home
                 </Link>
-                <Link href="/about" className={styles.header2MobileNavLink}>
+                <Link href="/about" className={styles.mcaLuxHeaderMobileNavLink}>
                   About
                 </Link>
-                <Link href="/zo-skin-health" className={styles.header2MobileNavLink}>
+                <Link href="/zo-skin-health" className={styles.mcaLuxHeaderMobileNavLink}>
                   Zo Skin Health
                 </Link>
-                <Link href="/laser-hair" className={styles.header2MobileNavLink}>
+                <Link href="/laser-hair" className={styles.mcaLuxHeaderMobileNavLink}>
                   Laser Hair
                 </Link>
-                <Link href="/gift-cards" className={styles.header2MobileNavLink}>
+                <Link href="/gift-cards" className={styles.mcaLuxHeaderMobileNavLink}>
                   Gift Cards
                 </Link>
-                <Link href="/financing" className={styles.header2MobileNavLink}>
+                <Link href="/financing" className={styles.mcaLuxHeaderMobileNavLink}>
                   Financing
                 </Link>
-                <Link href="/contact" className={styles.header2MobileNavLink}>
+                <Link href="/contact" className={styles.mcaLuxHeaderMobileNavLink}>
                   Contact
                 </Link>
                 
-                <div className={styles.header2MobileAccordion}>
+                <div className={styles.mcaLuxHeaderMobileAccordion}>
                   <button 
-                    className={`${styles.header2MobileAccordionButton} ${
-                      mobileAestheticExpanded ? styles.header2MobileAccordionExpanded : ''
+                    className={`${styles.mcaLuxHeaderMobileAccordionButton} ${
+                      mobileAestheticExpanded ? styles.mcaLuxHeaderMobileAccordionExpanded : ''
                     }`}
                     onClick={() => setMobileAestheticExpanded(!mobileAestheticExpanded)}
                     aria-expanded={mobileAestheticExpanded}
@@ -296,8 +288,8 @@ export default function Header2() {
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor"
-                      className={`${styles.header2MobileAccordionArrow} ${
-                        mobileAestheticExpanded ? styles.header2MobileAccordionArrowExpanded : ''
+                      className={`${styles.mcaLuxHeaderMobileAccordionArrow} ${
+                        mobileAestheticExpanded ? styles.mcaLuxHeaderMobileAccordionArrowExpanded : ''
                       }`}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -305,13 +297,13 @@ export default function Header2() {
                   </button>
                   
                   {mobileAestheticExpanded && (
-                    <div className={styles.header2MobileAccordionContent}>
+                    <div className={styles.mcaLuxHeaderMobileAccordionContent}>
                       {aestheticServices.map((section, sectionIndex) => (
-                        <div key={sectionIndex} className={styles.header2MobileAccordionSection}>
+                        <div key={sectionIndex} className={styles.mcaLuxHeaderMobileAccordionSection}>
                           {section.category ? (
                             <>
                               <button 
-                                className={styles.header2MobileSubCategory}
+                                className={styles.mcaLuxHeaderMobileSubCategory}
                                 onClick={() => toggleMobileCategory(section.category)}
                                 aria-expanded={!!mobileExpandedCategories[section.category]}
                               >
@@ -322,20 +314,20 @@ export default function Header2() {
                                   viewBox="0 0 24 24" 
                                   fill="none" 
                                   stroke="currentColor"
-                                  className={`${styles.header2MobileSubCategoryArrow} ${
-                                    mobileExpandedCategories[section.category] ? styles.header2MobileSubCategoryArrowExpanded : ''
+                                  className={`${styles.mcaLuxHeaderMobileSubCategoryArrow} ${
+                                    mobileExpandedCategories[section.category] ? styles.mcaLuxHeaderMobileSubCategoryArrowExpanded : ''
                                   }`}
                                 >
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                               </button>
                               {mobileExpandedCategories[section.category] && (
-                                <div className={styles.header2MobileSubItems}>
+                                <div className={styles.mcaLuxHeaderMobileSubItems}>
                                   {section.items.map((item, itemIndex) => (
                                     <Link 
                                       key={itemIndex}
                                       href={item.href}
-                                      className={styles.header2MobileSubNavLink}
+                                      className={styles.mcaLuxHeaderMobileSubNavLink}
                                     >
                                       {item.name}
                                     </Link>
@@ -349,7 +341,7 @@ export default function Header2() {
                                 <Link 
                                   key={itemIndex}
                                   href={item.href}
-                                  className={styles.header2MobileSubNavLink}
+                                  className={styles.mcaLuxHeaderMobileSubNavLink}
                                 >
                                   {item.name}
                                 </Link>
@@ -364,7 +356,7 @@ export default function Header2() {
                 
                 <Link 
                   href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
-                  className={`${styles.header2MobileNavLink} ${styles.header2MobileBookLink}`}
+                  className={`${styles.mcaLuxHeaderMobileNavLink} ${styles.mcaLuxHeaderMobileBookLink}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

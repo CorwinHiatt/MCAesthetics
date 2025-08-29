@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
@@ -19,7 +18,15 @@ const nextConfig: NextConfig = {
         hostname: 'picsum.photos',
         pathname: '/**',
       },
+      // Add this for local images (optional but helps in some edge cases)
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3002', // Your dev port
+        pathname: '/images/**',
+      },
     ],
+    formats: ['image/webp', 'image/avif'],
   },
 };
 

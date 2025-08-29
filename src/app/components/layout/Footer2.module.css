@@ -1,239 +1,246 @@
-.mcFooter_footer {
-  background: linear-gradient(to bottom, #4267B2, #3B5998);
-  color: white;
+/* Footer5.module.css - Beige Background Footer with Gold and Pink Highlights for MC Aesthetics */
+/* Prefix: .mcaLuxFooter* for uniqueness; Replicates header variables, fonts, shadows, and transitions */
+/* Enhanced with beige background (--mca-light-gold), gold accents (--mca-lux-gold), and pink highlights (--mca-pink-highlight) for elegant, professional look */
+
+.mcaLuxFooter {
+  background-color: var(--mca-light-gold); /* Beige/gold background for luxurious warmth, matching header's soft gold */
+  color: var(--mca-elegant-gray); /* Gray text for professional readability on beige */
   padding: 2rem 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Playfair Display', serif; /* Elegant font replicating header */
+  box-shadow: 0 -2px 10px var(--mca-shadow-subtle); /* Subtle shadow from header */
 }
 
-.mcFooter_topBorder {
+.mcaLuxFooterTopBorder {
   height: 0.25rem;
-  background: white;
+  background: var(--mca-lux-gold); /* Gold accent replicating header's luxury borders */
   margin-bottom: 2rem;
 }
 
-.mcFooter_container {
+.mcaLuxFooterContainer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.mcFooter_grid {
+.mcaLuxFooterGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
 @media (min-width: 768px) {
-  .mcFooter_grid {
+  .mcaLuxFooterGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
   }
 }
 
-.mcFooter_section {
+.mcaLuxFooterSection {
   display: flex;
   flex-direction: column;
 }
 
-.mcFooter_sectionTitle {
+.mcaLuxFooterSectionTitle {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid var(--mca-lux-gold); /* Gold border replicating header underlines */
   display: inline-block;
+  color: var(--mca-deep-purple); /* Deep purple from header for titles */
 }
 
 @media (max-width: 640px) {
-  .mcFooter_sectionTitle {
+  .mcaLuxFooterSectionTitle {
     font-size: 1.25rem;
   }
 }
 
-.mcFooter_contactItem {
+.mcaLuxFooterContactItem {
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.25rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease; /* Transition replicating header hovers */
 }
 
-.mcFooter_contactItem:hover {
+.mcaLuxFooterContactItem:hover {
   transform: translateX(5px);
 }
 
-.mcFooter_iconWrapper {
+.mcaLuxFooterIconWrapper {
   margin-right: 1rem;
-  background: #3B5998;
+  background: var(--mca-pink-highlight); /* Pink highlight matching header */
   padding: 0.5rem;
   border-radius: 50%;
-  transition: background 0.2s ease;
+  transition: background 0.3s ease; /* Transition from header */
 }
 
-.mcFooter_contactItem:hover .mcFooter_iconWrapper {
-  background: #2d4373;
+.mcaLuxFooterContactItem:hover .mcaLuxFooterIconWrapper {
+  background: var(--mca-lux-gold); /* Gold on hover replicating header interactions */
 }
 
-.mcFooter_icon {
-  color: white;
+.mcaLuxFooterIcon {
+  color: var(--mca-soft-white);
 }
 
-.mcFooter_contactTitle {
+.mcaLuxFooterContactTitle {
   font-size: 0.95rem;
-  font-weight: medium;
-  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  color: var(--mca-gold-accent); /* Gold accent from header */
   margin-bottom: 0.25rem;
 }
 
-.mcFooter_contactText {
+.mcaLuxFooterContactText {
   font-size: 0.9rem;
-  color: white;
+  color: var(--mca-elegant-gray);
   line-height: 1.4;
 }
 
 @media (max-width: 640px) {
-  .mcFooter_contactTitle {
+  .mcaLuxFooterContactTitle {
     font-size: 0.85rem;
   }
-  .mcFooter_contactText {
+  .mcaLuxFooterContactText {
     font-size: 0.8rem;
   }
 }
 
-.mcFooter_socialContainer {
+.mcaLuxFooterSocialContainer {
   display: flex;
   gap: 1rem;
   margin-top: 0.5rem;
 }
 
-.mcFooter_socialIcon {
-  background: white;
-  color: #4267B2;
+.mcaLuxFooterSocialIcon {
+  background: var(--mca-lux-gold); /* Gold background for highlights */
+  color: var(--mca-pink-highlight); /* Pink icons for brand cohesion */
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.3s ease; /* Dual transition from header */
 }
 
-.mcFooter_socialIcon:hover {
-  background: rgba(255, 255, 255, 0.9);
+.mcaLuxFooterSocialIcon:hover {
+  background: var(--mca-pink-highlight); /* Pink on hover for dynamic highlight */
   transform: scale(1.1);
 }
 
-.mcFooter_mapContainer {
+.mcaLuxFooterMapContainer {
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--mca-shadow-deep); /* Deep shadow replicating header */
   height: 16rem;
-  background: white;
+  background: var(--mca-soft-white);
   width: 100%;
 }
 
 @media (max-width: 640px) {
-  .mcFooter_mapContainer {
+  .mcaLuxFooterMapContainer {
     height: 14rem;
   }
 }
 
-.mcFooter_mapLink {
+.mcaLuxFooterMapLink {
   margin-top: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s ease;
+  color: var(--mca-deep-purple); /* Purple from header */
+  transition: color 0.3s ease; /* Transition from header */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.9rem;
 }
 
-.mcFooter_mapLink:hover {
-  color: white;
+.mcaLuxFooterMapLink:hover {
+  color: var(--mca-lux-gold); /* Gold on hover */
 }
 
 @media (min-width: 768px) {
-  .mcFooter_mapLink {
+  .mcaLuxFooterMapLink {
     justify-content: flex-start;
   }
 }
 
-.mcFooter_sectionText {
+.mcaLuxFooterSectionText {
   margin-bottom: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mca-elegant-gray);
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
 @media (max-width: 640px) {
-  .mcFooter_sectionText {
+  .mcaLuxFooterSectionText {
     font-size: 0.85rem;
   }
 }
 
-.mcFooter_form {
+.mcaLuxFooterForm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.mcFooter_inputGroup {
+.mcaLuxFooterInputGroup {
   width: 100%;
 }
 
-.mcFooter_input {
+.mcaLuxFooterInput {
   padding: 0.75rem 1rem;
   width: 100%;
   border-radius: 0.375rem;
-  border: none;
-  background: #3B5998;
-  color: white;
+  border: 1px solid var(--mca-lux-gold); /* Gold border from header */
+  background: var(--mca-soft-white); /* White input for contrast on beige */
+  color: var(--mca-elegant-gray);
   font-size: 0.9rem;
 }
 
-.mcFooter_input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+.mcaLuxFooterInput::placeholder {
+  color: var(--mca-elegant-gray);
 }
 
-.mcFooter_input:focus {
+.mcaLuxFooterInput:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px var(--mca-pink-highlight); /* Pink focus for highlight */
 }
 
 @media (max-width: 640px) {
-  .mcFooter_input {
+  .mcaLuxFooterInput {
     font-size: 0.85rem;
     padding: 0.6rem 0.9rem;
   }
 }
 
-.mcFooter_button {
+.mcaLuxFooterButton {
   width: 100%;
-  background: white;
-  color: #4267B2;
+  background: var(--mca-pink-highlight); /* Pink button for highlight */
+  color: #ffffff;
   padding: 0.75rem 1rem;
   border-radius: 0.375rem;
-  transition: background 0.2s ease;
-  font-weight: medium;
+  transition: background 0.3s ease, transform 0.3s ease; /* Transitions from header */
+  font-weight: 500;
   font-size: 0.9rem;
   border: none;
   cursor: pointer;
 }
 
-.mcFooter_button:hover {
-  background: rgba(255, 255, 255, 0.9);
+.mcaLuxFooterButton:hover {
+  background: var(--mca-lux-gold); /* Gold on hover for alternating highlight */
+  transform: scale(1.05);
 }
 
 @media (max-width: 640px) {
-  .mcFooter_button {
+  .mcaLuxFooterButton {
     font-size: 0.85rem;
     padding: 0.6rem 0.9rem;
   }
 }
 
-.mcFooter_bottomSection {
+.mcaLuxFooterBottomSection {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--mca-lux-gold); /* Gold border from header */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -241,60 +248,65 @@
 }
 
 @media (min-width: 768px) {
-  .mcFooter_bottomSection {
+  .mcaLuxFooterBottomSection {
     flex-direction: row;
     justify-content: space-between;
   }
 }
 
-.mcFooter_logoContainer {
+.mcaLuxFooterLogoContainer {
   margin-bottom: 0.5rem;
   display: block;
   width: 100%;
   max-width: 200px;
   height: auto;
+  transition: transform 0.3s ease; /* Transition replicating header logo hover */
 }
 
-.mcFooter_logo {
-  height: 10rem;
+.mcaLuxFooterLogoContainer:hover {
+  transform: scale(1.05);
+}
+
+.mcaLuxFooterLogo {
+  height: 5rem;
   width: auto;
   max-width: 200px;
 }
 
 @media (max-width: 640px) {
-  .mcFooter_logo {
+  .mcaLuxFooterLogo {
     height: 4rem;
     max-width: 150px;
   }
 }
 
-.mcFooter_bottomLinks {
-  color: rgba(255, 255, 255, 0.8);
+.mcaLuxFooterBottomLinks {
+  color: var(--mca-elegant-gray);
   font-size: 0.85rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.mcFooter_link {
-  color: rgba(255, 255, 255, 0.8);
-  transition: color 0.2s ease;
+.mcaLuxFooterLink {
+  color: var(--mca-elegant-gray);
+  transition: color 0.3s ease; /* Transition from header */
   text-decoration: none;
 }
 
-.mcFooter_link:hover {
-  color: white;
+.mcaLuxFooterLink:hover {
+  color: var(--mca-pink-highlight); /* Pink on hover for highlight */
   text-decoration: underline;
 }
 
-.mcFooter_copyright {
-  color: rgba(255, 255, 255, 0.8);
+.mcaLuxFooterCopyright {
+  color: var(--mca-elegant-gray);
   font-size: 0.85rem;
   margin-top: 0.5rem;
 }
 
 @media (min-width: 768px) {
-  .mcFooter_copyright {
+  .mcaLuxFooterCopyright {
     margin-top: 0;
   }
 }

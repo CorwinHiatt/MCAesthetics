@@ -1,25 +1,28 @@
-"use client"
-//app/aesthetic-services/[service]/page.tsx
+"use client";
+// src/app/aesthetic-services/[service]/page.tsx
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import aestheticServicesData from '../../../data/services';
+import Image from 'next/image';
+import aestheticServicesData from '@/data/services';
 import { notFound, useParams } from 'next/navigation';
 import styles from '../AestheticServices.module.css';
 
 export default function ServicePage() {
   const params = useParams();
-  // Decode the slug and find the matching service
   const serviceName = decodeURIComponent((params.service as string).replace(/-/g, ' ')).toLowerCase();
   const service = aestheticServicesData.items.find(
     (s) => s.name.toLowerCase() === serviceName
   );
 
-  // Debug log to check if service is found
+  // Improved debugging logs
   console.log("Params service:", params.service);
   console.log("Decoded service name:", serviceName);
   console.log("Available services:", aestheticServicesData.items.map(s => s.name.toLowerCase()));
-  console.log("Matching service found:", service);
+  console.log("Matching service found:", service ? service.name : 'Not found');
+  if (service) {
+    console.log("Service image URL:", service.imageUrl);
+  }
 
   if (!service) {
     notFound();
@@ -32,51 +35,23 @@ export default function ServicePage() {
         <meta name="description" content={service.meta.description} />
         <meta name="keywords" content={service.meta.keywords.join(', ')} />
       </Head>
-      {/* Breadcrumb Navigation */}
-      <div className="max-w-4xl w-full mb-6">
-        <Link
-          href="/aesthetic-services"
-          className={styles.aestheticServicesAccordionLink}
-        >
-          ← Back to All Services
-        </Link>
-      </div>
-      {/* Main Content */}
-      <div className="max-w-4xl w-full">
-        <h1 className={styles.aestheticServicesMainTitle}>{service.name}</h1>
-        <img
+      <h1 className={styles.aestheticServicesMainTitle}>{service.name}</h1>
+      <div className={styles.aestheticServicesImageContainer}>
+        <Image
           src={service.imageUrl}
           alt={service.name}
-          className="w-full h-64 object-cover rounded-md mb-6"
+          width={800}
+          height={480}
+          className={styles.aestheticServicesImage}
+          priority
+          onError={() => console.error(`Image load error for ${service.imageUrl}`)} // Debug
         />
-        <p className={styles.aestheticServicesIntroText}>{service.meta.description}</p>
-        {/* Additional content can be added here */}
-        {service.nested && (
-          <div className={styles.aestheticServicesAccordionContainer}>
-            <h2 className="text-xl font-semibold text-[#3B5998] mb-4">
-              Explore {service.name} Options
-            </h2>
-            {service.nested.map((item, index) => (
-              <div key={index} className={styles.aestheticServicesAccordionItem}>
-                <div
-                  className={styles.aestheticServicesAccordionHeader}
-                  role="button"
-                  aria-expanded="true"
-                  aria-controls={`nested-panel-${index}`}
-                >
-                  <h3 className={styles.aestheticServicesAccordionTitle}>{item.name}</h3>
-                  <Link
-                    href={`/aesthetic-services/${params.service}/${encodeURIComponent(item.name.toLowerCase().replace(/\s+/g, '-'))}`}
-                    className={styles.aestheticServicesAccordionLink}
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
+      <p className={styles.aestheticServicesAccordionDescription}>{service.meta.description}</p>
+      {/* Add more details here if needed, e.g., nested services */}
+      <Link href="/aesthetic-services" className={styles.aestheticServicesAccordionLink}>
+        Back to All Services
+      </Link>
     </div>
   );
 }

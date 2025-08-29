@@ -1,3 +1,5 @@
+// src/data/services.ts
+
 export interface ServiceMeta {
   title: string;
   description: string;
@@ -6,7 +8,7 @@ export interface ServiceMeta {
 
 export interface ServiceItem {
   name: string;
-  imageUrl: string;
+  imageUrl: string; // String paths to public/images/ for static serving
   meta: ServiceMeta;
   nested?: ServiceItem[];
 }
@@ -21,7 +23,7 @@ const aestheticServicesData: ServiceCategory = {
   items: [
     {
       name: "Wrinkle Reducers",
-      imageUrl: "https://picsum.photos/800/600?random=1",
+      imageUrl: "/images/wrinklereducer.webp",
       meta: {
         title: "Wrinkle Reducers McMinnville - Smooth Fine Lines Naturally",
         description: "Soften crow’s feet, forehead lines, and frown lines with wrinkle reducers at MC Aesthetics in McMinnville. Non-surgical, natural results in just 15-30 minutes with no downtime.",
@@ -30,7 +32,7 @@ const aestheticServicesData: ServiceCategory = {
       nested: [
         {
           name: "Xeomin",
-          imageUrl: "https://picsum.photos/800/600?random=2",
+          imageUrl: "/images/xeominOriginal.webp",
           meta: {
             title: "Xeomin McMinnville - Pure Wrinkle Treatment",
             description: "Xeomin at MC Aesthetics in McMinnville is a purified wrinkle reducer for natural results on frown lines and crow’s feet. See effects in 3-4 days, lasting 3-4 months.",
@@ -39,7 +41,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Dysport",
-          imageUrl: "https://picsum.photos/800/600?random=3",
+          imageUrl: "/images/dysport.webp",
           meta: {
             title: "Dysport McMinnville - Fast-Acting Wrinkle Reduction",
             description: "Dysport at MC Aesthetics in McMinnville offers fast wrinkle reduction for glabellar lines and forehead wrinkles. Results in 2-3 days, lasting 3-4 months with a smooth finish.",
@@ -48,7 +50,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "DAXXIFY",
-          imageUrl: "https://picsum.photos/800/600?random=4",
+          imageUrl: "/images/DAXXIFY.webp",
           meta: {
             title: "DAXXIFY McMinnville - Long-Lasting Wrinkle Treatment",
             description: "DAXXIFY at MC Aesthetics in McMinnville reduces frown lines for 6-9 months with a unique peptide formula. Enjoy sustained youthful results with minimal downtime.",
@@ -57,7 +59,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Jeuveau",
-          imageUrl: "https://picsum.photos/800/600?random=5",
+          imageUrl: "/images/Jeuveau.webp",
           meta: {
             title: "Jeuveau McMinnville - Modern Wrinkle Reducer",
             description: "Jeuveau at MC Aesthetics in McMinnville smooths glabellar lines with a modern approach. Results last 3-6 months for a refreshed, confident look.",
@@ -68,7 +70,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Dermal Fillers",
-      imageUrl: "https://picsum.photos/800/600?random=6",
+      imageUrl: "/images/dermalfillers.webp", // Replace with actual filename if different
       meta: {
         title: "Dermal Fillers McMinnville - Restore Volume and Youth",
         description: "Enhance facial volume and smooth deep nasolabial folds with dermal fillers at MC Aesthetics in McMinnville. Immediate, non-surgical results lasting 6-18 months.",
@@ -77,7 +79,7 @@ const aestheticServicesData: ServiceCategory = {
       nested: [
         {
           name: "Sculptra",
-          imageUrl: "https://picsum.photos/800/600?random=7",
+          imageUrl: "/images/Sculptra.webp",
           meta: {
             title: "Sculptra McMinnville - Gradual Volume Restoration",
             description: "Sculptra at MC Aesthetics in McMinnville stimulates collagen for natural volume in hollow cheeks and smile lines. Long-lasting results up to 2 years.",
@@ -86,7 +88,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Restylane",
-          imageUrl: "https://picsum.photos/800/600?random=8",
+          imageUrl: "/images/restylane.webp",
           meta: {
             title: "Restylane McMinnville - Smooth Lines and Enhance Lips",
             description: "Restylane at MC Aesthetics in McMinnville plumps lips and smooths marionette lines with hyaluronic acid. Natural results lasting 6-12 months.",
@@ -95,7 +97,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "RHA",
-          imageUrl: "https://picsum.photos/800/600?random=9",
+          imageUrl: "/images/RHA.webp",
           meta: {
             title: "RHA Fillers McMinnville - Dynamic Facial Rejuvenation",
             description: "RHA fillers at MC Aesthetics in McMinnville adapt to facial movements for natural wrinkle correction. Lasts 6-18 months for dynamic folds and lines.",
@@ -104,7 +106,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Revanesse",
-          imageUrl: "https://picsum.photos/800/600?random=10",
+          imageUrl: "/images/Revanesse.webp",
           meta: {
             title: "Revanesse McMinnville - Natural Volume and Lip Augmentation",
             description: "Revanesse at MC Aesthetics in McMinnville offers Versa™ for wrinkles and Lips™ for augmentation with minimal swelling. Results last up to 12 months.",
@@ -113,7 +115,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Belotero",
-          imageUrl: "https://picsum.photos/800/600?random=11",
+          imageUrl: "/images/Belotero.webp",
           meta: {
             title: "Belotero McMinnville - Precision Fine Line Treatment",
             description: "Belotero at MC Aesthetics in McMinnville targets superficial lines like smoker’s lines with seamless integration. Results last 6-18 months for subtle enhancement.",
@@ -122,7 +124,7 @@ const aestheticServicesData: ServiceCategory = {
         },
         {
           name: "Radiesse",
-          imageUrl: "https://picsum.photos/800/600?random=12",
+          imageUrl: "/images/radiesse.webp",
           meta: {
             title: "Radiesse McMinnville - Instant Volume and Collagen Boost",
             description: "Radiesse at MC Aesthetics in McMinnville restores volume and stimulates collagen for cheeks and jawline. Results last 12-18 months, also ideal for hands.",
@@ -133,7 +135,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Kybella",
-      imageUrl: "https://picsum.photos/800/600?random=13",
+      imageUrl: "/images/Kybella.webp",
       meta: {
         title: "Kybella McMinnville - Double Chin Reduction Treatment",
         description: "Kybella at MC Aesthetics in McMinnville permanently reduces double chin fat for a sculpted jawline. Non-surgical treatment with lasting results.",
@@ -142,7 +144,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Sclerotherapy",
-      imageUrl: "https://picsum.photos/800/600?random=14",
+      imageUrl: "/images/Asclera.webp",
       meta: {
         title: "Sclerotherapy McMinnville - Spider Vein Treatment",
         description: "Sclerotherapy with Asclera® at MC Aesthetics in McMinnville clears spider veins and small varicose veins. Quick 15-45 minute sessions, FDA-approved since 2010.",
@@ -151,7 +153,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Chemical Peels - Perfect Derma™",
-      imageUrl: "https://picsum.photos/800/600?random=15",
+      imageUrl: "/images/ChemicalPeel.webp",
       meta: {
         title: "Perfect Derma Peel McMinnville - Radiant Skin Rejuvenation",
         description: "Perfect Derma™ Peel at MC Aesthetics in McMinnville brightens skin and treats acne scars, melasma, and wrinkles. Safe for all skin types with no downtime.",
@@ -160,7 +162,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Scarlet RF Microneedling",
-      imageUrl: "https://picsum.photos/800/600?random=16",
+      imageUrl: "/images/SCARLET.webp",
       meta: {
         title: "Scarlet RF Microneedling McMinnville - Advanced Skin Tightening",
         description: "Scarlet RF Microneedling at MC Aesthetics in McMinnville tightens skin and improves acne scars with no downtime. Optimal results in 3 sessions over 2-3 months.",
@@ -169,7 +171,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "CoolPeel CO2 Laser",
-      imageUrl: "https://picsum.photos/800/600?random=18",
+      imageUrl: "/images/coolpeel.webp", // Replace with actual filename if different
       meta: {
         title: "CoolPeel CO2 Laser McMinnville - Skin Resurfacing Innovation",
         description: "CoolPeel CO2 Laser at MC Aesthetics in McMinnville offers powerful resurfacing with minimal downtime. Smooth skin, reduce pores, and erase fine lines now.",
@@ -178,7 +180,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "All Aesthetic Services",
-      imageUrl: "https://picsum.photos/800/600?random=17",
+      imageUrl: "/images/allaesthetics.webp", // Replace with actual filename if different
       meta: {
         title: "All Aesthetic Services McMinnville - Comprehensive Skin Care",
         description: "Explore all aesthetic services at MC Aesthetics in McMinnville for tailored skin care solutions. From fillers to lasers, achieve your best look with expert care.",

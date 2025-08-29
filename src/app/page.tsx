@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from "next/legacy/image";
+import Image from "next/image"; // Updated from next/legacy/image to next/image (recommended)
 import meta from '../images/meta.png';
 import melissaImg from '../images/melissa.png';
 import maleahImg from '../images/maleah.png';
@@ -146,7 +146,7 @@ export default function HomePage() {
         <div className={styles.mcaLuxHomeHeroContentBox}>
           <h1 className={styles.mcaLuxHomeHeroMainText}>Elevate Your Beauty at MC Aesthetics</h1>
           <p className={styles.mcaLuxHomeHeroSubText}>
-            McMinnville's premier destination for bespoke skin care and anti-aging treatments. Discover radiance in every detail.
+            {`McMinnville's premier destination for bespoke skin care and anti-aging treatments. Discover radiance in every detail.`}
           </p>
           <Link href="/contact" className={styles.mcaLuxHomeHeroActionBtn}>
             Book Your Consultation
@@ -158,7 +158,7 @@ export default function HomePage() {
         <div className={styles.mcaLuxHomeTeamContainer}>
           <h2 className={styles.mcaLuxHomeTeamHeader}>About MC Aesthetics</h2>
           <p className={styles.mcaLuxHomeTeamIntro}>
-            At MC Aesthetics, we are dedicated to enhancing your natural beauty with personalized, safe, and precise treatments. Meet our passionate team of professionals who bring expertise, warmth, and a commitment to excellence to every client.
+            {`At MC Aesthetics, we are dedicated to enhancing your natural beauty with personalized, safe, and precise treatments. Meet our passionate team of professionals who bring expertise, warmth, and a commitment to excellence to every client.`}
           </p>
           
           <div className={styles.mcaLuxHomeTeamCards}>
@@ -173,8 +173,7 @@ export default function HomePage() {
                     width={400}
                     height={400}
                     priority
-                    objectFit="cover"
-                    objectPosition="center"
+                    style={{ objectFit: "cover", objectPosition: "center" }} // Updated for next/image compatibility
                   />
                 </div>
               </div>
@@ -182,7 +181,7 @@ export default function HomePage() {
                 <h3 className={styles.mcaLuxHomeTeamName}>Melissa Cook</h3>
                 <h4 className={styles.mcaLuxHomeTeamTitle}>Nurse Practitioner & Owner of MC Aesthetics</h4>
                 <p className={styles.mcaLuxHomeTeamBio}>
-                  Melissa is a board-certified nurse practitioner with over 21 years of clinical experience and 11 years of experience in aesthetic medicine. As the founder and owner of MC Aesthetics for the past six years, she has built a practice rooted in trust, results, and a deep understanding of women's health and aging. Her background spans primary care, reproductive and women's health, and aesthetics, giving her a well-rounded, thoughtful approach to patient care. Known for her skilled, gentle hands and honest communication, Melissa is passionate about helping women look refreshed—not overdone—enhancing their natural beauty while prioritizing safety, precision, and education. She continues to invest in advanced training and techniques, ensuring her clients receive the highest standard of care in a warm and welcoming environment.
+                  {`Melissa is a board-certified nurse practitioner with over 21 years of clinical experience and 11 years of experience in aesthetic medicine. As the founder and owner of MC Aesthetics for the past six years, she has built a practice rooted in trust, results, and a deep understanding of women's health and aging. Her background spans primary care, reproductive and women's health, and aesthetics, giving her a well-rounded, thoughtful approach to patient care. Known for her skilled, gentle hands and honest communication, Melissa is passionate about helping women look refreshed—not overdone—enhancing their natural beauty while prioritizing safety, precision, and education. She continues to invest in advanced training and techniques, ensuring her clients receive the highest standard of care in a warm and welcoming environment.`}
                 </p>
               </div>
             </div>
@@ -198,8 +197,7 @@ export default function HomePage() {
                     width={400}
                     height={400}
                     priority
-                    objectFit="cover"
-                    objectPosition="center"
+                    style={{ objectFit: "cover", objectPosition: "center" }} // Updated for next/image compatibility
                   />
                 </div>
               </div>
@@ -207,7 +205,7 @@ export default function HomePage() {
                 <h3 className={styles.mcaLuxHomeTeamName}>Maleah Espinoza</h3>
                 <h4 className={styles.mcaLuxHomeTeamTitle}>Nurse Injector</h4>
                 <p className={styles.mcaLuxHomeTeamBio}>
-                  Maleah is a licensed nurse with over five years of experience in the healthcare field. Her journey into aesthetics stems from a long-standing passion for beauty, wellness, and helping others feel confident in their own skin. Although she is new to injecting, she brings a strong clinical background, a gentle touch, and a commitment to safety and precision in every treatment. Maleah believes aesthetic treatments should enhance—not change—your natural features. She's dedicated to providing personalized care with a warm, welcoming approach while continuously learning and staying up to date on the latest techniques in aesthetic medicine.
+                  {`Maleah is a licensed nurse with over five years of experience in the healthcare field. Her journey into aesthetics stems from a long-standing passion for beauty, wellness, and helping others feel confident in their own skin. Although she is new to injecting, she brings a strong clinical background, a gentle touch, and a commitment to safety and precision in every treatment. Maleah believes aesthetic treatments should enhance—not change—your natural features. She's dedicated to providing personalized care with a warm, welcoming approach while continuously learning and staying up to date on the latest techniques in aesthetic medicine.`}
                 </p>
               </div>
             </div>
@@ -220,20 +218,22 @@ export default function HomePage() {
           <div className={styles.mcaLuxHomeAboutTextBlock}>
             <h2 className={styles.mcaLuxHomeAboutHeadline}>Our Approach to Beauty</h2>
             <p className={styles.mcaLuxHomeAboutParagraph}>
-              At MC Aesthetics, we believe in enhancing your natural beauty, not changing it. Our personalized approach ensures that each treatment is tailored to your unique features and goals.
+              {`At MC Aesthetics, we believe in enhancing your natural beauty, not changing it. Our personalized approach ensures that each treatment is tailored to your unique features and goals.`}
             </p>
             <p className={styles.mcaLuxHomeAboutParagraph}>
-              Nestled in the heart of McMinnville, OR, MC Aesthetics offers an oasis of luxury with services ranging from wrinkle reducers to CoolPeel CO2 Laser. Our mission? To unveil your timeless beauty while prioritizing safety, education, and natural-looking results.
+              {`Nestled in the heart of McMinnville, OR, MC Aesthetics offers an oasis of luxury with services ranging from wrinkle reducers to CoolPeel CO2 Laser. Our mission? To unveil your timeless beauty while prioritizing safety, education, and natural-looking results.`}
             </p>
             <Link href="/about" className={styles.mcaLuxHomeAboutNavLink}>
               Learn More About Our Philosophy
             </Link>
           </div>
           <div className={styles.mcaLuxHomeAboutVisual}>
-            <img 
+            <Image 
               src="https://picsum.photos/seed/7/400/500" 
               alt="MC Aesthetics McMinnville Clinic Interior" 
               className={styles.mcaLuxHomeAboutPortrait} 
+              width={400} // Required for next/image
+              height={500} // Required for next/image
               loading="lazy" 
             />
           </div>
@@ -243,7 +243,7 @@ export default function HomePage() {
       <section className={styles.mcaLuxHomeServicesZone}>
         <h2 className={styles.mcaLuxHomeServicesHeader}>Our Signature Aesthetic Services</h2>
         <p className={styles.mcaLuxHomeServicesIntroText}>
-          Indulge in tailored treatments designed to enhance your natural beauty. Explore our curated offerings below.
+          {`Indulge in tailored treatments designed to enhance your natural beauty. Explore our curated offerings below.`}
         </p>
         <div className={styles.mcaLuxHomeServicesLayout}>
           {services.map((serviceGroup, groupIndex) => (
@@ -277,10 +277,12 @@ export default function HomePage() {
           {galleryItems.map((item) => (
             <div key={item.title} className={styles.mcaLuxHomeGalleryPiece}>
               <Link href={item.href} className={styles.mcaLuxHomeGalleryNav}>
-                <img
+                <Image
                   src={item.imageUrl}
                   alt={item.altText}
                   className={styles.mcaLuxHomeGalleryPhoto}
+                  width={400} // Required for next/image (based on your placeholder dimensions)
+                  height={300} // Required for next/image
                   loading="lazy"
                 />
                 <div className={styles.mcaLuxHomeGalleryHoverLayer}>

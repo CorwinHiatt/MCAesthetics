@@ -1,28 +1,27 @@
 "use client";
-
+// src/app/aesthetic-services/page.tsx
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import aestheticServicesData from '@/data/services';
 import styles from './AestheticServices.module.css';
 
 export default function AestheticServicesPage() {
-  // State to manage which accordion item is open (null means all closed)
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // Function to toggle accordion items
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Debug: Log image URLs to console to verify paths
+  console.log('Service image URLs:', aestheticServicesData.items.map(s => s.imageUrl));
+
   return (
     <div className={styles.aestheticServicesPageWrapper}>
-      {/* Main Title */}
       <h1 className={styles.aestheticServicesMainTitle}>Aesthetic Services at MC Aesthetics</h1>
-      {/* Introduction Text */}
       <p className={styles.aestheticServicesIntroText}>
         At MC Aesthetics, we offer a wide range of premium aesthetic services tailored to your unique needs. Explore our offerings below to find the perfect treatment for you. Click on each category to learn more.
       </p>
-      {/* Accordion for Services */}
       <div className={styles.aestheticServicesAccordionContainer}>
         {aestheticServicesData.items.map((service, index) => (
           <div key={index} className={styles.aestheticServicesAccordionItem}>
@@ -45,11 +44,17 @@ export default function AestheticServicesPage() {
               className={`${styles.aestheticServicesAccordionContent} ${openIndex === index ? styles.open : ''}`}
               style={{ maxHeight: openIndex === index ? '500px' : '0' }}
             >
-              <img
-                src={service.imageUrl}
-                alt={service.name}
-                className="w-full h-48 object-cover rounded-md mb-3"
-              />
+              <div className={styles.aestheticServicesImageContainer}>
+                <Image
+                  src={service.imageUrl}
+                  alt={service.name}
+                  width={800}
+                  height={480}
+                  className={styles.aestheticServicesImage}
+                  priority={index === 0}
+                  onError={() => console.error(`Image load error for ${service.imageUrl}`)} // Debug image loading
+                />
+              </div>
               <p className={styles.aestheticServicesAccordionDescription}>{service.meta.description}</p>
               <Link
                 href={`/aesthetic-services/${encodeURIComponent(service.name.toLowerCase().replace(/\s+/g, '-'))}`}

@@ -1,152 +1,185 @@
+/* Updated CSS File: AestheticServices.module.css */
+/* Added new classes for professional and elegant image styling: .aestheticServicesImageContainer and .aestheticServicesImage */
+/* These include subtle shadows, rounded corners, smooth transitions, and responsive scaling for a more polished look */
+
 /* Container for the entire Aesthetic Services page */
 .aestheticServicesPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Main title for the page */
 .aestheticServicesMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #4267B2;
+  transition: color 0.3s ease;
 }
 
 @media (min-width: 768px) {
-.aestheticServicesMainTitle {
-font-size: 2.75rem;
-}
+  .aestheticServicesMainTitle {
+    font-size: 2.75rem;
+  }
 }
 
 @media (max-width: 640px) {
-.aestheticServicesMainTitle {
-font-size: 1.875rem;
-}
+  .aestheticServicesMainTitle {
+    font-size: 1.875rem;
+  }
 }
 
 /* Introductory text */
 .aestheticServicesIntroText {
-font-size: 1.125rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 2.5rem;
-text-align: center;
-max-width: 36rem;
+  font-size: 1.125rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  max-width: 36rem;
 }
 
 @media (max-width: 640px) {
-.aestheticServicesIntroText {
-font-size: 1rem;
-}
+  .aestheticServicesIntroText {
+    font-size: 1rem;
+  }
 }
 
 /* Accordion container for services */
 .aestheticServicesAccordionContainer {
-max-width: 48rem;
-width: 100%;
-margin-bottom: 3rem;
+  max-width: 48rem;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 
 /* Individual accordion item */
 .aestheticServicesAccordionItem {
-background-color: white;
-border: 1px solid #e2e8f0;
-border-radius: 0.5rem;
-margin-bottom: 1rem;
-overflow: hidden;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .aestheticServicesAccordionItem:hover {
-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 /* Accordion header (clickable) */
 .aestheticServicesAccordionHeader {
-padding: 1.25rem 1.5rem;
-cursor: pointer;
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #ffffff;
-transition: background-color 0.3s ease;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
 }
 
 .aestheticServicesAccordionHeader:hover {
-background-color: #f1f5f9;
+  background-color: #f1f5f9;
 }
 
 .aestheticServicesAccordionTitle {
-font-size: 1.25rem;
-font-weight: 600;
-color: #3B5998;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3B5998;
 }
 
 /* Accordion icon (chevron) */
 .aestheticServicesAccordionIcon {
-font-size: 1.5rem;
-color: #4267B2;
-transition: transform 0.3s ease;
+  font-size: 1.5rem;
+  color: #4267B2;
+  transition: transform 0.3s ease;
 }
 
 .aestheticServicesAccordionIcon.open {
-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /* Accordion content (expandable) */
 .aestheticServicesAccordionContent {
-padding: 0 1.5rem;
-max-height: 0;
-opacity: 0;
-transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-overflow: hidden;
+  padding: 0 1.5rem;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+  overflow: hidden;
 }
 
 .aestheticServicesAccordionContent.open {
-padding: 1.5rem;
-opacity: 1;
+  padding: 1.5rem;
+  opacity: 1;
 }
 
 .aestheticServicesAccordionDescription {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .aestheticServicesAccordionLink {
-display: inline-block;
-color: #4267B2;
-font-weight: 500;
-text-decoration: none;
-transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  color: #4267B2;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .aestheticServicesAccordionLink:hover {
-color: #3B5998;
-transform: scale(1.03);
-text-decoration: underline;
+  color: #3B5998;
+  transform: scale(1.03);
+  text-decoration: underline;
+}
+
+/* New: Container for images to add elegant framing */
+.aestheticServicesImageContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem; /* Softer, more elegant rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth and professionalism */
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aestheticServicesImageContainer:hover {
+  transform: scale(1.02); /* Gentle zoom on hover for elegance */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* New: Class for the image itself */
+.aestheticServicesImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures images fill elegantly without distortion */
+  border-radius: 1rem; /* Matches container for smooth look */
+  transition: transform 0.3s ease; /* Smooth scaling effect */
 }
 
 @media (max-width: 640px) {
-.aestheticServicesAccordionTitle {
-font-size: 1.125rem;
-}
-.aestheticServicesAccordionDescription {
-font-size: 0.875rem;
-}
-.aestheticServicesAccordionHeader {
-padding: 1rem 1.25rem;
-}
-.aestheticServicesAccordionContent.open {
-padding: 1.25rem;
-}
+  .aestheticServicesAccordionTitle {
+    font-size: 1.125rem;
+  }
+  .aestheticServicesAccordionDescription {
+    font-size: 0.875rem;
+  }
+  .aestheticServicesAccordionHeader {
+    padding: 1rem 1.25rem;
+  }
+  .aestheticServicesAccordionContent.open {
+    padding: 1.25rem;
+  }
+  /* Adjust image container for mobile elegance */
+  .aestheticServicesImageContainer {
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 }
