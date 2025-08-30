@@ -289,7 +289,7 @@
 
 .zoSkinProductGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted min-width for better mobile fit */
   gap: 2.5rem;
   margin-top: 2rem;
 }
@@ -324,12 +324,14 @@
   overflow: hidden;
   height: 220px;
   background-color: rgba(226, 213, 177, 0.1);
+  position: relative; /* Added for better control over image positioning */
 }
 
 .zoSkinProductImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures image fills container without stretching */
+  object-position: center; /* Centers image within wrapper */
   transition: transform 0.7s ease;
 }
 
@@ -380,10 +382,34 @@
     font-size: 0.9rem;
   }
   .zoSkinProductGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Forces single column on mobile for clarity */
     gap: 2rem;
   }
   .zoSkinImageWrapper {
-    height: 180px;
+    height: auto; /* Changed to auto to respect image aspect ratio on mobile */
+    min-height: 180px; /* Sets a minimum height to maintain visual balance */
+    max-height: 250px; /* Prevents overly tall images on smaller screens */
+  }
+  .zoSkinPageWrapper {
+    padding: 2rem 1rem; /* Reduced padding on mobile for tighter layout */
+  }
+}
+
+/* Additional breakpoint for very small screens (e.g., older phones) */
+@media (max-width: 480px) {
+  .zoSkinMainTitle {
+    font-size: 1.75rem;
+  }
+  .zoSkinSectionHeading {
+    font-size: 1.5rem;
+  }
+  .zoSkinIntroText, .zoSkinContentText, .zoSkinListItem {
+    font-size: 0.9rem;
+  }
+  .zoSkinCtaText {
+    font-size: 1.1rem;
+  }
+  .zoSkinImageWrapper {
+    min-height: 160px; /* Further adjust image height for very small screens */
   }
 }

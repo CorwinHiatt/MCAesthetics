@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Added for image optimization
 import styles from './ZoSkinHealth.module.css';
 
 export default function ZoSkinHealthPage() {
@@ -45,9 +46,11 @@ export default function ZoSkinHealthPage() {
         <div className={styles.zoSkinProductGrid}>
           <div className={styles.zoSkinProductCard}>
             <div className={styles.zoSkinImageWrapper}>
-              <img 
+              <Image 
                 src="/images/ZOproduct1.webp" 
                 alt="ZO Skin Health Radiance Product" 
+                width={300} 
+                height={400} 
                 className={styles.zoSkinProductImage} 
               />
             </div>
@@ -55,9 +58,11 @@ export default function ZoSkinHealthPage() {
           </div>
           <div className={styles.zoSkinProductCard}>
             <div className={styles.zoSkinImageWrapper}>
-              <img 
+              <Image 
                 src="/images/ZOproduct2.webp" 
                 alt="ZO Skin Health Targeted Solution" 
+                width={300} 
+                height={400} 
                 className={styles.zoSkinProductImage} 
               />
             </div>
@@ -65,9 +70,11 @@ export default function ZoSkinHealthPage() {
           </div>
           <div className={styles.zoSkinProductCard}>
             <div className={styles.zoSkinImageWrapper}>
-              <img 
+              <Image 
                 src="/images/ZOproduct3.webp" 
                 alt="ZO Skin Health Universal Care" 
+                width={300} 
+                height={400} 
                 className={styles.zoSkinProductImage} 
               />
             </div>
