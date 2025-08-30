@@ -11,3 +11,24 @@
   background-color: #ffffff;
 }
 
+/* High Contrast Mode */
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast a {
+  color: #ff0 !important; /* Yellow for links */
+  text-decoration: underline !important;
+}
+
+.high-contrast button {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+/* Override any other specific elements as needed */
+.high-contrast img {
+  filter: contrast(150%) !important;
+}

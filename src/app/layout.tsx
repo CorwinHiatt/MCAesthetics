@@ -1,4 +1,5 @@
 import Header from './components/layout/Header';
+// import AccessibilityControls from './components/features/AccessibilityControls';
 // import Footer from './components/layout/Footer';
 // import AboutPage from './about/page';
 import Footer2 from './components/layout/Footer2';
@@ -39,15 +40,17 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen bg-white">
+        {/* Header includes AccessibilityControls (ensure it's added there) */}
         <Header /> {/* Ensure this points to Header2 or the updated component with fixed position and beige background */}
+        {/* If AccessibilityControls is not in Header, you can uncomment the line below to add it directly */}
+        {/* <AccessibilityControls /> */}
         {/* <AboutPage/> */}
          
-              {/* <Navbar /> */}
-
+        {/* <Navbar /> */}
 
         <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
 
-        <Carousel/>
+        <Carousel />
         <Footer2 />
       </body>
     </html>

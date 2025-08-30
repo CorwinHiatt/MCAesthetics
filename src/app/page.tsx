@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from "next/image"; // Updated from next/legacy/image to next/image (recommended)
-import meta from '../images/meta.png';
-import melissaImg from '../images/melissa.png';
-import maleahImg from '../images/maleah.png';
+import meta from '../../public/images/meta.png';
+import melissaImg from '../../public/images/melissa.png';
+import maleahImg from '../../public/images/maleah.png';
 import styles from './HomeLuxury.module.css';
 
 // Metadata for SEO and Social Previews (App Router style)

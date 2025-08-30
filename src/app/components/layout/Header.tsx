@@ -4,8 +4,9 @@ import Link from 'next/link';
 import Image from "next/legacy/image";
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+
 import styles from './Header2.module.css';
-import logo from '../../../images/logo.png';
+import logo from '../../../../public/images/logo.png'; // Assumes pink logo; update path if needed
 
 export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

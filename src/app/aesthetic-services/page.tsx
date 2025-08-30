@@ -46,14 +46,19 @@ export default function AestheticServicesPage() {
             >
               <div className={styles.aestheticServicesImageContainer}>
                 <Image
-                  src={service.imageUrl}
-                  alt={service.name}
-                  width={800}
-                  height={480}
-                  className={styles.aestheticServicesImage}
-                  priority={index === 0}
-                  onError={() => console.error(`Image load error for ${service.imageUrl}`)} // Debug image loading
-                />
+                   src={service.imageUrl}
+                   alt={service.name}
+                   width={800}
+                   height={480}
+                   className={styles.aestheticServicesImage}
+                   priority={index === 0}
+                   onError={(e) => {
+                     console.error(`Image load error for ${service.imageUrl}`);
+                     // Set a fallback image to stop retries
+                     e.currentTarget.srcset = '';
+                     e.currentTarget.src = '/images/placeholder.webp'; // Ensure this exists in public/images/
+                   }}
+                 />
               </div>
               <p className={styles.aestheticServicesAccordionDescription}>{service.meta.description}</p>
               <Link
