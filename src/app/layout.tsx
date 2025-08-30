@@ -39,13 +39,14 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen bg-white">
-        <Header />
+        <Header /> {/* Ensure this points to Header2 or the updated component with fixed position and beige background */}
         {/* <AboutPage/> */}
          
               {/* <Navbar /> */}
-          
-        
-        <main>{children}</main>
+
+
+        <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
+
         <Carousel/>
         <Footer2 />
       </body>

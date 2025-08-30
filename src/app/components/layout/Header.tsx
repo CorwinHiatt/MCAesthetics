@@ -77,8 +77,6 @@ export default function Header2() {
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
 
-
-
   const toggleMobileCategory = (category: string) => {
     setMobileExpandedCategories((prev: Record<string, boolean>) => ({
       ...prev,

@@ -1,5 +1,13 @@
+/* In ./globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Add any additional global styles below */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+

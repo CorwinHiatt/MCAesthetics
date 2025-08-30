@@ -27,8 +27,13 @@
   --mca-shadow-deep: rgba(0, 0, 0, 0.15);
 }
 .mcaLuxHeader {
-  position: relative; /* Reverted to relative positioning to match original behavior and prevent content overlap issues */
+  position: fixed; /* Changed to fixed to keep header at the top */
+  top: 0; /* Ensure it sticks to the top */
+  left: 0; /* Align to the left edge */
+  width: 100%; /* Make sure it spans the full width */
   padding: 1rem 0;
+  z-index: 1000; /* High z-index to stay above other content */
+   background-color: var(--mca-light-gold);
 }
 
 .mcaLuxHeaderContainer {
@@ -194,7 +199,7 @@
   box-shadow: 0 4px 12px var(--mca-shadow-deep);
   padding: 1rem;
   min-width: 250px;
-  z-index: 10;
+  z-index: 1010; /* Higher than header to ensure visibility */
 }
 
 .mcaLuxHeaderDropdownSection {
