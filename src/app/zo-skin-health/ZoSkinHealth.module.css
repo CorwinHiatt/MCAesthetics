@@ -1,176 +1,389 @@
 /* Container for the entire ZO Skin Health page */
 .zoSkinPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+  background: linear-gradient(145deg, var(--mca-soft-white, #f8f8f8) 0%, rgba(226, 213, 177, 0.3) 100%); /* Subtle gold tint */
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Main title for the page */
+/* Main title container and decorative elements */
+.zoSkinTitleContainer {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
 .zoSkinMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--mca-deep-purple, #9c0491);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.zoSkinTitleDivider {
+  width: 6rem;
+  height: 3px;
+  background: var(--mca-lux-gold, #d4af37);
+  margin: 0 auto;
+  border-radius: 2px;
+  position: relative;
+}
+
+.zoSkinTitleDivider::before, .zoSkinTitleDivider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 1.5rem;
+  height: 1px;
+  background: var(--mca-lux-gold, #d4af37);
+}
+
+.zoSkinTitleDivider::before {
+  left: -2rem;
+}
+
+.zoSkinTitleDivider::after {
+  right: -2rem;
 }
 
 @media (min-width: 768px) {
-.zoSkinMainTitle {
-font-size: 2.75rem;
-}
+  .zoSkinMainTitle {
+    font-size: 3.25rem;
+  }
 }
 
 @media (max-width: 640px) {
-.zoSkinMainTitle {
-font-size: 1.875rem;
-}
+  .zoSkinMainTitle {
+    font-size: 2rem;
+  }
+  .zoSkinTitleDivider {
+    width: 4rem;
+  }
+  .zoSkinTitleDivider::before, .zoSkinTitleDivider::after {
+    width: 1rem;
+  }
+  .zoSkinTitleDivider::before {
+    left: -1.5rem;
+  }
+  .zoSkinTitleDivider::after {
+    right: -1.5rem;
+  }
 }
 
 /* Introductory section */
 .zoSkinIntroSection {
-max-width: 48rem;
-margin-bottom: 2.5rem;
-text-align: center;
+  max-width: 50rem;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .zoSkinIntroText {
-font-size: 1.125rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  color: var(--mca-elegant-gray, #4a4a4a);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+  animation-delay: calc(var(--delay) * 0.2s);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
 @media (max-width: 640px) {
-.zoSkinIntroText {
-font-size: 1rem;
-}
+  .zoSkinIntroText {
+    font-size: 1rem;
+  }
 }
 
 /* Section headings */
 .zoSkinSectionHeading {
-font-size: 1.75rem;
-font-weight: 600;
-margin-bottom: 1.5rem;
-color: #3B5998;
-text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--mca-deep-purple, #9c0491);
+  text-align: center;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.zoSkinSectionHeading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--mca-gold-accent, #a08d6d), var(--mca-lux-gold, #d4af37));
+  border-radius: 1px;
 }
 
 @media (max-width: 640px) {
-.zoSkinSectionHeading {
-font-size: 1.5rem;
-}
+  .zoSkinSectionHeading {
+    font-size: 1.75rem;
+  }
 }
 
 /* Content section container */
 .zoSkinContentSection {
-max-width: 48rem;
-margin-bottom: 3rem;
-width: 100%;
+  max-width: 50rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 /* Paragraph text in sections */
 .zoSkinContentText {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1rem;
-text-align: justify;
+  font-size: 1.1rem;
+  color: var(--mca-elegant-gray, #4a4a4a);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @media (max-width: 640px) {
-.zoSkinContentText {
-font-size: 0.875rem;
-}
+  .zoSkinContentText {
+    font-size: 0.95rem;
+  }
 }
 
 /* List styling */
 .zoSkinListContainer {
-margin-bottom: 1.5rem;
-padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1.75rem;
 }
 
 .zoSkinListItem {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 0.5rem;
-position: relative;
-padding-left: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--mca-elegant-gray, #4a4a4a);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .zoSkinListItem::before {
-content: "•";
-position: absolute;
-left: 0;
-color: #4267B2;
-font-size: 1.25rem;
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--mca-lux-gold, #d4af37);
+  font-size: 1.2rem;
 }
 
 @media (max-width: 640px) {
-.zoSkinListItem {
-font-size: 0.875rem;
-}
+  .zoSkinListItem {
+    font-size: 0.95rem;
+  }
 }
 
 /* Call to action section */
 .zoSkinCallToAction {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 2rem;
-text-align: center;
-max-width: 48rem;
-margin: 0 auto 2rem;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, var(--mca-light-gold, #e2d5b1) 0%, rgba(226, 213, 177, 0.7) 100%);
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px var(--mca-shadow-deep, rgba(0, 0, 0, 0.15));
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 50rem;
+  margin: 0 auto 3rem;
+  border: 1px solid var(--mca-lux-gold, #d4af37);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.zoSkinCallToAction::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/pattern.png') repeat; /* Placeholder for a subtle pattern if desired */
+  opacity: 0.1;
+  z-index: 0;
 }
 
 .zoSkinCallToAction:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
 .zoSkinCtaText {
-font-size: 1.25rem;
-color: #3B5998;
-font-weight: 500;
-margin-bottom: 0;
+  font-size: 1.5rem;
+  color: var(--mca-deep-purple, #9c0491);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  z-index: 1;
+}
+
+.zoSkinCtaButton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--mca-soft-white, #f8f8f8);
+  background: linear-gradient(135deg, var(--mca-primary-purple, #cb1ed4), var(--mca-deep-purple, #9c0491));
+  border: 1px solid var(--mca-lux-gold, #d4af37);
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+  z-index: 1;
+}
+
+.zoSkinCtaButton:hover {
+  background: linear-gradient(135deg, var(--mca-deep-purple, #9c0491), var(--mca-primary-purple, #cb1ed4));
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 640px) {
-.zoSkinCtaText {
-font-size: 1.125rem;
+  .zoSkinCtaText {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .zoSkinCallToAction {
+    padding: 2rem;
+  }
+  .zoSkinCtaButton {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
-.zoSkinCallToAction {
-padding: 1.5rem;
+
+/* Product Showcase Section */
+.zoSkinProductShowcase {
+  max-width: 50rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  text-align: center;
+  padding: 0 1rem;
 }
+
+.zoSkinProductGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.zoSkinProductCard {
+  background-color: var(--mca-soft-white, #f8f8f8);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 6px 15px var(--mca-shadow-subtle, rgba(0, 0, 0, 0.1));
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+  position: relative;
+}
+
+.zoSkinProductCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.zoSkinProductCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--mca-gold-accent, #a08d6d), var(--mca-lux-gold, #d4af37));
+  z-index: 1;
+}
+
+.zoSkinImageWrapper {
+  overflow: hidden;
+  height: 220px;
+  background-color: rgba(226, 213, 177, 0.1);
+}
+
+.zoSkinProductImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.zoSkinProductCard:hover .zoSkinProductImage {
+  transform: scale(1.1);
+}
+
+.zoSkinProductCaption {
+  padding: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--mca-deep-purple, #9c0491);
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  background-color: rgba(226, 213, 177, 0.15); /* Light gold tint */
+  font-style: italic;
 }
 
 /* FAQ or Q&A styling */
+.zoSkinFaqItem {
+  margin-bottom: 1.75rem;
+  padding: 1rem;
+  background-color: rgba(248, 248, 248, 0.7);
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--mca-lux-gold, #d4af37);
+}
+
 .zoSkinFaqQuestion {
-font-size: 1.125rem;
-font-weight: 600;
-color: #4267B2;
-margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mca-primary-purple, #cb1ed4);
+  margin-bottom: 0.85rem;
+  font-family: 'Playfair Display', serif;
 }
 
 .zoSkinFaqAnswer {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1.5rem;
-text-align: justify;
+  font-size: 1.05rem;
+  color: var(--mca-elegant-gray, #4a4a4a);
+  line-height: 1.8;
+  text-align: justify;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @media (max-width: 640px) {
-.zoSkinFaqQuestion {
-font-size: 1rem;
-}
-.zoSkinFaqAnswer {
-font-size: 0.875rem;
-}
+  .zoSkinFaqQuestion {
+    font-size: 1.1rem;
+  }
+  .zoSkinFaqAnswer {
+    font-size: 0.9rem;
+  }
+  .zoSkinProductGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .zoSkinImageWrapper {
+    height: 180px;
+  }
 }
