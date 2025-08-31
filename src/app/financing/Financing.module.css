@@ -1,182 +1,261 @@
-/* Container for the entire Financing page */
-.financingPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+/* Financing.module.css - Flexible Financing Page for MC Aesthetics */
+/* Prefix: .mcaFinancing* for uniqueness; Uses global variables for theme consistency */
+/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an accessible, informative experience */
+
+.mcaFinancingPageWrapper {
+  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Main title for the page */
-.financingMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+/* Hero Section */
+.mcaFinancingHero {
+  text-align: center;
+  max-width: 48rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.mcaFinancingMainTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--mca-deep-purple);
+  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mcaFinancingMainTitle:hover {
+  color: var(--mca-lux-gold);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .mcaFinancingMainTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.mcaFinancingSubtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .mcaFinancingSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.mcaFinancingHeroImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.mcaFinancingHeroImageHolder:hover {
+  transform: scale(1.03);
+}
+
+.mcaFinancingImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mcaFinancingImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+}
+
+/* Section Titles */
+.mcaFinancingSectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--mca-deep-purple);
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold);
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mcaFinancingSectionTitle:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Content Sections */
+.mcaFinancingContentSection {
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.mcaFinancingContentLayout {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
-.financingMainTitle {
-font-size: 2.75rem;
-}
+  .mcaFinancingContentLayout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mcaFinancingContentText {
+    flex: 1;
+  }
+  .mcaFinancingImageHolder {
+    flex: 1;
+    max-width: 50%;
+  }
 }
 
+.mcaFinancingParagraph, .mcaFinancingIntroParagraph {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.mcaFinancingImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaFinancingImageHolder:hover {
+  transform: scale(1.03);
+}
+
+/* List Styling */
+.mcaFinancingListContainer {
+  list-style-type: none;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+}
+
+.mcaFinancingListItem {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.mcaFinancingListItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--mca-lux-gold);
+  font-size: 1.25rem;
+}
+
+/* Call to Action */
+.mcaFinancingCallToAction {
+  background-color: var(--mca-soft-white);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  padding: 2rem;
+  text-align: center;
+  max-width: 48rem;
+  margin: 2rem auto;
+  border: 1px solid var(--mca-bronze);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcaFinancingCallToAction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+}
+
+.mcaFinancingCtaText {
+  font-size: 1.5rem;
+  color: var(--mca-deep-purple);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.mcaFinancingCtaButton {
+  display: inline-block;
+  background: linear-gradient(to right, var(--mca-deep-purple), var(--mca-lux-gold));
+  color: var(--mca-soft-white);
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mcaFinancingCtaButton:hover {
+  background: linear-gradient(to right, var(--mca-lux-gold), var(--mca-deep-purple));
+  transform: scale(1.05);
+}
+
+/* Disclaimer */
+.mcaFinancingDisclaimer {
+  font-size: 0.875rem;
+  color: var(--mca-elegant-gray);
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 48rem;
+  padding: 0 1rem;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 640px) {
-.financingMainTitle {
-font-size: 1.875rem;
-}
-}
-
-/* Subtitle or tagline */
-.financingSubtitle {
-font-size: 1.5rem;
-font-weight: 500;
-margin-bottom: 2.5rem;
-text-align: center;
-color: #3B5998;
-}
-
-@media (max-width: 640px) {
-.financingSubtitle {
-font-size: 1.25rem;
-}
-}
-
-/* Section headings */
-.financingSectionHeading {
-font-size: 1.75rem;
-font-weight: 600;
-margin-bottom: 1.5rem;
-color: #3B5998;
-text-align: center;
-}
-
-@media (max-width: 640px) {
-.financingSectionHeading {
-font-size: 1.5rem;
-}
-}
-
-/* Content section container */
-.financingContentSection {
-max-width: 48rem;
-margin-bottom: 3rem;
-width: 100%;
-}
-
-/* Paragraph text in sections */
-.financingContentText {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1rem;
-text-align: justify;
-}
-
-@media (max-width: 640px) {
-.financingContentText {
-font-size: 0.875rem;
-}
-}
-
-/* List styling */
-.financingListContainer {
-margin-bottom: 1.5rem;
-padding-left: 1.5rem;
-}
-
-.financingListItem {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 0.75rem;
-position: relative;
-padding-left: 1.25rem;
-}
-
-.financingListItem::before {
-content: "•";
-position: absolute;
-left: 0;
-color: #4267B2;
-font-size: 1.25rem;
-}
-
-@media (max-width: 640px) {
-.financingListItem {
-font-size: 0.875rem;
-}
-}
-
-/* Call to action section */
-.financingCallToAction {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 2rem;
-text-align: center;
-max-width: 48rem;
-margin: 2rem auto;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.financingCallToAction:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-}
-
-.financingCtaText {
-font-size: 1.5rem;
-color: #3B5998;
-font-weight: 600;
-margin-bottom: 1.5rem;
-}
-
-.financingCtaButton {
-display: inline-block;
-background: linear-gradient(to right, #4267B2, #3B5998);
-color: white;
-font-size: 1.125rem;
-font-weight: 600;
-padding: 0.75rem 1.5rem;
-border-radius: 0.5rem;
-text-decoration: none;
-transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.financingCtaButton:hover {
-background: linear-gradient(to right, #3B5998, #4267B2);
-transform: scale(1.05);
-}
-
-@media (max-width: 640px) {
-.financingCtaText {
-font-size: 1.25rem;
-}
-.financingCtaButton {
-font-size: 1rem;
-padding: 0.625rem 1.25rem;
-}
-.financingCallToAction {
-padding: 1.5rem;
-}
-}
-
-/* Disclaimer text */
-.financingDisclaimer {
-font-size: 0.875rem;
-color: #718096;
-text-align: center;
-margin-top: 1rem;
-max-width: 48rem;
-}
-
-@media (max-width: 640px) {
-.financingDisclaimer {
-font-size: 0.75rem;
-}
+  .mcaFinancingMainTitle {
+    font-size: 2rem;
+  }
+  .mcaFinancingSectionTitle {
+    font-size: 1.75rem;
+  }
+  .mcaFinancingSubtitle, .mcaFinancingParagraph, .mcaFinancingIntroParagraph {
+    font-size: 0.875rem;
+  }
+  .mcaFinancingCtaText {
+    font-size: 1.25rem;
+  }
+  .mcaFinancingCtaButton {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+  }
+  .mcaFinancingHeroImageHolder, .mcaFinancingImageHolder {
+    height: 16rem;
+  }
+  .mcaFinancingCallToAction {
+    padding: 1.5rem;
+  }
+  .mcaFinancingListItem {
+    font-size: 0.875rem;
+    padding-left: 1.5rem;
+  }
+  .mcaFinancingDisclaimer {
+    font-size: 0.75rem;
+  }
 }

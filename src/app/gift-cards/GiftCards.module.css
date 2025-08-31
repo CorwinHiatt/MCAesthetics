@@ -1,103 +1,123 @@
-/* Container for the entire Gift Cards page */
-.giftCardPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+/* GiftCards.module.css - Luxurious Gift Cards Page for MC Aesthetics */
+/* Prefix: .mcaGift* for uniqueness; Uses global variables for theme consistency */
+/* Elegant, professional design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions */
+
+.mcaGiftPageWrapper {
+  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white)); /* Luxurious gradient background matching site theme */
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif; /* Elegant font for professionalism */
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Main title for the page */
-.giftCardMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 1.5rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+.mcaGiftMainTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--mca-deep-purple); /* Deep purple for professional titles */
+  text-shadow: 1px 1px 2px var(--mca-shadow-subtle); /* Subtle shadow for depth */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mcaGiftMainTitle:hover {
+  color: var(--mca-lux-gold); /* Gold on hover for luxurious interaction */
+  transform: scale(1.02);
 }
 
 @media (min-width: 768px) {
-.giftCardMainTitle {
-font-size: 2.75rem;
-}
+  .mcaGiftMainTitle {
+    font-size: 2.75rem;
+  }
 }
 
 @media (max-width: 640px) {
-.giftCardMainTitle {
-font-size: 1.875rem;
-}
+  .mcaGiftMainTitle {
+    font-size: 1.875rem;
+  }
 }
 
 /* Introductory text */
-.giftCardIntroText {
-font-size: 1.125rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 2rem;
-text-align: center;
-max-width: 36rem;
+.mcaGiftIntroText {
+  font-size: 1.125rem;
+  color: var(--mca-elegant-gray); /* Elegant gray for readability */
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 36rem;
+  transition: color 0.3s ease;
+}
+
+.mcaGiftIntroText:hover {
+  color: var(--mca-gold-accent); /* Subtle gold tint on hover for engagement */
 }
 
 @media (max-width: 640px) {
-.giftCardIntroText {
-font-size: 1rem;
-}
+  .mcaGiftIntroText {
+    font-size: 1rem;
+  }
 }
 
 /* Call to action section */
-.giftCardCallToAction {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 2rem;
-text-align: center;
-max-width: 36rem;
-margin: 0 auto;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+.mcaGiftCallToAction {
+  background-color: var(--mca-soft-white); /* Clean white for professionalism */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle); /* Subtle shadow for depth */
+  padding: 2rem;
+  text-align: center;
+  max-width: 36rem;
+  margin: 0 auto;
+  border: 1px solid var(--mca-bronze); /* Bronze border for elegant framing */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.giftCardCallToAction:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+.mcaGiftCallToAction:hover {
+  transform: translateY(-5px) scale(1.02); /* Lift and scale for "pop" */
+  box-shadow: 0 10px 15px var(--mca-shadow-deep), 0 0 10px rgba(212, 175, 55, 0.3); /* Gold glow on hover */
+  border-color: var(--mca-lux-gold); /* Gold border on hover */
 }
 
-.giftCardCtaText {
-font-size: 1.25rem;
-color: #3B5998;
-font-weight: 500;
-margin-bottom: 1.5rem;
+.mcaGiftCtaText {
+  font-size: 1.25rem;
+  color: var(--mca-deep-purple); /* Deep purple for consistency */
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-.giftCardCtaButton {
-display: inline-block;
-background: linear-gradient(to right, #4267B2, #3B5998);
-color: white;
-font-size: 1.125rem;
-font-weight: 600;
-padding: 0.75rem 1.5rem;
-border-radius: 0.5rem;
-text-decoration: none;
-transition: background 0.3s ease, transform 0.2s ease;
+.mcaGiftCtaButton {
+  display: inline-block;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink)); /* Pink gradient for vibrant, professional call-to-action */
+  color: var(--mca-soft-white);
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.giftCardCtaButton:hover {
-background: linear-gradient(to right, #3B5998, #4267B2);
-transform: scale(1.05);
+.mcaGiftCtaButton:hover {
+  background: linear-gradient(to right, var(--mca-vivid-pink), var(--mca-pink-highlight)); /* Reverse gradient for dynamic hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(242, 15, 206, 0.3); /* Pink glow for luxurious emphasis */
 }
 
 @media (max-width: 640px) {
-.giftCardCtaText {
-font-size: 1.125rem;
-}
-.giftCardCtaButton {
-font-size: 1rem;
-padding: 0.625rem 1.25rem;
-}
-.giftCardCallToAction {
-padding: 1.5rem;
-}
+  .mcaGiftCtaText {
+    font-size: 1.125rem;
+  }
+  .mcaGiftCtaButton {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+  }
+  .mcaGiftCallToAction {
+    padding: 1.5rem;
+  }
 }

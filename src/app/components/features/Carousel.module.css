@@ -1,6 +1,8 @@
+/* Carousel.module.css - Luxurious Review Carousel for MC Aesthetics */
+
 /* Container for the entire Carousel component */
 .carouselContainer {
-  background-color: #f8f9fa;
+  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white)); /* Luxurious gradient background */
   padding: 2rem 0.5rem;
   width: 100%;
   max-width: 100vw; /* Ensure it doesn't exceed viewport */
@@ -8,14 +10,15 @@
   text-align: center;
   box-sizing: border-box; /* Include padding in width calculation */
   overflow-x: hidden; /* Prevent horizontal overflow */
+  font-family: 'Playfair Display', serif; /* Elegant font for luxury */
 }
 
 .showcaseTitle {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #4267B2;
+  color: var(--mca-deep-purple); /* Site purple for professionalism */
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 2px var(--mca-shadow-subtle); /* Subtle shadow for depth */
 }
 
 .carouselWrapper {
@@ -49,75 +52,94 @@
 }
 
 .reviewCard {
-  background-color: white;
+  background-color: var(--mca-soft-white); /* Clean, luxurious white */
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--mca-bronze); /* Subtle bronze border for elegance */
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
   padding: 1.5rem;
   width: 90%;
   max-width: 100%; /* Prevent card from exceeding container */
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth luxury transitions */
   box-sizing: border-box;
 }
 
 .reviewCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px) scale(1.02); /* Subtle lift and scale for "pop" */
+  box-shadow: 0 10px 15px var(--mca-shadow-deep), 0 0 10px rgba(212, 175, 55, 0.3); /* Gold glow */
+  border-color: var(--mca-lux-gold); /* Gold border on hover */
 }
 
 .reviewerName {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #4267B2;
+  color: var(--mca-deep-purple); /* Deep purple for professionalism */
   margin-bottom: 0.5rem;
 }
 
 .starRating {
-  color: #FFD700;
+  color: var(--mca-lux-gold); /* Shiny gold stars */
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  animation: starShine 2s infinite alternate; /* Subtle shine for pop */
+}
+
+@keyframes starShine {
+  0% { opacity: 1; }
+  100% { opacity: 0.8; }
 }
 
 .reviewDate {
   font-size: 0.75rem;
-  color: #718096;
+  color: var(--mca-elegant-gray); /* Elegant gray */
   margin-bottom: 1rem;
 }
 
 .reviewText {
   font-size: 0.875rem;
-  color: #4a5568;
+  color: var(--mca-elegant-gray);
   line-height: 1.6;
   margin-bottom: 1.25rem;
   word-wrap: break-word; /* Ensure long text wraps properly */
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Limit to 6 lines for brevity */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Ellipsis for truncated text */
 }
 
 .ownerResponse {
-  background-color: #f1f5f9;
+  background-color: rgba(226, 213, 177, 0.2); /* Light gold tint for luxury */
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
+  border-left: 3px solid var(--mca-gold-accent); /* Gold accent border */
   box-sizing: border-box;
 }
 
 .responseTitle {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #3B5998;
+  color: var(--mca-deep-purple);
   margin-bottom: 0.25rem;
 }
 
 .responseDate {
   font-size: 0.75rem;
-  color: #718096;
+  color: var(--mca-elegant-gray);
   margin-bottom: 0.5rem;
 }
 
 .responseText {
   font-size: 0.875rem;
-  color: #4a5568;
+  color: var(--mca-elegant-gray);
   line-height: 1.6;
   word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit response length */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .carouselArrowLeft,
@@ -125,24 +147,25 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(156, 4, 145, 0.8); /* Semi-transparent deep purple */
   border: none;
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
   font-size: 1.5rem;
+  color: var(--mca-soft-white);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px var(--mca-shadow-deep);
   transition: background 0.3s ease, transform 0.2s ease;
   z-index: 10;
 }
 
 .carouselArrowLeft:hover,
 .carouselArrowRight:hover {
-  background: rgba(255, 255, 255, 1);
+  background: var(--mca-primary-purple); /* Full purple on hover */
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -165,19 +188,19 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background-color: #cbd5e0;
+  background-color: var(--mca-bronze); /* Bronze dots for luxury */
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .carouselDot:hover {
-  background-color: #718096;
+  background-color: var(--mca-gold-accent); /* Gold on hover */
   transform: scale(1.2);
 }
 
 .activeDot {
-  background-color: #4267B2;
+  background-color: var(--mca-lux-gold); /* Active gold */
   transform: scale(1.2);
 }
 
@@ -185,27 +208,28 @@
 .reviewCta {
   margin-top: 2rem;
   padding: 1.5rem;
-  background-color: white;
+  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Gradient for depth */
   border-radius: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
   text-align: center;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
+  border: 1px solid var(--mca-bronze); /* Bronze border for elegance */
 }
 
 .reviewCtaTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #3B5998;
+  color: var(--mca-deep-purple);
   margin-bottom: 1rem;
 }
 
 .reviewButton {
   display: inline-block;
-  background: linear-gradient(to right, #4267B2, #3B5998);
-  color: white;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink)); /* Pink gradient for pop */
+  color: var(--mca-soft-white);
   font-size: 1.125rem;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
@@ -214,12 +238,13 @@
   cursor: pointer;
   text-decoration: none;
   margin-top: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .reviewButton:hover {
-  background: linear-gradient(to right, #3B5998, #4267B2);
+  background: linear-gradient(to right, var(--mca-vivid-pink), var(--mca-pink-highlight)); /* Reverse gradient for interaction */
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(242, 15, 206, 0.3); /* Pink glow for luxurious pop */
 }
 
 @media (max-width: 640px) {
@@ -270,6 +295,6 @@
 
   .reviewButton {
     font-size: 1rem;
-    padding: 0.625rem 1.25rem;
+    padding: 0.5rem 1rem;
   }
 }

@@ -1,61 +1,71 @@
 import Header from './components/layout/Header';
-// import AccessibilityControls from './components/features/AccessibilityControls';
-// import Footer from './components/layout/Footer';
-// import AboutPage from './about/page';
 import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
-import Script from 'next/script'; // <-- New import for GA script optimization
-
-import type { Metadata } from 'next';
+import Script from 'next/script';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+// Metadata for SEO and Social Previews (App Router style)
 export const metadata: Metadata = {
   title: {
-    template: '%s | MC Aesthetics',
-    default: 'MC Aesthetics | Professional Aesthetic Treatments',
+    default: "MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise",
+    template: "%s | MC Aesthetics McMinnville",
   },
-  description: 'Professional aesthetic treatments and services for enhancing your natural beauty',
+  description: "Experience unparalleled skin care at MC Aesthetics in McMinnville, Oregon. Specializing in wrinkle reducers, dermal fillers, CoolPeel CO2 Laser, and bespoke aesthetic treatments.",
+  keywords: "MC Aesthetics McMinnville, luxury skin care Oregon, anti-aging expertise, dermal fillers, wrinkle reducers, CoolPeel laser, facial rejuvenation, premium aesthetics McMinnville",
+  metadataBase: new URL("https://mc-aesthetics.vercel.app/"),
+  openGraph: {
+    title: "MC Aesthetics McMinnville - Elevate Your Beauty",
+    description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
+    images: [
+      {
+        url: "/images/meta.png",
+        width: 1200,
+        height: 630,
+        alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
+      },
+    ],
+    url: "/",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MC Aesthetics McMinnville - Elevate Your Beauty",
+    description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!",
+    images: ["/images/meta.png"],
+  },
+  icons: {
+    apple: [
+      { url: "/images/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/favicon_io/apple-touch-icon-152x152.png", sizes: "152x152", type: "image/png" },
+    ],
+    icon: "/images/favicon_io/favicon.ico",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// Separate viewport export for Next.js compliance
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Tag Manager (gtag.js) - Optimized with next/script */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TRFZPTHGLB"
-          strategy="afterInteractive"
-          async // Added for better loading behavior
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-        >
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-TRFZPTHGLB', {
-              page_path: window.location.pathname,
-            });
-          `}
-        </Script>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon_io/apple-touch-icon-152x152.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
+        <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
       </head>
       <body className="min-h-screen bg-white">
-        {/* Header includes AccessibilityControls (ensure it's added there) */}
-        <Header /> {/* Ensure this points to Header2 or the updated component with fixed position and beige background */}
-        {/* If AccessibilityControls is not in Header, you can uncomment the line below to add it directly */}
-        {/* <AccessibilityControls /> */}
-        {/* <AboutPage/> */}
-         
-        {/* <Navbar /> */}
-
+        <Header />
         <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
-
         <Carousel />
         <Footer2 />
       </body>

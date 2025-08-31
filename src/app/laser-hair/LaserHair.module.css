@@ -1,152 +1,220 @@
+/* LaserHair.module.css - Captivating Laser Hair Removal Page for MC Aesthetics */
+/* Prefix: .mcaLaserHair* for uniqueness; Uses global variables for theme consistency */
+/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an engaging, story-driven experience */
 
-/* Container for the entire Laser Hair Removal page */
-.laserHairPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+.mcaLaserHairPageWrapper {
+  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Main title for the page */
-.laserHairMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+/* Hero Section */
+.mcaLaserHairHero {
+  text-align: center;
+  max-width: 48rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.mcaLaserHairMainTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--mca-deep-purple);
+  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mcaLaserHairMainTitle:hover {
+  color: var(--mca-lux-gold);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .mcaLaserHairMainTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.mcaLaserHairIntroText {
+  font-size: 1.125rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mcaLaserHairHeroImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden; /* Ensure image doesn't overflow */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaLaserHairHeroImageHolder:hover {
+  transform: scale(1.03);
+}
+
+/* Call to Action */
+.mcaLaserHairCallToAction {
+  background-color: var(--mca-soft-white);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  padding: 2rem;
+  text-align: center;
+  max-width: 48rem;
+  margin: 2rem auto;
+  border: 1px solid var(--mca-bronze);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcaLaserHairCallToAction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+}
+
+.mcaLaserHairCtaText {
+  font-size: 1.5rem;
+  color: var(--mca-deep-purple);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* Section Titles */
+.mcaLaserHairSectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--mca-deep-purple);
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold);
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mcaLaserHairSectionTitle:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Content Sections */
+.mcaLaserHairContentSection {
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.mcaLaserHairContentLayout {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
-.laserHairMainTitle {
-font-size: 2.75rem;
-}
+  .mcaLaserHairContentLayout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mcaLaserHairContentText {
+    flex: 1;
+  }
+  .mcaLaserHairImageHolder {
+    flex: 1;
+    max-width: 50%;
+  }
 }
 
+.mcaLaserHairParagraph, .mcaLaserHairIntroParagraph {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.mcaLaserHairImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden; /* Ensure image doesn't overflow */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaLaserHairImageHolder:hover {
+  transform: scale(1.03);
+}
+
+.mcaLaserHairImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the container nicely */
+}
+
+.mcaLaserHairImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+}
+
+/* List Styling */
+.mcaLaserHairListContainer {
+  list-style-type: none; /* Remove default bullets to prevent doubling */
+  margin-bottom: 1.5rem;
+  padding-left: 0; /* Reset padding for custom positioning */
+}
+
+.mcaLaserHairListItem {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.75rem; /* Adjust padding for custom bullet */
+}
+
+.mcaLaserHairListItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--mca-lux-gold);
+  font-size: 1.25rem;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 640px) {
-.laserHairMainTitle {
-font-size: 1.875rem;
-}
-}
-
-/* Introductory section */
-.laserHairIntroSection {
-max-width: 48rem;
-margin-bottom: 2.5rem;
-text-align: center;
-}
-
-.laserHairIntroText {
-font-size: 1.125rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1.5rem;
-}
-
-@media (max-width: 640px) {
-.laserHairIntroText {
-font-size: 1rem;
-}
-}
-
-/* Section headings */
-.laserHairSectionHeading {
-font-size: 1.75rem;
-font-weight: 600;
-margin-bottom: 1.5rem;
-color: #3B5998;
-text-align: center;
-}
-
-@media (max-width: 640px) {
-.laserHairSectionHeading {
-font-size: 1.5rem;
-}
-}
-
-/* Content section container */
-.laserHairContentSection {
-max-width: 48rem;
-margin-bottom: 3rem;
-width: 100%;
-}
-
-/* Paragraph text in sections */
-.laserHairContentText {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 1rem;
-text-align: justify;
-}
-
-@media (max-width: 640px) {
-.laserHairContentText {
-font-size: 0.875rem;
-}
-}
-
-/* List styling */
-.laserHairListContainer {
-margin-bottom: 1.5rem;
-padding-left: 1.5rem;
-}
-
-.laserHairListItem {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 0.75rem;
-position: relative;
-padding-left: 1.25rem;
-}
-
-.laserHairListItem::before {
-content: "•";
-position: absolute;
-left: 0;
-color: #4267B2;
-font-size: 1.25rem;
-}
-
-@media (max-width: 640px) {
-.laserHairListItem {
-font-size: 0.875rem;
-}
-}
-
-/* Call to action section */
-.laserHairCallToAction {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 2rem;
-text-align: center;
-max-width: 48rem;
-margin: 2rem auto;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.laserHairCallToAction:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-}
-
-.laserHairCtaText {
-font-size: 1.5rem;
-color: #3B5998;
-font-weight: 600;
-margin-bottom: 0;
-}
-
-@media (max-width: 640px) {
-.laserHairCtaText {
-font-size: 1.25rem;
-}
-.laserHairCallToAction {
-padding: 1.5rem;
-}
+  .mcaLaserHairMainTitle {
+    font-size: 2rem;
+  }
+  .mcaLaserHairSectionTitle {
+    font-size: 1.75rem;
+  }
+  .mcaLaserHairIntroText, .mcaLaserHairParagraph, .mcaLaserHairIntroParagraph {
+    font-size: 0.875rem;
+  }
+  .mcaLaserHairCtaText {
+    font-size: 1.25rem;
+  }
+  .mcaLaserHairHeroImageHolder, .mcaLaserHairImageHolder {
+    height: 16rem;
+  }
+  .mcaLaserHairCallToAction {
+    padding: 1.5rem;
+  }
+  .mcaLaserHairListItem {
+    font-size: 0.875rem;
+    padding-left: 1.5rem;
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from "next/image"; // Updated from next/legacy/image to next/image (recommended)
+import Image from "next/image";
 import meta from '../../public/images/meta.png';
 import melissaImg from '../../public/images/melissa.png';
 import maleahImg from '../../public/images/maleah.png';
@@ -41,10 +41,10 @@ export const metadata = {
   },
   icons: {
     apple: [
-      { url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      { url: "/images/apple-touch-icon-152x152.png", sizes: "152x152", type: "image/png" },
+      { url: "/images/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/images/favicon_io/apple-touch-icon-152x152.png", sizes: "152x152", type: "image/png" },
     ],
-    icon: "/favicon.ico",
+    icon: "/images/favicon_io/favicon.ico",
   },
 };
 
@@ -173,7 +173,7 @@ export default function HomePage() {
                     width={400}
                     height={400}
                     priority
-                    style={{ objectFit: "cover", objectPosition: "center" }} // Updated for next/image compatibility
+                    style={{ objectFit: "cover", objectPosition: "center" }}
                   />
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function HomePage() {
                     width={400}
                     height={400}
                     priority
-                    style={{ objectFit: "cover", objectPosition: "center" }} // Updated for next/image compatibility
+                    style={{ objectFit: "cover", objectPosition: "center" }}
                   />
                 </div>
               </div>
@@ -232,8 +232,8 @@ export default function HomePage() {
               src="https://picsum.photos/seed/7/400/500" 
               alt="MC Aesthetics McMinnville Clinic Interior" 
               className={styles.mcaLuxHomeAboutPortrait} 
-              width={400} // Required for next/image
-              height={500} // Required for next/image
+              width={400}
+              height={500}
               loading="lazy" 
             />
           </div>
@@ -281,8 +281,8 @@ export default function HomePage() {
                   src={item.imageUrl}
                   alt={item.altText}
                   className={styles.mcaLuxHomeGalleryPhoto}
-                  width={400} // Required for next/image (based on your placeholder dimensions)
-                  height={300} // Required for next/image
+                  width={400}
+                  height={300}
                   loading="lazy"
                 />
                 <div className={styles.mcaLuxHomeGalleryHoverLayer}>

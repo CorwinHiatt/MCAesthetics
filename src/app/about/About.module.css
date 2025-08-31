@@ -1,153 +1,226 @@
-/* Container for the entire About page */
-.aboutPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+/* About.module.css - Engaging About Page for MC Aesthetics */
+/* Prefix: .mcaAbout* for uniqueness; Uses global variables for theme consistency */
+/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an inspiring, story-driven experience */
+
+.mcaAboutPageWrapper {
+  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Main title for the About page */
-.aboutMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+/* Hero Section */
+.mcaAboutHero {
+  text-align: center;
+  max-width: 48rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.mcaAboutMainTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--mca-deep-purple);
+  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mcaAboutMainTitle:hover {
+  color: var(--mca-lux-gold);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .mcaAboutMainTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.mcaAboutIntroText {
+  font-size: 1.125rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mcaAboutHeroImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden; /* Ensure image doesn't overflow */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaAboutHeroImageHolder:hover {
+  transform: scale(1.03);
+}
+
+/* Call to Action */
+.mcaAboutCallToAction {
+  background-color: var(--mca-soft-white);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  padding: 2rem;
+  text-align: center;
+  max-width: 48rem;
+  margin: 2rem auto;
+  border: 1px solid var(--mca-bronze);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcaAboutCallToAction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+}
+
+.mcaAboutCtaText {
+  font-size: 1.5rem;
+  color: var(--mca-deep-purple);
+  font-weight: 600;
+  margin-bottom: 0;
+  text-decoration: none; /* Remove underline for clean look */
+  transition: color 0.3s ease;
+}
+
+.mcaAboutCtaText:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Section Titles */
+.mcaAboutSectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--mca-deep-purple);
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold);
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mcaAboutSectionTitle:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Content Sections */
+.mcaAboutContentSection {
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.mcaAboutContentLayout {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
-.aboutMainTitle {
-font-size: 2.75rem;
-}
+  .mcaAboutContentLayout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mcaAboutContentText {
+    flex: 1;
+  }
+  .mcaAboutImageHolder {
+    flex: 1;
+    max-width: 50%;
+  }
 }
 
+.mcaAboutParagraph, .mcaAboutIntroParagraph {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.mcaAboutImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden; /* Ensure image doesn't overflow */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaAboutImageHolder:hover {
+  transform: scale(1.03);
+}
+
+.mcaAboutImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the container nicely */
+}
+
+.mcaAboutImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+}
+
+/* List Styling */
+.mcaAboutListContainer {
+  list-style-type: none; /* Remove default bullets to prevent doubling */
+  margin-bottom: 1.5rem;
+  padding-left: 0; /* Reset padding for custom positioning */
+}
+
+.mcaAboutListItem {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.75rem; /* Adjust padding for custom bullet */
+}
+
+.mcaAboutListItem::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--mca-lux-gold);
+  font-size: 1.25rem;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 640px) {
-.aboutMainTitle {
-font-size: 1.875rem;
-}
-}
-
-/* Introductory paragraph */
-.aboutIntroText {
-font-size: 1.125rem;
-margin-bottom: 2.5rem;
-text-align: center;
-color: #4a5568;
-max-width: 48rem;
-line-height: 1.6;
-}
-
-@media (max-width: 640px) {
-.aboutIntroText {
-font-size: 1rem;
-margin-bottom: 2rem;
-}
-}
-
-/* Grid layout for team members */
-.aboutTeamLayout {
-display: grid;
-grid-template-columns: 1fr;
-gap: 2rem;
-max-width: 64rem;
-width: 100%;
-margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-.aboutTeamLayout {
-grid-template-columns: repeat(2, 1fr);
-}
-}
-
-/* Individual team member card */
-.aboutMemberCard {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2);
-overflow: hidden;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.aboutMemberCard:hover {
-transform: translateY(-8px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Placeholder for team member image */
-.aboutMemberImageHolder {
-width: 100%;
-height: 16rem;
-background-color: #cbd5e0;
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-color: #718096;
-font-size: 0.875rem;
-text-align: center;
-padding: 0 0.5rem;
-}
-
-/* Accent border for image placeholder */
-.aboutImageBorderAccent {
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-height: 0.25rem;
-background: linear-gradient(to right, #4267B2, #3B5998);
-}
-
-/* Content section of the card */
-.aboutMemberContent {
-padding: 1.75rem;
-}
-
-/* Team member name */
-.aboutMemberName {
-font-size: 1.5rem;
-font-weight: 600;
-margin-bottom: 0.5rem;
-color: #3B5998;
-text-align: center;
-}
-
-@media (max-width: 640px) {
-.aboutMemberName {
-font-size: 1.25rem;
-}
-}
-
-/* Team member role/title */
-.aboutMemberRole {
-font-size: 1.125rem;
-font-weight: 500;
-margin-bottom: 1rem;
-color: #4a5568;
-text-align: center;
-}
-
-@media (max-width: 640px) {
-.aboutMemberRole {
-font-size: 1rem;
-}
-}
-
-/* Team member bio/description */
-.aboutMemberDescription {
-color: #4a5568;
-line-height: 1.7;
-font-size: 1rem;
-text-align: justify;
-}
-
-@media (max-width: 640px) {
-.aboutMemberDescription {
-font-size: 0.875rem;
-}
+  .mcaAboutMainTitle {
+    font-size: 2rem;
+  }
+  .mcaAboutSectionTitle {
+    font-size: 1.75rem;
+  }
+  .mcaAboutIntroText, .mcaAboutParagraph, .mcaAboutIntroParagraph {
+    font-size: 0.875rem;
+  }
+  .mcaAboutCtaText {
+    font-size: 1.25rem;
+  }
+  .mcaAboutHeroImageHolder, .mcaAboutImageHolder {
+    height: 16rem;
+  }
+  .mcaAboutCallToAction {
+    padding: 1.5rem;
+  }
+  .mcaAboutListItem {
+    font-size: 0.875rem;
+    padding-left: 1.5rem;
+  }
 }

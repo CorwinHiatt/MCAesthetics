@@ -11,24 +11,25 @@
   background-color: #ffffff;
 }
 
-/* High Contrast Mode */
-.high-contrast {
-  background-color: #000 !important;
-  color: #fff !important;
+/* globals.css - Site-wide variables for MC Aesthetics */
+:root {
+  --mca-primary-purple: #cb1ed4;
+  --mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4);
+  --mca-rose-brown: #bf796d;
+  --mca-gold-accent: #a08d6d;
+  --mca-light-gold: #e2d5b1;
+  --mca-pink-highlight: #f20fce;
+  --mca-deep-purple: #9c0491;
+  --mca-navy-blue: #074596;
+  --mca-light-blue: #547dc9;
+  --mca-sky-blue: #7395d1;
+  --mca-bronze: #ab8260;
+  --mca-vivid-pink: #ec5fd1;
+  --mca-mustard-gold: #c5af3b;
+  --mca-soft-white: #f8f8f8;
+  --mca-elegant-gray: #4a4a4a;
+  --mca-lux-gold: #d4af37;
+  --mca-shadow-subtle: rgba(0, 0, 0, 0.1);
+  --mca-shadow-deep: rgba(0, 0, 0, 0.15);
 }
 
-.high-contrast a {
-  color: #ff0 !important; /* Yellow for links */
-  text-decoration: underline !important;
-}
-
-.high-contrast button {
-  background-color: #fff !important;
-  color: #000 !important;
-  border: 2px solid #fff !important;
-}
-
-/* Override any other specific elements as needed */
-.high-contrast img {
-  filter: contrast(150%) !important;
-}

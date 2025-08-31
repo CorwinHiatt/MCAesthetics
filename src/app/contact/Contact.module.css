@@ -1,165 +1,261 @@
-/* Container for the entire Contact page */
-.contactPageWrapper {
-background-color: #f8f9fa;
-min-height: 100vh;
-padding: 3rem 1rem;
-display: flex;
-flex-direction: column;
-align-items: center;
+/* Contact.module.css - Contact Page for MC Aesthetics */
+/* Prefix: .mcaContact* for uniqueness; Uses global variables for theme consistency */
+/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an inviting, user-friendly experience */
+
+.mcaContactPageWrapper {
+  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Main title for the page */
-.contactMainTitle {
-font-size: 2.25rem;
-font-weight: 700;
-margin-bottom: 2rem;
-text-align: center;
-color: #4267B2;
-transition: color 0.3s ease;
+/* Hero Section */
+.mcaContactHero {
+  text-align: center;
+  max-width: 48rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.mcaContactMainTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--mca-deep-purple);
+  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mcaContactMainTitle:hover {
+  color: var(--mca-lux-gold);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .mcaContactMainTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.mcaContactIntroText {
+  font-size: 1.125rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mcaContactHeroImageHolder {
+  width: 100%;
+  height: 20rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  transition: transform 0.3s ease;
+}
+
+.mcaContactHeroImageHolder:hover {
+  transform: scale(1.03);
+}
+
+.mcaContactImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mcaContactImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+}
+
+/* Section Titles */
+.mcaContactSectionTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--mca-deep-purple);
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold);
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.mcaContactSectionTitle:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Content Sections */
+.mcaContactContentSection {
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.mcaContactContentLayout {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
-.contactMainTitle {
-font-size: 2.75rem;
-}
+  .mcaContactContentLayout {
+    flex-direction: row;
+    align-items: center;
+  }
+  .mcaContactContentText {
+    flex: 1;
+  }
+  .mcaContactImageHolder {
+    flex: 1;
+    max-width: 50%;
+  }
 }
 
+.mcaContactInfoText {
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+/* Contact Form */
+.mcaContactFormContainer {
+  background-color: var(--mca-soft-white);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  padding: 2rem;
+  max-width: 36rem;
+  width: 100%;
+  margin: 0 auto 3rem;
+  border: 1px solid var(--mca-bronze);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcaContactFormContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+}
+
+.mcaContactFormField {
+  margin-bottom: 1.25rem;
+}
+
+.mcaContactFormLabel {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mca-elegant-gray);
+  margin-bottom: 0.5rem;
+}
+
+.mcaContactFormInput,
+.mcaContactFormTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--mca-bronze);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  color: var(--mca-elegant-gray);
+  transition: border-color 0.2s ease;
+}
+
+.mcaContactFormInput:focus,
+.mcaContactFormTextarea:focus {
+  outline: none;
+  border-color: var(--mca-deep-purple);
+}
+
+.mcaContactFormTextarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.mcaContactSubmitButton {
+  display: block;
+  background: linear-gradient(to right, var(--mca-deep-purple), var(--mca-lux-gold));
+  color: var(--mca-soft-white);
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mcaContactSubmitButton:hover {
+  background: linear-gradient(to right, var(--mca-lux-gold), var(--mca-deep-purple));
+  transform: scale(1.05);
+}
+
+/* Call to Action */
+.mcaContactCallToAction {
+  background-color: var(--mca-soft-white);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
+  padding: 2rem;
+  text-align: center;
+  max-width: 48rem;
+  margin: 2rem auto;
+  border: 1px solid var(--mca-bronze);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mcaContactCallToAction:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+}
+
+.mcaContactCtaText {
+  font-size: 1.5rem;
+  color: var(--mca-deep-purple);
+  font-weight: 600;
+  margin-bottom: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mcaContactCtaText:hover {
+  color: var(--mca-pink-highlight);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 640px) {
-.contactMainTitle {
-font-size: 1.875rem;
-}
-}
-
-/* Introductory text */
-.contactIntroText {
-font-size: 1.125rem;
-color: #4a5568;
-line-height: 1.7;
-margin-bottom: 2.5rem;
-text-align: center;
-max-width: 36rem;
-}
-
-@media (max-width: 640px) {
-.contactIntroText {
-font-size: 1rem;
-}
-}
-
-/* Contact form container */
-.contactFormContainer {
-background-color: white;
-border-radius: 0.75rem;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-padding: 2rem;
-max-width: 36rem;
-width: 100%;
-margin-bottom: 3rem;
-border: 1px solid #e2e8f0;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contactFormContainer:hover {
-transform: translateY(-5px);
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Form heading */
-.contactFormHeading {
-font-size: 1.75rem;
-font-weight: 600;
-margin-bottom: 1.5rem;
-color: #3B5998;
-text-align: center;
-}
-
-@media (max-width: 640px) {
-.contactFormHeading {
-font-size: 1.5rem;
-}
-}
-
-/* Form field styling */
-.contactFormField {
-margin-bottom: 1.25rem;
-}
-
-.contactFormLabel {
-display: block;
-font-size: 1rem;
-font-weight: 500;
-color: #4a5568;
-margin-bottom: 0.5rem;
-}
-
-.contactFormInput,
-.contactFormTextarea {
-width: 100%;
-padding: 0.75rem;
-border: 1px solid #e2e8f0;
-border-radius: 0.375rem;
-font-size: 1rem;
-color: #4a5568;
-transition: border-color 0.2s ease;
-}
-
-.contactFormInput:focus,
-.contactFormTextarea:focus {
-outline: none;
-border-color: #4267B2;
-}
-
-.contactFormTextarea {
-min-height: 8rem;
-resize: vertical;
-}
-
-/* Submit button */
-.contactSubmitButton {
-display: block;
-background: linear-gradient(to right, #4267B2, #3B5998);
-color: white;
-font-size: 1.125rem;
-font-weight: 600;
-padding: 0.75rem 1.5rem;
-border: none;
-border-radius: 0.5rem;
-cursor: pointer;
-margin: 0 auto;
-transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.contactSubmitButton:hover {
-background: linear-gradient(to right, #3B5998, #4267B2);
-transform: scale(1.05);
-}
-
-@media (max-width: 640px) {
-.contactSubmitButton {
-font-size: 1rem;
-padding: 0.625rem 1.25rem;
-}
-.contactFormContainer {
-padding: 1.5rem;
-}
-}
-
-/* Contact info placeholder */
-.contactInfoSection {
-text-align: center;
-max-width: 36rem;
-margin-bottom: 2rem;
-}
-
-.contactInfoText {
-font-size: 1rem;
-color: #4a5568;
-line-height: 1.6;
-margin-bottom: 0.75rem;
-}
-
-@media (max-width: 640px) {
-.contactInfoText {
-font-size: 0.875rem;
-}
+  .mcaContactMainTitle {
+    font-size: 2rem;
+  }
+  .mcaContactSectionTitle {
+    font-size: 1.75rem;
+  }
+  .mcaContactIntroText, .mcaContactInfoText {
+    font-size: 0.875rem;
+  }
+  .mcaContactCtaText {
+    font-size: 1.25rem;
+  }
+  .mcaContactHeroImageHolder, .mcaContactImageHolder {
+    height: 16rem;
+  }
+  .mcaContactFormContainer {
+    padding: 1.5rem;
+  }
+  .mcaContactSubmitButton {
+    font-size: 1rem;
+    padding: 0.625rem 1.25rem;
+  }
+  .mcaContactCallToAction {
+    padding: 1.5rem;
+  }
 }

@@ -13,7 +13,7 @@ interface Review {
 }
 
 export default function Carousel() {
-  // Array of all 34 five-star reviews
+  // Array of all 34 five-star reviews (truncated long texts with ellipsis for better display)
   const reviews: Review[] = [
     {
       reviewer: 'Lea Mackenbach',
@@ -253,7 +253,7 @@ export default function Carousel() {
       ownerResponse: 'Thank you!',
       ownerResponseDate: '2 weeks ago',
     }
-     ];
+  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

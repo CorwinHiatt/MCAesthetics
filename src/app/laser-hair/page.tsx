@@ -1,82 +1,135 @@
-
 import styles from './LaserHair.module.css';
+import Image from 'next/image';
 
 export default function LaserHairPage() {
   return (
-    <div className={styles.laserHairPageWrapper}>
-      {/* Main Title */}
-      <h1 className={styles.laserHairMainTitle}>Laser Hair Removal Services in McMinnville</h1>
-
-      {/* Introduction Section */}
-      <div className={styles.laserHairIntroSection}>
-        <h2 className={styles.laserHairSectionHeading}>Welcome to a Smoother Future with Elysion Laser Hair Removal</h2>
-        <p className={styles.laserHairIntroText}>
-          Discover the end of tedious shaving and waxing with our advanced Elysion hair removal system in McMinnville. This state-of-the-art technology offers a lasting solution to unwanted hair, bringing ease and efficiency to hair removal. With Elysion, experience a breakthrough in comfort and results, suitable for all body areas, including sensitive ones. Embrace the convenience of permanent reduction in hair growth and join us in the new era of effortless, silky smooth skin.
+    <div className={styles.mcaLaserHairPageWrapper}>
+      {/* Hero Section with Main Title and Intro */}
+      <section className={styles.mcaLaserHairHero}>
+        <h1 className={styles.mcaLaserHairMainTitle}>Embrace Effortless Elegance: Laser Hair Removal in McMinnville</h1>
+        <p className={styles.mcaLaserHairIntroText}>
+          Imagine a life free from the endless cycle of shaving, waxing, and plucking. At MC Aesthetics, our Elysion Laser Hair Removal transforms this dream into reality. Step into a world where smooth, silky skin is your everyday luxury. Powered by cutting-edge technology, Elysion delivers precise, comfortable treatments that bid farewell to unwanted hair for good. Whether it&apos;s the gentle curves of your legs or the delicate contours of your face, discover the freedom and confidence that comes with flawless, hair-free skin. Join us on this journey to rediscover your natural radiance.
         </p>
-      </div>
+        {/* Picsum Placeholder Image for Hero */}
+        <div className={styles.mcaLaserHairHeroImageHolder}>
+          <Image
+            src="https://picsum.photos/seed/laserhero/800/400"
+            alt="Confident Woman with Smooth, Glowing Skin in Serene Setting"
+            className={styles.mcaLaserHairImage}
+            width={800}
+            height={400}
+          />
+          <div className={styles.mcaLaserHairImageBorderAccent}></div>
+        </div>
+      </section>
 
       {/* Call to Action */}
-      <div className={styles.laserHairCallToAction}>
-        <p className={styles.laserHairCtaText}>BOOK YOUR APPOINTMENT</p>
+      <div className={styles.mcaLaserHairCallToAction}>
+        <p className={styles.mcaLaserHairCtaText}>BOOK YOUR TRANSFORMATIVE SESSION TODAY</p>
       </div>
 
       {/* Elysion Technology Section */}
-      <div className={styles.laserHairContentSection}>
-        <h2 className={styles.laserHairSectionHeading}>Elysion Laser Hair Removal in McMinnville: A Revolutionary Technology</h2>
-        <p className={styles.laserHairContentText}>
-          The Elysion Laser Hair Removal system stands at the forefront of hair removal technologies. It harnesses the power of a diode laser, targeting hair follicles with precision and disrupting their growth without harming surrounding skin. This innovative approach ensures a significant reduction in hair regrowth, often leading to permanent results.
-        </p>
-        <p className={styles.laserHairContentText}>
-          Unlike traditional methods, Elysion is designed for all skin types, making it a universal solution for diverse needs. The procedure is swift, typically lasting just minutes, and is virtually pain-free thanks to its advanced cooling technology. Whether you’re dealing with stubborn hair on your back, delicate areas, or facial hair, Elysion offers a safe, effective, and comfortable experience. Embrace the change with Elysion laser hair treatment in McMinnville.
-        </p>
-      </div>
+      <section className={styles.mcaLaserHairContentSection}>
+        <h2 className={styles.mcaLaserHairSectionTitle}>The Magic of Elysion: Revolutionizing Hair Removal</h2>
+        <div className={styles.mcaLaserHairContentLayout}>
+          <div className={styles.mcaLaserHairContentText}>
+            <p className={styles.mcaLaserHairParagraph}>
+              At the heart of our laser hair removal services lies the Elysion system—a beacon of innovation in aesthetic care. This advanced diode laser technology gently targets hair follicles, disrupting their growth cycle while safeguarding your skin&apos;s natural beauty. The result? A dramatic reduction in hair regrowth, often leading to permanent smoothness that feels like a fresh start.
+            </p>
+            <p className={styles.mcaLaserHairParagraph}>
+              What sets Elysion apart is its versatility and comfort. Safe for all skin types, it glides effortlessly over any area, from broad expanses like the back to intimate zones. With built-in cooling for a virtually painless experience, each session is a step toward liberation from traditional hair removal hassles. At MC Aesthetics in McMinnville, we&apos;re not just removing hair; we&apos;re unveiling the confident, carefree you.
+            </p>
+          </div>
+          {/* Picsum Placeholder Image */}
+          <div className={styles.mcaLaserHairImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/lasertech/800/400"
+              alt="Advanced Laser Device in Elegant Clinic Environment"
+              className={styles.mcaLaserHairImage}
+              width={800}
+              height={400}
+            />
+            <div className={styles.mcaLaserHairImageBorderAccent}></div>
+          </div>
+        </div>
+      </section>
 
       {/* Benefits Section */}
-      <div className={styles.laserHairContentSection}>
-        <h2 className={styles.laserHairSectionHeading}>Benefits of Choosing Elysion-Pro for Hair Removal</h2>
-        <p className={styles.laserHairContentText}>
-          Opting for Elysion-Pro at our clinic means choosing a path to smoother skin with a multitude of benefits:
+      <section className={styles.mcaLaserHairContentSection}>
+        <h2 className={styles.mcaLaserHairSectionTitle}>Unlock the Benefits: Why Elysion is Your Path to Freedom</h2>
+        <p className={styles.mcaLaserHairIntroParagraph}>
+          Choosing Elysion at MC Aesthetics means embracing a smoother, more empowered life. Here&apos;s how this transformative treatment elevates your beauty routine:
         </p>
-        <ul className={styles.laserHairListContainer}>
-          <li className={styles.laserHairListItem}>
-            <strong>Rapid and Visible Results:</strong> Unlike other hair removal methods, Elysion-Pro delivers noticeable changes in hair density and texture from the first few sessions. Most clients experience a significant reduction in hair growth, heading towards permanent removal in just a few treatments.
+        <ul className={styles.mcaLaserHairListContainer}>
+          <li className={styles.mcaLaserHairListItem}>
+            <strong>Swift, Lasting Results:</strong> Witness a visible transformation from the very first session, with progressive reduction leading to enduring smoothness that redefines your daily glow.
           </li>
-          <li className={styles.laserHairListItem}>
-            <strong>Versatility for Every Body Part:</strong> Whether it’s your legs, arms, underarms, back, or more sensitive areas like the bikini line, Elysion-Pro adapts seamlessly. Its precision technology caters to every curve and contour of your body, ensuring an effective treatment regardless of the area.
+          <li className={styles.mcaLaserHairListItem}>
+            <strong>Adaptable to Every Curve:</strong> From legs and arms to bikini lines and beyond, Elysion&apos;s precision ensures flawless coverage, tailored to your body&apos;s unique contours.
           </li>
-          <li className={styles.laserHairListItem}>
-            <strong>Safety and Comfort:</strong> As an FDA-approved system, Elysion-Pro meets high safety standards. It’s clinically tested to ensure it doesn’t cause skin damage or discomfort. The system’s unique cooling technology makes the process comfortable, reducing the sensation of heat often associated with laser treatments.
+          <li className={styles.mcaLaserHairListItem}>
+            <strong>Unmatched Safety and Serenity:</strong> FDA-approved and equipped with soothing cooling tech, Elysion prioritizes your comfort, making each treatment a relaxing escape.
           </li>
-          <li className={styles.laserHairListItem}>
-            <strong>Suitable for All Skin Types:</strong> Elysion-Pro’s advanced technology is designed to work effectively across a diverse range of skin types. This inclusivity means more people can enjoy the benefits of laser hair removal without worrying about skin sensitivity or compatibility.
+          <li className={styles.mcaLaserHairListItem}>
+            <strong>Inclusive for All Skin Tones:</strong> Our technology welcomes every skin type, breaking barriers to deliver inclusive, effective care that celebrates diversity.
           </li>
-          <li className={styles.laserHairListItem}>
-            <strong>Minimal Downtime:</strong> Say goodbye to the long recovery periods. Elysion-Pro allows you to return to your daily activities immediately after treatment, fitting seamlessly into your busy lifestyle.
+          <li className={styles.mcaLaserHairListItem}>
+            <strong>Seamless Integration into Life:</strong> With no downtime, step out of our clinic and straight back into your world, radiating confidence without interruption.
           </li>
         </ul>
-        <p className={styles.laserHairContentText}>
-          By choosing Elysion-Pro, you’re not just selecting a hair removal solution; you’re embracing a lifestyle change that offers lasting smoothness, confidence, and freedom from conventional hair removal methods.
+        <p className={styles.mcaLaserHairParagraph}>
+          Elysion isn&apos;t just a treatment—it&apos;s a celebration of your natural beauty, freeing you to live boldly and beautifully.
         </p>
-      </div>
+      </section>
 
       {/* Preparation Section */}
-      <div className={styles.laserHairContentSection}>
-        <h2 className={styles.laserHairSectionHeading}>Preparation for Your Elysion Treatment</h2>
-        <p className={styles.laserHairContentText}>
-          To ensure the best possible results from your Elysion hair removal treatment in McMinnville, a little preparation is key. Firstly, shave the treatment area 24 hours before your session; this allows the laser to target the hair follicle more effectively. Avoid sun exposure, tanning beds, and self-tanning products for at least two weeks prior to treatment, as tanned skin can affect the effectiveness of the laser. It’s also advisable to stay hydrated and avoid caffeine on the day of your appointment to enhance your skin’s response to the treatment. Finally, arrive at your session with clean skin, free of lotions, creams, or makeup in the targeted areas.
-        </p>
-      </div>
+      <section className={styles.mcaLaserHairContentSection}>
+        <h2 className={styles.mcaLaserHairSectionTitle}>Prepare for Your Journey to Smoothness</h2>
+        <div className={styles.mcaLaserHairContentLayout}>
+          <div className={styles.mcaLaserHairContentText}>
+            <p className={styles.mcaLaserHairParagraph}>
+              To make your Elysion experience at MC Aesthetics truly magical, a touch of preparation goes a long way. Shave the area 24 hours prior to focus the laser&apos;s energy precisely. Shield your skin from the sun for two weeks beforehand, avoiding tans that could dim the results. Stay hydrated, skip the caffeine, and arrive with clean, product-free skin. These simple steps set the stage for optimal, radiant outcomes.
+            </p>
+          </div>
+          {/* Picsum Placeholder Image */}
+          <div className={styles.mcaLaserHairImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/laserprep/800/400"
+              alt="Woman Preparing Skin in Luxurious Bathroom"
+              className={styles.mcaLaserHairImage}
+              width={800}
+              height={400}
+            />
+            <div className={styles.mcaLaserHairImageBorderAccent}></div>
+          </div>
+        </div>
+      </section>
 
       {/* Post-Treatment Care Section */}
-      <div className={styles.laserHairContentSection}>
-        <h2 className={styles.laserHairSectionHeading}>Post-Treatment Care and Maintenance</h2>
-        <p className={styles.laserHairContentText}>
-          After your Elysion session, a few simple steps will help maintain your results and ensure a comfortable recovery. It’s normal to experience slight redness; applying a cool compress can provide relief. Avoid direct sun exposure and use a broad-spectrum sunscreen to protect the treated area. Steer clear of hot baths, saunas, and intense exercise for 24 hours post-treatment. If you have any concerns or questions after your session, our team is always here to provide guidance and support.
-        </p>
-        <p className={styles.laserHairContentText}>
-          Contact us to schedule a consultation and learn how laser hair removal in McMinnville can give you smoother, longer-lasting results.
-        </p>
-      </div>
+      <section className={styles.mcaLaserHairContentSection}>
+        <h2 className={styles.mcaLaserHairSectionTitle}>Nurture Your Glow: Aftercare Essentials</h2>
+        <div className={styles.mcaLaserHairContentLayout}>
+          <div className={styles.mcaLaserHairContentText}>
+            <p className={styles.mcaLaserHairParagraph}>
+              Post-treatment, let your skin bask in gentle care to preserve its newfound silkiness. A cool compress soothes any mild redness, while sunscreen guards against the sun&apos;s rays. Pause on heat-inducing activities for a day, allowing your skin to revel in its transformation. Our team is here to guide you every step, ensuring your path to lasting smoothness is as effortless as the results.
+            </p>
+            <p className={styles.mcaLaserHairParagraph}>
+              Ready to embark on this empowering adventure? Contact MC Aesthetics in McMinnville for a consultation and step into a hair-free future.
+            </p>
+          </div>
+          {/* Picsum Placeholder Image */}
+          <div className={styles.mcaLaserHairImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/lasercare/800/400"
+              alt="Relaxed Woman Applying Lotion Post-Treatment"
+              className={styles.mcaLaserHairImage}
+              width={800}
+              height={400}
+            />
+            <div className={styles.mcaLaserHairImageBorderAccent}></div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
