@@ -1,142 +1,207 @@
 .accessibilityWrapper {
-width: 100%;
-min-height: 100vh;
-background-color: #f9f9f9;
-padding: 1.5rem 1rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  padding: 2rem 1rem;
+  font-family: 'Playfair Display', serif;
 }
 
 .accessibilityMain {
-max-width: 1200px;
-margin: 0 auto;
-background-color: #ffffff;
-padding: 2rem 1.5rem;
-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-border-radius: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
 }
 
 .accessibilityHeader {
-text-align: center;
-margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .accessibilityTitle {
-font-size: 2rem;
-font-weight: 700;
-color: #2c3e50;
-margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.accessibilityHero {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.accessibilityImageHolder {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.accessibilityImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.accessibilityImage:hover {
+  transform: scale(1.05);
+}
+
+.accessibilityImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #d4af37, #c0a080);
 }
 
 .accessibilitySection {
-margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .accessibilitySubtitle {
-font-size: 1.5rem;
-font-weight: 600;
-color: #34495e;
-margin-bottom: 1rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.03em;
 }
 
 .accessibilityText {
-font-size: 1rem;
-line-height: 1.6;
-color: #4a4a4a;
-margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  text-align: justify;
 }
 
 .accessibilityList {
-list-style: none;
-padding-left: 0;
-margin-bottom: 1.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
 }
 
 .accessibilityListItem {
-font-size: 1rem;
-line-height: 1.6;
-color: #4a4a4a;
-margin-bottom: 0.75rem;
-padding-left: 1.5rem;
-position: relative;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
 }
 
 .accessibilityListItem::before {
-content: "•";
-position: absolute;
-left: 0;
-color: #3498db;
-font-size: 1.2rem;
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #d4af37;
+  font-size: 1.5rem;
 }
 
 .accessibilityLink {
-color: #3498db;
-text-decoration: none;
-transition: color 0.2s ease;
+  color: #d4af37;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .accessibilityLink:hover,
 .accessibilityLink:focus {
-color: #2980b9;
-text-decoration: underline;
+  color: #c0a080;
+  text-decoration: underline;
 }
 
 .accessibilityLink:focus {
-outline: 2px solid #3498db;
-outline-offset: 2px;
-border-radius: 3px;
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.accessibilityCallToAction {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.accessibilityCtaText {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 @media (min-width: 768px) {
-.accessibilityWrapper {
-padding: 2rem;
-}
+  .accessibilityWrapper {
+    padding: 3rem 2rem;
+  }
 
-.accessibilityMain {
-padding: 3rem 2.5rem;
-}
+  .accessibilityMain {
+    padding: 4rem 3rem;
+  }
 
-.accessibilityTitle {
-font-size: 2.5rem;
-}
+  .accessibilityTitle {
+    font-size: 3rem;
+  }
 
-.accessibilitySubtitle {
-font-size: 1.75rem;
-}
+  .accessibilitySubtitle {
+    font-size: 2rem;
+  }
 
-.accessibilityText,
-.accessibilityListItem {
-font-size: 1.1rem;
-}
+  .accessibilityText,
+  .accessibilityListItem {
+    font-size: 1.2rem;
+  }
 }
 
 @media (min-width: 1024px) {
-.accessibilityMain {
-padding: 3.5rem;
-}
+  .accessibilityMain {
+    padding: 5rem 4rem;
+  }
+
+  .accessibilityImageHolder {
+    max-width: 1000px;
+  }
 }
 
 @media (prefers-contrast: high) {
-.accessibilityTitle,
-.accessibilitySubtitle {
-color: #000000;
-}
+  .accessibilityTitle,
+  .accessibilitySubtitle {
+    color: #000000;
+  }
 
-.accessibilityText,
-.accessibilityListItem {
-color: #000000;
-}
+  .accessibilityText,
+  .accessibilityListItem {
+    color: #000000;
+  }
 
-.accessibilityLink {
-color: #0000ee;
-}
+  .accessibilityLink {
+    color: #0000ee;
+  }
 
-.accessibilityLink:hover,
-.accessibilityLink:focus {
-color: #000099;
-}
+  .accessibilityLink:hover,
+  .accessibilityLink:focus {
+    color: #000099;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-.accessibilityLink {
-transition: none;
-}
+  .accessibilityImage {
+    transition: none;
+  }
+
+  .accessibilityLink {
+    transition: none;
+  }
 }

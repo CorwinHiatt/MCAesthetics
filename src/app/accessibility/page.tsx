@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import styles from './AccessibilityPage.module.css';
+import Image from 'next/image';
 
 export default function AccessibilityPage() {
   return (
@@ -10,6 +11,22 @@ export default function AccessibilityPage() {
         <header className={styles.accessibilityHeader}>
           <h1 className={styles.accessibilityTitle}>Accessibility at MC Aesthetics</h1>
         </header>
+
+        {/* Hero Image Section */}
+        <section className={styles.accessibilityHero}>
+          {/* Picsum Placeholder Image for Hero */}
+          <div className={styles.accessibilityImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/accessibilityhero/800/400"
+              alt="Inclusive and welcoming clinic environment with accessibility features"
+              className={styles.accessibilityImage}
+              width={800}
+              height={400}
+              priority
+            />
+            <div className={styles.accessibilityImageBorderAccent}></div>
+          </div>
+        </section>
 
         <section className={styles.accessibilitySection}>
           <h2 className={styles.accessibilitySubtitle}>Our Commitment to Inclusivity</h2>
@@ -53,6 +70,17 @@ export default function AccessibilityPage() {
             If you encounter any issues while navigating our website, we encourage you to reach out 
             so we can address them promptly.
           </p>
+          {/* Placeholder Image for Digital Section */}
+          <div className={styles.accessibilityImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/digitalaccess/800/400"
+              alt="Person using screen reader on a website in a modern setting"
+              className={styles.accessibilityImage}
+              width={800}
+              height={400}
+            />
+            <div className={styles.accessibilityImageBorderAccent}></div>
+          </div>
         </section>
 
         <section className={styles.accessibilitySection}>
@@ -76,6 +104,17 @@ export default function AccessibilityPage() {
             If you have specific accessibility requirements for your visit, please contact us in 
             advance, and we will do our best to accommodate your needs.
           </p>
+          {/* Placeholder Image for Physical Section */}
+          <div className={styles.accessibilityImageHolder}>
+            <Image
+              src="https://picsum.photos/seed/physicalaccess/800/400"
+              alt="Wheelchair-accessible entrance to a welcoming aesthetics clinic"
+              className={styles.accessibilityImage}
+              width={800}
+              height={400}
+            />
+            <div className={styles.accessibilityImageBorderAccent}></div>
+          </div>
         </section>
 
         <section className={styles.accessibilitySection}>
@@ -110,6 +149,11 @@ export default function AccessibilityPage() {
             user testing to identify areas for improvement.
           </p>
         </section>
+
+        {/* Call to Action */}
+        <div className={styles.accessibilityCallToAction}>
+          <p className={styles.accessibilityCtaText}>CONTACT US FOR ACCESSIBILITY SUPPORT</p>
+        </div>
       </main>
     </div>
   );

@@ -1,12 +1,16 @@
-/* Updated CSS File: AestheticServices.module.css */
-/* Added new classes for professional and elegant image styling: .aestheticServicesImageContainer and .aestheticServicesImage */
-/* These include subtle shadows, rounded corners, smooth transitions, and responsive scaling for a more polished look */
+/* AestheticServices.module.css */
+/* Restyled for elegance and professionalism, matching the MC Aesthetics brand theme. */
+/* Uses Playfair Display font, gold accents (#d4af37), dark blues (#2c3e50), and subtle shadows for a luxurious feel. */
+/* Ensures compatibility with dynamic routes by not altering structural classes, only enhancing styles. */
+/* Careful with image handling: Preserves existing logic for images (which may serve as titles for products), adding elegant framing without breaking paths or onError handling. */
 
 /* Container for the entire Aesthetic Services page */
 .aestheticServicesPageWrapper {
-  background-color: #f8f9fa;
+  width: 100%;
   min-height: 100vh;
+  background-color: #f9f9f9;
   padding: 3rem 1rem;
+  font-family: 'Playfair Display', serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,34 +18,41 @@
 
 /* Main title for the page */
 .aestheticServicesMainTitle {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
+  color: #2c3e50;
   margin-bottom: 2rem;
   text-align: center;
-  color: #4267B2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition: color 0.3s ease;
+}
+
+.aestheticServicesMainTitle:hover {
+  color: #d4af37;
 }
 
 @media (min-width: 768px) {
   .aestheticServicesMainTitle {
-    font-size: 2.75rem;
+    font-size: 3rem;
   }
 }
 
 @media (max-width: 640px) {
   .aestheticServicesMainTitle {
-    font-size: 1.875rem;
+    font-size: 2rem;
   }
 }
 
 /* Introductory text */
 .aestheticServicesIntroText {
-  font-size: 1.125rem;
-  color: #4a5568;
+  font-size: 1.1rem;
   line-height: 1.7;
+  color: #4a4a4a;
   margin-bottom: 2.5rem;
   text-align: center;
-  max-width: 36rem;
+  max-width: 40rem;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 640px) {
@@ -52,30 +63,30 @@
 
 /* Accordion container for services */
 .aestheticServicesAccordionContainer {
-  max-width: 48rem;
+  max-width: 50rem;
   width: 100%;
   margin-bottom: 3rem;
 }
 
 /* Individual accordion item */
 .aestheticServicesAccordionItem {
-  background-color: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .aestheticServicesAccordionItem:hover {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 /* Accordion header (clickable) */
 .aestheticServicesAccordionHeader {
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 2rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -85,19 +96,20 @@
 }
 
 .aestheticServicesAccordionHeader:hover {
-  background-color: #f1f5f9;
+  background-color: #f9f9f9;
 }
 
 .aestheticServicesAccordionTitle {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #3B5998;
+  color: #34495e;
+  letter-spacing: 0.03em;
 }
 
 /* Accordion icon (chevron) */
 .aestheticServicesAccordionIcon {
-  font-size: 1.5rem;
-  color: #4267B2;
+  font-size: 1.25rem;
+  color: #d4af37;
   transition: transform 0.3s ease;
 }
 
@@ -107,7 +119,7 @@
 
 /* Accordion content (expandable) */
 .aestheticServicesAccordionContent {
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   max-height: 0;
   opacity: 0;
   transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
@@ -115,71 +127,108 @@
 }
 
 .aestheticServicesAccordionContent.open {
-  padding: 1.5rem;
+  padding: 2rem;
   opacity: 1;
 }
 
 .aestheticServicesAccordionDescription {
-  font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
 }
 
 .aestheticServicesAccordionLink {
   display: inline-block;
-  color: #4267B2;
+  color: #d4af37;
   font-weight: 500;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-family: 'Roboto', sans-serif;
 }
 
 .aestheticServicesAccordionLink:hover {
-  color: #3B5998;
+  color: #c0a080;
   transform: scale(1.03);
   text-decoration: underline;
 }
 
-/* New: Container for images to add elegant framing */
+/* Container for images to add elegant framing (preserves existing image logic, e.g., titles as images) */
 .aestheticServicesImageContainer {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem; /* Softer, more elegant rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth and professionalism */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .aestheticServicesImageContainer:hover {
-  transform: scale(1.02); /* Gentle zoom on hover for elegance */
+  transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* New: Class for the image itself */
+/* Class for the image itself (ensures no breakage in dynamic loading or error handling) */
 .aestheticServicesImage {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensures images fill elegantly without distortion */
-  border-radius: 1rem; /* Matches container for smooth look */
-  transition: transform 0.3s ease; /* Smooth scaling effect */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 640px) {
   .aestheticServicesAccordionTitle {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
   .aestheticServicesAccordionDescription {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
   .aestheticServicesAccordionHeader {
-    padding: 1rem 1.25rem;
+    padding: 1.25rem 1.5rem;
   }
   .aestheticServicesAccordionContent.open {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
   /* Adjust image container for mobile elegance */
   .aestheticServicesImageContainer {
-    border-radius: 0.75rem;
+    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Accessibility enhancements */
+@media (prefers-contrast: high) {
+  .aestheticServicesMainTitle,
+  .aestheticServicesAccordionTitle {
+    color: #000000;
+  }
+
+  .aestheticServicesIntroText,
+  .aestheticServicesAccordionDescription {
+    color: #000000;
+  }
+
+  .aestheticServicesAccordionLink {
+    color: #0000ee;
+  }
+
+  .aestheticServicesAccordionLink:hover {
+    color: #000099;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aestheticServicesAccordionItem,
+  .aestheticServicesImageContainer,
+  .aestheticServicesImage,
+  .aestheticServicesAccordionLink {
+    transition: none;
+  }
+
+  .aestheticServicesAccordionIcon {
+    transition: none;
   }
 }
