@@ -29,13 +29,19 @@ export default function RootLayout({
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TRFZPTHGLB"
           strategy="afterInteractive"
+          async // Added for better loading behavior
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-TRFZPTHGLB');
+            gtag('config', 'G-TRFZPTHGLB', {
+              page_path: window.location.pathname,
+            });
           `}
         </Script>
       </head>
