@@ -232,3 +232,104 @@
     transition: none;
   }
 }
+
+/* NEW STYLES FOR DETAILED SECTIONS (e.g., Overview, Benefits, Treats) */
+/* These are additive and won't affect existing elements. Apply to your TSX for dynamic route details. */
+
+/* Wrapper for each detail section (e.g., <section className="aestheticServicesDetailSection mb-8">) */
+.aestheticServicesDetailSection {
+  background-color: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.aestheticServicesDetailSection:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Headings for details (e.g., <h2 className="aestheticServicesDetailHeading">Overview</h2>) */
+.aestheticServicesDetailHeading {
+  font-size: 1.75rem; /* For h2; adjust to 1.5rem for h3 if needed */
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  transition: color 0.3s ease;
+}
+
+.aestheticServicesDetailHeading:hover {
+  color: #d4af37;
+}
+
+/* Paragraphs in details (e.g., <p className="aestheticServicesDetailParagraph">{overview}</p>) */
+.aestheticServicesDetailParagraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Lists in details (e.g., <ul className="aestheticServicesDetailList">...</ul>) */
+.aestheticServicesDetailList {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #4a4a4a;
+  font-family: 'Roboto', sans-serif;
+}
+
+.aestheticServicesDetailList li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.aestheticServicesDetailList li:hover {
+  color: #d4af37;
+}
+
+/* Responsive adjustments for details */
+@media (max-width: 640px) {
+  .aestheticServicesDetailSection {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .aestheticServicesDetailHeading {
+    font-size: 1.5rem; /* For h2; 1.25rem for h3 */
+  }
+
+  .aestheticServicesDetailParagraph,
+  .aestheticServicesDetailList li {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility for details */
+@media (prefers-contrast: high) {
+  .aestheticServicesDetailHeading {
+    color: #000000;
+  }
+
+  .aestheticServicesDetailParagraph,
+  .aestheticServicesDetailList li {
+    color: #000000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aestheticServicesDetailSection,
+  .aestheticServicesDetailList li {
+    transition: none;
+  }
+}

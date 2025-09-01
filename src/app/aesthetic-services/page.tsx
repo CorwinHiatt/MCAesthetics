@@ -1,5 +1,9 @@
-"use client";
 // src/app/aesthetic-services/page.tsx
+// This file remains largely unchanged as it's the main listing page.
+// It uses slugs generated from service names for links.
+// Assumes data import from '@/data/services' (your aestheticServicesData).
+
+"use client";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
