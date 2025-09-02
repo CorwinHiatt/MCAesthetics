@@ -1,24 +1,29 @@
+
+
+/* END PERPLEXITY DESIGN SYSTEM */
+
 .mcaLuxHeaderWrapper {
   width: 100%;
   margin-bottom: 0;
-  font-family: 'Playfair Display', serif;
-  --mca-primary-purple: #cb1ed4;
-  --mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4);
-  --mca-gradient-gold: linear-gradient(135deg, #d4af37, #f4e4a6, #c5af3b);
-  --mca-gradient-depth: linear-gradient(145deg, #f8f6f0, #e8e2d1);
-  --mca-rose-brown: #bf796d;
-  --mca-gold-accent: #a08d6d;
-  --mca-light-gold: #e2d5b1;
-  --mca-pink-highlight: #f20fce;
-  --mca-deep-purple: #9c0491;
-  --mca-navy-blue: #074596;
-  --mca-elegant-gray: #4a4a4a;
-  --mca-soft-white: #f8f8f8;
-  --mca-shadow-subtle: rgba(0, 0, 0, 0.08);
-  --mca-shadow-medium: rgba(0, 0, 0, 0.12);
-  --mca-shadow-deep: rgba(0, 0, 0, 0.18);
-  --mca-shadow-luxury: 0 8px 32px rgba(203, 30, 212, 0.1);
-  --mca-glow-gold: 0 0 20px rgba(212, 175, 55, 0.3);
+  font-family: var(--font-family-base);
+  /* Using design system colors instead of custom variables */
+  --mca-primary-purple: var(--color-primary);
+  --mca-gradient-purple: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  --mca-gradient-gold: linear-gradient(135deg, var(--color-warning), var(--color-orange-400), var(--color-orange-500));
+  --mca-gradient-depth: linear-gradient(145deg, var(--color-surface), var(--color-secondary));
+  --mca-rose-brown: var(--color-brown-600);
+  --mca-gold-accent: var(--color-brown-600);
+  --mca-light-gold: var(--color-secondary);
+  --mca-pink-highlight: var(--color-primary);
+  --mca-deep-purple: var(--color-primary-active);
+  --mca-navy-blue: var(--color-slate-900);
+  --mca-elegant-gray: var(--color-text-secondary);
+  --mca-soft-white: var(--color-surface);
+  --mca-shadow-subtle: rgba(var(--color-slate-900-rgb), 0.08);
+  --mca-shadow-medium: rgba(var(--color-slate-900-rgb), 0.12);
+  --mca-shadow-deep: rgba(var(--color-slate-900-rgb), 0.18);
+  --mca-shadow-luxury: var(--shadow-lg);
+  --mca-glow-gold: 0 0 var(--space-20) rgba(var(--color-warning-rgb), 0.3);
 }
 
 .mcaLuxHeader {
@@ -26,62 +31,53 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.625rem 0; /* Ultra-thin padding */
+  padding: var(--space-24) 0;
   z-index: 1000;
   background: var(--mca-gradient-depth);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 
-    0 2px 12px var(--mca-shadow-subtle),
-    0 1px 3px var(--mca-shadow-medium),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
 .mcaLuxHeaderScrolled {
-  padding: 0.0625rem 0; /* Even thinner when scrolled */
-  background: rgba(248, 246, 240, 0.95);
-  box-shadow: 
-    var(--mca-shadow-luxury),
-    0 1px 6px var(--mca-shadow-medium),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  padding: var(--space-1) 0;
+  background: rgba(var(--color-surface), 0.95);
+  box-shadow: var(--shadow-lg);
 }
 
 .mcaLuxHeaderContainer {
-  max-width: 1200px;
+  max-width: var(--container-lg);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-24);
 }
 
 .mcaLuxHeaderContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 45px; /* Ultra-thin height like your screenshot */
-  max-height: 45px; /* Lock the height */
+  min-height: 45px;
+  max-height: 45px;
 }
 
 .mcaLuxHeaderLogoContainer {
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-normal) var(--ease-standard);
 }
 
 .mcaLuxHeaderLogoWrapper {
   position: relative;
-  border-radius: 50% 50% 40% 40%; /* Subtle bottom flattening for crop effect */
-  padding: 0.125rem;
+  border-radius: var(--radius-full);
+  padding: var(--space-2);
   background: var(--mca-gradient-gold);
-  box-shadow: 
-    0 3px 12px rgba(212, 175, 55, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden; /* Ensures bottom crop of wrapper */
-  height: 50px; /* Increased to crop bottom of gold ball minimally while fitting larger logo */
-  width: 62px; /* Wider to match larger logo proportions */
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
+  overflow: hidden;
+  height: 50px;
+  width: 62px;
 }
 
 .mcaLuxHeaderLogoContainer:hover {
@@ -89,51 +85,47 @@
 }
 
 .mcaLuxHeaderLogoContainer:hover .mcaLuxHeaderLogoWrapper {
-  box-shadow: 
-    var(--mca-glow-gold),
-    0 6px 20px rgba(212, 175, 55, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-md);
   transform: scale(1.02);
 }
 
 .mcaLuxHeaderLogoImage {
   object-fit: contain;
-  max-width: 62px; /* Increased by 55% from 40px for better readability */
-  height: 62px; /* Increased by 55% from 40px for prominence */
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  margin-top: -6px; /* Adjusted to pull logo up slightly, ensuring top is visible while bottom of wrapper crops */
+  max-width: 62px;
+  height: 62px;
+  border-radius: var(--radius-full);
+  transition: transform var(--duration-fast) var(--ease-standard);
+  margin-top: -var(--space-6);
 }
+
 .mcaLuxHeaderMobileMenuButton {
   display: block;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.125rem;
+  padding: var(--space-2);
+  z-index: 1001;
+  position: relative;
 }
 
 .mcaLuxHeaderMenuIconWrapper {
-  background: var(--mca-gradient-depth);
-  border-radius: 6px;
-  padding: 0.25rem;
-  box-shadow: 
-    0 2px 8px var(--mca-shadow-subtle),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderMobileMenuButton:hover .mcaLuxHeaderMenuIconWrapper {
   transform: translateY(-1px);
-  box-shadow: 
-    0 4px 15px var(--mca-shadow-medium),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .mcaLuxHeaderMenuIcon {
-  color: var(--mca-deep-purple);
-  width: 18px; /* Smaller icon for thin header */
+  color: var(--color-primary);
+  width: 18px;
   height: 18px;
-  transition: color 0.3s ease;
+  transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderDesktopNav {
@@ -152,39 +144,39 @@
 .mcaLuxHeaderNavLinks {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: var(--space-20);
 }
 
 .mcaLuxHeaderNavLink {
   position: relative;
-  color: var(--mca-elegant-gray);
+  color: var(--color-text-secondary);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.85rem; /* Smaller font for thin header */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0.25rem 0;
-  line-height: 1.2; /* Tighter line height */
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  transition: all var(--duration-fast) var(--ease-standard);
+  padding: var(--space-4) 0;
+  line-height: var(--line-height-tight);
 }
 
 .mcaLuxHeaderNavLinkText {
   position: relative;
   z-index: 2;
-  transition: all 0.3s ease;
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderNavLink::before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -0.25rem;
-  right: -0.25rem;
-  bottom: -2px;
-  background: var(--mca-gradient-gold);
-  border-radius: 4px;
+  top: -var(--space-2);
+  left: -var(--space-4);
+  right: -var(--space-4);
+  bottom: -var(--space-2);
+  background: var(--color-secondary);
+  border-radius: var(--radius-sm);
   opacity: 0;
   transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+  transition: all var(--duration-fast) var(--ease-standard);
+  box-shadow: var(--shadow-sm);
 }
 
 .mcaLuxHeaderNavLink::after {
@@ -193,14 +185,14 @@
   bottom: -1px;
   left: 0;
   width: 0;
-  height: 1.5px; /* Thinner underline */
-  background: var(--mca-gradient-purple);
+  height: 2px;
+  background: var(--color-primary);
   border-radius: 1px;
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width var(--duration-normal) var(--ease-standard);
 }
 
 .mcaLuxHeaderNavLink:hover::before {
-  opacity: 0.1;
+  opacity: 1;
   transform: scale(1);
 }
 
@@ -209,21 +201,21 @@
 }
 
 .mcaLuxHeaderNavLink:hover {
-  color: var(--mca-deep-purple);
+  color: var(--color-primary);
   transform: translateY(-0.5px);
 }
 
 .mcaLuxHeaderNavLink:hover .mcaLuxHeaderNavLinkText {
-  text-shadow: 0 1px 4px rgba(156, 4, 145, 0.2);
+  text-shadow: 0 1px var(--space-4) rgba(var(--color-primary-rgb), 0.2);
 }
 
 .mcaLuxHeaderActive {
-  color: var(--mca-deep-purple);
-  font-weight: 600;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
 }
 
 .mcaLuxHeaderActive::before {
-  opacity: 0.15;
+  opacity: 1;
   transform: scale(1);
 }
 
@@ -233,18 +225,16 @@
 
 .mcaLuxHeaderBookButton {
   position: relative;
-  background: var(--mca-gradient-purple);
-  color: #ffffff;
-  padding: 0.375rem 1rem; /* Compact button */
-  border-radius: 6px;
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  padding: var(--space-6) var(--space-16);
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.8rem; /* Smaller font */
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
   overflow: hidden;
-  box-shadow: 
-    0 3px 12px rgba(203, 30, 212, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
 .mcaLuxHeaderBookButton::before {
@@ -264,9 +254,8 @@
 
 .mcaLuxHeaderBookButton:hover {
   transform: translateY(-1px);
-  box-shadow: 
-    0 6px 20px rgba(203, 30, 212, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-md);
 }
 
 .mcaLuxHeaderBookButtonText {
@@ -281,7 +270,7 @@
 .mcaLuxHeaderDropdownButton {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: var(--space-4);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -291,9 +280,9 @@
 }
 
 .mcaLuxHeaderDropdownArrow {
-  width: 12px; /* Smaller arrow */
+  width: 12px;
   height: 12px;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderDropdownArrowOpen {
@@ -302,26 +291,40 @@
 
 .mcaLuxHeaderDropdownMenu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + var(--space-6));
   left: 0;
-  background: rgba(248, 248, 248, 0.98);
+  background: var(--color-surface);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 10px;
-  box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.15),
-    0 4px 15px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   min-width: 240px;
+  max-width: 320px;
   z-index: 1010;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-card-border);
+  will-change: transform, opacity;
+  transition: all var(--duration-fast) var(--ease-standard);
+  transform-origin: top left;
+}
+
+.mcaLuxHeaderDropdownMenuOpen {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+.mcaLuxHeaderDropdownMenuClosed {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: translateY(-var(--space-6)) scale(0.95) !important;
+  pointer-events: none !important;
 }
 
 @keyframes dropdownSlideIn {
   from {
     opacity: 0;
-    transform: translateY(-6px) scale(0.95);
+    transform: translateY(-var(--space-6)) scale(0.95);
   }
   to {
     opacity: 1;
@@ -330,11 +333,11 @@
 }
 
 .mcaLuxHeaderDropdownInner {
-  padding: 1rem;
+  padding: var(--space-16);
 }
 
 .mcaLuxHeaderDropdownSection {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-16);
 }
 
 .mcaLuxHeaderDropdownSection:last-child {
@@ -342,27 +345,28 @@
 }
 
 .mcaLuxHeaderDropdownCategory {
-  font-weight: 700;
-  color: var(--mca-deep-purple);
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.25rem;
-  border-bottom: 2px solid var(--mca-light-gold);
-  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--color-secondary);
+  font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .mcaLuxHeaderDropdownItem {
   display: block;
-  padding: 0.375rem 0.625rem;
-  color: var(--mca-elegant-gray);
+  padding: var(--space-6) var(--space-10);
+  color: var(--color-text-secondary);
   text-decoration: none;
-  border-radius: 5px;
-  margin-bottom: 0.125rem;
-  font-size: 0.85rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+  font-size: var(--font-size-sm);
+  transition: all var(--duration-fast) var(--ease-standard);
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .mcaLuxHeaderDropdownItem::before {
@@ -372,8 +376,8 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: var(--mca-gradient-gold);
-  transition: left 0.3s ease;
+  background: var(--color-secondary);
+  transition: left var(--duration-fast) var(--ease-standard);
   z-index: -1;
 }
 
@@ -382,28 +386,42 @@
 }
 
 .mcaLuxHeaderDropdownItem:hover {
-  color: var(--mca-deep-purple);
-  transform: translateX(2px);
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+  color: var(--color-primary);
+  transform: translateX(var(--space-2));
+  box-shadow: var(--shadow-sm);
 }
 
 .mcaLuxHeaderDropdownItemActive {
-  color: var(--mca-deep-purple);
-  font-weight: 600;
-  background: rgba(212, 175, 55, 0.1);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-secondary);
 }
 
-/* Mobile Menu Styles - Keep existing */
 .mcaLuxHeaderMobileMenuOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: var(--mca-gradient-purple);
+  height: 100vh;
+  background: var(--color-primary);
   z-index: 999;
   overflow-y: auto;
-  animation: mobileMenuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.mcaLuxHeaderMobileMenuOpen {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  pointer-events: auto !important;
+}
+
+.mcaLuxHeaderMobileMenuClosed {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transform: translateX(-100%) !important;
+  pointer-events: none !important;
 }
 
 @keyframes mobileMenuSlideIn {
@@ -418,23 +436,24 @@
 }
 
 .mcaLuxHeaderMobileMenuContent {
-  padding: 4rem 2rem 2rem;
-  background: linear-gradient(145deg, rgba(203, 30, 212, 0.95), rgba(184, 92, 241, 0.95));
+  padding: var(--space-32) var(--space-32) var(--space-32);
+  background: linear-gradient(145deg, var(--color-primary), var(--color-primary-hover));
   min-height: 100vh;
   backdrop-filter: blur(10px);
 }
 
 .mcaLuxHeaderMobileCloseButton {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  position: fixed;
+  top: var(--space-24);
+  right: var(--space-32);
   background: rgba(255, 255, 255, 0.1);
   border: none;
   cursor: pointer;
-  padding: 0.75rem;
-  border-radius: 50%;
+  padding: var(--space-12);
+  border-radius: var(--radius-full);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  transition: all var(--duration-fast) var(--ease-standard);
+  z-index: 1001;
 }
 
 .mcaLuxHeaderMobileCloseButton:hover {
@@ -443,7 +462,7 @@
 }
 
 .mcaLuxHeaderCloseIcon {
-  color: #ffffff;
+  color: var(--color-white);
   width: 24px;
   height: 24px;
 }
@@ -451,43 +470,43 @@
 .mcaLuxHeaderMobileNav {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-16);
 }
 
 .mcaLuxHeaderMobileNavLink {
-  color: #ffffff;
-  font-size: 1.3rem;
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
   text-decoration: none;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  padding: var(--space-16) var(--space-24);
+  border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--duration-fast) var(--ease-standard);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .mcaLuxHeaderMobileNavLink:hover {
-  transform: translateX(10px);
+  transform: translateX(var(--space-10));
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .mcaLuxHeaderMobileBookLink {
-  background: #ffffff;
-  color: var(--mca-pink-highlight);
+  background: var(--color-white);
+  color: var(--color-primary);
   text-align: center;
-  font-weight: 700;
-  margin-top: 1rem;
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--space-16);
 }
 
 .mcaLuxHeaderMobileBookLink:hover {
-  background: var(--mca-soft-white);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: var(--color-cream-100);
+  transform: translateY(-var(--space-2));
+  box-shadow: var(--shadow-lg);
 }
 
 .mcaLuxHeaderMobileAccordion {
-  margin: 1rem 0;
+  margin: var(--space-16) 0;
 }
 
 .mcaLuxHeaderMobileAccordionButton {
@@ -497,13 +516,13 @@
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-size: 1.3rem;
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
   cursor: pointer;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
+  padding: var(--space-16) var(--space-24);
+  border-radius: var(--radius-lg);
   backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderMobileAccordionButton:hover {
@@ -511,7 +530,7 @@
 }
 
 .mcaLuxHeaderMobileAccordionArrow {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderMobileAccordionArrowExpanded {
@@ -519,9 +538,16 @@
 }
 
 .mcaLuxHeaderMobileAccordionContent {
-  margin-top: 1rem;
-  padding-left: 1rem;
-  animation: accordionSlideDown 0.3s ease;
+  margin-top: var(--space-16);
+  padding-left: var(--space-16);
+  transition: all var(--duration-fast) var(--ease-standard);
+  overflow: hidden;
+  will-change: max-height, opacity;
+}
+
+.mcaLuxHeaderMobileAccordionContentOpen {
+  max-height: 1000px !important;
+  opacity: 1 !important;
 }
 
 @keyframes accordionSlideDown {
@@ -536,7 +562,7 @@
 }
 
 .mcaLuxHeaderMobileAccordionSection {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-16);
 }
 
 .mcaLuxHeaderMobileSubCategory {
@@ -546,12 +572,12 @@
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  padding: 0.75rem 1rem;
+  color: var(--color-white);
+  padding: var(--space-12) var(--space-16);
   cursor: pointer;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-lg);
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderMobileSubCategory:hover {
@@ -559,7 +585,7 @@
 }
 
 .mcaLuxHeaderMobileSubCategoryArrow {
-  transition: transform 0.3s ease;
+  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .mcaLuxHeaderMobileSubCategoryArrowExpanded {
@@ -567,14 +593,16 @@
 }
 
 .mcaLuxHeaderMobileSubItems {
-  padding: 0.5rem 0;
-  animation: subItemsSlideDown 0.3s ease;
+  padding: var(--space-8) 0;
+  transition: all var(--duration-fast) var(--ease-standard);
+  overflow: hidden;
+  will-change: max-height, opacity;
 }
 
 @keyframes subItemsSlideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-var(--space-10));
   }
   to {
     opacity: 1;
@@ -585,76 +613,117 @@
 .mcaLuxHeaderMobileSubNavLink {
   display: block;
   color: rgba(255, 255, 255, 0.9);
-  padding: 0.75rem 1.5rem;
+  padding: var(--space-12) var(--space-24);
   text-decoration: none;
-  border-radius: 6px;
-  margin: 0.25rem 0;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  margin: var(--space-4) 0;
+  transition: all var(--duration-fast) var(--ease-standard);
+  font-size: var(--font-size-base);
 }
 
 .mcaLuxHeaderMobileSubNavLink:hover {
   background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  transform: translateX(5px);
+  color: var(--color-white);
+  transform: translateX(var(--space-6));
 }
 
-/* Responsive Design for Ultra-Thin Header */
-@media (max-width: 768px) {
-   .mcaLuxHeaderLogoWrapper {
-    height: 46px; /* Slightly reduced wrapper height but still accommodating larger logo */
-    width: 58px;
-  }
-  .mcaLuxHeaderLogoImage {
-    max-width: 58px; /* Slightly smaller but still prominent */
-    height: 58px;
-    margin-top: -6px; /* Maintain visibility */
-  }
-  .mcaLuxHeaderLogoImage {
-    margin-top: -6px; /* Keep logo positioned correctly */
-  }
+/* Mobile Portrait Responsive Design (480px breakpoint) */
+@media (max-width: 480px) {
   .mcaLuxHeaderContainer {
-    padding: 0 1rem;
+    padding: 0 var(--space-16);
   }
   .mcaLuxHeaderContent {
-    min-height: 40px;
-    max-height: 40px;
+    min-height: 36px;
+    max-height: 36px;
+  }
+  .mcaLuxHeaderLogoWrapper {
+    height: 32px;
+    width: 36px;
+  }
+  .mcaLuxHeaderLogoImage {
+    max-width: 32px;
+    height: 32px;
+    margin-top: 0;
+  }
+  .mcaLuxHeaderMobileMenuContent {
+    padding: var(--space-24) var(--space-16) var(--space-16);
+  }
+  .mcaLuxHeaderMobileCloseButton {
+    top: var(--space-16);
+    right: var(--space-16);
+    padding: var(--space-8);
+  }
+  .mcaLuxHeaderMobileNavLink {
+    font-size: var(--font-size-lg);
+    padding: var(--space-12) var(--space-16);
+  }
+  .mcaLuxHeaderMobileAccordionButton {
+    font-size: var(--font-size-lg);
+    padding: var(--space-12) var(--space-16);
+  }
+  .mcaLuxHeaderDropdownMenu {
+    left: -var(--space-32);
+    min-width: 240px;
   }
 }
 
 @media (max-width: 640px) {
-   .mcaLuxHeaderLogoWrapper {
-    height: 34px; /* Minimal reduction for smallest screens */
+  .mcaLuxHeaderLogoWrapper {
+    height: 34px;
     width: 38px;
   }
   .mcaLuxHeaderLogoImage {
-    max-width: 36px; /* Keep logo prominent */
+    max-width: 36px;
     height: 36px;
-    margin-top: -1px; /* Ensure full visibility */
-  }
-
-  .mcaLuxHeaderLogoImage {
-    margin-top: -6px; /* Maintain positioning */
+    margin-top: -var(--space-1);
   }
   .mcaLuxHeaderContent {
     min-height: 38px;
     max-height: 38px;
   }
   .mcaLuxHeaderMobileMenuContent {
-    padding: 3rem 1.5rem 2rem;
+    padding: var(--space-32) var(--space-24) var(--space-32);
   }
   .mcaLuxHeaderMobileNavLink {
-    font-size: 1.1rem;
-    padding: 0.75rem 1rem;
+    font-size: var(--font-size-lg);
+    padding: var(--space-12) var(--space-16);
+  }
+  .mcaLuxHeaderDropdownMenu {
+    left: -var(--space-24);
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mcaLuxHeaderLogoWrapper {
+    height: 46px;
+    width: 58px;
+  }
+  .mcaLuxHeaderLogoImage {
+    max-width: 58px;
+    height: 58px;
+    margin-top: -var(--space-6);
+  }
+  .mcaLuxHeaderContainer {
+    padding: 0 var(--space-16);
+  }
+  .mcaLuxHeaderContent {
+    min-height: 40px;
+    max-height: 40px;
+  }
+  .mcaLuxHeaderDropdownMenu {
+    left: -var(--space-20);
+    right: auto;
+    min-width: 280px;
   }
 }
 
 @media (min-width: 1024px) {
   .mcaLuxHeaderNavLinks {
-    gap: 1.5rem;
+    gap: var(--space-24);
   }
   .mcaLuxHeaderNavLink {
-    font-size: 0.9rem;
+    font-size: var(--font-size-base);
   }
   .mcaLuxHeaderContent {
     min-height: 48px;
@@ -662,22 +731,34 @@
   }
 }
 
-/* High-end animations and micro-interactions */
 @media (prefers-reduced-motion: no-preference) {
   .mcaLuxHeaderWrapper * {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: var(--ease-standard);
   }
 }
 
-/* Focus states for accessibility */
+.mcaLuxHeaderDropdownMenu,
+.mcaLuxHeaderMobileMenuOverlay {
+  contain: layout style paint;
+}
+
 .mcaLuxHeaderNavLink:focus,
 .mcaLuxHeaderBookButton:focus,
 .mcaLuxHeaderDropdownButton:focus {
-  outline: 2px solid var(--mca-pink-highlight);
-  outline-offset: 2px;
+  outline: var(--focus-outline);
+  outline-offset: var(--space-2);
 }
 
 .mcaLuxHeaderMobileMenuButton:focus {
-  outline: 2px solid var(--mca-deep-purple);
-  outline-offset: 2px;
+  outline: var(--focus-outline);
+  outline-offset: var(--space-2);
+}
+
+.mcaLuxHeaderDropdownMenu,
+.mcaLuxHeaderMobileMenuOverlay,
+.mcaLuxHeaderMobileAccordionContent,
+.mcaLuxHeaderMobileSubItems {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
