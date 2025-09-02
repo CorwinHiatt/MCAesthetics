@@ -63,7 +63,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
         <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
       </head>
-      <body className="min-h-screen bg-white">
+      <body 
+        className="min-h-screen bg-white"
+        suppressHydrationWarning={true}
+      >
         <Header />
         <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
         <Carousel />

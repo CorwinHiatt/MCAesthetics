@@ -6,13 +6,24 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 import styles from './Header2.module.css';
-import logo from '../../../../public/images/logo.png'; // Assumes pink logo; update path if needed
+import logo from '../../../../public/images/logo.png';
 
 export default function Header2() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aestheticDropdownOpen, setAestheticDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef(null);
+
+  // Add scroll effect for dynamic header behavior
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -36,44 +47,44 @@ export default function Header2() {
     };
   }, []);
 
- const aestheticServices = [
-  { 
-    category: "Wrinkle Reducers",
-    items: [
-      { name: "Xeomin", href: "/aesthetic-services/wrinkle-reducers/xeomin" },
-      { name: "Dysport", href: "/aesthetic-services/wrinkle-reducers/dysport" },
-      { name: "DAXXIFY", href: "/aesthetic-services/wrinkle-reducers/daxxify" },
-      { name: "Jeuveau", href: "/aesthetic-services/wrinkle-reducers/jeuveau" }
-    ]
-  },
-  {
-    category: "Dermal Fillers",
-    items: [
-      { name: "Sculptra", href: "/aesthetic-services/dermal-fillers/sculptra" },
-      { name: "Restylane", href: "/aesthetic-services/dermal-fillers/restylane" },
-      { name: "RHA", href: "/aesthetic-services/dermal-fillers/rha" },
-      { name: "Revanesse", href: "/aesthetic-services/dermal-fillers/revanesse" },
-      { name: "Belotero", href: "/aesthetic-services/dermal-fillers/belotero" },
-      { name: "Radiesse", href: "/aesthetic-services/dermal-fillers/radiesse" }
-    ]
-  },
-  {
-    category: null,
-    items: [
-      { name: "Kybella", href: "/aesthetic-services/kybella" },
-      { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
-      { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
-      { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
-      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel%20co2%20laser" }
-    ]
-  },
-  {
-    category: null,
-    items: [
-      { name: "All Aesthetic Services", href: "/aesthetic-services" }
-    ]
-  }
-];
+  const aestheticServices = [
+    { 
+      category: "Wrinkle Reducers",
+      items: [
+        { name: "Xeomin", href: "/aesthetic-services/wrinkle-reducers/xeomin" },
+        { name: "Dysport", href: "/aesthetic-services/wrinkle-reducers/dysport" },
+        { name: "DAXXIFY", href: "/aesthetic-services/wrinkle-reducers/daxxify" },
+        { name: "Jeuveau", href: "/aesthetic-services/wrinkle-reducers/jeuveau" }
+      ]
+    },
+    {
+      category: "Dermal Fillers",
+      items: [
+        { name: "Sculptra", href: "/aesthetic-services/dermal-fillers/sculptra" },
+        { name: "Restylane", href: "/aesthetic-services/dermal-fillers/restylane" },
+        { name: "RHA", href: "/aesthetic-services/dermal-fillers/rha" },
+        { name: "Revanesse", href: "/aesthetic-services/dermal-fillers/revanesse" },
+        { name: "Belotero", href: "/aesthetic-services/dermal-fillers/belotero" },
+        { name: "Radiesse", href: "/aesthetic-services/dermal-fillers/radiesse" }
+      ]
+    },
+    {
+      category: null,
+      items: [
+        { name: "Kybella", href: "/aesthetic-services/kybella" },
+        { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
+        { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
+        { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
+        { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel%20co2%20laser" }
+      ]
+    },
+    {
+      category: null,
+      items: [
+        { name: "All Aesthetic Services", href: "/aesthetic-services" }
+      ]
+    }
+  ];
 
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
@@ -87,17 +98,20 @@ export default function Header2() {
 
   return (
     <div className={styles.mcaLuxHeaderWrapper}>
-      <header className={styles.mcaLuxHeader}>
+      <header className={`${styles.mcaLuxHeader} ${scrolled ? styles.mcaLuxHeaderScrolled : ''}`}>
         <div className={styles.mcaLuxHeaderContainer}>
           <div className={styles.mcaLuxHeaderContent}>
             <Link href="/" className={styles.mcaLuxHeaderLogoContainer}>
-              <Image 
-                src={logo}
-                alt="MC Aesthetics Logo"
-                width={175}
-                height={175}
-                className={styles.mcaLuxHeaderLogoImage}
-              />
+              <div className={styles.mcaLuxHeaderLogoWrapper}>
+                <Image 
+                  src={logo}
+                  alt="MC Aesthetics Logo"
+                  width={80}
+                  height={80}
+                  className={styles.mcaLuxHeaderLogoImage}
+                  priority
+                />
+              </div>
             </Link>
 
             <button
@@ -106,21 +120,23 @@ export default function Header2() {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              <svg
-                width="32"
-                height="32"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className={styles.mcaLuxHeaderMenuIcon}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                />
-              </svg>
+              <div className={styles.mcaLuxHeaderMenuIconWrapper}>
+                <svg
+                  width="28"
+                  height="28"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className={styles.mcaLuxHeaderMenuIcon}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                  />
+                </svg>
+              </div>
             </button>
 
             <nav className={styles.mcaLuxHeaderDesktopNav}>
@@ -129,37 +145,37 @@ export default function Header2() {
                   href="/about"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/about' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  About
+                  <span className={styles.mcaLuxHeaderNavLinkText}>About</span>
                 </Link>
                 <Link
                   href="/zo-skin-health"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/zo-skin-health' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  Zo Skin Health
+                  <span className={styles.mcaLuxHeaderNavLinkText}>Zo Skin Health</span>
                 </Link>
                 <Link
                   href="/laser-hair"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/laser-hair' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  Laser Hair
+                  <span className={styles.mcaLuxHeaderNavLinkText}>Laser Hair</span>
                 </Link>
                 <Link
                   href="/gift-cards"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/gift-cards' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  Gift Cards
+                  <span className={styles.mcaLuxHeaderNavLinkText}>Gift Cards</span>
                 </Link>
                 <Link
                   href="/financing"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/financing' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  Financing
+                  <span className={styles.mcaLuxHeaderNavLinkText}>Financing</span>
                 </Link>
                 <Link
                   href="/contact"
                   className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/contact' ? styles.mcaLuxHeaderActive : ''}`}
                 >
-                  Contact
+                  <span className={styles.mcaLuxHeaderNavLinkText}>Contact</span>
                 </Link>
                 
                 <div className={styles.mcaLuxHeaderDropdownContainer} ref={dropdownRef}>
@@ -171,10 +187,10 @@ export default function Header2() {
                     aria-expanded={aestheticDropdownOpen}
                     aria-haspopup="true"
                   >
-                    Aesthetic Services
+                    <span className={styles.mcaLuxHeaderNavLinkText}>Aesthetic Services</span>
                     <svg 
-                      width="16" 
-                      height="16" 
+                      width="14" 
+                      height="14" 
                       viewBox="0 0 24 24" 
                       fill="none" 
                       stroke="currentColor" 
@@ -186,27 +202,29 @@ export default function Header2() {
                   
                   {aestheticDropdownOpen && (
                     <div className={styles.mcaLuxHeaderDropdownMenu}>
-                      {aestheticServices.map((section, sectionIndex) => (
-                        <div key={sectionIndex} className={styles.mcaLuxHeaderDropdownSection}>
-                          {section.category && (
-                            <div className={styles.mcaLuxHeaderDropdownCategory}>
-                              {section.category}
-                            </div>
-                          )}
-                          {section.items.map((item, itemIndex) => (
-                            <Link 
-                              key={itemIndex}
-                              href={item.href}
-                              className={`${styles.mcaLuxHeaderDropdownItem} ${
-                                pathname === item.href ? styles.mcaLuxHeaderDropdownItemActive : ''
-                              }`}
-                              onClick={() => setAestheticDropdownOpen(false)}
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
+                      <div className={styles.mcaLuxHeaderDropdownInner}>
+                        {aestheticServices.map((section, sectionIndex) => (
+                          <div key={sectionIndex} className={styles.mcaLuxHeaderDropdownSection}>
+                            {section.category && (
+                              <div className={styles.mcaLuxHeaderDropdownCategory}>
+                                {section.category}
+                              </div>
+                            )}
+                            {section.items.map((item, itemIndex) => (
+                              <Link 
+                                key={itemIndex}
+                                href={item.href}
+                                className={`${styles.mcaLuxHeaderDropdownItem} ${
+                                  pathname === item.href ? styles.mcaLuxHeaderDropdownItemActive : ''
+                                }`}
+                                onClick={() => setAestheticDropdownOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -217,7 +235,7 @@ export default function Header2() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book Now
+                  <span className={styles.mcaLuxHeaderBookButtonText}>Book Now</span>
                 </Link>
               </div>
             </nav>

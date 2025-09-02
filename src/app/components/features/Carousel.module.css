@@ -1,300 +1,695 @@
-/* Carousel.module.css - Luxurious Review Carousel for MC Aesthetics */
+/* MC Aesthetics Review Carousel - Mobile-First, Professional, Luxurious Design */
+/* Unique selectors prefixed with 'mc' for component isolation */
+/* Wholesome code: Clean, accessible, with WOW factor via smooth animations, subtle gradients, and elegant interactions */
 
-/* Container for the entire Carousel component */
-.carouselContainer {
-  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white)); /* Luxurious gradient background */
-  padding: 2rem 0.5rem;
+/* Base Container Styling - Mobile First */
+.mcReviewCarouselContainer {
   width: 100%;
-  max-width: 100vw; /* Ensure it doesn't exceed viewport */
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box; /* Include padding in width calculation */
-  overflow-x: hidden; /* Prevent horizontal overflow */
-  font-family: 'Playfair Display', serif; /* Elegant font for luxury */
+  max-width: 100%; /* Ensure no overflow on mobile */
+  margin: 1.5rem auto;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, #f9f5f0 0%, #ffffff 100%); /* Subtle luxurious gradient for depth */
+  border-radius: 16px; /* Softer, modern corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Elegant shadow for lift */
+  position: relative;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif; /* Luxurious serif font for WOW factor */
+  box-sizing: border-box;
+  animation: mcFadeIn 1s ease-out; /* WOW: Fade-in animation on load */
 }
 
-.showcaseTitle {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--mca-deep-purple); /* Site purple for professionalism */
+/* Fade-in Animation for WOW Factor */
+@keyframes mcFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Google Reviews Header Section */
+.mcGoogleReviewsHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1.5rem;
-  text-shadow: 1px 1px 2px var(--mca-shadow-subtle); /* Subtle shadow for depth */
+  padding: 1rem 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  animation: mcHeaderSlideIn 1.2s ease-out;
 }
 
-.carouselWrapper {
+/* Header Slide-in Animation */
+@keyframes mcHeaderSlideIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Google Reviews Graphic Container */
+.mcGoogleReviewsGraphic {
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.mcGoogleReviewsGraphic:hover {
+  transform: scale(1.05); /* Subtle zoom on hover for WOW */
+}
+
+.mcGoogleGraphicImage {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+}
+
+.mcGoogleGraphicImage:hover {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)); /* Enhanced shadow on hover */
+}
+
+/* Title Styling with Elegance */
+.mcReviewShowcaseTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a; /* Deep, sophisticated black */
+  text-align: center;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.mcReviewShowcaseTitle:hover {
+  color: #c49f45; /* Gold hover for interaction WOW */
+}
+
+/* Google Badge Styling for Authenticity */
+.mcGoogleBadge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #4285F4; /* Google Blue */
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);
+  font-style: italic; /* Mimic Google branding */
+  animation: mcPulse 2s infinite; /* WOW: Subtle pulse animation */
+}
+
+/* Pulse Animation for WOW Factor */
+@keyframes mcPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.mcGoogleStarIcon {
+  margin-right: 0.3rem;
+  color: #FBBC05; /* Google Yellow for star */
+}
+
+/* Carousel Wrapper and Navigation Arrows - Mobile Optimized */
+.mcCarouselWrapper {
+  display: flex;
+  align-items: center;
   position: relative;
   width: 100%;
-  max-width: 100%; /* Ensure it stays within parent */
-  overflow: hidden;
-  margin-bottom: 1.5rem;
   box-sizing: border-box;
+  touch-action: manipulation; /* Improve touch responsiveness */
 }
 
-.carouselContent {
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.carouselSlider {
-  display: flex;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-  box-sizing: border-box;
-}
-
-.carouselItem {
-  min-width: 100%;
-  width: 100%; /* Ensure full width but no overflow */
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-}
-
-.reviewCard {
-  background-color: var(--mca-soft-white); /* Clean, luxurious white */
-  border-radius: 0.75rem;
-  border: 1px solid var(--mca-bronze); /* Subtle bronze border for elegance */
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  padding: 1.5rem;
-  width: 90%;
-  max-width: 100%; /* Prevent card from exceeding container */
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth luxury transitions */
-  box-sizing: border-box;
-}
-
-.reviewCard:hover {
-  transform: translateY(-5px) scale(1.02); /* Subtle lift and scale for "pop" */
-  box-shadow: 0 10px 15px var(--mca-shadow-deep), 0 0 10px rgba(212, 175, 55, 0.3); /* Gold glow */
-  border-color: var(--mca-lux-gold); /* Gold border on hover */
-}
-
-.reviewerName {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple); /* Deep purple for professionalism */
-  margin-bottom: 0.5rem;
-}
-
-.starRating {
-  color: var(--mca-lux-gold); /* Shiny gold stars */
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  animation: starShine 2s infinite alternate; /* Subtle shine for pop */
-}
-
-@keyframes starShine {
-  0% { opacity: 1; }
-  100% { opacity: 0.8; }
-}
-
-.reviewDate {
-  font-size: 0.75rem;
-  color: var(--mca-elegant-gray); /* Elegant gray */
-  margin-bottom: 1rem;
-}
-
-.reviewText {
-  font-size: 0.875rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.6;
-  margin-bottom: 1.25rem;
-  word-wrap: break-word; /* Ensure long text wraps properly */
-  display: -webkit-box;
-  -webkit-line-clamp: 6; /* Limit to 6 lines for brevity */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Ellipsis for truncated text */
-}
-
-.ownerResponse {
-  background-color: rgba(226, 213, 177, 0.2); /* Light gold tint for luxury */
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  border-left: 3px solid var(--mca-gold-accent); /* Gold accent border */
-  box-sizing: border-box;
-}
-
-.responseTitle {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple);
-  margin-bottom: 0.25rem;
-}
-
-.responseDate {
-  font-size: 0.75rem;
-  color: var(--mca-elegant-gray);
-  margin-bottom: 0.5rem;
-}
-
-.responseText {
-  font-size: 0.875rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.6;
-  word-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* Limit response length */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.carouselArrowLeft,
-.carouselArrowRight {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(156, 4, 145, 0.8); /* Semi-transparent deep purple */
+.mcCarouselArrowLeft,
+.mcCarouselArrowRight {
+  background: linear-gradient(135deg, #c49f45, #b08a3e); /* Luxurious gold gradient */
+  color: #ffffff;
   border: none;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
   font-size: 1.5rem;
-  color: var(--mca-soft-white);
   cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  z-index: 10;
+  transition: background 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px var(--mca-shadow-deep);
-  transition: background 0.3s ease, transform 0.2s ease;
-  z-index: 10;
+  box-shadow: 0 3px 8px rgba(196, 159, 69, 0.3);
+  opacity: 0.8; /* Semi-transparent for mobile elegance */
+  position: absolute;
 }
 
-.carouselArrowLeft:hover,
-.carouselArrowRight:hover {
-  background: var(--mca-primary-purple); /* Full purple on hover */
-  transform: translateY(-50%) scale(1.1);
+.mcCarouselArrowLeft:hover,
+.mcCarouselArrowRight:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(196, 159, 69, 0.5); /* Glow on hover for WOW */
 }
 
-.carouselArrowLeft {
-  left: 0.5rem; /* Adjusted to be closer to edge */
+.mcCarouselArrowLeft:disabled,
+.mcCarouselArrowRight:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.carouselArrowRight {
-  right: 0.5rem; /* Adjusted to be closer to edge */
+.mcCarouselArrowLeft {
+  left: 10px;
 }
 
-.carouselDots {
+.mcCarouselArrowRight {
+  right: 10px;
+}
+
+/* Carousel Content and Slider - Prevent Cutoff, Smooth Transitions */
+.mcCarouselContent {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.mcCarouselSlider {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy, luxurious slide animation for WOW */
+  width: 100%;
+  touch-action: pan-y; /* Prevent default scrolling on swipe */
+  box-sizing: border-box;
+}
+
+.mcCarouselItem {
+  min-width: 100%;
+  width: 100%; /* Full width for mobile */
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.carouselDot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background-color: var(--mca-bronze); /* Bronze dots for luxury */
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.carouselDot:hover {
-  background-color: var(--mca-gold-accent); /* Gold on hover */
-  transform: scale(1.2);
-}
-
-.activeDot {
-  background-color: var(--mca-lux-gold); /* Active gold */
-  transform: scale(1.2);
-}
-
-/* Review CTA Section */
-.reviewCta {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Gradient for depth */
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  text-align: center;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
   box-sizing: border-box;
-  border: 1px solid var(--mca-bronze); /* Bronze border for elegance */
+  opacity: 0.8;
+  transition: opacity 0.5s ease; /* Fade transition for smoothness */
 }
 
-.reviewCtaTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple);
-  margin-bottom: 1rem;
+.mcCarouselItem.active {
+  opacity: 1; /* Highlight active item */
 }
 
-.reviewButton {
-  display: inline-block;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink)); /* Pink gradient for pop */
-  color: var(--mca-soft-white);
-  font-size: 1.125rem;
+/* Google Reviews Card Styling - Responsive and Elegant */
+.mcGoogleReviewCard {
+  background: #ffffff;
+  border: 1px solid #e8e8e8; /* Subtle border */
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0 auto;
+  width: 90%; /* Flexible width for mobile */
+  max-width: 400px; /* Prevent stretching on small screens */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  display: flex;
+  gap: 0.75rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-sizing: border-box;
+  animation: mcCardReveal 0.8s ease-out; /* WOW: Reveal animation */
+}
+
+.mcGoogleReviewCard:hover {
+  transform: translateY(-5px) scale(1.02); /* Lift and zoom for interaction WOW */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Reveal Animation for WOW Factor */
+@keyframes mcCardReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Reviewer Avatar Styling */
+.mcReviewerAvatar {
+  width: 32px;
+  height: 32px;
+  background: #757575; /* Google gray for avatar */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease; /* Smooth scale on hover */
+}
+
+.mcGoogleReviewCard:hover .mcReviewerAvatar {
+  transform: scale(1.1); /* WOW: Avatar pop on card hover */
+}
+
+/* Review Content Styling */
+.mcReviewContent {
+  flex-grow: 1;
+  overflow: hidden; /* Prevent text overflow */
+}
+
+/* Reviewer Name */
+.mcGoogleReviewerName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #202124; /* Google's text color */
+  margin: 0 0 0.2rem;
+}
+
+/* Star Rating */
+.mcGoogleStarRating {
+  display: flex;
+  gap: 1px;
+  margin-bottom: 0.3rem;
+}
+
+.mcGoogleStar {
+  color: #FBBC05; /* Google Yellow */
+  stroke: #FBBC05;
+  transition: transform 0.3s ease; /* Animate stars */
+}
+
+.mcGoogleReviewCard:hover .mcGoogleStar {
+  transform: rotate(15deg) scale(1.1); /* WOW: Star twinkle on hover */
+}
+
+/* Review Date */
+.mcGoogleReviewDate {
+  font-size: 0.75rem;
+  color: #5f6368; /* Google gray text */
+  margin-bottom: 0.5rem;
+}
+
+/* Review Text */
+.mcGoogleReviewText {
+  font-size: 0.85rem;
+  color: #202124;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  max-height: 180px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif; /* Switch to sans-serif for readability */
+}
+
+/* Owner Response Section */
+.mcGoogleOwnerResponse {
+  background: #f8f9fa; /* Google light gray background */
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-top: 0.6rem;
+  transition: background 0.3s ease;
+}
+
+.mcGoogleReviewCard:hover .mcGoogleOwnerResponse {
+  background: #e8f0fe; /* Subtle blue tint on hover for WOW */
+}
+
+/* Response Title */
+.mcGoogleResponseTitle {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #202124;
+  margin: 0 0 0.2rem;
+}
+
+/* Response Date */
+.mcGoogleResponseDate {
+  font-size: 0.75rem;
+  color: #5f6368;
+  margin-bottom: 0.3rem;
+}
+
+/* Response Text */
+.mcGoogleResponseText {
+  font-size: 0.8rem;
+  color: #202124;
+  line-height: 1.3;
+  max-height: 130px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Dots Navigation with Luxury Styling */
+.mcCarouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.mcCarouselDot {
+  width: 7px;
+  height: 7px;
+  background: #d1d1d1;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.mcActiveDot {
+  background: #c49f45; /* Gold for active dot */
+  transform: scale(1.2);
+}
+
+.mcCarouselDot:hover {
+  background: #b0b0b0;
+  transform: scale(1.3); /* WOW: Dot grow on hover */
+}
+
+/* CTA Section with Luxury Appeal */
+.mcReviewCta {
+  text-align: center;
+  margin-top: 1.2rem;
+  padding: 0.8rem 0;
+  background: rgba(196, 159, 69, 0.1); /* Subtle gold tint */
+  border-radius: 8px;
+}
+
+.mcReviewCtaTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+/* Review Button */
+.mcReviewButton {
+  display: inline-block;
+  background: linear-gradient(to right, #c49f45, #b08a3e); /* Luxurious gold gradient */
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
-  margin-top: 1rem;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-.reviewButton:hover {
-  background: linear-gradient(to right, var(--mca-vivid-pink), var(--mca-pink-highlight)); /* Reverse gradient for interaction */
+.mcReviewButton:hover {
+  background: linear-gradient(to right, #b08a3e, #9c7a32); /* Darker gold on hover */
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(242, 15, 206, 0.3); /* Pink glow for luxurious pop */
+  box-shadow: 0 4px 12px rgba(196, 159, 69, 0.4); /* Gold glow for WOW */
 }
 
-@media (max-width: 640px) {
-  .carouselContainer {
-    width: 100vw;
-    max-width: 100vw;
-    padding: 1.5rem 0;
-    margin: 0;
+/* Media Queries for Larger Screens - Responsive Scaling */
+@media (min-width: 768px) {
+  .mcReviewCarouselContainer {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem 1.5rem;
   }
 
-  .showcaseTitle {
-    font-size: 1.5rem;
+  /* Google Reviews Header - Tablet/Desktop */
+  .mcGoogleReviewsHeader {
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .mcGoogleGraphicImage {
+    max-width: 350px;
+  }
+
+  .mcReviewShowcaseTitle {
+    font-size: 2rem;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .mcGoogleBadge {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .mcCarouselArrowLeft,
+  .mcCarouselArrowRight {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .mcCarouselArrowLeft {
+    left: -25px;
+  }
+
+  .mcCarouselArrowRight {
+    right: -25px;
+  }
+
+  .mcCarouselContent {
+    margin: 0 3rem;
+  }
+
+  .mcCarouselItem {
+    padding: 1rem;
+  }
+
+  .mcGoogleReviewCard {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 700px;
+    gap: 1rem;
+  }
+
+  .mcReviewerAvatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .mcGoogleReviewerName {
+    font-size: 1.1rem;
+  }
+
+  .mcGoogleReviewDate {
+    font-size: 0.85rem;
+  }
+
+  .mcGoogleReviewText {
+    font-size: 0.95rem;
     margin-bottom: 1rem;
   }
 
-  .reviewCard {
+  .mcGoogleOwnerResponse {
     padding: 1rem;
-    width: 95%;
+    margin-top: 1rem;
   }
 
-  .reviewerName {
-    font-size: 1.125rem;
-  }
-
-  .reviewText,
-  .responseText {
-    font-size: 0.75rem;
-  }
-
-  .carouselArrowLeft,
-  .carouselArrowRight {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.25rem;
-  }
-
-  .carouselArrowLeft {
-    left: 0.25rem;
-  }
-
-  .carouselArrowRight {
-    right: 0.25rem;
-  }
-
-  .reviewCtaTitle {
-    font-size: 1.25rem;
-  }
-
-  .reviewButton {
+  .mcGoogleResponseTitle {
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+  }
+
+  .mcGoogleResponseText {
+    font-size: 0.9rem;
+  }
+
+  .mcCarouselDots {
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .mcCarouselDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .mcReviewCta {
+    margin-top: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .mcReviewCtaTitle {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .mcReviewButton {
+    font-size: 1.125rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mcReviewCarouselContainer {
+    max-width: 1200px;
+    padding: 2.5rem 2rem;
+  }
+
+  .mcGoogleReviewsHeader {
+    padding: 2rem 3rem;
+  }
+
+  .mcGoogleGraphicImage {
+    max-width: 400px;
+  }
+
+  .mcReviewShowcaseTitle {
+    font-size: 2.5rem;
+  }
+
+  .mcGoogleReviewCard {
+    max-width: 800px;
+    padding: 2rem;
+  }
+
+  .mcReviewerAvatar {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .mcGoogleReviewerName {
+    font-size: 1.2rem;
+  }
+
+  .mcGoogleReviewText {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .mcGoogleOwnerResponse {
+    padding: 1.2rem;
+  }
+
+  .mcGoogleResponseTitle {
+    font-size: 1.1rem;
+  }
+
+  .mcGoogleResponseText {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .mcCarouselDots {
+    margin-top: 2rem;
+  }
+
+  .mcCarouselDot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .mcReviewCta {
+    margin-top: 2.5rem;
+    padding: 2rem 0;
+  }
+
+  .mcReviewCtaTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .mcReviewButton {
+    font-size: 1.25rem;
+    padding: 1rem 2.5rem;
+  }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1440px) {
+  .mcReviewCarouselContainer {
+    max-width: 1400px;
+    padding: 3rem 2.5rem;
+  }
+
+  .mcGoogleGraphicImage {
+    max-width: 450px;
+  }
+
+  .mcReviewShowcaseTitle {
+    font-size: 3rem;
+  }
+
+  .mcGoogleReviewCard {
+    max-width: 900px;
+    padding: 2.5rem;
+  }
+
+  .mcGoogleReviewText {
+    font-size: 1.1rem;
+    max-height: 220px;
+  }
+
+  .mcGoogleResponseText {
+    font-size: 1.05rem;
+    max-height: 160px;
+  }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .mcReviewCarouselContainer,
+  .mcGoogleReviewsHeader,
+  .mcGoogleReviewCard,
+  .mcCarouselSlider,
+  .mcCarouselItem,
+  .mcCarouselArrowLeft,
+  .mcCarouselArrowRight,
+  .mcCarouselDot,
+  .mcReviewButton,
+  .mcGoogleBadge {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .mcReviewCarouselContainer {
+    border: 2px solid #000000;
+  }
+
+  .mcGoogleReviewCard {
+    border: 2px solid #000000;
+  }
+
+  .mcCarouselArrowLeft,
+  .mcCarouselArrowRight {
+    border: 2px solid #ffffff;
+  }
+
+  .mcReviewButton {
+    border: 2px solid #ffffff;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .mcReviewCarouselContainer {
+    box-shadow: none;
+    background: #ffffff;
+    page-break-inside: avoid;
+  }
+
+  .mcCarouselArrowLeft,
+  .mcCarouselArrowRight,
+  .mcCarouselDots,
+  .mcReviewCta {
+    display: none;
+  }
+
+  .mcCarouselSlider {
+    display: block;
+  }
+
+  .mcCarouselItem {
+    display: block;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  .mcGoogleReviewCard {
+    box-shadow: none;
+    border: 1px solid #000000;
   }
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+  <!-- Google text - clean and readable with proper spacing -->
+  <g transform="translate(20, 30)">
+    <text font-family="Product Sans, Roboto, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="0.5px">
+      <tspan fill="#4285f4" x="0">G</tspan>
+      <tspan fill="#ea4335" x="16">o</tspan>
+      <tspan fill="#fbbc04" x="30">o</tspan>
+      <tspan fill="#4285f4" x="44">g</tspan>
+      <tspan fill="#34a853" x="57">l</tspan>
+      <tspan fill="#ea4335" x="63">e</tspan>
+    </text>
+  </g>
+  
+  <!-- Reviews text -->
+  <g transform="translate(110, 30)">
+    <text font-family="Product Sans, Roboto, Arial, sans-serif" font-size="24" font-weight="400" fill="#5f6368">
+      Reviews
+    </text>
+  </g>
+  
+  <!-- 5 Stars -->
+  <g transform="translate(20, 50)">
+    <!-- Star 1 -->
+    <path fill="#fbbc04" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14l-6-4.8h7.6z" transform="scale(0.8)"/>
+    <!-- Star 2 -->
+    <path fill="#fbbc04" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14l-6-4.8h7.6z" transform="translate(20, 0) scale(0.8)"/>
+    <!-- Star 3 -->
+    <path fill="#fbbc04" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14l-6-4.8h7.6z" transform="translate(40, 0) scale(0.8)"/>
+    <!-- Star 4 -->
+    <path fill="#fbbc04" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14l-6-4.8h7.6z" transform="translate(60, 0) scale(0.8)"/>
+    <!-- Star 5 -->
+    <path fill="#fbbc04" d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2L12 17.2 5.6 21.2 8 14l-6-4.8h7.6z" transform="translate(80, 0) scale(0.8)"/>
+  </g>
+  
+  <!-- Rating and review count -->
+  <g transform="translate(120, 65)">
+    <text font-family="Roboto, Arial, sans-serif" font-size="16" font-weight="500" fill="#3c4043">
+      5.0
+    </text>
+    <text font-family="Roboto, Arial, sans-serif" font-size="14" font-weight="400" fill="#5f6368" x="25" y="0">
+      (35 reviews)
+    </text>
+  </g>
+</svg>

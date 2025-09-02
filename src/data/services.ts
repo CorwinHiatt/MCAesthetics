@@ -46,7 +46,7 @@ const aestheticServicesData: ServiceCategory = {
       nested: [
         {
           name: "Xeomin",
-          imageUrl: "/images/xeominOriginal.webp",
+          imageUrl: "/images/xeominOriginal.jpg",
           meta: {
             title: "Xeomin McMinnville - Pure Wrinkle Treatment",
             description: "Xeomin at MC Aesthetics in McMinnville is a purified wrinkle reducer for natural results on frown lines and crow’s feet. See effects in 3-4 days, lasting 3-4 months.",
