@@ -4,63 +4,21 @@ import Link from 'next/link';
 import Image from "next/legacy/image";
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-
 import styles from './Header2.module.css';
 import logo from '../../../../public/images/logo.png';
 
-export default function Header2() {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aestheticDropdownOpen, setAestheticDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+  const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
+  const [mobileExpandedCategories, setMobileExpandedCategories] = useState<MobileExpandedCategories>({});
   const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  // Set isClient to true once component mounts
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Add scroll effect for dynamic header behavior
-  useEffect(() => {
-    if (!isClient) return;
-    
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isClient]);
-
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setAestheticDropdownOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    if (!isClient) return;
-    
-    function handleClickOutside(event: Event) {
-      if (
-        dropdownRef.current &&
-        event.target &&
-        !(dropdownRef.current as HTMLDivElement).contains(event.target as Node)
-      ) {
-        setAestheticDropdownOpen(false);
-      }
-    }
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("touchstart", handleClickOutside);
-    
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isClient]);
-
+  // Your complete aesthetic services structure - PRESERVED
   const aestheticServices = [
     { 
       category: "Wrinkle Reducers",
@@ -83,7 +41,7 @@ export default function Header2() {
       ]
     },
     {
-      category: null,
+      category: null, // Individual services without category
       items: [
         { name: "Kybella", href: "/aesthetic-services/kybella" },
         { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
@@ -100,384 +58,385 @@ export default function Header2() {
     }
   ];
 
-  const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
-  const [mobileExpandedCategories, setMobileExpandedCategories] = useState<Record<string, boolean>>({});
+  // Function to close mobile menu and reset all expanded states
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileAestheticExpanded(false);
+    setMobileExpandedCategories({});
+  };
+
+  // Calculate dropdown position when it opens
+  useEffect(() => {
+    if (aestheticDropdownOpen && buttonRef.current) {
+      const buttonRect = buttonRef.current.getBoundingClientRect();
+      setDropdownPosition({
+        top: buttonRect.bottom + 8,
+        left: buttonRect.left
+      });
+    }
+  }, [aestheticDropdownOpen]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        event.target &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setAestheticDropdownOpen(false);
+      }
+    }
+
+    if (aestheticDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [aestheticDropdownOpen]);
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu when pathname changes (navigation occurs)
+  useEffect(() => {
+    closeMobileMenu();
+  }, [pathname]);
+
+  // Mobile category toggle
+  interface AestheticServiceItem {
+    name: string;
+    href: string;
+  }
+
+  interface AestheticServiceSection {
+    category: string | null;
+    items: AestheticServiceItem[];
+  }
+
+  interface DropdownPosition {
+    top: number;
+    left: number;
+  }
+
+  interface MobileExpandedCategories {
+    [category: string]: boolean;
+  }
 
   const toggleMobileCategory = (category: string) => {
-    setMobileExpandedCategories((prev: Record<string, boolean>) => ({
+    setMobileExpandedCategories((prev: MobileExpandedCategories) => ({
       ...prev,
       [category]: !prev[category]
     }));
   };
 
-  // Dropdown handlers with improved timing
-  const handleDropdownToggle = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-      dropdownTimeoutRef.current = null;
-    }
-    setAestheticDropdownOpen(!aestheticDropdownOpen);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-      dropdownTimeoutRef.current = null;
-    }
-    if (!aestheticDropdownOpen) {
-      setAestheticDropdownOpen(true);
-    }
-  };
-
-  const handleDropdownMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setAestheticDropdownOpen(false);
-    }, 150);
-  };
-
-  const handleDropdownItemClick = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-      dropdownTimeoutRef.current = null;
-    }
-    setAestheticDropdownOpen(false);
-  };
-
-  // Clean up timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <div className={styles.mcaLuxHeaderWrapper}>
-      <header className={`${styles.mcaLuxHeader} ${isClient && scrolled ? styles.mcaLuxHeaderScrolled : ''}`}>
-        <div className={styles.mcaLuxHeaderContainer}>
-          <div className={styles.mcaLuxHeaderContent}>
-            <Link href="/" className={styles.mcaLuxHeaderLogoContainer}>
-              <div className={styles.mcaLuxHeaderLogoWrapper}>
+    <div className={styles.headerWrapper}>
+      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
+        <div className={styles.headerContainer}>
+          <div className={styles.headerContent}>
+            
+            {/* Logo */}
+            <Link href="/" className={styles.logoContainer}>
+              <div className={styles.logoWrapper}>
                 <Image 
                   src={logo}
                   alt="MC Aesthetics Logo"
-                  width={80}
-                  height={80}
-                  className={styles.mcaLuxHeaderLogoImage}
+                  width={60}
+                  height={60}
+                  className={styles.logoImage}
                   priority
                 />
               </div>
             </Link>
 
-            <button
-              className={styles.mcaLuxHeaderMobileMenuButton}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-            >
-              <div className={styles.mcaLuxHeaderMenuIconWrapper}>
-                <svg
-                  width="28"
-                  height="28"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className={styles.mcaLuxHeaderMenuIcon}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                  />
-                </svg>
-              </div>
-            </button>
-
-            <nav className={styles.mcaLuxHeaderDesktopNav}>
-              <div className={styles.mcaLuxHeaderNavLinks}>
-                <Link
-                  href="/about"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/about' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>About</span>
+            {/* Desktop Navigation */}
+            <nav className={styles.desktopNav}>
+              <div className={styles.navLinks}>
+                <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`}>
+                  About
                 </Link>
-                <Link
-                  href="/zo-skin-health"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/zo-skin-health' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>Zo Skin Health</span>
+                <Link href="/zo-skin-health" className={`${styles.navLink} ${pathname === '/zo-skin-health' ? styles.active : ''}`}>
+                  Zo Skin Health
                 </Link>
-                <Link
-                  href="/laser-hair"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/laser-hair' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>Laser Hair</span>
+                <Link href="/laser-hair" className={`${styles.navLink} ${pathname === '/laser-hair' ? styles.active : ''}`}>
+                  Laser Hair
                 </Link>
-                <Link
-                  href="/gift-cards"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/gift-cards' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>Gift Cards</span>
+                <Link href="/gift-cards" className={`${styles.navLink} ${pathname === '/gift-cards' ? styles.active : ''}`}>
+                  Gift Cards
                 </Link>
-                <Link
-                  href="/financing"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/financing' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>Financing</span>
+                <Link href="/financing" className={`${styles.navLink} ${pathname === '/financing' ? styles.active : ''}`}>
+                  Financing
                 </Link>
-                <Link
-                  href="/contact"
-                  className={`${styles.mcaLuxHeaderNavLink} ${pathname === '/contact' ? styles.mcaLuxHeaderActive : ''}`}
-                >
-                  <span className={styles.mcaLuxHeaderNavLinkText}>Contact</span>
+                <Link href="/contact" className={`${styles.navLink} ${pathname === '/contact' ? styles.active : ''}`}>
+                  Contact
                 </Link>
                 
-                <div 
-                  className={styles.mcaLuxHeaderDropdownContainer} 
-                  ref={dropdownRef}
-                  onMouseEnter={handleDropdownMouseEnter}
-                  onMouseLeave={handleDropdownMouseLeave}
-                >
+                {/* COMPLETE Aesthetic Services Dropdown */}
+                <div className={styles.dropdownContainer} ref={dropdownRef}>
                   <button 
-                    className={`${styles.mcaLuxHeaderNavLink} ${styles.mcaLuxHeaderDropdownButton} ${
-                      pathname.startsWith('/aesthetic-services') ? styles.mcaLuxHeaderActive : ''
-                    }`}
-                    onClick={handleDropdownToggle}
+                    ref={buttonRef}
+                    className={`${styles.dropdownButton} ${styles.navLink} ${pathname.startsWith('/aesthetic-services') ? styles.active : ''}`}
+                    onClick={() => setAestheticDropdownOpen(!aestheticDropdownOpen)}
                     aria-expanded={aestheticDropdownOpen}
-                    aria-haspopup="true"
-                    type="button"
                   >
-                    <span className={styles.mcaLuxHeaderNavLinkText}>Aesthetic Services</span>
+                    Aesthetic Services
                     <svg 
                       width="14" 
                       height="14" 
                       viewBox="0 0 24 24" 
                       fill="none" 
-                      stroke="currentColor" 
-                      className={`${styles.mcaLuxHeaderDropdownArrow} ${aestheticDropdownOpen ? styles.mcaLuxHeaderDropdownArrowOpen : ''}`}
+                      stroke="currentColor"
+                      className={styles.dropdownArrow}
+                      style={{ 
+                        transform: aestheticDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s ease'
+                      }}
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   
-                  {/* Enhanced dropdown rendering */}
-                  <div 
-                    className={`${styles.mcaLuxHeaderDropdownMenu} ${
-                      aestheticDropdownOpen ? styles.mcaLuxHeaderDropdownMenuOpen : styles.mcaLuxHeaderDropdownMenuClosed
-                    }`}
-                    style={{
-                      visibility: aestheticDropdownOpen ? 'visible' : 'hidden',
-                      opacity: aestheticDropdownOpen ? 1 : 0,
-                      transform: aestheticDropdownOpen ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.95)',
-                      pointerEvents: aestheticDropdownOpen ? 'auto' : 'none'
-                    }}
-                  >
-                    <div className={styles.mcaLuxHeaderDropdownInner}>
-                      {aestheticServices.map((section, sectionIndex) => (
-                        <div key={`section-${sectionIndex}`} className={styles.mcaLuxHeaderDropdownSection}>
-                          {section.category && (
-                            <div className={styles.mcaLuxHeaderDropdownCategory}>
-                              {section.category}
-                            </div>
-                          )}
-                          {section.items.map((item, itemIndex) => (
-                            <Link 
-                              key={`item-${sectionIndex}-${itemIndex}`}
-                              href={item.href}
-                              className={`${styles.mcaLuxHeaderDropdownItem} ${
-                                pathname === item.href ? styles.mcaLuxHeaderDropdownItemActive : ''
-                              }`}
-                              onClick={handleDropdownItemClick}
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-                <Link 
-                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
-                  className={styles.mcaLuxHeaderBookButton}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className={styles.mcaLuxHeaderBookButtonText}>Book Now</span>
-                </Link>
-              </div>
-            </nav>
-          </div>
-        </div>
-
-        {/* Mobile menu with improved rendering */}
-        <div 
-          className={`${styles.mcaLuxHeaderMobileMenuOverlay} ${
-            mobileMenuOpen ? styles.mcaLuxHeaderMobileMenuOpen : styles.mcaLuxHeaderMobileMenuClosed
-          }`}
-          style={{
-            visibility: mobileMenuOpen ? 'visible' : 'hidden',
-            opacity: mobileMenuOpen ? 1 : 0,
-            transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
-            pointerEvents: mobileMenuOpen ? 'auto' : 'none',
-            zIndex: 9999 // Added to ensure it’s above other elements
-          }}
-        >
-          <div className={styles.mcaLuxHeaderMobileMenuContent}>
-            <button
-              className={styles.mcaLuxHeaderMobileCloseButton}
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Close menu"
-            >
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className={styles.mcaLuxHeaderCloseIcon}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            <nav className={styles.mcaLuxHeaderMobileNav}>
-              <Link href="/" className={styles.mcaLuxHeaderMobileNavLink}>
-                Home
-              </Link>
-              <Link href="/about" className={styles.mcaLuxHeaderMobileNavLink}>
-                About
-              </Link>
-              <Link href="/zo-skin-health" className={styles.mcaLuxHeaderMobileNavLink}>
-                Zo Skin Health
-              </Link>
-              <Link href="/laser-hair" className={styles.mcaLuxHeaderMobileNavLink}>
-                Laser Hair
-              </Link>
-              <Link href="/gift-cards" className={styles.mcaLuxHeaderMobileNavLink}>
-                Gift Cards
-              </Link>
-              <Link href="/financing" className={styles.mcaLuxHeaderMobileNavLink}>
-                Financing
-              </Link>
-              <Link href="/contact" className={styles.mcaLuxHeaderMobileNavLink}>
-                Contact
-              </Link>
-              
-              <div className={styles.mcaLuxHeaderMobileAccordion}>
-                <button 
-                  className={`${styles.mcaLuxHeaderMobileAccordionButton} ${
-                    mobileAestheticExpanded ? styles.mcaLuxHeaderMobileAccordionExpanded : ''
-                  }`}
-                  onClick={() => setMobileAestheticExpanded(!mobileAestheticExpanded)}
-                  aria-expanded={mobileAestheticExpanded}
-                  type="button"
-                >
-                  Aesthetic Services
-                  <svg 
-                    width="20" 
-                    height="20" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor"
-                    className={`${styles.mcaLuxHeaderMobileAccordionArrow} ${
-                      mobileAestheticExpanded ? styles.mcaLuxHeaderMobileAccordionArrowExpanded : ''
-                    }`}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                
-                <div 
-                  className={`${styles.mcaLuxHeaderMobileAccordionContent} ${
-                    mobileAestheticExpanded ? styles.mcaLuxHeaderMobileAccordionContentOpen : ''
-                  }`}
-                  style={{
-                    maxHeight: mobileAestheticExpanded ? '1000px' : '0',
-                    opacity: mobileAestheticExpanded ? 1 : 0,
-                    overflow: 'hidden'
-                  }}
-                >
-                  {aestheticServices.map((section, sectionIndex) => (
-                    <div key={`mobile-section-${sectionIndex}`} className={styles.mcaLuxHeaderMobileAccordionSection}>
-                      {section.category ? (
-                        <>
-                          <button 
-                            className={styles.mcaLuxHeaderMobileSubCategory}
-                            onClick={() => toggleMobileCategory(section.category)}
-                            aria-expanded={!!mobileExpandedCategories[section.category]}
-                            type="button"
-                          >
-                            {section.category}
-                            <svg 
-                              width="16" 
-                              height="16" 
-                              viewBox="0 0 24 24" 
-                              fill="none" 
-                              stroke="currentColor"
-                              className={`${styles.mcaLuxHeaderMobileSubCategoryArrow} ${
-                                mobileExpandedCategories[section.category] ? styles.mcaLuxHeaderMobileSubCategoryArrowExpanded : ''
-                              }`}
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </button>
-                          <div 
-                            className={styles.mcaLuxHeaderMobileSubItems}
-                            style={{
-                              maxHeight: mobileExpandedCategories[section.category] ? '500px' : '0',
-                              opacity: mobileExpandedCategories[section.category] ? 1 : 0,
-                              overflow: 'hidden'
-                            }}
-                          >
+                  {/* Complete Nested Dropdown Menu */}
+                  {aestheticDropdownOpen && (
+                    <div 
+                      className={styles.dropdownMenu}
+                      style={{
+                        position: 'fixed',
+                        top: `${dropdownPosition.top}px`,
+                        left: `${dropdownPosition.left}px`,
+                        zIndex: 9999
+                      }}
+                    >
+                      <div className={styles.dropdownContent}>
+                        {aestheticServices.map((section, sectionIndex) => (
+                          <div key={`section-${sectionIndex}`} className={styles.dropdownSection}>
+                            {section.category && (
+                              <div className={styles.dropdownCategory}>
+                                {section.category}
+                              </div>
+                            )}
                             {section.items.map((item, itemIndex) => (
                               <Link 
-                                key={`mobile-item-${sectionIndex}-${itemIndex}`}
+                                key={`item-${sectionIndex}-${itemIndex}`}
                                 href={item.href}
-                                className={styles.mcaLuxHeaderMobileSubNavLink}
+                                className={`${styles.dropdownItem} ${pathname === item.href ? styles.active : ''}`}
+                                onClick={() => setAestheticDropdownOpen(false)}
                               >
                                 {item.name}
                               </Link>
                             ))}
                           </div>
-                        </>
-                      ) : (
-                        <>
-                          {section.items.map((item, itemIndex) => (
-                            <Link 
-                              key={`mobile-standalone-${sectionIndex}-${itemIndex}`}
-                              href={item.href}
-                              className={styles.mcaLuxHeaderMobileSubNavLink}
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </>
-                      )}
+                        ))}
+                      </div>
                     </div>
-                  ))}
+                  )}
                 </div>
+                
+                <Link 
+                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
+                  className={styles.bookButton}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Now
+                </Link>
               </div>
-              
-              <Link 
-                href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
-                className={`${styles.mcaLuxHeaderMobileNavLink} ${styles.mcaLuxHeaderMobileBookLink}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Now
-              </Link>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className={styles.mobileMenuButton}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <div className={styles.menuIconWrapper}>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                    d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+                </svg>
+              </div>
+            </button>
           </div>
         </div>
+
+        {/* Complete Mobile Menu with Nested Structure */}
+        {mobileMenuOpen && (
+          <div className={styles.mobileMenuOverlay}>
+            <div className={styles.mobileMenuContent}>
+              <button
+                className={styles.mobileCloseButton}
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+              >
+                <svg width="24" height="24" fill="none" stroke="white" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              
+              <nav className={styles.mobileNav}>
+                <Link 
+                  href="/" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Home
+                </Link>
+                <Link 
+                  href="/about" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  About
+                </Link>
+                <Link 
+                  href="/zo-skin-health" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Zo Skin Health
+                </Link>
+                <Link 
+                  href="/laser-hair" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Laser Hair
+                </Link>
+                <Link 
+                  href="/gift-cards" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Gift Cards
+                </Link>
+                <Link 
+                  href="/financing" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Financing
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className={styles.mobileNavLink}
+                  onClick={closeMobileMenu}
+                >
+                  Contact
+                </Link>
+                
+                {/* Complete Mobile Aesthetic Services Accordion */}
+                <div className={styles.mobileAccordion}>
+                  <button 
+                    className={styles.mobileAccordionButton}
+                    onClick={() => setMobileAestheticExpanded(!mobileAestheticExpanded)}
+                    aria-expanded={mobileAestheticExpanded}
+                  >
+                    Aesthetic Services
+                    <svg 
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor"
+                      style={{
+                        transform: mobileAestheticExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s ease'
+                      }}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  <div 
+                    className={styles.mobileAccordionContent}
+                    style={{
+                      maxHeight: mobileAestheticExpanded ? '1000px' : '0',
+                      opacity: mobileAestheticExpanded ? 1 : 0,
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    {aestheticServices.map((section, sectionIndex) => (
+                      <div key={`mobile-section-${sectionIndex}`} className={styles.mobileAccordionSection}>
+                        {section.category ? (
+                          <>
+                            <button 
+                              className={styles.mobileSubCategory}
+                              onClick={() => toggleMobileCategory(section.category)}
+                              aria-expanded={!!mobileExpandedCategories[section.category]}
+                            >
+                              {section.category}
+                              <svg 
+                                width="16" 
+                                height="16" 
+                                viewBox="0 0 24 24" 
+                                fill="none" 
+                                stroke="currentColor"
+                                style={{
+                                  transform: mobileExpandedCategories[section.category] ? 'rotate(180deg)' : 'rotate(0deg)',
+                                  transition: 'transform 0.3s ease'
+                                }}
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </button>
+                            <div 
+                              className={styles.mobileSubItems}
+                              style={{
+                                maxHeight: mobileExpandedCategories[section.category] ? '500px' : '0',
+                                opacity: mobileExpandedCategories[section.category] ? 1 : 0,
+                                overflow: 'hidden',
+                                transition: 'all 0.3s ease'
+                              }}
+                            >
+                              {section.items.map((item, itemIndex) => (
+                                <Link 
+                                  key={`mobile-item-${sectionIndex}-${itemIndex}`}
+                                  href={item.href}
+                                  className={styles.mobileSubNavLink}
+                                  onClick={closeMobileMenu}
+                                >
+                                  {item.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            {section.items.map((item, itemIndex) => (
+                              <Link 
+                                key={`mobile-standalone-${sectionIndex}-${itemIndex}`}
+                                href={item.href}
+                                className={styles.mobileSubNavLink}
+                                onClick={closeMobileMenu}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <Link 
+                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu" 
+                  className={styles.mobileBookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobileMenu}
+                >
+                  Book Now
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
     </div>
   );
