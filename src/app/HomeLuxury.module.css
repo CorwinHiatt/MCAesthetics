@@ -3,444 +3,724 @@
 
 /* Define custom properties based on client's palette + suggested additions for luxury feel */
 .mcaLuxHomeWrapper {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fce9df; /* Soft neutral beige from palette for clean, luxurious backgrounds */
-  color: #000000; /* Deep black for professional text contrast (added for clarity) */
-  overflow-x: hidden;
-  font-family: 'Playfair Display', serif; /* Elegant serif font for high-end feel (assume global import) */
-  --mca-primary-purple: #cb1ed4; /* Vibrant purple for accents */
-  --mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4); /* Gradient for dynamic elements */
-  --mca-rose-brown: #bf796d; /* Warm rose-brown for subtle highlights */
-  --mca-gold-accent: #a08d6d; /* Gold for luxurious touches */
-  --mca-light-gold: #e2d5b1; /* Light gold for backgrounds/subtle elements */
-  --mca-pink-highlight: #f20fce; /* Bright pink for calls-to-action */
-  --mca-deep-purple: #9c0491; /* Deep purple for depth */
-  --mca-navy-blue: #074596; /* Navy blue for professional sections */
-  --mca-light-blue: #547dc9; /* Light blue for hover effects */
-  --mca-sky-blue: #7395d1; /* Sky blue for subtle gradients */
-  --mca-bronze: #ab8260; /* Bronze for borders/shadows */
-  --mca-vivid-pink: #ec5fd1; /* Vivid pink for energy */
-  --mca-mustard-gold: #c5af3b; /* Mustard gold for accents */
-  /* Suggested additions for fitting luxury: */
-  --mca-soft-white: #f8f8f8; /* Soft white for cards and clean spaces */
-  --mca-elegant-gray: #4a4a4a; /* Gray for secondary text */
-  --mca-lux-gold: #d4af37; /* Additional luxurious gold for shine */
-  --mca-shadow-subtle: rgba(0, 0, 0, 0.1); /* Soft shadow for depth without clutter */
-  --mca-shadow-deep: rgba(0, 0, 0, 0.15); /* Deeper shadow for hover effects */
+width: 100%;
+margin: 0 auto;
+background-color: #fce9df; /* Soft neutral beige from palette for clean, luxurious backgrounds */
+color: #000000; /* Deep black for professional text contrast (added for clarity) */
+overflow-x: hidden;
+font-family: 'Playfair Display', serif; /* Elegant serif font for high-end feel (assume global import) */
+--mca-primary-purple: #cb1ed4; /* Vibrant purple for accents */
+--mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4); /* Gradient for dynamic elements */
+--mca-rose-brown: #bf796d; /* Warm rose-brown for subtle highlights */
+--mca-gold-accent: #a08d6d; /* Gold for luxurious touches */
+--mca-light-gold: #e2d5b1; /* Light gold for backgrounds/subtle elements */
+--mca-pink-highlight: #f20fce; /* Bright pink for calls-to-action */
+--mca-deep-purple: #9c0491; /* Deep purple for depth */
+--mca-navy-blue: #074596; /* Navy blue for professional sections */
+--mca-light-blue: #547dc9; /* Light blue for hover effects */
+--mca-sky-blue: #7395d1; /* Sky blue for subtle gradients */
+--mca-bronze: #ab8260; /* Bronze for borders/shadows */
+--mca-vivid-pink: #ec5fd1; /* Vivid pink for energy */
+--mca-mustard-gold: #c5af3b; /* Mustard gold for accents */
+/* Suggested additions for fitting luxury: */
+--mca-soft-white: #f8f8f8; /* Soft white for cards and clean spaces */
+--mca-elegant-gray: #4a4a4a; /* Gray for secondary text */
+--mca-lux-gold: #d4af37; /* Additional luxurious gold for shine */
+--mca-shadow-subtle: rgba(0, 0, 0, 0.1); /* Soft shadow for depth without clutter */
+--mca-shadow-deep: rgba(0, 0, 0, 0.15); /* Deeper shadow for hover effects */
 }
 
-/* Hero Section - Luxurious & Immersive */
+/* NEW: Curved Header to Hero Transition */
+.mcaLuxHomeHeaderToHeroTransition {
+width: 100%;
+height: 60px;
+background: var(--mca-gradient-purple);
+position: relative;
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+
+.mcaLuxHomeHeaderToHeroTransition::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #fce9df; /* Match your wrapper background */
+clip-path: ellipse(100% 80% at 50% 0%);
+z-index: 1;
+}
+
+.mcaLuxHomeHeaderToHeroTransition::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 20px;
+background: linear-gradient(
+  to bottom,
+  rgba(252, 233, 223, 0.3) 0%,
+  transparent 100%
+);
+z-index: 2;
+}
+
+/* Enhanced Hero Section with Shadow Image - UPDATED for smooth transition */
 .mcaLuxHomeHeroBanner {
-  position: relative;
-  height: 80vh;
-  min-height: 500px;
-  width: 100%;
-  background-image: var(--mca-gradient-purple), url('https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1974&q=80');
-  background-blend-mode: overlay;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #ffffff; /* White text for contrast on gradient */
-  overflow: hidden;
+position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: flex-end; /* Position content to the right */
+overflow: hidden;
+background: var(--mca-gradient-purple);
+padding: 0 2rem;
+margin-top: 0; /* Remove any top margin for seamless connection */
+padding-top: 2rem; /* Add padding instead of margin */
 }
 
+/* Background Shadow Image Container */
+.mcaLuxHomeHeroImageContainer {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+}
+
+.mcaLuxHomeHeroBackgroundImage {
+opacity: 0.2; /* Reduced opacity for better visibility */
+filter: blur(0.5px); /* Reduced blur for clearer image */
+transition: all 0.3s ease;
+}
+
+.mcaLuxHomeHeroImageOverlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(
+  135deg, 
+  rgba(203, 30, 212, 0.4) 0%, /* Reduced opacity from 0.7 to 0.4 */
+  rgba(155, 4, 145, 0.3) 50%, /* Reduced opacity from 0.6 to 0.3 */
+  rgba(116, 125, 201, 0.5) 100% /* Reduced opacity from 0.8 to 0.5 */
+);
+z-index: 2;
+}
+
+/* Floating Shadow Accent */
+.mcaLuxHomeHeroShadowAccent {
+position: absolute;
+top: 10%;
+left: 5%;
+z-index: 3;
+opacity: 0.15;
+transform: rotate(-15deg);
+animation: floatShadow 6s ease-in-out infinite;
+pointer-events: none;
+}
+
+.mcaLuxHomeHeroFloatingShadow {
+filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+transform: scale(1.2);
+}
+
+@keyframes floatShadow {
+0%, 100% {
+  transform: rotate(-15deg) translateY(0px);
+}
+50% {
+  transform: rotate(-12deg) translateY(-20px);
+}
+}
+
+/* Enhanced Hero Shade - Lightened */
 .mcaLuxHomeHeroShade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(155, 4, 145, 0.3)); /* Subtle purple overlay from palette */
-  z-index: 1;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(
+  45deg,
+  rgba(0, 0, 0, 0.1) 0%, /* Reduced from 0.2 to 0.1 */
+  transparent 50%,
+  rgba(0, 0, 0, 0.05) 100% /* Reduced from 0.1 to 0.05 */
+);
+z-index: 4;
 }
 
+/* Enhanced Content Box - Positioned to the Right */
 .mcaLuxHomeHeroContentBox {
-  position: relative;
-  z-index: 2;
-  padding: 2rem;
-  max-width: 800px;
+position: relative;
+z-index: 5;
+text-align: right; /* Right-align text */
+max-width: 600px;
+width: 100%;
+margin-right: 5%; /* Push content from right edge */
+padding: 3rem;
+background: rgba(255, 255, 255, 0.15); /* Slightly more opaque for better readability */
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border-radius: 15px;
+border: 1px solid rgba(255, 255, 255, 0.3); /* More visible border */
+box-shadow: 
+  0 25px 50px rgba(0, 0, 0, 0.15), /* Reduced shadow opacity */
+  inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Brighter inner highlight */
+animation: heroContentFadeIn 1.2s ease-out;
+}
+
+@keyframes heroContentFadeIn {
+from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+to {
+  opacity: 1;
+  transform: translateX(0);
+}
 }
 
 .mcaLuxHomeHeroMainText {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--mca-light-gold);
-  animation: fadeIn 1.5s ease-in-out;
+font-size: clamp(2.5rem, 5vw, 4rem);
+font-weight: 700;
+color: #ffffff;
+margin-bottom: 1.5rem;
+text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+line-height: 1.2;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+color: var(--mca-light-gold);
 }
 
 .mcaLuxHomeHeroSubText {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--mca-soft-white);
-  animation: fadeIn 2s ease-in-out;
+font-size: clamp(1.1rem, 2vw, 1.3rem);
+color: rgba(255, 255, 255, 0.95); /* Increased opacity for better readability */
+margin-bottom: 2rem;
+line-height: 1.6;
+text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+color: var(--mca-soft-white);
 }
 
 .mcaLuxHomeHeroActionBtn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--mca-pink-highlight);
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+display: inline-block;
+padding: 1rem 2.5rem;
+background: var(--mca-pink-highlight);
+color: #ffffff;
+text-decoration: none;
+border-radius: 50px;
+font-weight: 600;
+font-size: 1.1rem;
+box-shadow: 
+  0 10px 30px rgba(0, 0, 0, 0.2),
+  inset 0 1px 0 rgba(255, 255, 255, 0.8);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.mcaLuxHomeHeroActionBtn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+transition: left 0.6s ease;
+}
+
+.mcaLuxHomeHeroActionBtn:hover::before {
+left: 100%;
 }
 
 .mcaLuxHomeHeroActionBtn:hover {
-  background: var(--mca-vivid-pink);
-  transform: scale(1.05);
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+transform: translateY(-2px);
+box-shadow: 
+  0 15px 40px rgba(0, 0, 0, 0.3),
+  inset 0 1px 0 rgba(255, 255, 255, 0.9);
+background: var(--mca-vivid-pink);
 }
 
 /* About Section - Clean & Elegant */
 .mcaLuxHomeAboutArea {
-  padding: 5rem 2rem;
-  background-color: var(--mca-light-gold);
-  text-align: center;
+padding: 5rem 2rem;
+background-color: var(--mca-light-gold);
+text-align: center;
 }
 
 .mcaLuxHomeAboutContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 3rem;
+align-items: center;
 }
 
 .mcaLuxHomeAboutTextBlock {
-  flex: 1;
-  background: var(--mca-soft-white);
-  padding: 3rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--mca-shadow-subtle);
+flex: 1;
+background: var(--mca-soft-white);
+padding: 3rem;
+border-radius: 10px;
+box-shadow: 0 4px 12px var(--mca-shadow-subtle);
 }
 
 .mcaLuxHomeAboutHeadline {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--mca-deep-purple);
-  margin-bottom: 1.5rem;
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--mca-deep-purple);
+margin-bottom: 1.5rem;
 }
 
 .mcaLuxHomeAboutParagraph {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--mca-elegant-gray);
-  margin-bottom: 1.5rem;
+font-size: 1.1rem;
+line-height: 1.8;
+color: var(--mca-elegant-gray);
+margin-bottom: 1.5rem;
 }
 
 .mcaLuxHomeAboutNavLink {
-  color: var(--mca-gold-accent);
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 2px solid var(--mca-gold-accent);
-  transition: color 0.3s ease;
+color: var(--mca-gold-accent);
+text-decoration: none;
+font-weight: 600;
+border-bottom: 2px solid var(--mca-gold-accent);
+transition: color 0.3s ease;
 }
 
 .mcaLuxHomeAboutNavLink:hover {
-  color: var(--mca-mustard-gold);
+color: var(--mca-mustard-gold);
 }
 
 .mcaLuxHomeAboutVisual {
-  flex: 1;
-  max-width: 500px;
+flex: 1;
+max-width: 500px;
 }
 
 .mcaLuxHomeAboutPortrait {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 6px 18px var(--mca-shadow-deep);
-  border: 1px solid var(--mca-bronze);
+width: 100%;
+height: auto;
+border-radius: 15px;
+box-shadow: 0 6px 18px var(--mca-shadow-deep);
+border: 1px solid var(--mca-bronze);
 }
 
 /* Services Section - Easy to Navigate Cards */
 .mcaLuxHomeServicesZone {
-  padding: 5rem 2rem;
-  background-color: var(--mca-navy-blue);
-  color: #ffffff;
-  text-align: center;
+padding: 5rem 2rem;
+background-color: var(--mca-navy-blue);
+color: #ffffff;
+text-align: center;
 }
 
 .mcaLuxHomeServicesHeader {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--mca-light-gold);
+font-size: 2.5rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: var(--mca-light-gold);
 }
 
 .mcaLuxHomeServicesIntroText {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  color: var(--mca-soft-white);
+font-size: 1.2rem;
+line-height: 1.6;
+max-width: 800px;
+margin: 0 auto 3rem;
+color: var(--mca-soft-white);
 }
 
 .mcaLuxHomeServicesLayout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .mcaLuxHomeServiceTile {
-  background: var(--mca-soft-white);
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
+background: var(--mca-soft-white);
+border-radius: 10px;
+padding: 2rem;
+box-shadow: 0 4px 12px var(--mca-shadow-subtle);
+transition: transform 0.3s ease;
 }
 
 .mcaLuxHomeServiceTile:hover {
-  transform: translateY(-5px);
+transform: translateY(-5px);
 }
 
 .mcaLuxHomeServiceTileTitle {
-  font-size: 1.8rem;
-  color: var(--mca-primary-purple);
-  margin-bottom: 1rem;
+font-size: 1.8rem;
+color: var(--mca-primary-purple);
+margin-bottom: 1rem;
 }
 
 .mcaLuxHomeServiceTileDesc {
-  font-size: 1.1rem;
-  color: var(--mca-elegant-gray);
-  margin-bottom: 1.5rem;
+font-size: 1.1rem;
+color: var(--mca-elegant-gray);
+margin-bottom: 1.5rem;
 }
 
 .mcaLuxHomeServiceTileItems {
-  list-style: none;
-  padding: 0;
+list-style: none;
+padding: 0;
 }
 
 .mcaLuxHomeServiceTileEntry {
-  margin-bottom: 1rem;
+margin-bottom: 1rem;
 }
 
 .mcaLuxHomeServiceTileLink {
-  color: var(--mca-gold-accent);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+color: var(--mca-gold-accent);
+text-decoration: none;
+font-weight: 500;
+transition: color 0.3s ease;
 }
 
 .mcaLuxHomeServiceTileLink:hover {
-  color: var(--mca-mustard-gold);
+color: var(--mca-mustard-gold);
 }
 
 .mcaLuxHomeServiceTileMore {
-  color: var(--mca-pink-highlight);
-  text-decoration: none;
-  font-weight: 600;
+color: var(--mca-pink-highlight);
+text-decoration: none;
+font-weight: 600;
 }
 
 /* Featured Services Gallery - Visual & Engaging */
 .mcaLuxHomeGallerySpace {
-  padding: 5rem 2rem;
-  background-color: var(--mca-light-gold);
-  text-align: center;
+padding: 5rem 2rem;
+background-color: var(--mca-light-gold);
+text-align: center;
 }
 
 .mcaLuxHomeGalleryCaption {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--mca-deep-purple);
-  margin-bottom: 2rem;
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--mca-deep-purple);
+margin-bottom: 2rem;
 }
 
 .mcaLuxHomeGalleryDisplay {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .mcaLuxHomeGalleryPiece {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
+position: relative;
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 4px 12px var(--mca-shadow-subtle);
+transition: transform 0.3s ease;
 }
 
 .mcaLuxHomeGalleryPiece:hover {
-  transform: scale(1.03);
+transform: scale(1.03);
 }
 
 .mcaLuxHomeGalleryNav {
-  display: block;
-  text-decoration: none;
+display: block;
+text-decoration: none;
 }
 
 .mcaLuxHomeGalleryPhoto {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+width: 100%;
+height: 250px;
+object-fit: cover;
+transition: transform 0.5s ease;
 }
 
 .mcaLuxHomeGalleryPiece:hover .mcaLuxHomeGalleryPhoto {
-  transform: scale(1.1);
+transform: scale(1.1);
 }
 
 .mcaLuxHomeGalleryHoverLayer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(155, 4, 145, 0.8), transparent);
-  color: #ffffff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+padding: 1rem;
+background: linear-gradient(to top, rgba(155, 4, 145, 0.8), transparent);
+color: #ffffff;
+opacity: 0;
+transition: opacity 0.3s ease;
 }
 
 .mcaLuxHomeGalleryPiece:hover .mcaLuxHomeGalleryHoverLayer {
-  opacity: 1;
+opacity: 1;
 }
 
 .mcaLuxHomeGalleryPieceTitle {
-  font-size: 1.4rem;
-  font-weight: 600;
+font-size: 1.4rem;
+font-weight: 600;
 }
 
 .mcaLuxHomeGalleryPieceInfo {
-  font-size: 1rem;
+font-size: 1rem;
 }
 
-/* Team Section - Professional & Approachable */
+/* Team Section - FIXED Photo Positioning and Overlay Issues */
 .mcaLuxHomeTeamSection {
-  padding: 5rem 2rem;
-  background-color: var(--mca-soft-white);
+padding: 5rem 2rem;
+background-color: var(--mca-soft-white);
 }
 
 .mcaLuxHomeTeamContainer {
-  max-width: 1200px;
-  margin: 0 auto;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .mcaLuxHomeTeamHeader {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--mca-primary-purple);
-  text-align: center;
-  margin-bottom: 1.5rem;
+font-size: 2.5rem;
+font-weight: 700;
+color: var(--mca-primary-purple);
+text-align: center;
+margin-bottom: 1.5rem;
 }
 
 .mcaLuxHomeTeamIntro {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 3rem;
-  color: var(--mca-elegant-gray);
+font-size: 1.2rem;
+line-height: 1.6;
+text-align: center;
+max-width: 800px;
+margin: 0 auto 3rem;
+color: var(--mca-elegant-gray);
 }
 
 .mcaLuxHomeTeamCards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 3rem;
 }
 
 .mcaLuxHomeTeamCard {
-  background: #ffffff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
+background: #ffffff;
+border-radius: 15px; /* Increased border radius for elegance */
+overflow: hidden;
+box-shadow: 0 8px 25px var(--mca-shadow-subtle); /* Enhanced shadow */
+transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
 .mcaLuxHomeTeamCard:hover {
-  transform: translateY(-5px);
+transform: translateY(-8px); /* Slightly more lift on hover */
+box-shadow: 0 15px 40px var(--mca-shadow-deep); /* Enhanced hover shadow */
 }
 
+/* FIXED: Photo Wrapper - Proper Height and Positioning */
 .mcaLuxHomeTeamPhotoWrapper {
-  height: 300px;
-  overflow: hidden;
+height: 400px; /* Increased height for better proportion */
+overflow: hidden;
+position: relative; /* Added for proper positioning */
+border-radius: 15px 15px 0 0; /* Rounded top corners only */
 }
 
+/* FIXED: Photo Container - Proper Positioning */
+.mcaLuxHomeTeamPhotoContainer {
+width: 100%;
+height: 100%;
+position: relative;
+overflow: hidden; /* Ensure no overflow */
+}
+
+/* FIXED: Team Photos - Proper Object Positioning */
 .mcaLuxHomeTeamPhoto {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.5s ease;
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: center top; /* Focus on top center for better face positioning */
+transition: transform 0.5s ease;
+display: block; /* Ensure proper display */
 }
 
 .mcaLuxHomeTeamCard:hover .mcaLuxHomeTeamPhoto {
-  transform: scale(1.05);
+transform: scale(1.08); /* Slightly more zoom on hover */
 }
 
+/* FIXED: Team Details - Better Spacing */
 .mcaLuxHomeTeamDetails {
-  padding: 2rem;
+padding: 2.5rem; /* Increased padding */
+background: #ffffff; /* Ensure white background */
 }
 
 .mcaLuxHomeTeamName {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--mca-deep-purple);
+font-size: 2rem; /* Slightly larger name */
+font-weight: 700;
+color: var(--mca-deep-purple);
+margin-bottom: 0.5rem; /* Better spacing */
 }
 
 .mcaLuxHomeTeamTitle {
-  font-size: 1.3rem;
-  color: var(--mca-gold-accent);
-  margin-bottom: 1rem;
+font-size: 1.4rem; /* Slightly larger title */
+color: var(--mca-gold-accent);
+margin-bottom: 1.5rem; /* Better spacing */
+font-weight: 600; /* Added weight for emphasis */
+}
+
+.mcaLuxHomeTeamBio {
+font-size: 1.05rem; /* Slightly larger bio text */
+line-height: 1.8; /* Better line height for readability */
+color: var(--mca-elegant-gray);
+}
+
+/* Responsive Design - Mobile-First, Easy Navigation */
+@media (max-width: 768px) {
+/* Curved transition mobile adjustments */
+.mcaLuxHomeHeaderToHeroTransition {
+  height: 40px;
+}
+
+.mcaLuxHomeHeaderToHeroTransition::before {
+  clip-path: ellipse(100% 70% at 50% 0%);
+}
+
+.mcaLuxHomeHeroBanner {
+  justify-content: center; /* Center content on mobile */
+  padding: 1rem;
+  padding-top: 1.5rem; /* Adjust for smaller transition */
+}
+
+.mcaLuxHomeHeroContentBox {
+  text-align: center; /* Center text on mobile */
+  margin-right: 0;
+  max-width: 90%;
+  padding: 2rem;
+}
+
+.mcaLuxHomeHeroShadowAccent {
+  top: 5%;
+  left: -10%;
+  opacity: 0.1;
+}
+
+.mcaLuxHomeHeroFloatingShadow {
+  transform: scale(0.8);
+}
+
+/* Mobile Team Photo Adjustments */
+.mcaLuxHomeTeamPhotoWrapper {
+  height: 350px; /* Slightly smaller on mobile */
+}
+
+.mcaLuxHomeTeamDetails {
+  padding: 2rem; /* Reduced padding on mobile */
+}
+}
+
+@media (max-width: 480px) {
+/* Very small mobile adjustments */
+.mcaLuxHomeHeaderToHeroTransition {
+  height: 30px;
+}
+
+.mcaLuxHomeHeroShadowAccent {
+  display: none; /* Hide on very small screens */
+}
+
+.mcaLuxHomeHeroContentBox {
+  margin: 0.5rem;
+  padding: 1.5rem;
+}
+
+.mcaLuxHomeHeroBanner {
+  padding-top: 1rem;
+}
+
+/* Small Mobile Team Adjustments */
+.mcaLuxHomeTeamPhotoWrapper {
+  height: 300px; /* Smaller on very small screens */
+}
+
+.mcaLuxHomeTeamDetails {
+  padding: 1.5rem;
+}
+
+.mcaLuxHomeTeamName {
+  font-size: 1.6rem;
+}
+
+.mcaLuxHomeTeamTitle {
+  font-size: 1.2rem;
 }
 
 .mcaLuxHomeTeamBio {
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--mca-elegant-gray);
+}
 }
 
-/* Responsive Design - Mobile-First, Easy Navigation */
 @media (min-width: 768px) {
-  .mcaLuxHomeAboutContainer {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+.mcaLuxHomeAboutContainer {
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+}
 
-  .mcaLuxHomeServicesLayout {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.mcaLuxHomeServicesLayout {
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  .mcaLuxHomeGalleryDisplay {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.mcaLuxHomeGalleryDisplay {
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  .mcaLuxHomeTeamCards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.mcaLuxHomeTeamCards {
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  .mcaLuxHomeHeroMainText {
-    font-size: 4rem;
-  }
+.mcaLuxHomeHeroMainText {
+  font-size: 4rem;
+}
+
+/* Desktop Team Photo Adjustments */
+.mcaLuxHomeTeamPhotoWrapper {
+  height: 450px; /* Taller on desktop for better proportion */
+}
 }
 
 @media (min-width: 1024px) {
-  .mcaLuxHomeGalleryDisplay {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.mcaLuxHomeGalleryDisplay {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Large Desktop Team Adjustments */
+.mcaLuxHomeTeamPhotoWrapper {
+  height: 500px; /* Even taller on large screens */
+}
+}
+
+/* Performance Optimizations */
+.mcaLuxHomeHeroBanner * {
+will-change: transform;
+backface-visibility: hidden;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+.mcaLuxHomeHeroShadowAccent {
+  animation: none;
+}
+
+.mcaLuxHomeHeroContentBox {
+  animation: none;
+}
+
+.mcaLuxHomeHeroActionBtn::before {
+  transition: none;
+}
+
+.mcaLuxHomeTeamPhoto {
+  transition: none;
+}
+
+.mcaLuxHomeTeamCard {
+  transition: none;
+}
 }

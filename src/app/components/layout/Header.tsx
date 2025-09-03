@@ -1,11 +1,11 @@
 "use client"
 
 import Link from 'next/link';
-import Image from "next/legacy/image";
+// import Image from "next/image"; // Updated from next/legacy/image
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './Header2.module.css';
-import logo from '../../../../public/images/logo.png';
+// import logo from '../../../../public/images/logo.png';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,9 +14,15 @@ export default function Header() {
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const [mobileAestheticExpanded, setMobileAestheticExpanded] = useState(false);
   const [mobileExpandedCategories, setMobileExpandedCategories] = useState<MobileExpandedCategories>({});
+  const [isClient, setIsClient] = useState(false); // Added to handle hydration
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  // Set client-side flag to prevent hydration mismatch
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Your complete aesthetic services structure - PRESERVED
   const aestheticServices = [
@@ -65,19 +71,20 @@ export default function Header() {
     setMobileExpandedCategories({});
   };
 
-  // Calculate dropdown position when it opens
+  // Calculate dropdown position when it opens - only on client side
   useEffect(() => {
-    if (aestheticDropdownOpen && buttonRef.current) {
+    if (isClient && aestheticDropdownOpen && buttonRef.current) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
       setDropdownPosition({
         top: buttonRect.bottom + 8,
         left: buttonRect.left
       });
     }
-  }, [aestheticDropdownOpen]);
+  }, [isClient, aestheticDropdownOpen]);
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside - only on client side
   useEffect(() => {
+    if (!isClient) return;
     function handleClickOutside(event: MouseEvent) {
       if (
         dropdownRef.current &&
@@ -92,14 +99,15 @@ export default function Header() {
       document.addEventListener("mousedown", handleClickOutside);
       return () => document.removeEventListener("mousedown", handleClickOutside);
     }
-  }, [aestheticDropdownOpen]);
+  }, [isClient, aestheticDropdownOpen]);
 
-  // Scroll effect
+  // Scroll effect - only on client side
   useEffect(() => {
+    if (!isClient) return;
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isClient]);
 
   // Close mobile menu when pathname changes (navigation occurs)
   useEffect(() => {
@@ -133,6 +141,11 @@ export default function Header() {
     }));
   };
 
+  // Log to confirm component is rendering
+  if (isClient) {
+    console.log("Header component rendered");
+  }
+
   return (
     <div className={styles.headerWrapper}>
       <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
@@ -142,14 +155,12 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className={styles.logoContainer}>
               <div className={styles.logoWrapper}>
-                <Image 
-                  src={logo}
-                  alt="MC Aesthetics Logo"
-                  width={60}
-                  height={60}
-                  className={styles.logoImage}
-                  priority
-                />
+                <div className={styles.logoWrapper}>
+  <div style={{ width: 60, height: 60, backgroundColor: '#ccc', borderRadius: '50%' }}>
+    Logo Placeholder
+  </div>
+</div>
+
               </div>
             </Link>
 
@@ -201,11 +212,11 @@ export default function Header() {
                   </button>
                   
                   {/* Complete Nested Dropdown Menu */}
-                  {aestheticDropdownOpen && (
+                  {isClient && aestheticDropdownOpen && (
                     <div 
                       className={styles.dropdownMenu}
                       style={{
-                        position: 'fixed',
+                        position: 'absolute', // Changed to absolute for better compatibility
                         top: `${dropdownPosition.top}px`,
                         left: `${dropdownPosition.left}px`,
                         zIndex: 9999
@@ -264,7 +275,7 @@ export default function Header() {
         </div>
 
         {/* Complete Mobile Menu with Nested Structure */}
-        {mobileMenuOpen && (
+        {isClient && mobileMenuOpen && (
           <div className={styles.mobileMenuOverlay}>
             <div className={styles.mobileMenuContent}>
               <button

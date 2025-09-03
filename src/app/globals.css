@@ -31,5 +31,20 @@
   --mca-lux-gold: #d4af37;
   --mca-shadow-subtle: rgba(0, 0, 0, 0.1);
   --mca-shadow-deep: rgba(0, 0, 0, 0.15);
+    --mca-primary-purple: #cb1ed4;
+  --mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4);
+  --mca-gradient-gold: linear-gradient(135deg, #d4af37, #f4e4a6, #c5af3b);
+  --mca-gradient-depth: linear-gradient(145deg, #f8f6f0, #e8e2d1);
+  --mca-deep-purple: #9c0491;
+  --mca-elegant-gray: #4a4a4a;
+  --mca-light-gold: #e2d5b1;
+  --mca-white: #ffffff;
+  --mca-shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --mca-shadow-medium: 0 8px 32px rgba(203, 30, 212, 0.1);
+  --mca-shadow-heavy: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --mca-transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --mca-transition-bounce: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+
 }
 
