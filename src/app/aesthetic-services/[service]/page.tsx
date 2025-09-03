@@ -1,36 +1,28 @@
-// src/app/aesthetic-services/[service]/page.tsx
-// Updated to display 'details' if available for the top-level service.
-// Also lists nested services with links if present.
-// Handles cases where details are missing (falls back to meta.description).
-// Uses Head for meta tags.
-// Added breadcrumb navigation for consistency with nested pages.
-// Wrapped content in max-w-4xl for layout consistency.
-// Applied new detail styles from AestheticServices.module.css.
-
-"use client";
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import aestheticServicesData from '@/data/services';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import styles from '../AestheticServices.module.css';
 
-export default function ServicePage() {
-  const params = useParams();
-  const serviceName = decodeURIComponent((params.service as string).replace(/-/g, ' ')).toLowerCase();
+// GENERATE STATIC PARAMS FOR BUILD
+export async function generateStaticParams() {
+  return aestheticServicesData.items.map((service) => ({
+    service: service.name.toLowerCase().replace(/\s+/g, '-')
+  }));
+}
+
+interface ServicePageProps {
+  params: Promise<{ service: string }>;
+}
+
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { service: serviceParam } = await params;
+  const serviceName = decodeURIComponent(serviceParam.replace(/-/g, ' ')).toLowerCase();
   const service = aestheticServicesData.items.find(
     (s) => s.name.toLowerCase() === serviceName
   );
-
-  // Improved debugging logs
-  console.log("Params service:", params.service);
-  console.log("Decoded service name:", serviceName);
-  console.log("Available services:", aestheticServicesData.items.map(s => s.name.toLowerCase()));
-  console.log("Matching service found:", service ? service.name : 'Not found');
-  if (service) {
-    console.log("Service image URL:", service.imageUrl);
-  }
 
   if (!service) {
     notFound();
@@ -65,7 +57,6 @@ export default function ServicePage() {
             height={480}
             className={styles.aestheticServicesImage}
             priority
-            onError={() => console.error(`Image load error for ${service.imageUrl}`)} // Debug
           />
         </div>
 

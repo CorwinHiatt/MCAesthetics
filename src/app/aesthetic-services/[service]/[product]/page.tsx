@@ -1,55 +1,47 @@
-// app/aesthetic-services/[service]/[product]/page.tsx
-// Updated to display 'details' if available for the nested product.
-// Handles cases where details are missing (falls back to meta.description).
-// Keeps breadcrumb navigation and image.
-// Applied new detail styles from AestheticServices.module.css.
-
-"use client";
-
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import aestheticServicesData from '@/data/services';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import styles from '../../AestheticServices.module.css';
 
-// Define interface to match Next.js expected PageProps with Promise for params
-interface ProductPageProps {
-  params?: Promise<{ service: string; product: string }>;
+// GENERATE STATIC PARAMS FOR BUILD
+export async function generateStaticParams() {
+  const params = [];
+  
+  for (const service of aestheticServicesData.items) {
+    if (service.nested) {
+      for (const product of service.nested) {
+        params.push({
+          service: service.name.toLowerCase().replace(/\s+/g, '-'),
+          product: product.name.toLowerCase().replace(/\s+/g, '-')
+        });
+      }
+    }
+  }
+  
+  return params;
 }
 
-export default function ProductPage({ }: ProductPageProps) {
-  const runtimeParams = useParams(); // Use runtime params from hook for Client Component
+interface ProductPageProps {
+  params: Promise<{ service: string; product: string }>;
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { service: serviceParam, product: productParam } = await params;
   
   // Decode slugs and find the matching service and nested product
-  // Use runtimeParams since useParams() provides the values directly in Client Component
-  const serviceName = decodeURIComponent((runtimeParams.service as string).replace(/-/g, ' ')).toLowerCase();
-  const productName = decodeURIComponent((runtimeParams.product as string).replace(/-/g, ' ')).toLowerCase();
+  const serviceName = decodeURIComponent(serviceParam.replace(/-/g, ' ')).toLowerCase();
+  const productName = decodeURIComponent(productParam.replace(/-/g, ' ')).toLowerCase();
   
-  // Debug logs for URL parameters and data
-  console.log("Service URL param:", runtimeParams.service);
-  console.log("Decoded service name for match:", serviceName);
-  console.log("Product URL param:", runtimeParams.product);
-  console.log("Decoded product name for match:", productName);
-  console.log("Available services for matching:", aestheticServicesData.items.map(item => ({ 
-    name: item.name, 
-    lowercase: item.name.toLowerCase(), 
-    nested: item.nested?.map(n => n.name) || [] 
-  })));
-
   const service = aestheticServicesData.items.find(
     (s) => s.name.toLowerCase() === serviceName
   );
 
-  console.log("Matching service found:", service ? { name: service.name, nested: service.nested?.map(n => n.name) } : "Not found");
-
   const product = service?.nested?.find((p) => p.name.toLowerCase() === productName);
 
-  console.log("Matching product found:", product ? { name: product.name } : "Not found");
-
   if (!service || !product) {
-    console.log("Triggering 404 - Service or Product not found");
     notFound();
   }
 
@@ -70,7 +62,7 @@ export default function ProductPage({ }: ProductPageProps) {
         </Link>
         <span className="text-gray-500">›</span>
         <Link
-          href={`/aesthetic-services/${runtimeParams.service}`}
+          href={`/aesthetic-services/${serviceParam}`}
           className={styles.aestheticServicesAccordionLink}
         >
           {service.name}
@@ -81,15 +73,14 @@ export default function ProductPage({ }: ProductPageProps) {
       {/* Main Content */}
       <div className="max-w-4xl w-full">
         <h1 className={styles.aestheticServicesMainTitle}>{product.name}</h1>
-        {/* Replaced <img> with Next.js <Image> for better rendering, optimization, and handling of public folder assets */}
-        <div className={styles.aestheticServicesImageContainer}> {/* New container for elegant styling */}
+        <div className={styles.aestheticServicesImageContainer}>
           <Image
             src={product.imageUrl}
             alt={product.name}
-            width={800} // Specify width for optimization
-            height={480} // Specify height for optimization
-            className={styles.aestheticServicesImage} // New class for professional, elegant styling
-            priority // Prioritize loading for main image
+            width={800}
+            height={480}
+            className={styles.aestheticServicesImage}
+            priority
           />
         </div>
 
@@ -195,7 +186,7 @@ export default function ProductPage({ }: ProductPageProps) {
 
         <div className="mt-6">
           <Link
-            href={`/aesthetic-services/${runtimeParams.service}`}
+            href={`/aesthetic-services/${serviceParam}`}
             className={styles.aestheticServicesAccordionLink}
           >
             ← Back to {service.name}
