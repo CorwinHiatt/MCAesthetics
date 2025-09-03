@@ -2,6 +2,7 @@
   width: 100%;
   margin-bottom: 0;
   font-family: 'Playfair Display', serif;
+
   --mca-primary-purple: #cb1ed4;
   --mca-gradient-purple: linear-gradient(135deg, #b85cf1, #cb1ed4);
   --mca-gradient-gold: linear-gradient(135deg, #d4af37, #f4e4a6, #c5af3b);
@@ -313,7 +314,7 @@
     0 4px 15px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   min-width: 240px;
-  z-index: 1010;
+  z-index: 9999; /* Increased to ensure dropdown is above other elements */
   border: 1px solid rgba(212, 175, 55, 0.2);
   animation: dropdownSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -401,7 +402,7 @@
   width: 100%;
   height: 100%;
   background: var(--mca-gradient-purple);
-  z-index: 999;
+  z-index: 9999; /* Increased to ensure it’s above other elements */
   overflow-y: auto;
   animation: mobileMenuSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }

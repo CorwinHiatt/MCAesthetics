@@ -322,7 +322,8 @@ export default function Header2() {
             visibility: mobileMenuOpen ? 'visible' : 'hidden',
             opacity: mobileMenuOpen ? 1 : 0,
             transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
-            pointerEvents: mobileMenuOpen ? 'auto' : 'none'
+            pointerEvents: mobileMenuOpen ? 'auto' : 'none',
+            zIndex: 9999 // Added to ensure it’s above other elements
           }}
         >
           <div className={styles.mcaLuxHeaderMobileMenuContent}>
