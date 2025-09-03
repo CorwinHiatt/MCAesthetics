@@ -75,10 +75,31 @@ export default function Header() {
   useEffect(() => {
     if (isClient && aestheticDropdownOpen && buttonRef.current) {
       const buttonRect = buttonRef.current.getBoundingClientRect();
-      setDropdownPosition({
+      const calculatedPosition = {
         top: buttonRect.bottom + 8,
         left: buttonRect.left
+      };
+      
+      // 🔍 STEP 4: DROPDOWN POSITIONING VERIFICATION LOG
+      console.log("Dropdown position calculated:", calculatedPosition);
+      console.log("Button rect details:", {
+        bottom: buttonRect.bottom,
+        left: buttonRect.left,
+        width: buttonRect.width,
+        height: buttonRect.height,
+        top: buttonRect.top,
+        right: buttonRect.right
       });
+      console.log("Window dimensions:", {
+        innerWidth: window.innerWidth,
+        innerHeight: window.innerHeight,
+        scrollY: window.scrollY
+      });
+      
+      setDropdownPosition(calculatedPosition);
+    } else if (isClient && aestheticDropdownOpen && !buttonRef.current) {
+      // Log if button ref is null when dropdown should open
+      console.error("Button ref is null when trying to calculate dropdown position!");
     }
   }, [isClient, aestheticDropdownOpen]);
 
