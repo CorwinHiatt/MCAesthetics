@@ -1,9 +1,9 @@
-import Header from './components/layout/Header';
+// import Header from './components/layout/Header';
 import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
 
-import Script from 'next/script';
+// import Script from 'next/script';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
     images: [
       {
-        url: "/images/meta.png",
+        url: "/images/shadowMain.png",
         width: 1200,
         height: 630,
-        alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
+        alt: "MC Aesthetics McMinnville - Shadowed Elegance in Luxury Skin Care and Anti-Aging Treatments",
       },
     ],
     url: "/",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MC Aesthetics McMinnville - Elevate Your Beauty",
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!",
-    images: ["/images/meta.png"],
+    images: ["/images/shadowMain.png"],
   },
   icons: {
     apple: [

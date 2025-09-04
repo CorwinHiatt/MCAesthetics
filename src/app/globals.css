@@ -1220,3 +1220,24 @@ a:hover {
     font-size: var(--font-size-sm);
   }
 }
+/* Force light mode backgrounds to avoid black vibe */
+body {
+  background-color: var(--color-cream-50) !important; /* Cream white override */
+}
+
+[data-color-scheme="dark"] {
+  /* Override dark backgrounds to light cream */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900); /* Keep text dark for contrast */
+  --color-text-secondary: var(--color-slate-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-cream-50); /* Override dark backgrounds to light cream */
+    --color-surface: var(--color-cream-100);
+    --color-text: var(--color-slate-900); /* Keep text dark for contrast */
+    --color-text-secondary: var(--color-slate-500);
+  }
+}

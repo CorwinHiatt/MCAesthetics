@@ -18,15 +18,23 @@ export default function LaserHairPage() {
             className={styles.mcaLaserHairImage}
             width={800}
             height={400}
+            sizes="(max-width: 768px) 100vw, 50vw"
             priority // Prioritize for hero image performance
           />
           <div className={styles.mcaLaserHairImageBorderAccent}></div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action with Link */}
       <div className={styles.mcaLaserHairCallToAction}>
-        <p className={styles.mcaLaserHairCtaText}>BOOK YOUR TRANSFORMATIVE SESSION TODAY</p>
+        <a
+          href="https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type"
+          className={styles.mcaLaserHairCtaText}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BOOK YOUR TRANSFORMATIVE SESSION TODAY
+        </a>
       </div>
 
       {/* Elysion Technology Section */}
@@ -49,6 +57,7 @@ export default function LaserHairPage() {
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy" // Lazy load for performance
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
@@ -93,15 +102,17 @@ export default function LaserHairPage() {
               To make your Elysion experience at MC Aesthetics truly magical, a touch of preparation goes a long way. Shave the area 24 hours prior to focus the laser&apos;s energy precisely. Shield your skin from the sun for two weeks beforehand, avoiding tans that could dim the results. Stay hydrated, skip the caffeine, and arrive with clean, product-free skin. These simple steps set the stage for optimal, radiant outcomes.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Preparation */}
           <div className={styles.mcaLaserHairImageHolder}>
             <Image
-              src="https://picsum.photos/seed/laserprep/800/400"
-              alt="Woman Preparing Skin in Luxurious Bathroom"
+              src="/images/smoothLegs.jpg"
+              alt="Smooth, Hair-Free Legs After Preparation for Laser Hair Removal at MC Aesthetics in McMinnville"
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
+              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
           </div>
@@ -120,15 +131,17 @@ export default function LaserHairPage() {
               Ready to embark on this empowering adventure? Contact MC Aesthetics in McMinnville for a consultation and step into a hair-free future.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Post-Treatment */}
           <div className={styles.mcaLaserHairImageHolder}>
             <Image
-              src="https://picsum.photos/seed/lasercare/800/400"
-              alt="Relaxed Woman Applying Lotion Post-Treatment"
+              src="/images/afterCareLaser.jpg"
+              alt="Post-Laser Hair Removal Aftercare Routine for Glowing, Smooth Skin at MC Aesthetics"
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
+              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
           </div>

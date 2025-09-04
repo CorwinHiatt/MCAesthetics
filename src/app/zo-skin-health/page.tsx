@@ -1,11 +1,34 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Added for image optimization
+import Image from 'next/image';
 import styles from './ZoSkinHealth.module.css';
 
 export default function ZoSkinHealthPage() {
   return (
     <div className={styles.zoSkinPageWrapper}>
-      {/* Main Title with Decorative Accent */}
+      {/* New Hero Section with Creative Hero Image */}
+      <section className={styles.zoSkinHero}>
+        <div className={styles.zoSkinHeroImageHolder}>
+          <Image
+            src="/images/zo-hero.webp"
+            alt="Elegant ZO Skin Health Hero Image Showcasing Radiant, Timeless Skin Transformation at MC Aesthetics in McMinnville"
+            className={styles.zoSkinHeroImage}
+            width={1200}
+            height={600}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            loading="eager" // Prioritize for immediate load
+            style={{ objectFit: 'cover' }}  // Fills container elegantly without distortion
+          />
+          <div className={styles.zoSkinImageBorderAccent}></div>
+        </div>
+        <div className={styles.zoSkinHeroOverlay}>
+          <h1 className={styles.zoSkinHeroTitle}>Unveil Your Skin&apos;s True Potential with ZO® Skin Health</h1>
+          <p className={styles.zoSkinHeroText}>
+            Experience the art of medical-grade skincare, where science meets luxury for luminous, healthy skin that defies time.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Title with Decorative Accent (Kept for consistency below hero) */}
       <div className={styles.zoSkinTitleContainer}>
         <h1 className={styles.zoSkinMainTitle}>ZO® Skin Health Products in McMinnville</h1>
         <div className={styles.zoSkinTitleDivider}></div>
@@ -14,7 +37,7 @@ export default function ZoSkinHealthPage() {
       {/* Introduction Section */}
       <div className={styles.zoSkinIntroSection}>
         <p className={styles.zoSkinIntroText}>
-          Discover the pinnacle of skincare with ZO® Skin Health, a true medical-grade line exclusively curated for discerning clients through licensed practitioners. Crafted to nurture and sustain radiant, healthy skin across all ages, ethnicities, and skin types, ZO® offers bespoke solutions. From reversing sun damage and pigmentation to safeguarding against future concerns, ZO® ensures your skin’s timeless vitality.
+          Discover the pinnacle of skincare with ZO® Skin Health, a true medical-grade line exclusively curated for discerning clients through licensed practitioners. Crafted to nurture and sustain radiant, healthy skin across all ages, ethnicities, and skin types, ZO® offers bespoke solutions. From reversing sun damage and pigmentation to safeguarding against future concerns, ZO® ensures your skin&apos;s timeless vitality.
         </p>
         <p className={styles.zoSkinIntroText}>
           For over three decades, Dr. Zein Obagi, a Board-Certified Dermatologist, has redefined skincare with pioneering solutions grounded in his philosophy of cultivating enduring skin health over mere symptom treatment. His visionary expertise positions him as a global luminary in skin rejuvenation.
@@ -51,7 +74,9 @@ export default function ZoSkinHealthPage() {
                 alt="ZO Skin Health Radiance Product" 
                 width={300} 
                 height={400} 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.zoSkinProductImage} 
+                style={{ objectFit: 'contain' }}  // Ensures full visibility
               />
             </div>
             <p className={styles.zoSkinProductCaption}>Exquisite Formulas for Unmatched Radiance</p>
@@ -63,7 +88,9 @@ export default function ZoSkinHealthPage() {
                 alt="ZO Skin Health Targeted Solution" 
                 width={300} 
                 height={400} 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.zoSkinProductImage} 
+                style={{ objectFit: 'contain' }}  // Ensures full visibility
               />
             </div>
             <p className={styles.zoSkinProductCaption}>Precision Solutions for Complex Skin Needs</p>
@@ -75,7 +102,9 @@ export default function ZoSkinHealthPage() {
                 alt="ZO Skin Health Universal Care" 
                 width={300} 
                 height={400} 
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className={styles.zoSkinProductImage} 
+                style={{ objectFit: 'contain' }}  // Ensures full visibility
               />
             </div>
             <p className={styles.zoSkinProductCaption}>Sophisticated Care for Every Skin Type</p>
@@ -118,7 +147,7 @@ export default function ZoSkinHealthPage() {
         <div className={styles.zoSkinFaqItem}>
           <p className={styles.zoSkinFaqQuestion}>Is a Prescription Required for ZO® Skin Health Products?</p>
           <p className={styles.zoSkinFaqAnswer}>
-            While no prescription is necessary, ZO® is solely available through esteemed licensed providers like MC Aesthetics, ensuring tailored expertise for your skin’s distinct needs.
+            While no prescription is necessary, ZO® is solely available through esteemed licensed providers like MC Aesthetics, ensuring tailored expertise for your skin&apos;s distinct needs.
           </p>
         </div>
       </div>

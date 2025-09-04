@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -30,7 +31,6 @@ const NewHeader: React.FC = () => {
   const [openMobileSubDropdown, setOpenMobileSubDropdown] = useState<string | null>(null);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const subDropdownRef = useRef<HTMLDivElement>(null);
 
   const navigationItems: NavigationItem[] = [
     { name: 'Home', href: '/' },
@@ -146,14 +146,19 @@ const NewHeader: React.FC = () => {
               <span className={styles.premiumText}>Professional Aesthetic Services</span>
             </div>
             <div className={styles.topBarActions}>
-              <a href="tel:+1234567890" className={styles.phoneLink}>
+              <a href="tel:+19712672322" className={styles.phoneLink}>
                 <Phone className={styles.icon} />
-                <span className={styles.phoneNumber}>(123) 456-7890</span>
+                <span className={styles.phoneNumber}>(971) 267-2322</span>
               </a>
-              <Link href="/book" className={styles.bookButton}>
+              <a 
+                href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14" 
+                className={styles.bookButton}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Calendar className={styles.icon} />
                 Book Now
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -320,14 +325,20 @@ const NewHeader: React.FC = () => {
             </ul>
           </nav>
           <div className={styles.mobileContactSection}>
-            <a href="tel:+1234567890" className={styles.phoneLink}>
+            <a href="tel:+19712672322" className={styles.phoneLink}>
               <Phone className={styles.icon} />
-              <span>(123) 456-7890</span>
+              <span>(971) 267-2322</span>
             </a>
-            <Link href="/book" className={styles.bookButton} onClick={() => setIsMobileMenuOpen(false)}>
+            <a 
+              href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14" 
+              className={styles.bookButton} 
+              onClick={() => setIsMobileMenuOpen(false)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Calendar className={styles.icon} />
               Book Now
-            </Link>
+            </a>
           </div>
         </div>
       </div>

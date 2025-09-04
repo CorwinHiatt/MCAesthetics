@@ -5,7 +5,7 @@ import meta from '../../public/images/meta.png';
 import melissaImg from '../../public/images/melissa.png';
 import maleahImg from '../../public/images/maleah.png';
 import shadowMain from '../../public/images/shadowMain.png';
-import laserLegs from '../../public/images/laserLegs.jpg'; // New import for laser legs image
+// import laserLegs from '../../public/images/laserLegs.jpg'; // New import for laser legs image
 import styles from './HomeLuxury.module.css';
 
 // Metadata for SEO and Social Previews (App Router style)
@@ -281,10 +281,10 @@ export default function HomePage() {
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=500&fit=crop&crop=center" 
               alt="MC Aesthetics McMinnville Clinic Interior" 
               className={styles.mcaLuxHomeAboutPortrait} 
-              width={400}
-              height={500}
+              width={600}
+              height={750}
               loading="lazy"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
             />
           </div>
         </div>

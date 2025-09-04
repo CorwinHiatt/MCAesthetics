@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 import styles from './Carousel.module.css';
 
+import Image from 'next/image';
+
 // Define the type for review data
 interface Review {
   reviewer: string;
@@ -34,7 +36,7 @@ const formatDaysAgo = (totalDays: number): string => {
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [, setCurrentDate] = useState(new Date());
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
@@ -416,7 +418,7 @@ export default function Carousel() {
       {/* Google Reviews Header Section - Only Google Review Graphic */}
       <div className={styles.mcGoogleReviewsHeader}>
         <div className={styles.mcGoogleReviewsGraphic}>
-          <img 
+          <Image
             src="/images/googleReviewGraphic.svg" 
             alt="Google Reviews Rating Graphic" 
             className={styles.mcGoogleGraphicImage}

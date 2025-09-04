@@ -3,14 +3,14 @@
 
 /* ===== CSS CUSTOM PROPERTIES (DESIGN SYSTEM) ===== */
 .header {
-  --primary-gradient: linear-gradient(135deg, #b85cf1, #cb1ed4);
-  --gold-gradient: linear-gradient(135deg, #d4af37, #f4e4a6, #c5af3b);
-  --surface-gradient: linear-gradient(145deg, #f8f6f0, #e8e2d1);
-  --elegant-gray: #4a4a4a;
-  --gold-accent: #a08d6d;
+  --primary-gradient: linear-gradient(135deg, #2c3e50, #34495e); /* Navy blue for professionalism */
+  --accent-gradient: linear-gradient(135deg, #d4af37, #e6c200); /* Subtle gold accents */
+  --surface-gradient: linear-gradient(145deg, #f8f9fa, #e9ecef); /* Soft gray/cream backgrounds */
+  --elegant-gray: #333333; /* Dark gray for text */
+  --gold-accent: #d4af37; /* Muted gold for highlights */
   --white: #ffffff;
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-medium: 0 6px 24px rgba(203, 30, 212, 0.08);
+  --shadow-medium: 0 6px 24px rgba(44, 62, 80, 0.08); /* Navy-tinted shadow */
   --shadow-heavy: 0 10px 32px rgba(0, 0, 0, 0.12);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -34,8 +34,8 @@
 
 /* ===== TOP BAR SECTION (COMPACT SPACING) ===== */
 .topBar {
-  background: var(--gold-gradient);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  background: var(--primary-gradient); /* Navy for professional top bar */
+  border-bottom: 1px solid rgba(52, 73, 94, 0.3); /* Navy tint */
 }
 
 .topBarContainer {
@@ -122,7 +122,7 @@
   color: var(--white);
   font-weight: 600;
   letter-spacing: 0.025em;
-  background: var(--primary-gradient);
+  background: var(--accent-gradient); /* Gold for CTA pop */
   box-shadow: var(--shadow-light);
   transition: var(--transition-bounce);
   text-decoration: none;

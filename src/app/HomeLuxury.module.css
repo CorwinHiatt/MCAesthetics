@@ -1,4 +1,3 @@
-
 /* END PERPLEXITY DESIGN SYSTEM */
 
 /* HomeLuxury.module.css - Enhanced Luxurious Styling for MC Aesthetics Homepage */
@@ -422,9 +421,11 @@
   border-bottom-color: var(--mca-mustard-gold);
 }
 
+/* About Section Visual - Increased Size for Prominence */
 .mcaLuxHomeAboutVisual {
   flex: 1;
-  max-width: 500px;
+  max-width: 600px; /* Increased from 500px for larger display */
+  width: 100%;
 }
 
 .mcaLuxHomeAboutPortrait {
@@ -673,6 +674,16 @@
   .mcaLuxHomeGalleryPhoto {
     height: 250px;
   }
+
+  /* Responsive Adjustments for Image Size */
+  .mcaLuxHomeAboutVisual {
+    max-width: 100%;
+  }
+  
+  .mcaLuxHomeAboutPortrait {
+    max-height: 400px; /* Prevent overwhelming mobile screens */
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 480px) {
@@ -770,6 +781,11 @@
 
   .mcaLuxHomeGalleryPhoto {
     height: 350px;
+  }
+
+  /* Responsive Adjustments for Image Size */
+  .mcaLuxHomeAboutVisual {
+    max-width: 600px;
   }
 }
 
