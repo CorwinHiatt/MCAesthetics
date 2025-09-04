@@ -260,7 +260,7 @@ const NewHeader: React.FC = () => {
                   priority
                 />
                 <div className={styles.logoTextContainer}>
-                  <div className={styles.logoMainText}>MC Aesthetics</div>
+                  <div className={styles.logoMainText}></div>
                 </div>
               </div>
             </Link>

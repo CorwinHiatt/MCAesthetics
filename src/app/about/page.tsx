@@ -10,14 +10,15 @@ export default function AboutPage() {
         <p className={styles.mcaAboutIntroText}>
           At MC Aesthetics in McMinnville, we believe beauty is an art form, crafted with precision, passion, and personalized care. Founded on the principles of innovation and inclusivity, our clinic is a sanctuary for those seeking transformative aesthetic treatments. From rejuvenating facials to advanced laser therapies, every service is designed to enhance your natural radiance and boost your confidence. Join us in celebrating the unique beauty that resides in everyone, guided by a team dedicated to your well-being and satisfaction.
         </p>
-        {/* Picsum Placeholder Image for Hero */}
+        {/* Local Image for Hero */}
         <div className={styles.mcaAboutHeroImageHolder}>
           <Image
-            src="https://picsum.photos/seed/abouthero/800/400"
+            src="/images/aestheticOfficeSpace.jpg"
             alt="Elegant Interior of MC Aesthetics Clinic in McMinnville Showcasing Luxurious Ambiance and Modern Equipment"
             className={styles.mcaAboutImage}
             width={800}
             height={400}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
           <div className={styles.mcaAboutImageBorderAccent}></div>
         </div>
@@ -47,14 +48,16 @@ export default function AboutPage() {
               What defines us is our holistic approach—treating not just the skin, but the spirit. With a focus on education and transparency, we ensure every client understands their path to beauty. At MC Aesthetics, your story becomes part of ours, creating lasting transformations that inspire confidence and joy.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Our Story - Added 'contain' for full logo visibility */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="https://picsum.photos/seed/aboutstory/800/400"
-              alt="Founder Melissa Cook of MC Aesthetics in McMinnville Sharing Her Vision for Innovative Beauty Treatments in a Serene Clinic Setting"
+              src="/images/logo5.png"
+              alt="Original Logo Used by Melissa Cook in the Early Days of MC Aesthetics McMinnville, Representing the Legacy of Elegance and Innovation"
               className={styles.mcaAboutImage}
               width={800}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'contain' }}  // Ensures full logo is shown without cropping
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -73,14 +76,16 @@ export default function AboutPage() {
               Melissa&apos;s philosophy centers on empowering clients through education and innovative solutions. From her early days as a certified aesthetician to building MC Aesthetics, her commitment to excellence has shaped our clinic into a beacon of beauty and confidence. Today, Melissa continues to lead with compassion, ensuring every treatment reflects her vision of natural, radiant results.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Melissa's Story - Adjusted height for better full-body display */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="https://picsum.photos/seed/melissastory/800/400"
-              alt="Melissa Cook, Founder of MC Aesthetics in McMinnville, in a Professional Portrait Highlighting Her Expertise in Aesthetic Treatments"
+              src="/images/melissa.png"
+              alt="Melissa Cook, Founder of MC Aesthetics in McMinnville, in a Full-Body Portrait Holding a Sign, Highlighting Her Expertise in Aesthetic Treatments"
               className={styles.mcaAboutImage}
               width={800}
-              height={400}
+              height={600}  // Increased height for better full-body zoom-out
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'contain' }}  // Keeps full image visible
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -132,14 +137,16 @@ export default function AboutPage() {
               Thank you for following Maleah on this journey! She&apos;s excited to see what this year brings.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Maleah's Introduction - Applied similar 'contain' sizing */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="https://picsum.photos/seed/maleahintro/800/400"
+              src="/images/maleah.png"
               alt="Maleah Espinoza, Aesthetic Nurse Injector at MC Aesthetics in McMinnville, in a Professional Setting Showcasing Her Passion for Natural Enhancements"
               className={styles.mcaAboutImage}
               width={800}
-              height={400}
+              height={600}  // Adjusted for consistent sizing
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -155,14 +162,16 @@ export default function AboutPage() {
               Integrity, innovation, and inclusivity form the foundation of MC Aesthetics. We use only FDA-approved technologies and prioritize ethical practices to deliver safe, effective results. Our commitment to sustainability and community involvement reflects our dedication to a better world.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Our Values - Applied similar 'contain' sizing */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="https://picsum.photos/seed/aboutvalues/800/400"
-              alt="Team at MC Aesthetics in McMinnville Demonstrating Core Values Through Collaborative and Inclusive Beauty Practices"
+              src="/images/melissa1.png"
+              alt="Melissa Cook and Team at MC Aesthetics in McMinnville Demonstrating Core Values Through Collaborative and Inclusive Beauty Practices"
               className={styles.mcaAboutImage}
               width={800}
-              height={400}
+              height={600}  // Adjusted for consistent sizing
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -178,14 +187,15 @@ export default function AboutPage() {
               Whether you&apos;re new to aesthetics or seeking advanced care, MC Aesthetics in McMinnville is here to guide you. Contact us today to start your journey toward timeless beauty and renewed confidence.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Local Image for Closing */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="https://picsum.photos/seed/aboutclosing/800/400"
+              src="/images/aestheticOfficeSpace.jpg"
               alt="Welcoming Entrance of MC Aesthetics Clinic in McMinnville Inviting Clients to Experience Premium Beauty Services"
               className={styles.mcaAboutImage}
               width={800}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
