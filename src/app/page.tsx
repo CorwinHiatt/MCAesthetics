@@ -93,51 +93,57 @@ const services = [
   }
 ];
 
-// Gallery items for featured services with enhanced alt text - Replaced failing Unsplash URLs with Picsum placeholders
+// Gallery items for featured services - Reorganized in priority order with assigned local images
 const galleryItems = [
-  {
-    title: 'Wrinkle Reducers - Xeomin',
-    description: 'Smooth fine lines with Xeomin, a trusted anti-aging solution.',
-    imageUrl: 'https://picsum.photos/seed/xeomin/400/300', // Replaced failing Unsplash URL
-    href: '/aesthetic-services/wrinkle-reducers/xeomin',
-    altText: 'Xeomin wrinkle reduction results at MC Aesthetics McMinnville'
-  },
-  {
-    title: 'Dermal Fillers - Restylane',
-    description: 'Enhance facial volume with Restylane fillers.',
-    imageUrl: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=300&fit=crop&crop=faces',
-    href: '/aesthetic-services/dermal-fillers/restylane',
-    altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
-  },
-  {
-    title: 'CoolPeel CO2 Laser',
-    description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
-    imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=face',
-    href: '/aesthetic-services/coolpeel%20co2%20laser',
-    altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
-  },
-  {
-    title: 'Wrinkle Reducers - Dysport',
-    description: 'Achieve a refreshed look with Dysport wrinkle reduction.',
-    imageUrl: 'https://picsum.photos/seed/dysport/400/300', // Replaced failing Unsplash URL
-    href: '/aesthetic-services/wrinkle-reducers/dysport',
-    altText: 'Dysport wrinkle treatment results at MC Aesthetics McMinnville'
-  },
-  {
-    title: 'Dermal Fillers - Sculptra',
-    description: 'Stimulate collagen with Sculptra for lasting results.',
-    imageUrl: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop&crop=faces',
-    href: '/aesthetic-services/dermal-fillers/sculptra',
-    altText: 'Sculptra filler for collagen boost at MC Aesthetics McMinnville'
-  },
+  // 1. Micro-Needling (Scarlet RF Microneedling)
   {
     title: 'Scarlet RF Microneedling',
     description: 'Tighten skin with cutting-edge RF microneedling.',
-    imageUrl: 'https://picsum.photos/seed/scarlet-rf/400/300', // Replaced failing Unsplash URL
+    imageUrl: '/images/ScarletRFMicroNeedling.jpg',
     href: '/aesthetic-services/scarlet-rf-microneedling',
     altText: 'Scarlet RF Microneedling skin tightening at MC Aesthetics McMinnville'
   },
-  // New card added for Laser Hair Removal with laserLegs image
+  // 2. Wrinkle Reducers - Primary image for Xeomin
+  {
+    title: 'Wrinkle Reducers - Xeomin',
+    description: 'Smooth fine lines with Xeomin, a trusted anti-aging solution.',
+    imageUrl: '/images/womanWrinkleReducers.jpg',
+    href: '/aesthetic-services/wrinkle-reducers/xeomin',
+    altText: 'Xeomin wrinkle reduction results at MC Aesthetics McMinnville'
+  },
+  // 2. Wrinkle Reducers - Alternative image for Dysport (handling duplicate category)
+  {
+    title: 'Wrinkle Reducers - Dysport',
+    description: 'Achieve a refreshed look with Dysport wrinkle reduction.',
+    imageUrl: '/images/wrinkelReducer2Women.jpg',
+    href: '/aesthetic-services/wrinkle-reducers/dysport',
+    altText: 'Dysport wrinkle treatment results at MC Aesthetics McMinnville'
+  },
+  // 3. CO2 Cool Peel (CoolPeel CO2 Laser)
+  {
+    title: 'CoolPeel CO2 Laser',
+    description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
+    imageUrl: '/images/CO2Coolpeel.jpg',
+    href: '/aesthetic-services/coolpeel%20co2%20laser',
+    altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
+  },
+  // 4. Dermal Fillers - Primary image for Restylane
+  {
+    title: 'Dermal Fillers - Restylane',
+    description: 'Enhance facial volume with Restylane fillers.',
+    imageUrl: '/images/dermalFIllers.jpg',
+    href: '/aesthetic-services/dermal-fillers/restylane',
+    altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
+  },
+  // 4. Dermal Fillers - Alternative image for Sculptra (handling duplicate category)
+  {
+    title: 'Dermal Fillers - Sculptra',
+    description: 'Stimulate collagen with Sculptra for lasting results.',
+    imageUrl: '/images/manWomanDermalFillers.jpg',
+    href: '/aesthetic-services/dermal-fillers/sculptra',
+    altText: 'Sculptra filler for collagen boost at MC Aesthetics McMinnville'
+  },
+  // Existing Laser Hair Removal card (kept at the end as it's not in priority list)
   {
     title: 'Laser Hair Removal - Elysion',
     description: 'Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance.',
