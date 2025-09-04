@@ -44,7 +44,32 @@
   --mca-shadow-heavy: 0 12px 40px rgba(0, 0, 0, 0.15);
   --mca-transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --mca-transition-bounce: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
+  --primary-color: #cb1ed4;
+  --gradient-color: linear-gradient(135deg, #b85cf1, #cb1ed4);
+  --rose-brown: #bf796d;
+  --gold-accent: #a08d6d;
+  --light-gold: #e2d5b1;
+  --pink-highlight: #f20fce;
+  --deep-purple: #9c0491;
+  --navy-blue: #074596;
+  --light-blue: #547dc9;
+  --sky-blue: #7395d1;
+  --bronze: #ab8260;
+  --vivid-pink: #ec5fd1;
+  --mustard-gold: #c5af3b;
+  --soft-white: #f8f8f8;
+  --elegant-gray: #4a4a4a;
+  --lux-gold: #d4af37;
+  --shadow-subtle: rgba(0, 0, 0, 0.1);
+  --shadow-deep: rgba(0, 0, 0, 0.15);
+  --gradient-gold: linear-gradient(135deg, #d4af37, #f4e4a6, #c5af3b);
+  --gradient-depth: linear-gradient(145deg, #f8f6f0, #e8e2d1);
+  --white: #ffffff;
+  --shadow-light: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 32px rgba(203, 30, 212, 0.1);
+  --shadow-heavy: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 

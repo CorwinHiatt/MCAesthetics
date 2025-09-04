@@ -1,6 +1,8 @@
 import Header from './components/layout/Header';
+import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
+
 import Script from 'next/script';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
@@ -67,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="min-h-screen bg-white"
         suppressHydrationWarning={true}
       >
-        <Header />
+        <NewHeader />
         <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
         <Carousel />
         <Footer2 />
