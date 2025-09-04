@@ -10,14 +10,15 @@ export default function LaserHairPage() {
         <p className={styles.mcaLaserHairIntroText}>
           Imagine a life free from the endless cycle of shaving, waxing, and plucking. At MC Aesthetics, our Elysion Laser Hair Removal transforms this dream into reality. Step into a world where smooth, silky skin is your everyday luxury. Powered by cutting-edge technology, Elysion delivers precise, comfortable treatments that bid farewell to unwanted hair for good. Whether it&apos;s the gentle curves of your legs or the delicate contours of your face, discover the freedom and confidence that comes with flawless, hair-free skin. Join us on this journey to rediscover your natural radiance.
         </p>
-        {/* Picsum Placeholder Image for Hero */}
-        <div className={styles.mcaLaserHairHeroImageHolder}>
+        {/* Updated: Laser Face Hair Image on Top */}
+        <div className={styles.mcaLaserHairImageHolder}>
           <Image
-            src="https://picsum.photos/seed/laserhero/800/400"
-            alt="Confident Woman with Smooth, Glowing Skin in Serene Setting"
+            src="/images/laserFaceHair.jpg"
+            alt="Close-up of Laser Hair Removal Treatment on Face for Smooth, Radiant Skin at MC Aesthetics"
             className={styles.mcaLaserHairImage}
             width={800}
             height={400}
+            priority // Prioritize for hero image performance
           />
           <div className={styles.mcaLaserHairImageBorderAccent}></div>
         </div>
@@ -40,14 +41,15 @@ export default function LaserHairPage() {
               What sets Elysion apart is its versatility and comfort. Safe for all skin types, it glides effortlessly over any area, from broad expanses like the back to intimate zones. With built-in cooling for a virtually painless experience, each session is a step toward liberation from traditional hair removal hassles. At MC Aesthetics in McMinnville, we&apos;re not just removing hair; we&apos;re unveiling the confident, carefree you.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* Updated: Laser Legs Image */}
           <div className={styles.mcaLaserHairImageHolder}>
             <Image
-              src="https://picsum.photos/seed/lasertech/800/400"
-              alt="Advanced Laser Device in Elegant Clinic Environment"
+              src="/images/laserLegs.jpg"
+              alt="Laser Hair Removal Treatment on Legs for Silky, Hair-Free Results at MC Aesthetics"
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              loading="lazy" // Lazy load for performance
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
           </div>
@@ -99,6 +101,7 @@ export default function LaserHairPage() {
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              loading="lazy"
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
           </div>
@@ -125,6 +128,7 @@ export default function LaserHairPage() {
               className={styles.mcaLaserHairImage}
               width={800}
               height={400}
+              loading="lazy"
             />
             <div className={styles.mcaLaserHairImageBorderAccent}></div>
           </div>
