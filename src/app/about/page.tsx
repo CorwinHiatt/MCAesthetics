@@ -4,27 +4,32 @@ import Image from 'next/image';
 export default function AboutPage() {
   return (
     <div className={styles.mcaAboutPageWrapper}>
+      {/* Curved Transition to Hero - Added for pronounced curve */}
+      <div className={styles.mcaAboutHeaderToHeroTransition}></div>
+
       {/* Hero Section with Main Title and Intro */}
       <section className={styles.mcaAboutHero}>
         <h1 className={styles.mcaAboutMainTitle}>Discover the Essence of MC Aesthetics: Where Beauty Meets Expertise</h1>
         <p className={styles.mcaAboutIntroText}>
-          At MC Aesthetics in McMinnville, we believe beauty is an art form, crafted with precision, passion, and personalized care. Founded on the principles of innovation and inclusivity, our clinic is a sanctuary for those seeking transformative aesthetic treatments. From rejuvenating facials to advanced laser therapies, every service is designed to enhance your natural radiance and boost your confidence. Join us in celebrating the unique beauty that resides in everyone, guided by a team dedicated to your well-being and satisfaction.
+          At MC Aesthetics in McMinnville, we believe beauty is an art form, crafted with precision, passion, and personalized care.
         </p>
-        {/* Local Image for Hero */}
+        {/* Local Image for Hero - Ensured visibility on mobile with higher z-index */}
         <div className={styles.mcaAboutHeroImageHolder}>
           <Image
-            src="/images/aestheticOfficeSpace.jpg"
+            src="/images/MCOfficeLogoOnWall.jpg"
             alt="Elegant Interior of MC Aesthetics Clinic in McMinnville Showcasing Luxurious Ambiance and Modern Equipment"
             className={styles.mcaAboutImage}
             width={800}
             height={400}
             sizes="(max-width: 768px) 100vw, 50vw"
+            priority // Added for faster mobile loading
           />
           <div className={styles.mcaAboutImageBorderAccent}></div>
+          <div className={styles.mcaAboutImageBorderAccentTop}></div>
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action - Reduced margin to minimize white space */}
       <div className={styles.mcaAboutCallToAction}>
         <a
           href="https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type"
@@ -42,13 +47,12 @@ export default function AboutPage() {
         <div className={styles.mcaAboutContentLayout}>
           <div className={styles.mcaAboutContentText}>
             <p className={styles.mcaAboutParagraph}>
-              MC Aesthetics was born from the vision of Melissa Cook, a passionate aesthetician who dreamed of creating a space where beauty and science harmonize. Located in the heart of McMinnville, our clinic has grown into a trusted name for aesthetic excellence. We specialize in non-invasive treatments that deliver remarkable results, all while prioritizing safety and comfort. Melissa&apos;s journey began with her own experiences in the beauty industry, inspiring her to found a clinic that empowers individuals to feel their best, inside and out.
+              MC Aesthetics was born from the vision of Melissa Cook, a passionate aesthetician and nurse practitioner who dreamed of creating a space where beauty and science harmonize. Located in the heart of McMinnville, our clinic has grown into a trusted name for aesthetic excellence. We specialize in non-invasive and minimally invasive treatments—like expertly administered injections and fillers—that deliver remarkable, natural-looking results, all while prioritizing safety, comfort, and your overall well-being. Melissa&apos;s journey began with her own experiences in the beauty industry, inspiring her to found a clinic that empowers individuals to feel their best, inside and out.
             </p>
             <p className={styles.mcaAboutParagraph}>
-              What defines us is our holistic approach—treating not just the skin, but the spirit. With a focus on education and transparency, we ensure every client understands their path to beauty. At MC Aesthetics, your story becomes part of ours, creating lasting transformations that inspire confidence and joy.
+              What defines us is our holistic approach—treating the whole person through personalized care that goes beyond the surface. With a focus on education and transparency, we ensure every client understands their tailored path to beauty, whether it&apos;s through gentle fillers to restore volume or non-invasive laser therapies to rejuvenate your glow. At MC Aesthetics, your story becomes part of ours, creating lasting transformations that inspire confidence, joy, and that &quot;I woke up like this&quot; vibe.
             </p>
           </div>
-          {/* Local Image for Our Story */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/logo5.png"
@@ -59,6 +63,7 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
+            <div className={styles.mcaAboutImageBorderAccentTop}></div>
           </div>
         </div>
       </section>
@@ -69,13 +74,12 @@ export default function AboutPage() {
         <div className={styles.mcaAboutContentLayout}>
           <div className={styles.mcaAboutContentText}>
             <p className={styles.mcaAboutParagraph}>
-              Melissa Cook, the founder of MC Aesthetics, embarked on her journey in the world of aesthetics over a decade ago. Driven by a personal passion for skincare and a desire to help others achieve their beauty goals, Melissa pursued extensive training in advanced laser technologies and holistic treatments. Her story is one of resilience and dedication—overcoming industry challenges to create a welcoming space in McMinnville where clients can experience personalized, transformative care.
+              Melissa Cook, entrepreneur and founder of MC Aesthetics, is a second-generation McMinnville business owner—her dad founded RB Rubber Products, inspiring her own dreams of innovation and community impact. As a board-certified nurse practitioner with over 21 years of clinical experience spanning primary care, reproductive and women&apos;s health, and 11 years in aesthetic medicine, she&apos;s passionate about helping people feel better through advanced, minimally invasive options like injections and fillers, alongside holistic treatments that blend science with self-care. Her journey reflects resilience, overcoming challenges to build a welcoming space for personalized, transformative care that boosts confidence and celebrates natural beauty.
             </p>
             <p className={styles.mcaAboutParagraph}>
-              Melissa&apos;s philosophy centers on empowering clients through education and innovative solutions. From her early days as a certified aesthetician to building MC Aesthetics, her commitment to excellence has shaped our clinic into a beacon of beauty and confidence. Today, Melissa continues to lead with compassion, ensuring every treatment reflects her vision of natural, radiant results.
+              For the past six years as owner of MC Aesthetics, Melissa has built a practice rooted in trust, results, and a deep understanding of women&apos;s health and aging—ensuring every treatment delivers radiant, natural results that look refreshed, not overdone. Known for her skilled, gentle hands, honest communication, and commitment to advanced training, her compassionate approach empowers clients with education and precision in this niche medical specialty. This shapes our clinic into a beacon of excellence and self-assurance in McMinnville, where beauty isn&apos;t about perfection, but about feeling empowered in your own skin.
             </p>
           </div>
-          {/* Local Image for Melissa's Story - Full-body with 'contain' fit for zooming out */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/melissa.png"
@@ -84,9 +88,10 @@ export default function AboutPage() {
               width={800}
               height={400}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain' }}  // Ensures full image is visible, zoomed out
+              style={{ objectFit: 'contain' }}
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
+            <div className={styles.mcaAboutImageBorderAccentTop}></div>
           </div>
         </div>
       </section>
@@ -106,7 +111,7 @@ export default function AboutPage() {
           </li>
         </ul>
         <p className={styles.mcaAboutParagraph}>
-          Together, we create a supportive environment where your beauty goals are our top priority. Come see Maleah for model pricing on tox at $9/unit!
+          <br/>
         </p>
       </section>
 
@@ -136,7 +141,6 @@ export default function AboutPage() {
               Thank you for following Maleah on this journey! She&apos;s excited to see what this year brings.
             </p>
           </div>
-          {/* Local Image for Maleah's Introduction */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/maleah.png"
@@ -147,6 +151,7 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
+            <div className={styles.mcaAboutImageBorderAccentTop}></div>
           </div>
         </div>
       </section>
@@ -160,7 +165,6 @@ export default function AboutPage() {
               Integrity, innovation, and inclusivity form the foundation of MC Aesthetics. We use only FDA-approved technologies and prioritize ethical practices to deliver safe, effective results. Our commitment to sustainability and community involvement reflects our dedication to a better world.
             </p>
           </div>
-          {/* Local Image for Our Values */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/melissa1.png"
@@ -171,11 +175,12 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
+            <div className={styles.mcaAboutImageBorderAccentTop}></div>
           </div>
         </div>
       </section>
 
-      {/* Closing Section */}
+      {/* Closing Section - Now fully complete */}
       <section className={styles.mcaAboutContentSection}>
         <h2 className={styles.mcaAboutSectionTitle}>Join the MC Aesthetics Family</h2>
         <div className={styles.mcaAboutContentLayout}>
@@ -184,10 +189,9 @@ export default function AboutPage() {
               Whether you&apos;re new to aesthetics or seeking advanced care, MC Aesthetics in McMinnville is here to guide you. Contact us today to start your journey toward timeless beauty and renewed confidence.
             </p>
           </div>
-          {/* Local Image for Closing */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="/images/aestheticOfficeSpace.jpg"
+              src="/images/teamShot.jpg"
               alt="Welcoming Entrance of MC Aesthetics Clinic in McMinnville Inviting Clients to Experience Premium Beauty Services"
               className={styles.mcaAboutImage}
               width={800}
@@ -195,6 +199,7 @@ export default function AboutPage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
+            <div className={styles.mcaAboutImageBorderAccentTop}></div>
           </div>
         </div>
       </section>

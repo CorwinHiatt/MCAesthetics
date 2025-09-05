@@ -1,8 +1,6 @@
-nhanced About.module.css
-/* About.module.css - Elegant, Professional, High-End, Luxurious Styles */
-/* References global variables for consistency; reusable across pages */
-/* Prioritizes lighter cream tones for a bright, spa-like feel */
-/* Now with added top flat line and curved mimics for dynamic flow */
+/* About.module.css - Enhanced Luxurious Styling for MC Aesthetics About Page */
+/* Mobile-First Design with Premium Aesthetics, Crystal Clear Images, and High-Contrast Text for Readability */
+/* Latest Fixes: Restored top curve with balanced height/margins; optimizations for shorter text to lift image higher */
 
 /* Wrapper for the entire page - spacious and centered for luxury feel */
 .mcaAboutPageWrapper {
@@ -13,51 +11,200 @@ nhanced About.module.css
   color: var(--color-text);
   font-family: var(--font-family-base);
   box-shadow: var(--shadow-xs); /* Even subtler shadow for lightness */
+  overflow-x: hidden;
+  overflow-y: auto; /* For smooth scrolling */
+  
+  /* Brand Color Palette - Using design system colors where possible (mirroring HomeLuxury) */
+  --mca-primary-purple: var(--color-primary);
+  --mca-gradient-purple: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  --mca-rose-brown: var(--color-brown-600);
+  --mca-gold-accent: var(--color-brown-600);
+  --mca-light-gold: var(--color-cream-100);
+  --mca-pink-highlight: var(--color-primary-hover);
+  --mca-deep-purple: var(--color-primary-active);
+  --mca-navy-blue: var(--color-slate-900);
+  --mca-light-blue: var(--color-teal-400);
+  --mca-sky-blue: var(--color-teal-300);
+  --mca-bronze: var(--color-brown-600);
+  --mca-vivid-pink: var(--color-primary-hover);
+  --mca-mustard-gold: var(--color-orange-500);
+  
+  /* Luxury Enhancement Colors - Using design system */
+  --mca-soft-white: #ffffff; /* Updated to pure white for high contrast */
+  --mca-elegant-gray: var(--color-text-secondary);
+  --mca-lux-gold: var(--color-orange-400);
+  --mca-cream-white: var(--color-cream-100);
+  --mca-charcoal: var(--color-charcoal-700);
+  
+  /* Advanced Shadow System - Using design system shadows */
+  --mca-shadow-subtle: var(--shadow-xs);
+  --mca-shadow-medium: var(--shadow-sm);
+  --mca-shadow-deep: var(--shadow-md);
+  --mca-shadow-luxury: var(--shadow-lg);
+  
+  /* Premium Transitions - Using design system timing */
+  --mca-transition-smooth: all var(--duration-normal) var(--ease-standard);
+  --mca-transition-luxury: all var(--duration-normal) var(--ease-standard);
 }
 
-/* Hero Section - Heroic and inviting, like a grand entrance */
+/* Curved Header to Hero Transition - Restored with increased height and positive margins for visibility */
+.mcaAboutHeaderToHeroTransition {
+  width: 100%;
+  height: 50px; /* Increased to restore visible curve without overlap */
+  background: var(--mca-gradient-purple);
+  position: relative;
+  margin: 0 0 var(--space-8) 0; /* Positive bottom margin for gentle spacing */
+  padding: 0;
+  overflow: hidden;
+  z-index: 1; /* Lower to stay behind content */
+}
+
+.mcaAboutHeaderToHeroTransition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  clip-path: ellipse(100% 90% at 50% 0%); /* Deeper curve for luxurious flow */
+  z-index: 1;
+}
+
+.mcaAboutHeaderToHeroTransition::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--space-20);
+  background: linear-gradient(to bottom, rgba(var(--color-brown-600-rgb), 0.1) 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Hero Section - Loosened clip-path; overflow visible; added padding for text visibility */
 .mcaAboutHero {
   text-align: center;
-  padding: var(--space-32) 0;
+  padding: var(--space-32) 0 var(--space-24) 0; /* Added bottom padding to space from curve */
   border-bottom: 1px solid rgba(var(--color-border), 0.3); /* Lighter divider for airiness */
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible !important; /* Force visibility for text and images */
+  background: var(--mca-gradient-purple);
+  clip-path: ellipse(100% 80% at 50% 0%); /* Loosened further to reduce clipping */
+  z-index: 2; /* Higher than transition */
+}
+
+/* Ensure hero content has high z-index */
+.mcaAboutHero > * {
+  position: relative;
+  z-index: 3; /* Above backgrounds */
+}
+
+/* New: Negative Z-Index Wrapper for Background Image to Keep It Behind Content */
+.mcaAboutHeroBackgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind everything else */
+  overflow: hidden;
+}
+
+.mcaAboutHeroImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Within the negative wrapper */
+}
+
+.mcaAboutHeroBackgroundImage {
+  opacity: 0.25;
+  filter: blur(0.3px);
+  transition: var(--mca-transition-smooth);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.mcaAboutHeroImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-teal-500-rgb), 0.35) 0%, 
+    rgba(var(--color-teal-700-rgb), 0.25) 50%, 
+    rgba(var(--color-slate-500-rgb), 0.4) 100%
+  );
+  z-index: 2;
 }
 
 .mcaAboutMainTitle {
-  font-size: var(--font-size-4xl); /* Large for impact */
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
   font-weight: var(--font-weight-bold);
-  color: var(--color-teal-500); /* Brighter teal for professional trust */
+  color: #ffffff;
   margin-bottom: var(--space-16);
+  text-shadow: 0 var(--space-2) var(--space-10) rgba(0, 0, 0, 0.4);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
   letter-spacing: var(--letter-spacing-tight);
-  text-transform: uppercase; /* For a luxurious, refined look */
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+  padding-top: var(--space-24); /* Extra top padding to shift down on mobile */
 }
 
 .mcaAboutIntroText {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-secondary);
-  max-width: 800px;
-  margin: 0 auto var(--space-24) auto;
+  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+  line-height: var(--line-height-relaxed);
+  color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto var(--space-16) auto;
+  opacity: 1;
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.3);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  overflow: visible !important; /* Prevent text clipping */
+  white-space: normal; /* Ensure wrapping */
 }
 
-/* Image Holders - Framed like fine art, now with enhanced curves */
+/* Image Holders - Higher z-index; overflow visible; reduced margins for lift with shorter text */
 .mcaAboutHeroImageHolder,
 .mcaAboutImageHolder {
   position: relative;
-  margin: var(--space-24) 0;
-  overflow: hidden;
-  border-radius: var(--radius-xl); /* Increased for softer, more pronounced curves mimicking screenshot */
-  box-shadow: var(--shadow-sm); /* Subtle lift for luxury, lighter shadow */
+  margin: var(--space-8) 0; /* Reduced margins to lift image higher with shorter text */
+  overflow: visible !important;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  z-index: 3;
 }
 
 .mcaAboutImage {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Default to cover, but contain where specified in TSX */
-  transition: transform var(--duration-normal) var(--ease-standard); /* Smooth zoom on hover */
+  object-fit: cover;
+  transition: transform var(--duration-normal) var(--ease-standard);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.05) saturate(1.1);
 }
 
 .mcaAboutImage:hover {
-  transform: scale(1.05); /* Subtle zoom for engagement */
+  transform: scale(1.05);
+  filter: contrast(1.1) saturate(1.2);
 }
 
 /* Bottom Border Accent - Thin gold-like accent */
@@ -66,84 +213,130 @@ nhanced About.module.css
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px; /* Thin for subtlety */
-  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500)); /* Luxurious gradient, matching screenshot colors */
-  opacity: 0.5; /* Lighter opacity for a softer, more luminous effect */
+  height: 4px;
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
+  opacity: 0.5;
 }
 
-/* New Top Flat Line - Mimicking bottom but at top, as requested */
+/* Enhanced Curved Top Line - More pronounced ellipse */
 .mcaAboutImageBorderAccentTop {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px; /* Matching thin flat line */
-  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500)); /* Same color gradient for consistency */
-  opacity: 0.5; /* Lighter for airiness */
+  height: 8px;
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
+  opacity: 0.5;
+  clip-path: ellipse(60% 100% at 50% 100%);
 }
 
-/* Call to Action - Prominent and inviting, like a velvet rope */
+/* Call to Action - Reduced margin; z-index matching content */
 .mcaAboutCallToAction {
   text-align: center;
-  margin: var(--space-32) 0;
+  margin: var(--space-24) 0;
+  position: relative;
+  z-index: 3;
 }
 
 .mcaAboutCtaText {
   display: inline-block;
-  padding: var(--space-12) var(--space-24);
-  background-color: var(--color-teal-500); /* Primary teal for professionalism */
-  color: var(--color-btn-primary-text);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  text-transform: uppercase;
-  border-radius: var(--radius-base);
+  padding: var(--space-12) var(--space-32);
+  background: var(--mca-pink-highlight);
+  color: #ffffff;
   text-decoration: none;
-  transition: background-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--mca-transition-luxury);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.mcaAboutCtaText::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.mcaAboutCtaText:hover::before {
+  left: 100%;
 }
 
 .mcaAboutCtaText:hover {
-  background-color: var(--color-teal-600);
-  box-shadow: var(--shadow-xs); /* Lighter shadow on hover */
+  transform: translateY(calc(-1 * var(--space-4)));
+  box-shadow: var(--shadow-lg);
+  background: var(--mca-vivid-pink);
 }
 
 /* Content Sections - Clean, spacious layouts with added curve mimic */
 .mcaAboutContentSection {
-  padding: var(--space-32) 0;
-  border-bottom: 1px solid rgba(var(--color-border), 0.3); /* Lighter separator */
-  position: relative; /* For clip-path positioning */
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%); /* Gentle bottom curve to mimic screenshot's wavy flow */
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid rgba(var(--color-border), 0.3);
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+  background: linear-gradient(145deg, var(--mca-cream-white), var(--mca-soft-white));
+  opacity: 0;
+  transform: translateY(var(--space-20));
+  animation: fadeInUp 0.6s ease-out forwards;
+  z-index: 2;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-20));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mcaAboutSectionTitle {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-teal-500);
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
   margin-bottom: var(--space-24);
-  text-align: center; /* Centered for balance */
+  letter-spacing: var(--letter-spacing-tight);
+  text-shadow: 0 var(--space-1) var(--space-4) rgba(0, 0, 0, 0.2);
 }
 
 .mcaAboutContentLayout {
   display: flex;
   flex-direction: row;
-  gap: var(--space-32); /* Generous spacing for luxury */
+  gap: var(--space-32);
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .mcaAboutContentText {
   flex: 1;
+  min-width: 100%;
 }
 
 .mcaAboutParagraph {
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-normal);
+  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+  line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-16);
-  color: var(--color-text);
+  color: var(--color-text-secondary);
+  text-shadow: 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.1);
+  word-break: break-word;
 }
 
 .mcaAboutIntroParagraph {
   font-size: var(--font-size-xl);
-  font-style: italic; /* Subtle elegance */
+  font-style: italic;
   margin-bottom: var(--space-24);
+  line-height: var(--line-height-relaxed);
 }
 
 /* Lists - Clean and professional */
@@ -155,8 +348,8 @@ nhanced About.module.css
 
 .mcaAboutListItem {
   font-size: var(--font-size-lg);
-  margin-bottom: var(--space-12);
-  padding-left: var(--space-24); /* Indent for structure */
+  margin-bottom: var(--space-16);
+  padding-left: var(--space-24);
   position: relative;
 }
 
@@ -164,18 +357,19 @@ nhanced About.module.css
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-teal-500); /* Teal bullet for accent */
+  color: var(--color-teal-500);
 }
 
-/* Responsive Adjustments - Stack for mobile elegance */
+/* Responsive Adjustments - Further loosened clips, added padding/margins for visibility and curve restoration */
 @media (max-width: 768px) {
   .mcaAboutContentLayout {
-    flex-direction: column; /* Stack text and image for better flow */
+    flex-direction: column;
     gap: var(--space-16);
   }
 
   .mcaAboutMainTitle {
-    font-size: var(--font-size-3xl); /* Slightly smaller for mobile */
+    font-size: var(--font-size-3xl);
+    padding-top: var(--space-32); /* Increased to shift further down */
   }
 
   .mcaAboutSectionTitle {
@@ -183,33 +377,67 @@ nhanced About.module.css
   }
 
   .mcaAboutPageWrapper {
-    padding: var(--space-16); /* Tighter on small screens */
+    padding: var(--space-16);
   }
 
   .mcaAboutContentSection {
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); /* Adjusted curve for smaller screens */
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    padding: var(--space-32) 0;
+  }
+
+  .mcaAboutHero {
+    min-height: 50vh;
+    padding: var(--space-32) var(--space-16) var(--space-24) var(--space-16); /* Added side padding for wrapping */
+    clip-path: ellipse(100% 80% at 50% 0%); /* Loosened more for mobile */
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Start from top */
+  }
+
+  .mcaAboutIntroText,
+  .mcaAboutParagraph {
+    line-height: var(--line-height-normal);
+    max-width: 100%;
+    white-space: normal;
+    padding: 0 var(--space-8); /* Side padding to center text */
+    margin-bottom: var(--space-8); /* Reduced for shorter text lift */
+  }
+
+  .mcaAboutHeroImageHolder {
+    order: 3;
+    margin-top: var(--space-8); /* Reduced to lift image higher */
+    z-index: 3;
+  }
+
+  .mcaAboutHeaderToHeroTransition {
+    height: 40px; /* Balanced for mobile curve visibility */
+    margin-bottom: var(--space-4); /* Gentle positive margin */
   }
 }
 
-/* Dark Mode - Optional and Lightened (uses lighter shades to avoid 'too dark') */
-@media (prefers-color-scheme: dark) {
+@media (max-width: 480px) {
   .mcaAboutPageWrapper {
-    background-color: var(--color-cream-100); /* Force lighter cream even in dark mode for consistency */
-    color: var(--color-text); /* Keep light mode text for brightness */
+    font-size: var(--font-size-sm);
   }
 
-  .mcaAboutMainTitle,
-  .mcaAboutSectionTitle {
-    color: var(--color-teal-400); /* Slightly brighter teal variant */
+  .mcaAboutContentSection {
+    padding: var(--space-24) 0;
   }
 
-  .mcaAboutImageBorderAccent,
-  .mcaAboutImageBorderAccentTop {
-    background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-400));
-    opacity: 0.4; /* Even lighter in dark mode */
+  .mcaAboutIntroText {
+    font-size: var(--font-size-md);
   }
 
-  .mcaAboutParagraph {
-    color: var(--color-text); /* Ensure readability on lighter background */
+  .mcaAboutHero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: var(--space-40); /* Extra for very small screens */
+  }
+
+  .mcaAboutHeroImageHolder {
+    margin-bottom: var(--space-24);
+  }
+
+  .mcaAboutCallToAction {
+    margin: var(--space-16) 0;
   }
 }

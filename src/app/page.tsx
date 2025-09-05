@@ -337,12 +337,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Services Gallery - Visual Focus */}
+      {/* Featured Services Gallery - Visual Focus with Enhanced Spacing and Wow Effects */}
       <section className={styles.mcaLuxHomeGallerySpace}>
         <h2 className={styles.mcaLuxHomeGalleryCaption}>Featured Transformations</h2>
         <div className={styles.mcaLuxHomeGalleryDisplay}>
-          {galleryItems.map((item) => (
-            <div key={item.title} className={styles.mcaLuxHomeGalleryPiece}>
+          {galleryItems.map((item, index) => (
+            <div key={item.title} className={styles.mcaLuxHomeGalleryPiece} style={{ animationDelay: `${index * 0.1}s` }}>
               <Link href={item.href} className={styles.mcaLuxHomeGalleryNav}>
                 <Image
                   src={item.imageUrl}
