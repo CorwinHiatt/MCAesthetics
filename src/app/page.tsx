@@ -155,7 +155,7 @@ const galleryItems = [
     title: 'Laser Hair',
     description: 'Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance.',
     imageUrl: '/images/laserLegs.jpg',
-    href: '/aesthetic-services/laser-hair',
+    href: '/laser-hair',
     altText: 'Laser Hair on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
   },
   // New Membership card
@@ -163,7 +163,7 @@ const galleryItems = [
     title: 'VIP Membership',
     description: 'Join our exclusive membership for priority access, discounts, and personalized beauty perks.',
     imageUrl: '/images/membership.jpg',
-    href: '/aesthetic-services/membership',
+    href: '/membership',
     altText: 'VIP Membership Benefits at MC Aesthetics McMinnville'
   },
 ];
