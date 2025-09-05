@@ -48,7 +48,7 @@ export default function AboutPage() {
               What defines us is our holistic approach—treating not just the skin, but the spirit. With a focus on education and transparency, we ensure every client understands their path to beauty. At MC Aesthetics, your story becomes part of ours, creating lasting transformations that inspire confidence and joy.
             </p>
           </div>
-          {/* Local Image for Our Story - Added 'contain' for full logo visibility */}
+          {/* Local Image for Our Story */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/logo5.png"
@@ -57,7 +57,6 @@ export default function AboutPage() {
               width={800}
               height={400}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain' }}  // Ensures full logo is shown without cropping
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -76,16 +75,16 @@ export default function AboutPage() {
               Melissa&apos;s philosophy centers on empowering clients through education and innovative solutions. From her early days as a certified aesthetician to building MC Aesthetics, her commitment to excellence has shaped our clinic into a beacon of beauty and confidence. Today, Melissa continues to lead with compassion, ensuring every treatment reflects her vision of natural, radiant results.
             </p>
           </div>
-          {/* Local Image for Melissa's Story - Adjusted height for better full-body display */}
+          {/* Local Image for Melissa's Story - Full-body with 'contain' fit for zooming out */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/melissa.png"
               alt="Melissa Cook, Founder of MC Aesthetics in McMinnville, in a Full-Body Portrait Holding a Sign, Highlighting Her Expertise in Aesthetic Treatments"
               className={styles.mcaAboutImage}
               width={800}
-              height={600}  // Increased height for better full-body zoom-out
+              height={400}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain' }}  // Keeps full image visible
+              style={{ objectFit: 'contain' }}  // Ensures full image is visible, zoomed out
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -137,16 +136,15 @@ export default function AboutPage() {
               Thank you for following Maleah on this journey! She&apos;s excited to see what this year brings.
             </p>
           </div>
-          {/* Local Image for Maleah's Introduction - Applied similar 'contain' sizing */}
+          {/* Local Image for Maleah's Introduction */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/maleah.png"
               alt="Maleah Espinoza, Aesthetic Nurse Injector at MC Aesthetics in McMinnville, in a Professional Setting Showcasing Her Passion for Natural Enhancements"
               className={styles.mcaAboutImage}
               width={800}
-              height={600}  // Adjusted for consistent sizing
+              height={400}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>
@@ -162,16 +160,15 @@ export default function AboutPage() {
               Integrity, innovation, and inclusivity form the foundation of MC Aesthetics. We use only FDA-approved technologies and prioritize ethical practices to deliver safe, effective results. Our commitment to sustainability and community involvement reflects our dedication to a better world.
             </p>
           </div>
-          {/* Local Image for Our Values - Applied similar 'contain' sizing */}
+          {/* Local Image for Our Values */}
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/melissa1.png"
               alt="Melissa Cook and Team at MC Aesthetics in McMinnville Demonstrating Core Values Through Collaborative and Inclusive Beauty Practices"
               className={styles.mcaAboutImage}
               width={800}
-              height={600}  // Adjusted for consistent sizing
+              height={400}
               sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'contain' }}  // Ensures full image visibility
             />
             <div className={styles.mcaAboutImageBorderAccent}></div>
           </div>

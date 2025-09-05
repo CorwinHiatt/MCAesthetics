@@ -1,4 +1,3 @@
-
 "use client"
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -73,6 +72,7 @@ const NewHeader: React.FC = () => {
     { name: 'ZO Skin Health', href: '/zo-skin-health' },
     { name: 'Financing', href: '/financing' },
     { name: 'Gift Cards', href: '/gift-cards' },
+    { name: 'Membership', href: '/membership' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -179,7 +179,7 @@ const NewHeader: React.FC = () => {
                 priority
               />
               <div className={styles.logoTextContainer}>
-                <div className={styles.logoMainText}>MC Aesthetics</div>
+                <div className={styles.logoMainText}>Welcomes You.</div>
               </div>
             </div>
           </Link>

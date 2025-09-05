@@ -1,226 +1,215 @@
-/* About.module.css - Engaging About Page for MC Aesthetics */
-/* Prefix: .mcaAbout* for uniqueness; Uses global variables for theme consistency */
-/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an inspiring, story-driven experience */
+nhanced About.module.css
+/* About.module.css - Elegant, Professional, High-End, Luxurious Styles */
+/* References global variables for consistency; reusable across pages */
+/* Prioritizes lighter cream tones for a bright, spa-like feel */
+/* Now with added top flat line and curved mimics for dynamic flow */
 
+/* Wrapper for the entire page - spacious and centered for luxury feel */
 .mcaAboutPageWrapper {
-  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
-  min-height: 100vh;
-  padding: 4rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
-  box-sizing: border-box;
-  overflow-x: hidden;
+  max-width: var(--container-xl); /* From global */
+  margin: 0 auto;
+  padding: var(--space-32) var(--space-16); /* Generous padding for elegance */
+  background-color: var(--color-cream-100); /* Lighter cream for brighter, high-end backdrop */
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  box-shadow: var(--shadow-xs); /* Even subtler shadow for lightness */
 }
 
-/* Hero Section */
+/* Hero Section - Heroic and inviting, like a grand entrance */
 .mcaAboutHero {
   text-align: center;
-  max-width: 48rem;
-  margin-bottom: 3rem;
-  position: relative;
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid rgba(var(--color-border), 0.3); /* Lighter divider for airiness */
 }
 
 .mcaAboutMainTitle {
-  font-size: 2.75rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: var(--mca-deep-purple);
-  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.mcaAboutMainTitle:hover {
-  color: var(--mca-lux-gold);
-  transform: scale(1.02);
-}
-
-@media (max-width: 768px) {
-  .mcaAboutMainTitle {
-    font-size: 2.25rem;
-  }
+  font-size: var(--font-size-4xl); /* Large for impact */
+  font-weight: var(--font-weight-bold);
+  color: var(--color-teal-500); /* Brighter teal for professional trust */
+  margin-bottom: var(--space-16);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: uppercase; /* For a luxurious, refined look */
 }
 
 .mcaAboutIntroText {
-  font-size: 1.125rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.7;
-  max-width: 100%;
-  margin-bottom: 2rem;
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto var(--space-24) auto;
 }
 
-.mcaAboutHeroImageHolder {
-  width: 100%;
-  height: 20rem;
-  position: relative;
-  overflow: hidden; /* Ensure image doesn't overflow */
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
-}
-
-.mcaAboutHeroImageHolder:hover {
-  transform: scale(1.03);
-}
-
-/* Call to Action */
-.mcaAboutCallToAction {
-  background-color: var(--mca-soft-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  padding: 2rem;
-  text-align: center;
-  max-width: 48rem;
-  margin: 2rem auto;
-  border: 1px solid var(--mca-bronze);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mcaAboutCallToAction:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px var(--mca-shadow-deep);
-}
-
-.mcaAboutCtaText {
-  font-size: 1.5rem;
-  color: var(--mca-deep-purple);
-  font-weight: 600;
-  margin-bottom: 0;
-  text-decoration: none; /* Remove underline for clean look */
-  transition: color 0.3s ease;
-}
-
-.mcaAboutCtaText:hover {
-  color: var(--mca-pink-highlight);
-}
-
-/* Section Titles */
-.mcaAboutSectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple);
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--mca-lux-gold);
-  padding-bottom: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.mcaAboutSectionTitle:hover {
-  color: var(--mca-pink-highlight);
-}
-
-/* Content Sections */
-.mcaAboutContentSection {
-  max-width: 64rem;
-  margin: 0 auto 3rem;
-  padding: 0 1rem;
-}
-
-.mcaAboutContentLayout {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .mcaAboutContentLayout {
-    flex-direction: row;
-    align-items: center;
-  }
-  .mcaAboutContentText {
-    flex: 1;
-  }
-  .mcaAboutImageHolder {
-    flex: 1;
-    max-width: 50%;
-  }
-}
-
-.mcaAboutParagraph, .mcaAboutIntroParagraph {
-  font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-}
-
+/* Image Holders - Framed like fine art, now with enhanced curves */
+.mcaAboutHeroImageHolder,
 .mcaAboutImageHolder {
-  width: 100%;
-  height: 20rem;
   position: relative;
-  overflow: hidden; /* Ensure image doesn't overflow */
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
-}
-
-.mcaAboutImageHolder:hover {
-  transform: scale(1.03);
+  margin: var(--space-24) 0;
+  overflow: hidden;
+  border-radius: var(--radius-xl); /* Increased for softer, more pronounced curves mimicking screenshot */
+  box-shadow: var(--shadow-sm); /* Subtle lift for luxury, lighter shadow */
 }
 
 .mcaAboutImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure image covers the container nicely */
+  height: auto;
+  object-fit: cover; /* Default to cover, but contain where specified in TSX */
+  transition: transform var(--duration-normal) var(--ease-standard); /* Smooth zoom on hover */
 }
 
+.mcaAboutImage:hover {
+  transform: scale(1.05); /* Subtle zoom for engagement */
+}
+
+/* Bottom Border Accent - Thin gold-like accent */
 .mcaAboutImageBorderAccent {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 0.25rem;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+  width: 100%;
+  height: 4px; /* Thin for subtlety */
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500)); /* Luxurious gradient, matching screenshot colors */
+  opacity: 0.5; /* Lighter opacity for a softer, more luminous effect */
 }
 
-/* List Styling */
+/* New Top Flat Line - Mimicking bottom but at top, as requested */
+.mcaAboutImageBorderAccentTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Matching thin flat line */
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500)); /* Same color gradient for consistency */
+  opacity: 0.5; /* Lighter for airiness */
+}
+
+/* Call to Action - Prominent and inviting, like a velvet rope */
+.mcaAboutCallToAction {
+  text-align: center;
+  margin: var(--space-32) 0;
+}
+
+.mcaAboutCtaText {
+  display: inline-block;
+  padding: var(--space-12) var(--space-24);
+  background-color: var(--color-teal-500); /* Primary teal for professionalism */
+  color: var(--color-btn-primary-text);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  border-radius: var(--radius-base);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.mcaAboutCtaText:hover {
+  background-color: var(--color-teal-600);
+  box-shadow: var(--shadow-xs); /* Lighter shadow on hover */
+}
+
+/* Content Sections - Clean, spacious layouts with added curve mimic */
+.mcaAboutContentSection {
+  padding: var(--space-32) 0;
+  border-bottom: 1px solid rgba(var(--color-border), 0.3); /* Lighter separator */
+  position: relative; /* For clip-path positioning */
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%); /* Gentle bottom curve to mimic screenshot's wavy flow */
+}
+
+.mcaAboutSectionTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-teal-500);
+  margin-bottom: var(--space-24);
+  text-align: center; /* Centered for balance */
+}
+
+.mcaAboutContentLayout {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-32); /* Generous spacing for luxury */
+  align-items: center;
+}
+
+.mcaAboutContentText {
+  flex: 1;
+}
+
+.mcaAboutParagraph {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--space-16);
+  color: var(--color-text);
+}
+
+.mcaAboutIntroParagraph {
+  font-size: var(--font-size-xl);
+  font-style: italic; /* Subtle elegance */
+  margin-bottom: var(--space-24);
+}
+
+/* Lists - Clean and professional */
 .mcaAboutListContainer {
-  list-style-type: none; /* Remove default bullets to prevent doubling */
-  margin-bottom: 1.5rem;
-  padding-left: 0; /* Reset padding for custom positioning */
+  list-style: none;
+  padding: 0;
+  margin: var(--space-16) 0;
 }
 
 .mcaAboutListItem {
-  font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-12);
+  padding-left: var(--space-24); /* Indent for structure */
   position: relative;
-  padding-left: 1.75rem; /* Adjust padding for custom bullet */
 }
 
 .mcaAboutListItem::before {
-  content: "•";
+  content: '•';
   position: absolute;
   left: 0;
-  color: var(--mca-lux-gold);
-  font-size: 1.25rem;
+  color: var(--color-teal-500); /* Teal bullet for accent */
 }
 
-/* Responsive Adjustments */
-@media (max-width: 640px) {
+/* Responsive Adjustments - Stack for mobile elegance */
+@media (max-width: 768px) {
+  .mcaAboutContentLayout {
+    flex-direction: column; /* Stack text and image for better flow */
+    gap: var(--space-16);
+  }
+
   .mcaAboutMainTitle {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl); /* Slightly smaller for mobile */
   }
+
   .mcaAboutSectionTitle {
-    font-size: 1.75rem;
+    font-size: var(--font-size-2xl);
   }
-  .mcaAboutIntroText, .mcaAboutParagraph, .mcaAboutIntroParagraph {
-    font-size: 0.875rem;
+
+  .mcaAboutPageWrapper {
+    padding: var(--space-16); /* Tighter on small screens */
   }
-  .mcaAboutCtaText {
-    font-size: 1.25rem;
+
+  .mcaAboutContentSection {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%); /* Adjusted curve for smaller screens */
   }
-  .mcaAboutHeroImageHolder, .mcaAboutImageHolder {
-    height: 16rem;
+}
+
+/* Dark Mode - Optional and Lightened (uses lighter shades to avoid 'too dark') */
+@media (prefers-color-scheme: dark) {
+  .mcaAboutPageWrapper {
+    background-color: var(--color-cream-100); /* Force lighter cream even in dark mode for consistency */
+    color: var(--color-text); /* Keep light mode text for brightness */
   }
-  .mcaAboutCallToAction {
-    padding: 1.5rem;
+
+  .mcaAboutMainTitle,
+  .mcaAboutSectionTitle {
+    color: var(--color-teal-400); /* Slightly brighter teal variant */
   }
-  .mcaAboutListItem {
-    font-size: 0.875rem;
-    padding-left: 1.5rem;
+
+  .mcaAboutImageBorderAccent,
+  .mcaAboutImageBorderAccentTop {
+    background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-400));
+    opacity: 0.4; /* Even lighter in dark mode */
+  }
+
+  .mcaAboutParagraph {
+    color: var(--color-text); /* Ensure readability on lighter background */
   }
 }

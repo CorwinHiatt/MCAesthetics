@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from "next/image";
-import meta from '../../public/images/meta.png';
+// import meta from '../../public/images/meta.png';
 import melissaImg from '../../public/images/melissa.png';
 import maleahImg from '../../public/images/maleah.png';
 import shadowMain from '../../public/images/shadowMain.png';
@@ -19,13 +19,13 @@ export const metadata = {
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
     images: [
       {
-        url: meta.src,
+        url: shadowMain.src,
         width: 1200,
         height: 630,
         alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
       },
       {
-        url: meta.src,
+        url: shadowMain.src,
         width: 1080,
         height: 1080,
         alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
@@ -39,7 +39,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "MC Aesthetics McMinnville - Elevate Your Beauty",
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!",
-    images: [meta.src],
+    images: [shadowMain.src],
   },
   icons: {
     apple: [
@@ -89,6 +89,13 @@ const services = [
       { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
       { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
       { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel%20co2%20laser" }
+    ]
+  },
+  {
+    category: "Membership",
+    description: "Unlock exclusive benefits, discounts, and priority access to our premium treatments with our VIP membership program.",
+    items: [
+      { name: "VIP Membership", href: "/aesthetic-services/membership" }
     ]
   }
 ];
@@ -143,13 +150,21 @@ const galleryItems = [
     href: '/aesthetic-services/dermal-fillers/sculptra',
     altText: 'Sculptra filler for collagen boost at MC Aesthetics McMinnville'
   },
-  // Existing Laser Hair Removal card (kept at the end as it's not in priority list)
+  // Existing Laser Hair card (simplified and fixed)
   {
-    title: 'Laser Hair Removal - Elysion',
+    title: 'Laser Hair',
     description: 'Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance.',
     imageUrl: '/images/laserLegs.jpg',
-    href: '/aesthetic-services/laser-hair-removal',
-    altText: 'Laser Hair Removal on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
+    href: '/aesthetic-services/laser-hair',
+    altText: 'Laser Hair on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
+  },
+  // New Membership card
+  {
+    title: 'VIP Membership',
+    description: 'Join our exclusive membership for priority access, discounts, and personalized beauty perks.',
+    imageUrl: '/images/membership.jpg',
+    href: '/aesthetic-services/membership',
+    altText: 'VIP Membership Benefits at MC Aesthetics McMinnville'
   },
 ];
 
