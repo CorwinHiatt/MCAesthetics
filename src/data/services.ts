@@ -330,7 +330,7 @@ const aestheticServicesData: ServiceCategory = {
     // Update for CoolPeel CO2 Laser under Aesthetic Services
 {
   name: "CoolPeel CO2 Laser",
-  imageUrl: "/images/coolpeel.webp",
+  imageUrl: "/images/CO2Coolpeel.jpg",
   meta: {
     title: "CoolPeel CO2 Laser McMinnville - Skin Resurfacing Innovation",
     description: "CoolPeel CO2 Laser at MC Aesthetics in McMinnville offers powerful resurfacing with minimal downtime. Smooth skin, reduce pores, and erase fine lines now.",
