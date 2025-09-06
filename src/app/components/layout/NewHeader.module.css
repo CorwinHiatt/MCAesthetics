@@ -1,5 +1,6 @@
 /* NewHeader.module.css - Scaled Down for Compact Sizing, Mobile Fit, and Reduced Amplification */
 /* Globals removed as per feedback - if needed, add to a separate globals.css file */
+/* Updated with Footer-Inspired Logo Rendering: Crisp, Uncurved, Proportional, Sharp Edges */
 
 /* ===== CSS CUSTOM PROPERTIES (DESIGN SYSTEM) ===== */
 .header {
@@ -164,7 +165,7 @@
 }
 
 /* ===== LOGO SECTION (SLIGHTLY BIGGER BUT SCALED) ===== */
-/* UPDATED: Tighter gaps and larger logo */
+/* UPDATED: Adapted from Footer for Perfect Rendering - Crisp, Uncurved, Proportional, Sharp Edges */
 .logoLink {
   display: flex;
   align-items: center;
@@ -174,29 +175,36 @@
 }
 
 .logoContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem; /* UPDATED: Tighter gap */
-  /* UPDATED: Added boxing for visual separation, thicker border */
-  border: 2px solid rgba(52, 73, 94, 0.2); /* Thicker navy border */
-  border-radius: var(--border-radius-md);
-  padding: 0.25rem;
-  background: rgba(255, 255, 255, 0.1); /* Light background for separation */
-  box-shadow: var(--shadow-light);
+  display: block; /* Matches footer's display for container */
+  width: 100%;
+  max-width: 10720px!important; /* Scaled-down equivalent of footer's 200px – adjust to fit your nav */
+  height: auto; /* Auto height to preserve aspect ratio, like footer */
+  transition: var(--transition-bounce); /* Your existing transition variable */
+  /* Slightly more opaque than current 0.1 for better contrast against header gradient */
+  /* Thicken subtly to frame it like the footer might */
+}
+
+.logoContainer:hover {
+  transform: scale(1.1); /* Direct match to footer's hover scale */
+  filter: brightness(1.1) saturate(1.2); /* Matches footer's luxury glow */
 }
 
 .logoImage {
-  width: 72px; /* UPDATED: Larger as requested */
-  height: 72px;
-  border-radius: 50%;
-  box-shadow: var(--shadow-light);
+  width: 100%; /* Full width of container, like footer */
+  height: auto; /* Preserves natural aspect ratio – no distortion */
+  image-rendering: -webkit-optimize-contrast; /* Direct from footer for sharpness */
+  image-rendering: crisp-edges; /* Direct from footer to prevent blur */
+  object-fit: contain; /* Crucial: Matches footer's style to fit without cropping/stretching */
+  box-shadow: var(--shadow-light); /* Assuming your existing shadow variable */
   transition: var(--transition-bounce);
+  /* Explicitly no border-radius to eliminate curving */
+  border-radius: 0;
+  /* Subtle boost to match footer's pop – adjust if too much */
 }
 
 @media (max-width: 639px) {
-  .logoImage {
-    width: 56px;
-    height: 56px; /* Scaled for mobile */
+  .logoContainer {
+    max-width: 56px; /* Scaled-down mobile version, like footer's responsive adjustment */
   }
 }
 
@@ -620,6 +628,14 @@
 
   .navContent {
     padding: 0.75rem 0; /* Slightly less for mobile */
+  }
+}
+
+/* High-DPI/Retina Match from Footer for Logo Sharpness */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logoImage {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast; /* Enhanced for high-res screens */
   }
 }
 

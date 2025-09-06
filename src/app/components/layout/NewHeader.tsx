@@ -171,15 +171,15 @@ const NewHeader: React.FC = () => {
           <Link href="/" className={styles.logoLink}>
             <div className={styles.logoContainer}>
               <Image
-                src="/images/logo.png"
-                alt="MC Aesthetics Logo"
-                width={48}
-                height={48}
-                className={styles.logoImage}
-                priority
-              />
+  src="/images/logo.png"
+  alt="MC Aesthetics Logo"
+  width={72}  // Matches CSS base size – prevents optimization mismatch
+  height={72}
+  className={styles.logoImage}
+  priority
+/>
               <div className={styles.logoTextContainer}>
-                <div className={styles.logoMainText}>Welcomes You.</div>
+                
               </div>
             </div>
           </Link>
@@ -257,13 +257,13 @@ const NewHeader: React.FC = () => {
             <Link href="/" className={styles.logoLink} onClick={() => setIsMobileMenuOpen(false)}>
               <div className={styles.logoContainer}>
                 <Image
-                  src="/images/logo.png"
-                  alt="MC Aesthetics Logo"
-                  width={40}
-                  height={40}
-                  className={styles.logoImage}
-                  priority
-                />
+  src="/images/logo.png"
+  alt="MC Aesthetics Logo"
+  width={56}  // Matches CSS mobile media query
+  height={56}
+  className={styles.logoImage}
+  priority
+/>
                 <div className={styles.logoTextContainer}>
                   <div className={styles.logoMainText}></div>
                 </div>
