@@ -455,3 +455,93 @@
     image-rendering: optimize-contrast;
   }
 }
+/* Force dark readable text colors - Override global CSS */
+.mcaLuxFooterSectionTitle {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  font-weight: var(--font-weight-bold);
+  color: #2c2c2c !important; /* Dark charcoal - very readable */
+  margin-bottom: var(--space-16);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.2);
+}
+
+.mcaLuxFooterContactTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: #1a1a1a !important; /* Very dark - maximum readability */
+  margin-bottom: var(--space-4);
+}
+
+.mcaLuxFooterContactText {
+  font-size: var(--font-size-base);
+  color: #333333 !important; /* Dark gray - easily readable */
+  line-height: var(--line-height-normal);
+}
+
+.mcaLuxFooterSectionText {
+  margin-bottom: var(--space-24);
+  color: #2c2c2c !important; /* Dark charcoal - very readable */
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  opacity: 0.95;
+}
+
+.mcaLuxFooterBottomLinks {
+  color: #4a4a4a !important; /* Medium dark gray - readable */
+  font-size: var(--font-size-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.mcaLuxFooterLink {
+  color: #2c2c2c !important; /* Dark charcoal - readable */
+  transition: var(--mca-transition-smooth);
+  text-decoration: none;
+}
+
+.mcaLuxFooterLink:hover {
+  color: #1a1a1a !important; /* Even darker on hover */
+  text-decoration: underline;
+  transform: translateY(calc(-1 * var(--space-2)));
+}
+
+.mcaLuxFooterCopyright {
+  color: #4a4a4a !important; /* Medium dark gray - readable */
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+}
+
+.mcaLuxFooterMapLink {
+  margin-top: var(--space-12);
+  color: #2c2c2c !important; /* Dark charcoal - readable */
+  transition: var(--mca-transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-base);
+  text-decoration: none;
+}
+
+.mcaLuxFooterMapLink:hover {
+  color: #1a1a1a !important; /* Even darker on hover */
+  transform: translateX(var(--space-4));
+}
+
+/* Force dark text for input placeholders */
+.mcaLuxFooterInput {
+  padding: var(--space-12);
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--mca-lux-gold);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  color: #1a1a1a !important; /* Very dark input text */
+  font-size: var(--font-size-base);
+  transition: var(--mca-transition-smooth);
+}
+
+.mcaLuxFooterInput::placeholder {
+  color: #666666 !important; /* Dark gray placeholder */
+}

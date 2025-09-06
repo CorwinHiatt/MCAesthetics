@@ -43,6 +43,70 @@
   --mca-transition-luxury: all var(--duration-normal) var(--ease-standard);
 }
 
+/* Dark Mode Overrides for Brighter Text - Increased Specificity and !important */
+@media (prefers-color-scheme: dark) {
+  .mca-membership-wrapper {
+    --color-text: rgba(255, 255, 255, 1) !important; /* Bright white for primary text */
+    --mca-elegant-gray: rgba(230, 230, 230, 1) !important; /* Brighter gray for secondary text */
+    --mca-deep-teal: rgba(100, 200, 200, 1) !important; /* Brighter teal for titles */
+    --mca-teal-highlight: rgba(150, 220, 220, 1) !important; /* Lighter highlight teal */
+    --mca-soft-white: rgba(240, 240, 240, 1) !important; /* Brighter white for accents */
+    --mca-navy-blue: rgba(200, 220, 240, 1) !important; /* Brighter navy */
+    --mca-gold-accent: rgba(255, 220, 150, 1) !important; /* Brighter gold */
+  }
+  
+  .mca-membership-wrapper .mca-membership-header {
+    color: rgba(255, 255, 255, 1) !important; /* Ensure header text is bright white */
+  }
+  
+  .mca-membership-wrapper .mca-membership-section-title,
+  .mca-membership-wrapper .mca-membership-subsection-title,
+  .mca-membership-wrapper .mca-membership-text,
+  .mca-membership-wrapper .mca-membership-list,
+  .mca-membership-wrapper .mca-membership-ordered-list,
+  .mca-membership-wrapper .mca-membership-image-title,
+  .mca-membership-wrapper .mca-membership-image-description {
+    color: var(--color-text) !important; /* Override all text elements to bright white */
+  }
+  
+  .mca-membership-wrapper .mca-membership-cta-button {
+    color: rgba(255, 255, 255, 1) !important; /* Brighten CTA text */
+  }
+  
+  /* Catch-all for any nested text */
+  .mca-membership-wrapper * {
+    color: inherit !important; /* Propagate brightness down the tree */
+  }
+}
+
+[data-color-scheme="dark"] .mca-membership-wrapper {
+  --color-text: rgba(255, 255, 255, 1) !important;
+  --mca-elegant-gray: rgba(230, 230, 230, 1) !important;
+  --mca-deep-teal: rgba(100, 200, 200, 1) !important;
+  --mca-teal-highlight: rgba(150, 220, 220, 1) !important;
+  --mca-soft-white: rgba(240, 240, 240, 1) !important;
+  --mca-navy-blue: rgba(200, 220, 240, 1) !important;
+  --mca-gold-accent: rgba(255, 220, 150, 1) !important;
+}
+
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-header {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-section-title,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-subsection-title,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-text,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-list,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-ordered-list,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-image-title,
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-image-description {
+  color: var(--color-text) !important;
+}
+
+[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-cta-button {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
 /* Container Styling */
 .mca-membership-container {
   min-height: 100vh;
