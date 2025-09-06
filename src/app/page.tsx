@@ -56,7 +56,7 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-// Services data with categories, descriptions, and routes
+// Services data with categories, descriptions, and routes (FIXED: Membership href updated to /membership)
 const services = [
   {
     category: "Wrinkle Reducers",
@@ -95,13 +95,21 @@ const services = [
     category: "Membership",
     description: "Unlock exclusive benefits, discounts, and priority access to our premium treatments with our VIP membership program.",
     items: [
-      { name: "VIP Membership", href: "/aesthetic-services/membership" }
+      { name: "VIP Membership", href: "/membership" } // FIXED: Changed to /membership
     ]
   }
 ];
 
-// Gallery items for featured services - Reorganized in priority order with assigned local images
+// Gallery items for featured services - Reorganized in priority order with assigned local images (typo fix in dermalFillers imageUrl)
 const galleryItems = [
+  // Featured: CoolPeel CO2 Laser (Moved to top for prominence)
+  {
+    title: 'CoolPeel CO2 Laser',
+    description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
+    imageUrl: '/images/CO2Coolpeel.jpg',
+    href: '/aesthetic-services/coolpeel%20co2%20laser',
+    altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
+  },
   // 1. Micro-Needling (Scarlet RF Microneedling)
   {
     title: 'Scarlet RF Microneedling',
@@ -126,19 +134,11 @@ const galleryItems = [
     href: '/aesthetic-services/wrinkle-reducers/dysport',
     altText: 'Dysport wrinkle treatment results at MC Aesthetics McMinnville'
   },
-  // 3. CO2 Cool Peel (CoolPeel CO2 Laser)
-  {
-    title: 'CoolPeel CO2 Laser',
-    description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
-    imageUrl: '/images/CO2Coolpeel.jpg',
-    href: '/aesthetic-services/coolpeel%20co2%20laser',
-    altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
-  },
   // 4. Dermal Fillers - Primary image for Restylane
   {
     title: 'Dermal Fillers - Restylane',
     description: 'Enhance facial volume with Restylane fillers.',
-    imageUrl: '/images/dermalFIllers.jpg',
+    imageUrl: '/images/dermalFillers.jpg', // FIXED: Typo correction (dermalFIllers → dermalFillers)
     href: '/aesthetic-services/dermal-fillers/restylane',
     altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
   },
@@ -163,7 +163,7 @@ const galleryItems = [
     title: 'VIP Membership',
     description: 'Join our exclusive membership for priority access, discounts, and personalized beauty perks.',
     imageUrl: '/images/membership.jpg',
-    href: '/membership',
+    href: '/membership', // Already correct, kept as-is for consistency
     altText: 'VIP Membership Benefits at MC Aesthetics McMinnville'
   },
 ];
