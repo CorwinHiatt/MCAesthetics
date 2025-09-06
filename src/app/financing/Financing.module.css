@@ -1,6 +1,5 @@
-/* Financing.module.css - Flexible Financing Page for MC Aesthetics */
-/* Prefix: .mcaFinancing* for uniqueness; Uses global variables for theme consistency */
-/* Luxurious design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions for an accessible, informative experience */
+/* Financing.module.css - Optimized Flexible Financing Page for MC Aesthetics */
+/* Prefix: .mcaFinancing* for uniqueness; Mirrors gift card/contact style with wavy accents, gold trims, purple titles, pink highlights, subtle shadows, and smooth transitions */
 
 .mcaFinancingPageWrapper {
   background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
@@ -14,7 +13,7 @@
   overflow-x: hidden;
 }
 
-/* Hero Section */
+/* Hero Section with Wavy Accent */
 .mcaFinancingHero {
   text-align: center;
   max-width: 48rem;
@@ -25,10 +24,23 @@
 .mcaFinancingMainTitle {
   font-size: 2.75rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--mca-deep-purple);
   text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
   transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.mcaFinancingMainTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold));
+  border-radius: 50%;
+  clip-path: path('M0,2 Q50,0 100,2 Q150,4 200,2 Q250,0 300,2'); /* Subtle wavy line for luxury flair */
 }
 
 .mcaFinancingMainTitle:hover {
@@ -45,45 +57,29 @@
 .mcaFinancingSubtitle {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--mca-elegant-gray);
   line-height: 1.7;
 }
 
-@media (max-width: 640px) {
-  .mcaFinancingSubtitle {
-    font-size: 1.25rem;
-  }
-}
-
-.mcaFinancingHeroImageHolder {
-  width: 100%;
-  height: 20rem;
+.mcaFinancingLogoHolder {
+  max-width: 300px; /* Scaled for logo size */
+  margin: 0 auto 2rem;
   position: relative;
   overflow: hidden;
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px var(--mca-shadow-subtle);
   transition: transform 0.3s ease;
-  margin-bottom: 2rem;
 }
 
-.mcaFinancingHeroImageHolder:hover {
+.mcaFinancingLogoHolder:hover {
   transform: scale(1.03);
 }
 
-.mcaFinancingImage {
+.mcaFinancingLogo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mcaFinancingImageBorderAccent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0.25rem;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+  height: auto;
+  object-fit: contain;
 }
 
 /* Section Titles */
@@ -111,7 +107,7 @@
 
 .mcaFinancingContentLayout {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -151,6 +147,21 @@
   transform: scale(1.03);
 }
 
+.mcaFinancingImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mcaFinancingImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+}
+
 /* List Styling */
 .mcaFinancingListContainer {
   list-style-type: none;
@@ -165,6 +176,11 @@
   margin-bottom: 0.75rem;
   position: relative;
   padding-left: 1.75rem;
+  transition: color 0.3s ease;
+}
+
+.mcaFinancingListItem:hover {
+  color: var(--mca-deep-purple);
 }
 
 .mcaFinancingListItem::before {
@@ -245,7 +261,7 @@
     font-size: 1rem;
     padding: 0.625rem 1.25rem;
   }
-  .mcaFinancingHeroImageHolder, .mcaFinancingImageHolder {
+  .mcaFinancingImageHolder {
     height: 16rem;
   }
   .mcaFinancingCallToAction {
@@ -257,5 +273,8 @@
   }
   .mcaFinancingDisclaimer {
     font-size: 0.75rem;
+  }
+  .mcaFinancingLogoHolder {
+    max-width: 200px;
   }
 }

@@ -4,26 +4,25 @@ import Image from 'next/image';
 export default function FinancingPage() {
   return (
     <div className={styles.mcaFinancingPageWrapper}>
-      {/* Hero Section with Main Title and Subtitle */}
+      {/* Hero Section with Main Title, Subtitle, and Cherry Logo */}
       <section className={styles.mcaFinancingHero}>
         <h1 className={styles.mcaFinancingMainTitle}>Flexible Financing Options at MC Aesthetics</h1>
         <p className={styles.mcaFinancingSubtitle}>
           Partnering with Cherry for Seamless Payment Plans
         </p>
-        {/* Picsum Placeholder Image for Hero */}
-        <div className={styles.mcaFinancingHeroImageHolder}>
+        {/* Cherry Logo Image */}
+        <div className={styles.mcaFinancingLogoHolder}>
           <Image
-            src="https://picsum.photos/seed/financinghero/800/400"
-            alt="Illustration of Flexible Financing Options at MC Aesthetics in McMinnville"
-            className={styles.mcaFinancingImage}
-            width={800}
-            height={400}
+            src="/images/cherryFinacing.png"  // User's specified logo path (fixed typo)
+            alt="Cherry Financing Logo - Partner of MC Aesthetics"
+            className={styles.mcaFinancingLogo}
+            width={300}
+            height={150}  // Adjusted for logo proportions; tweak as needed
           />
-          <div className={styles.mcaFinancingImageBorderAccent}></div>
         </div>
       </section>
 
-      {/* How Cherry Works Section */}
+      {/* How Cherry Works Section (Text-Only for Optimization) */}
       <section className={styles.mcaFinancingContentSection}>
         <h2 className={styles.mcaFinancingSectionTitle}>How Cherry Financing Works</h2>
         <div className={styles.mcaFinancingContentLayout}>
@@ -35,21 +34,10 @@ export default function FinancingPage() {
               <strong>Buy now. Pay monthly.</strong> Split your payments and pay over time with plans tailored to fit any budget.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
-          <div className={styles.mcaFinancingImageHolder}>
-            <Image
-              src="https://picsum.photos/seed/howcherry/800/400"
-              alt="How Cherry Financing Works at MC Aesthetics"
-              className={styles.mcaFinancingImage}
-              width={800}
-              height={400}
-            />
-            <div className={styles.mcaFinancingImageBorderAccent}></div>
-          </div>
         </div>
       </section>
 
-      {/* Payment Plans Section */}
+      {/* Payment Plans Section with "You're Approved" Image */}
       <section className={styles.mcaFinancingContentSection}>
         <h2 className={styles.mcaFinancingSectionTitle}>A Plan For Any Budget</h2>
         <div className={styles.mcaFinancingContentLayout}>
@@ -64,11 +52,11 @@ export default function FinancingPage() {
               <strong>Flexible Payments For Any Budget:</strong> Cherry makes financing simple and accessible for everyone.
             </p>
           </div>
-          {/* Picsum Placeholder Image */}
+          {/* "You're Approved" Image */}
           <div className={styles.mcaFinancingImageHolder}>
             <Image
-              src="https://picsum.photos/seed/paymentplans/800/400"
-              alt="Flexible Payment Plans at MC Aesthetics"
+              src="/images/Approved.png"  // User's specified promotional image
+              alt="You're Approved - Girl Holding Card in Cherry Shirt for MC Aesthetics Financing"
               className={styles.mcaFinancingImage}
               width={800}
               height={400}
