@@ -421,17 +421,11 @@ export default function Carousel() {
           <Image
             width={100}
             height={100}
-            src="public/images/googleReviewGraphic.svg" 
+            src="/images/googleReviewGraphic.png" 
             alt="Google Reviews Rating Graphic" 
             className={styles.mcGoogleGraphicImage}
           />
-          <Image
-            width={100}
-            height={100}
-            src="public/images/googleReviewGraphic.svg" 
-            alt="Google Reviews Rating Graphic" 
-            // className={styles.mcGoogleGraphicImage}ß
-          />
+       
         </div>
       </div>
 
