@@ -1,6 +1,7 @@
 /* GiftCards.module.css - Luxurious Gift Cards Page for MC Aesthetics */
 /* Prefix: .mcaGift* for uniqueness; Uses global variables for theme consistency */
 /* Elegant, professional design with gold accents, purple titles, pink highlights, subtle shadows, and smooth transitions */
+/* Enhanced for non-flat top: curved borders, wave effects, and luxury framing */
 
 .mcaGiftPageWrapper {
   background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white)); /* Luxurious gradient background matching site theme */
@@ -15,11 +16,23 @@
   overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+/* Hero Section – Now with elegant, non-flat styling */
+.mcaGiftHero {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold); /* Gold underline for luxury */
+  border-radius: 0 0 50% 50% / 0 0 20px 20px; /* Curved bottom for elegant flow */
+  overflow: hidden; /* Contain any overflow */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle depth */
+}
+
 /* Main title for the page */
 .mcaGiftMainTitle {
   font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   color: var(--mca-deep-purple); /* Deep purple for professional titles */
   text-shadow: 1px 1px 2px var(--mca-shadow-subtle); /* Subtle shadow for depth */
@@ -31,16 +44,56 @@
   transform: scale(1.02);
 }
 
+/* New: Tagline for promotional flair */
+.mcaGiftTagline {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--mca-gold-accent);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 1px 1px var(--mca-shadow-subtle);
+}
+
 @media (min-width: 768px) {
-  .mcaGiftMainTitle {
-    font-size: 2.75rem;
-  }
+  .mcaGiftMainTitle { font-size: 2.75rem; }
+  .mcaGiftTagline { font-size: 1.75rem; }
 }
 
 @media (max-width: 640px) {
-  .mcaGiftMainTitle {
-    font-size: 1.875rem;
-  }
+  .mcaGiftMainTitle { font-size: 1.875rem; }
+  .mcaGiftTagline { font-size: 1.25rem; }
+}
+
+/* Hero Image Holder – Enhanced with curved, gold-accented border */
+.mcaGiftHeroImageHolder {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 3px solid var(--mca-lux-gold); /* Gold border for luxury */
+  border-radius: 20px; /* Soft curves */
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); /* Gold glow shadow */
+}
+
+.mcaGiftImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.mcaGiftImage:hover {
+  transform: scale(1.05); /* Zoom for engagement */
+}
+
+.mcaGiftImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold)); /* Accent gradient */
 }
 
 /* Introductory text */
@@ -59,9 +112,62 @@
 }
 
 @media (max-width: 640px) {
-  .mcaGiftIntroText {
-    font-size: 1rem;
-  }
+  .mcaGiftIntroText { font-size: 1rem; }
+}
+
+/* New: Why Choose Section */
+.mcaGiftWhySection,
+.mcaGiftHowSection {
+  max-width: 36rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.mcaGiftSubTitle {
+  font-size: 1.75rem;
+  color: var(--mca-deep-purple);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px var(--mca-shadow-subtle);
+}
+
+.mcaGiftBenefitsList,
+.mcaGiftStepsList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.mcaGiftBenefitsList li,
+.mcaGiftStepsList li {
+  font-size: 1.125rem;
+  color: var(--mca-elegant-gray);
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.mcaGiftBenefitsList li::before {
+  content: '✨'; /* Sparkle for luxury promo */
+  position: absolute;
+  left: 0;
+}
+
+.mcaGiftStepsList {
+  counter-reset: step;
+}
+
+.mcaGiftStepsList li::before {
+  counter-increment: step;
+  content: counter(step) '. ';
+  color: var(--mca-lux-gold);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .mcaGiftSubTitle { font-size: 1.5rem; }
+  .mcaGiftBenefitsList li, .mcaGiftStepsList li { font-size: 1rem; }
 }
 
 /* Call to action section */
@@ -72,7 +178,7 @@
   padding: 2rem;
   text-align: center;
   max-width: 36rem;
-  margin: 0 auto;
+  margin: 2rem auto;
   border: 1px solid var(--mca-bronze); /* Bronze border for elegant framing */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -110,14 +216,7 @@
 }
 
 @media (max-width: 640px) {
-  .mcaGiftCtaText {
-    font-size: 1.125rem;
-  }
-  .mcaGiftCtaButton {
-    font-size: 1rem;
-    padding: 0.625rem 1.25rem;
-  }
-  .mcaGiftCallToAction {
-    padding: 1.5rem;
-  }
+  .mcaGiftCtaText { font-size: 1.125rem; }
+  .mcaGiftCtaButton { font-size: 1rem; padding: 0.625rem 1.25rem; }
+  .mcaGiftCallToAction { padding: 1.5rem; }
 }

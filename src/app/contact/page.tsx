@@ -4,17 +4,17 @@ import Image from 'next/image';
 export default function ContactPage() {
   return (
     <div className={styles.mcaContactPageWrapper}>
-      {/* Hero Section with Main Title and Intro */}
+      {/* Hero Section with Main Title, Intro, and Single Image */}
       <section className={styles.mcaContactHero}>
         <h1 className={styles.mcaContactMainTitle}>Contact MC Aesthetics</h1>
         <p className={styles.mcaContactIntroText}>
           We’d love to hear from you! Whether you have questions about our services, want to book an appointment, or need more information, feel free to reach out. Fill out the form below, and we’ll get back to you as soon as possible.
         </p>
-        {/* Picsum Placeholder Image for Hero */}
+        {/* Single Image: User's Specified Photo */}
         <div className={styles.mcaContactHeroImageHolder}>
           <Image
-            src="https://picsum.photos/seed/contacthero/800/400"
-            alt="Welcoming Reception Area at MC Aesthetics in McMinnville"
+            src="/images/contactPhoto.png"  // Adjusted to public path as specified
+            alt="Welcoming Image at MC Aesthetics in McMinnville"
             className={styles.mcaContactImage}
             width={800}
             height={400}
@@ -85,7 +85,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Info Section */}
+      {/* Contact Info Section (No Image, Text-Only for Simplicity) */}
       <section className={styles.mcaContactContentSection}>
         <h2 className={styles.mcaContactSectionTitle}>Our Contact Information</h2>
         <div className={styles.mcaContactContentLayout}>
@@ -102,17 +102,6 @@ export default function ContactPage() {
             <p className={styles.mcaContactInfoText}>
               Reach out to us directly using the details above, or use the form to send a message. We’re excited to connect with you!
             </p>
-          </div>
-          {/* Picsum Placeholder Image for Contact Info */}
-          <div className={styles.mcaContactImageHolder}>
-            <Image
-              src="https://picsum.photos/seed/contactinfo/800/400"
-              alt="Map and Location Details of MC Aesthetics in McMinnville"
-              className={styles.mcaContactImage}
-              width={800}
-              height={400}
-            />
-            <div className={styles.mcaContactImageBorderAccent}></div>
           </div>
         </div>
       </section>
