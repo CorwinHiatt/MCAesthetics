@@ -28,6 +28,7 @@ const NewHeader: React.FC = () => {
   const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [openMobileSubDropdown, setOpenMobileSubDropdown] = useState<string | null>(null);
+  const [isMounted, setIsMounted] = useState(false); // New: For hydration fix
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -68,13 +69,23 @@ const NewHeader: React.FC = () => {
         { name: 'All Services', href: '/aesthetic-services/all-aesthetic-services' },
       ]
     },
-    { name: 'Laser Hair Removal', href: '/laser-hair' },
+    {
+      name: 'Laser Hair Removal',
+      href: '/laser-hair',
+      dropdown: [
+        { name: 'Membership', href: '/laser-hair/membership' }
+      ]
+    },
     { name: 'ZO Skin Health', href: '/zo-skin-health' },
     { name: 'Financing', href: '/financing' },
     { name: 'Gift Cards', href: '/gift-cards' },
     { name: 'Membership', href: '/membership' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  useEffect(() => {
+    setIsMounted(true); // New: Set mounted after hydration
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -171,13 +182,13 @@ const NewHeader: React.FC = () => {
           <Link href="/" className={styles.logoLink}>
             <div className={styles.logoContainer}>
               <Image
-  src="/images/logo.png"
-  alt="MC Aesthetics Logo"
-  width={72}  // Matches CSS base size – prevents optimization mismatch
-  height={72}
-  className={styles.logoImage}
-  priority
-/>
+                src="/images/logo.png"
+                alt="MC Aesthetics Logo"
+                width={72}  // Matches CSS base size – prevents optimization mismatch
+                height={72}
+                className={styles.logoImage}
+                priority
+              />
               <div className={styles.logoTextContainer}>
                 
               </div>
@@ -188,56 +199,64 @@ const NewHeader: React.FC = () => {
           <nav className={styles.desktopNav} ref={dropdownRef}>
             {navigationItems.map((item) => (
               <div key={item.name} className={styles.navItem}>
-                {item.dropdown ? (
-                  <div 
-                    onMouseEnter={() => handleDropdownEnter(item.name)}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <button className={styles.navButton}>
-                      {item.name}
-                      <ChevronDown className={styles.chevronIcon} />
-                    </button>
-                    
-                    <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
-                      {item.dropdown.map((dropdownItem) => (
-                        <div key={dropdownItem.name} className={styles.dropdownItem}>
-                          {dropdownItem.subitems ? (
-                            <div
-                              onMouseEnter={() => handleSubDropdownEnter(dropdownItem.name)}
-                              onMouseLeave={handleSubDropdownLeave}
-                            >
-                              <div className={styles.dropdownButton}>
-                                <Link href={dropdownItem.href} className="flex-1">
-                                  {dropdownItem.name}
-                                </Link>
-                                <ChevronRight className={styles.chevronIcon} />
-                              </div>
-                              
-                              <div className={`${styles.subDropdown} ${openSubDropdown === dropdownItem.name ? styles.visible : ''}`}>
-                                {dropdownItem.subitems.map((subitem) => (
-                                  <Link
-                                    key={subitem.name}
-                                    href={subitem.href}
-                                    className={styles.subDropdownLink}
-                                  >
-                                    {subitem.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          ) : (
-                            <Link href={dropdownItem.href} className={styles.dropdownLink}>
-                              {dropdownItem.name}
-                            </Link>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ) : (
+                {!isMounted ? (
+                  // Fallback for SSR/initial client: Simple link to match server output
                   <Link href={item.href} className={styles.navLink}>
                     {item.name}
                   </Link>
+                ) : (
+                  // Full client-side render with dropdown logic
+                  item.dropdown ? (
+                    <div 
+                      onMouseEnter={() => handleDropdownEnter(item.name)}
+                      onMouseLeave={handleDropdownLeave}
+                    >
+                      <button className={styles.navButton}>
+                        {item.name}
+                        <ChevronDown className={styles.chevronIcon} />
+                      </button>
+                      
+                      <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
+                        {item.dropdown.map((dropdownItem) => (
+                          <div key={dropdownItem.name} className={styles.dropdownItem}>
+                            {dropdownItem.subitems ? (
+                              <div
+                                onMouseEnter={() => handleSubDropdownEnter(dropdownItem.name)}
+                                onMouseLeave={handleSubDropdownLeave}
+                              >
+                                <div className={styles.dropdownButton}>
+                                  <Link href={dropdownItem.href} className="flex-1">
+                                    {dropdownItem.name}
+                                  </Link>
+                                  <ChevronRight className={styles.chevronIcon} />
+                                </div>
+                                
+                                <div className={`${styles.subDropdown} ${openSubDropdown === dropdownItem.name ? styles.visible : ''}`}>
+                                  {dropdownItem.subitems.map((subitem) => (
+                                    <Link
+                                      key={subitem.name}
+                                      href={subitem.href}
+                                      className={styles.subDropdownLink}
+                                    >
+                                      {subitem.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : (
+                              <Link href={dropdownItem.href} className={styles.dropdownLink}>
+                                {dropdownItem.name}
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link href={item.href} className={styles.navLink}>
+                      {item.name}
+                    </Link>
+                  )
                 )}
               </div>
             ))}
@@ -257,13 +276,13 @@ const NewHeader: React.FC = () => {
             <Link href="/" className={styles.logoLink} onClick={() => setIsMobileMenuOpen(false)}>
               <div className={styles.logoContainer}>
                 <Image
-  src="/images/logo.png"
-  alt="MC Aesthetics Logo"
-  width={56}  // Matches CSS mobile media query
-  height={56}
-  className={styles.logoImage}
-  priority
-/>
+                  src="/images/logo.png"
+                  alt="MC Aesthetics Logo"
+                  width={56}  // Matches CSS mobile media query
+                  height={56}
+                  className={styles.logoImage}
+                  priority
+                />
                 <div className={styles.logoTextContainer}>
                   <div className={styles.logoMainText}></div>
                 </div>

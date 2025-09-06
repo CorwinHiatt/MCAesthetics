@@ -14,6 +14,7 @@ export async function GET() {
     { path: '/financing', priority: '0.7', changefreq: 'monthly' },
     { path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
     { path: '/laser-hair', priority: '0.7', changefreq: 'monthly' },
+    
     { path: '/membership', priority: '0.7', changefreq: 'monthly' }, // Added membership page
     { path: '/privacy-policy', priority: '0.5', changefreq: 'yearly' },
     { path: '/zo-skin-health', priority: '0.7', changefreq: 'monthly' },
@@ -45,6 +46,7 @@ export async function GET() {
     { path: '/aesthetic-services/dermal-fillers/revanesse', priority: '0.7', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers/belotero', priority: '0.7', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers/radiesse', priority: '0.7', changefreq: 'monthly' },
+    { path: '/laser-hair/membership', priority: '0.7', changefreq: 'monthly' },
   ];
   
   // Combine all routes
