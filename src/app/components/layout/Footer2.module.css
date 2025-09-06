@@ -1,82 +1,143 @@
-/* Footer5.module.css - Beige Background Footer with Gold and Pink Highlights for MC Aesthetics */
-/* Prefix: .mcaLuxFooter* for uniqueness; Replicates header variables, fonts, shadows, and transitions */
-/* Enhanced with beige background (--mca-light-gold), gold accents (--mca-lux-gold), and pink highlights (--mca-pink-highlight) for elegant, professional look */
+/* Footer2.module.css - Enhanced Luxurious Footer Aligned with HomeLuxury.module.css */
+/* Mobile-First Design with Added Accents: Floating Glow, Curved Gradients, Pink/Gold Highlights, Deep Shadows, and Smooth Transitions */
 
 .mcaLuxFooter {
-  background-color: var(--mca-light-gold); /* Beige/gold background for luxurious warmth, matching header's soft gold */
-  color: var(--mca-elegant-gray); /* Gray text for professional readability on beige */
-  padding: 2rem 0;
-  font-family: 'Playfair Display', serif; /* Elegant font replicating header */
-  box-shadow: 0 -2px 10px var(--mca-shadow-subtle); /* Subtle shadow from header */
+  background: linear-gradient(145deg, var(--mca-light-gold), var(--mca-cream-white)); /* Gradient background for luxurious depth, matching about/gallery sections */
+  color: var(--mca-elegant-gray);
+  padding: var(--space-32) 0 var(--space-48) 0; /* Increased padding for open feel */
+  font-family: var(--font-family-base); /* From HomeLuxury */
+  box-shadow: var(--mca-shadow-luxury); /* Deep luxury shadow */
+  position: relative;
+  overflow: hidden;
 }
 
 .mcaLuxFooterTopBorder {
-  height: 0.25rem;
-  background: var(--mca-lux-gold); /* Gold accent replicating header's luxury borders */
-  margin-bottom: 2rem;
+  height: 60px; /* Curved transition inspired by header-to-hero */
+  background: var(--mca-gradient-purple);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mcaLuxFooterTopBorder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--mca-light-gold);
+  clip-path: ellipse(100% 80% at 50% 100%); /* Inverted curve for footer entry */
+  z-index: 1;
+}
+
+/* New Floating Accent - Similar to hero's floating shadow for luxury wow */
+.mcaLuxFooterFloatingAccent {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  z-index: 0;
+  opacity: 0.18;
+  transform: rotate(15deg);
+  animation: floatShadow 6s ease-in-out infinite; /* Reused from HomeLuxury */
+  pointer-events: none;
+}
+
+.mcaLuxFooterFloatingGlow {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--mca-lux-gold) 0%, transparent 70%);
+  filter: blur(50px);
+  transform: scale(1.2);
+}
+
+@keyframes floatShadow {
+  0%, 100% {
+    transform: rotate(15deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(12deg) translateY(var(--space-20));
+  }
 }
 
 .mcaLuxFooterContainer {
-  max-width: 1200px;
+  max-width: var(--container-lg);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-16);
+  position: relative;
+  z-index: 1;
 }
 
 .mcaLuxFooterGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .mcaLuxFooterGrid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-  }
+  gap: var(--space-32); /* Increased gap for luxury spacing */
 }
 
 .mcaLuxFooterSection {
-  display: flex;
-  flex-direction: column;
+  background: rgba(255, 255, 255, 0.18); /* Semi-transparent backdrop like hero content */
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: var(--mca-shadow-medium);
+  padding: var(--space-24);
+  animation: heroContentFadeIn 1.2s ease-out; /* Fade-in from HomeLuxury */
+  opacity: 0.97;
 }
 
 .mcaLuxFooterSectionTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--mca-lux-gold); /* Gold border replicating header underlines */
-  display: inline-block;
-  color: var(--mca-deep-purple); /* Deep purple from header for titles */
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterSectionTitle {
-    font-size: 1.25rem;
-  }
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  font-weight: var(--font-weight-bold);
+  color: var(--mca-gold-accent);
+  margin-bottom: var(--space-16);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.2);
 }
 
 .mcaLuxFooterContactItem {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 1.25rem;
-  transition: transform 0.3s ease; /* Transition replicating header hovers */
+  margin-bottom: var(--space-16);
+  transition: var(--mca-transition-luxury);
 }
 
 .mcaLuxFooterContactItem:hover {
-  transform: translateX(5px);
+  transform: translateX(var(--space-6));
+  box-shadow: var(--mca-shadow-subtle);
 }
 
 .mcaLuxFooterIconWrapper {
-  margin-right: 1rem;
-  background: var(--mca-pink-highlight); /* Pink highlight matching header */
-  padding: 0.5rem;
+  margin-right: var(--space-12);
+  background: var(--mca-pink-highlight);
+  padding: var(--space-8);
   border-radius: 50%;
-  transition: background 0.3s ease; /* Transition from header */
+  box-shadow: var(--mca-shadow-subtle);
+  transition: var(--mca-transition-luxury);
+  position: relative;
+  overflow: hidden;
+}
+
+.mcaLuxFooterIconWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(var(--mca-lux-gold-rgb), 0.2), transparent); /* Added gradient accent for shine */
+  opacity: 0;
+  transition: opacity var(--mca-transition-smooth);
+}
+
+.mcaLuxFooterContactItem:hover .mcaLuxFooterIconWrapper::before {
+  opacity: 1;
 }
 
 .mcaLuxFooterContactItem:hover .mcaLuxFooterIconWrapper {
-  background: var(--mca-lux-gold); /* Gold on hover replicating header interactions */
+  background: var(--mca-vivid-pink);
+  transform: scale(1.1);
 }
 
 .mcaLuxFooterIcon {
@@ -84,102 +145,101 @@
 }
 
 .mcaLuxFooterContactTitle {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--mca-gold-accent); /* Gold accent from header */
-  margin-bottom: 0.25rem;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--mca-deep-purple);
+  margin-bottom: var(--space-4);
 }
 
 .mcaLuxFooterContactText {
-  font-size: 0.9rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.4;
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterContactTitle {
-    font-size: 0.85rem;
-  }
-  .mcaLuxFooterContactText {
-    font-size: 0.8rem;
-  }
+  font-size: var(--font-size-base);
+  color: var(--mca-charcoal);
+  line-height: var(--line-height-normal);
 }
 
 .mcaLuxFooterSocialContainer {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
 }
 
 .mcaLuxFooterSocialIcon {
-  background: var(--mca-lux-gold); /* Gold background for highlights */
-  color: var(--mca-pink-highlight); /* Pink icons for brand cohesion */
-  width: 2.25rem;
-  height: 2.25rem;
+  background: var(--mca-lux-gold);
+  color: var(--mca-pink-highlight);
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease, transform 0.3s ease; /* Dual transition from header */
+  transition: var(--mca-transition-luxury);
+  box-shadow: var(--mca-shadow-subtle);
 }
 
 .mcaLuxFooterSocialIcon:hover {
-  background: var(--mca-pink-highlight); /* Pink on hover for dynamic highlight */
-  transform: scale(1.1);
+  background: var(--mca-vivid-pink);
+  transform: scale(1.15) rotate(5deg); /* Subtle luxury rotate for wow */
+  box-shadow: var(--mca-shadow-deep), 0 0 var(--space-20) rgba(var(--mca-lux-gold-rgb), 0.3); /* Added glow accent */
 }
 
 .mcaLuxFooterMapContainer {
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 4px 6px var(--mca-shadow-deep); /* Deep shadow replicating header */
-  height: 16rem;
-  background: var(--mca-soft-white);
+  box-shadow: var(--mca-shadow-luxury);
+  height: 300px; /* Increased for prominence */
+  background: var(--mca-cream-white);
   width: 100%;
+  position: relative;
+  transition: var(--mca-transition-luxury);
 }
 
-@media (max-width: 640px) {
-  .mcaLuxFooterMapContainer {
-    height: 14rem;
-  }
+.mcaLuxFooterMapContainer:hover {
+  transform: scale(1.02);
+}
+
+/* New Map Overlay for Accent - Similar to hero image overlay */
+.mcaLuxFooterMapOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--mca-lux-gold-rgb), 0.15) 0%, 
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .mcaLuxFooterMapLink {
-  margin-top: 0.75rem;
-  color: var(--mca-deep-purple); /* Purple from header */
-  transition: color 0.3s ease; /* Transition from header */
+  margin-top: var(--space-12);
+  color: var(--mca-gold-accent);
+  transition: var(--mca-transition-smooth);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
+  font-size: var(--font-size-base);
+  text-decoration: none;
 }
 
 .mcaLuxFooterMapLink:hover {
-  color: var(--mca-lux-gold); /* Gold on hover */
-}
-
-@media (min-width: 768px) {
-  .mcaLuxFooterMapLink {
-    justify-content: flex-start;
-  }
+  color: var(--mca-mustard-gold);
+  transform: translateX(var(--space-4));
 }
 
 .mcaLuxFooterSectionText {
-  margin-bottom: 1.5rem;
-  color: var(--mca-elegant-gray);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterSectionText {
-    font-size: 0.85rem;
-  }
+  margin-bottom: var(--space-24);
+  color: var(--mca-charcoal);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  opacity: 0.95;
 }
 
 .mcaLuxFooterForm {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--space-12);
 }
 
 .mcaLuxFooterInputGroup {
@@ -187,13 +247,15 @@
 }
 
 .mcaLuxFooterInput {
-  padding: 0.75rem 1rem;
+  padding: var(--space-12);
   width: 100%;
-  border-radius: 0.375rem;
-  border: 1px solid var(--mca-lux-gold); /* Gold border from header */
-  background: var(--mca-soft-white); /* White input for contrast on beige */
-  color: var(--mca-elegant-gray);
-  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--mca-lux-gold);
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  color: var(--mca-charcoal);
+  font-size: var(--font-size-base);
+  transition: var(--mca-transition-smooth);
 }
 
 .mcaLuxFooterInput::placeholder {
@@ -202,111 +264,194 @@
 
 .mcaLuxFooterInput:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--mca-pink-highlight); /* Pink focus for highlight */
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterInput {
-    font-size: 0.85rem;
-    padding: 0.6rem 0.9rem;
-  }
+  box-shadow: 0 0 0 var(--space-2) var(--mca-pink-highlight);
+  border-color: var(--mca-vivid-pink);
 }
 
 .mcaLuxFooterButton {
   width: 100%;
-  background: var(--mca-pink-highlight); /* Pink button for highlight */
-  color: #ffffff;
-  padding: 0.75rem 1rem;
-  border-radius: 0.375rem;
-  transition: background 0.3s ease, transform 0.3s ease; /* Transitions from header */
-  font-weight: 500;
-  font-size: 0.9rem;
+  background: var(--mca-pink-highlight);
+  color: var(--mca-soft-white);
+  padding: var(--space-12) var(--space-24);
+  border-radius: var(--radius-full);
+  transition: var(--mca-transition-luxury);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+  box-shadow: var(--mca-shadow-medium);
+}
+
+.mcaLuxFooterButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.mcaLuxFooterButton:hover::before {
+  left: 100%;
 }
 
 .mcaLuxFooterButton:hover {
-  background: var(--mca-lux-gold); /* Gold on hover for alternating highlight */
-  transform: scale(1.05);
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterButton {
-    font-size: 0.85rem;
-    padding: 0.6rem 0.9rem;
-  }
+  background: var(--mca-vivid-pink);
+  transform: translateY(calc(-1 * var(--space-4)));
+  box-shadow: var(--mca-shadow-deep);
 }
 
 .mcaLuxFooterBottomSection {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--mca-lux-gold); /* Gold border from header */
+  margin-top: var(--space-48);
+  padding-top: var(--space-24);
+  border-top: 1px solid var(--mca-lux-gold);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: var(--space-16);
+  position: relative;
 }
 
-@media (min-width: 768px) {
-  .mcaLuxFooterBottomSection {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.mcaLuxFooterBottomSection::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: var(--mca-gradient-purple);
+  clip-path: ellipse(100% 50% at 50% 100%); /* Subtle curved accent for bottom section */
+  opacity: 0.2;
 }
 
 .mcaLuxFooterLogoContainer {
-  margin-bottom: 0.5rem;
   display: block;
   width: 100%;
   max-width: 200px;
   height: auto;
-  transition: transform 0.3s ease; /* Transition replicating header logo hover */
+  transition: var(--mca-transition-luxury);
 }
 
 .mcaLuxFooterLogoContainer:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: brightness(1.1) saturate(1.2); /* Luxury glow like gallery photos */
 }
 
 .mcaLuxFooterLogo {
-  height: 5rem;
-  width: auto;
-  max-width: 200px;
-}
-
-@media (max-width: 640px) {
-  .mcaLuxFooterLogo {
-    height: 4rem;
-    max-width: 150px;
-  }
+  width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .mcaLuxFooterBottomLinks {
   color: var(--mca-elegant-gray);
-  font-size: 0.85rem;
+  font-size: var(--font-size-base);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-8);
 }
 
 .mcaLuxFooterLink {
-  color: var(--mca-elegant-gray);
-  transition: color 0.3s ease; /* Transition from header */
+  color: var(--mca-gold-accent);
+  transition: var(--mca-transition-smooth);
   text-decoration: none;
 }
 
 .mcaLuxFooterLink:hover {
-  color: var(--mca-pink-highlight); /* Pink on hover for highlight */
+  color: var(--mca-mustard-gold);
   text-decoration: underline;
+  transform: translateY(calc(-1 * var(--space-2)));
 }
 
 .mcaLuxFooterCopyright {
   color: var(--mca-elegant-gray);
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+}
+
+/* Mobile-First Responsive Design (Matching HomeLuxury) */
+@media (max-width: 768px) {
+  .mcaLuxFooterTopBorder {
+    height: 40px;
+  }
+
+  .mcaLuxFooterSection {
+    padding: var(--space-16);
+  }
+
+  .mcaLuxFooterMapContainer {
+    height: 250px;
+  }
+
+  .mcaLuxFooterSectionText {
+    font-size: var(--font-size-base);
+  }
+
+  .mcaLuxFooterFloatingAccent {
+    display: none; /* Hide on mobile to avoid clutter */
+  }
+}
+
+@media (max-width: 480px) {
+  .mcaLuxFooter {
+    padding: var(--space-24) 0 var(--space-32) 0;
+  }
+
+  .mcaLuxFooterMapContainer {
+    height: 200px;
+  }
 }
 
 @media (min-width: 768px) {
-  .mcaLuxFooterCopyright {
-    margin-top: 0;
+  .mcaLuxFooterGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-48);
+  }
+
+  .mcaLuxFooterBottomSection {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .mcaLuxFooterMapContainer {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mcaLuxFooterMapContainer {
+    height: 400px;
+  }
+
+  .mcaLuxFooterFloatingGlow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Accessibility and Performance (From HomeLuxury) */
+@media (prefers-reduced-motion: reduce) {
+  .mcaLuxFooterSection,
+  .mcaLuxFooterContactItem,
+  .mcaLuxFooterSocialIcon,
+  .mcaLuxFooterButton,
+  .mcaLuxFooterLogoContainer,
+  .mcaLuxFooterFloatingAccent {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .mcaLuxFooterLogo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
   }
 }

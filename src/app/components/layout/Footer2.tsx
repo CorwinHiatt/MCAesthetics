@@ -1,5 +1,3 @@
-
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
@@ -12,6 +10,11 @@ export default function Footer2() {
       <div className={styles.mcaLuxFooterTopBorder}></div>
       
       <div className={styles.mcaLuxFooterContainer}>
+        {/* Floating Accent - Inspired by hero shadow for luxury glow */}
+        <div className={styles.mcaLuxFooterFloatingAccent}>
+          <div className={styles.mcaLuxFooterFloatingGlow}></div>
+        </div>
+        
         <div className={styles.mcaLuxFooterGrid}>
           <div className={styles.mcaLuxFooterSection}>
             <h2 className={styles.mcaLuxFooterSectionTitle}>Get in Touch</h2>
@@ -50,7 +53,7 @@ export default function Footer2() {
             <div className={styles.mcaLuxFooterSocialContainer}>
               <a 
                 href="https://www.facebook.com/MCAesthetics23" 
-                aria-label="Facebook" 
+                aria-label="Visit MC Aesthetics on Facebook" 
                 className={styles.mcaLuxFooterSocialIcon}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -62,7 +65,7 @@ export default function Footer2() {
               
               <a 
                 href="https://www.instagram.com/mcaesthetics23" 
-                aria-label="Instagram" 
+                aria-label="Visit MC Aesthetics on Instagram" 
                 className={styles.mcaLuxFooterSocialIcon}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -87,8 +90,9 @@ export default function Footer2() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="MC Aesthetics Location"
+                title="MC Aesthetics Location Map"
               ></iframe>
+              <div className={styles.mcaLuxFooterMapOverlay}></div> {/* Added gradient overlay for luxury accent */}
             </div>
             <a 
               href="https://www.google.com/maps/place/609+NE+Baker+St+%23130,+McMinnville,+OR+97128/@45.21034,-123.1986,17z/data=!3m1!4b1!4m6!3m5!1s0x5494469c3b7b2f4d:0x1d4d3a1e8f4f8e9c!8m2!3d45.21034!4d-123.1986!16s%2Fg%2F11t4b6v4p_?entry=ttu"
@@ -108,7 +112,7 @@ export default function Footer2() {
           <div className={styles.mcaLuxFooterSection}>
             <h2 className={styles.mcaLuxFooterSectionTitle}>Join Our List</h2>
             <p className={styles.mcaLuxFooterSectionText}>
-              Join our email list for new treatment updates, promotions, special events and more.
+              Elevate your self-care journey—join our exclusive email list for premium treatment updates, luxurious promotions, special events, and more.
             </p>
             
             <form className={styles.mcaLuxFooterForm}>
@@ -117,6 +121,7 @@ export default function Footer2() {
                   type="text" 
                   placeholder="First Name" 
                   className={styles.mcaLuxFooterInput}
+                  aria-label="First Name"
                 />
               </div>
               <div className={styles.mcaLuxFooterInputGroup}>
@@ -124,13 +129,14 @@ export default function Footer2() {
                   type="email" 
                   placeholder="Email" 
                   className={styles.mcaLuxFooterInput}
+                  aria-label="Email Address"
                 />
               </div>
               <button 
                 type="submit" 
                 className={styles.mcaLuxFooterButton}
               >
-                Subscribe
+                Subscribe Now
               </button>
             </form>
           </div>
@@ -140,9 +146,13 @@ export default function Footer2() {
           <div className={styles.mcaLuxFooterLogoContainer}>
             <Image 
               src={logo} 
-              alt="MC Aesthetics" 
+              alt="MC Aesthetics Logo" 
               className={styles.mcaLuxFooterLogo} 
-              layout="intrinsic" 
+              width={200}
+              height={80}
+              priority
+              sizes="(max-width: 768px) 150px, 200px"
+              style={{ objectFit: 'contain' }}
             />
           </div>
           

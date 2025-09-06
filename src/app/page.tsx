@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from "next/image";
 // import meta from '../../public/images/meta.png';
 import melissaImg from '../../public/images/melissa.png';
-import maleahImg from '../../public/images/maleah.png';
+import maleahImg from '../../public/images/maleah.jpg';
 import shadowMain from '../../public/images/shadowMain.png';
 // import laserLegs from '../../public/images/laserLegs.jpg'; // New import for laser legs image
 import styles from './HomeLuxury.module.css';
@@ -293,7 +293,7 @@ export default function HomePage() {
           </div>
           <div className={styles.mcaLuxHomeAboutVisual}>
             <Image 
-              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&h=500&fit=crop&crop=center" 
+              src="/images/fakeOffice.jpg" 
               alt="MC Aesthetics McMinnville Clinic Interior" 
               className={styles.mcaLuxHomeAboutPortrait} 
               width={600}
