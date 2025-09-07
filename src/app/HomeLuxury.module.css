@@ -360,7 +360,7 @@
 .mcaLuxHomeTeamBio {
   font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
   line-height: var(--line-height-normal);
-  color: var(--color-text-secondary);
+  color:black;
 }
 
 /* About Section - Refined Elegance */

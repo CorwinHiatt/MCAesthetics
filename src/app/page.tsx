@@ -59,6 +59,16 @@ export const viewport = {
 // Services data with categories, descriptions, and routes (FIXED: Membership href updated to /membership)
 const services = [
   {
+    category: "1-Hour Laser Hair Removal Membershi",
+    description: "Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance. We can typically cover 3-4 body areas in one hour ",
+    items: [
+      { name: "Elysion Laser Hair Removal", href: "/laser-hair" },
+      { name: "1-Hour Membership", href: "/laser-hair/membership" },
+      { name: "6-month minimum commitment for best results", href: "/laser-hair/membership" },
+      { name: "1-Hour Membership", href: "/laser-hair/membership" }
+    ]
+  },
+  {
     category: "Wrinkle Reducers",
     description: "Smooth fine lines and reclaim youthful vitality with our expert treatments.",
     items: [
@@ -158,6 +168,14 @@ const galleryItems = [
     href: '/laser-hair',
     altText: 'Laser Hair on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
   },
+  // NEW: Additional card for 1-Hour Laser Hair Removal Membership (condensed content)
+  // {
+  //   title: '1-Hour Laser Hair Removal Membership',
+  //   description: '$299/month | 1 full hour per session covering 3-4 areas (e.g., face, underarms, legs—customized to you!) | 6-month commitment for optimal, pain-free results and lasting smoothness. Invest in yourself—ditch daily shaving and embrace effortless confidence!',
+  //   imageUrl: '/images/laserLegs.jpg', // Reusing for consistency; swap if you have a dedicated image
+  //   href: '/laser-hair/membership',
+  //   altText: '1-Hour Laser Hair Removal Membership for Lasting Smoothness at MC Aesthetics McMinnville'
+  // },
   // New Membership card
   {
     title: 'VIP Membership',
@@ -305,7 +323,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section - Interactive Cards */}
+      {/* Featured Services Gallery - Visual Focus with Enhanced Spacing and Wow Effects (MOVED ABOVE SERVICES) */}
+      <section className={styles.mcaLuxHomeGallerySpace}>
+        <h2 className={styles.mcaLuxHomeGalleryCaption}>Featured Transformations</h2>
+        <div className={styles.mcaLuxHomeGalleryDisplay}>
+          {galleryItems.map((item, index) => (
+            <div key={item.title} className={styles.mcaLuxHomeGalleryPiece} style={{ animationDelay: `${index * 0.1}s` }}>
+              <Link href={item.href} className={styles.mcaLuxHomeGalleryNav}>
+                <Image
+                  src={item.imageUrl}
+                  alt={item.altText}
+                  className={styles.mcaLuxHomeGalleryPhoto}
+                  width={400}
+                  height={300}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className={styles.mcaLuxHomeGalleryHoverLayer}>
+                  <h3 className={styles.mcaLuxHomeGalleryPieceTitle}>{item.title}</h3>
+                  <p className={styles.mcaLuxHomeGalleryPieceInfo}>{item.description}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Services Section - Interactive Cards (MOVED BELOW GALLERY) */}
       <section className={styles.mcaLuxHomeServicesZone}>
         <h2 className={styles.mcaLuxHomeServicesHeader}>Our Signature Aesthetic Services</h2>
         <p className={styles.mcaLuxHomeServicesIntroText}>
@@ -332,32 +376,6 @@ export default function HomePage() {
                   </li>
                 )}
               </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Featured Services Gallery - Visual Focus with Enhanced Spacing and Wow Effects */}
-      <section className={styles.mcaLuxHomeGallerySpace}>
-        <h2 className={styles.mcaLuxHomeGalleryCaption}>Featured Transformations</h2>
-        <div className={styles.mcaLuxHomeGalleryDisplay}>
-          {galleryItems.map((item, index) => (
-            <div key={item.title} className={styles.mcaLuxHomeGalleryPiece} style={{ animationDelay: `${index * 0.1}s` }}>
-              <Link href={item.href} className={styles.mcaLuxHomeGalleryNav}>
-                <Image
-                  src={item.imageUrl}
-                  alt={item.altText}
-                  className={styles.mcaLuxHomeGalleryPhoto}
-                  width={400}
-                  height={300}
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className={styles.mcaLuxHomeGalleryHoverLayer}>
-                  <h3 className={styles.mcaLuxHomeGalleryPieceTitle}>{item.title}</h3>
-                  <p className={styles.mcaLuxHomeGalleryPieceInfo}>{item.description}</p>
-                </div>
-              </Link>
             </div>
           ))}
         </div>
