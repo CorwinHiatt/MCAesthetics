@@ -1,0 +1,497 @@
+/* CoolPeel.module.css - Luxurious Styling for MC Aesthetics CoolPeel Page */
+/* Mobile-First Design with Premium Aesthetics, Crystal Clear Images, and High-Contrast Text for Readability */
+/* Based on About.module.css, with tweaks for 'glow' theme and high-ROI emphasis */
+
+.mcaCoolPeelPageWrapper {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-32) var(--space-16);
+  background-color: var(--color-cream-100);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  box-shadow: var(--shadow-xs);
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+  /* Brand Color Palette - Mirroring About */
+  --mca-primary-purple: var(--color-primary);
+  --mca-gradient-purple: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
+  --mca-rose-brown: var(--color-brown-600);
+  --mca-gold-accent: var(--color-brown-600);
+  --mca-light-gold: var(--color-cream-100);
+  --mca-pink-highlight: var(--color-primary-hover);
+  --mca-deep-purple: var(--color-primary-active);
+  --mca-navy-blue: var(--color-slate-900);
+  --mca-light-blue: var(--color-teal-400);
+  --mca-sky-blue: var(--color-teal-300);
+  --mca-bronze: var(--color-brown-600);
+  --mca-vivid-pink: var(--color-primary-hover);
+  --mca-mustard-gold: var(--color-orange-500);
+  
+  /* Luxury Enhancement Colors */
+  --mca-soft-white: #ffffff;
+  --mca-elegant-gray: var(--color-text-secondary);
+  --mca-lux-gold: var(--color-orange-400);
+  --mca-cream-white: var(--color-cream-100);
+  --mca-charcoal: var(--color-charcoal-700);
+  
+  /* Advanced Shadow System */
+  --mca-shadow-subtle: var(--shadow-xs);
+  --mca-shadow-medium: var(--shadow-sm);
+  --mca-shadow-deep: var(--shadow-md);
+  --mca-shadow-luxury: var(--shadow-lg);
+  
+  /* Premium Transitions */
+  --mca-transition-smooth: all var(--duration-normal) var(--ease-standard);
+  --mca-transition-luxury: all var(--duration-normal) var(--ease-standard);
+}
+
+/* Curved Header to Hero Transition */
+.mcaCoolPeelHeaderToHeroTransition {
+  width: 100%;
+  height: 50px;
+  background: var(--mca-gradient-purple);
+  position: relative;
+  margin: 0 0 var(--space-8) 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.mcaCoolPeelHeaderToHeroTransition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+  clip-path: ellipse(100% 90% at 50% 0%);
+  z-index: 1;
+}
+
+.mcaCoolPeelHeaderToHeroTransition::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--space-20);
+  background: linear-gradient(to bottom, rgba(var(--color-brown-600-rgb), 0.1) 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Hero Section */
+.mcaCoolPeelHero {
+  text-align: center;
+  padding: var(--space-32) 0 var(--space-24) 0;
+  border-bottom: 1px solid rgba(var(--color-border), 0.3);
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible !important;
+  background: var(--mca-gradient-purple);
+  clip-path: ellipse(100% 80% at 50% 0%);
+  z-index: 2;
+}
+
+.mcaCoolPeelHero > * {
+  position: relative;
+  z-index: 3;
+}
+
+.mcaCoolPeelHeroBackgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.mcaCoolPeelHeroImageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mcaCoolPeelHeroBackgroundImage {
+  opacity: 0.25;
+  filter: blur(0.3px);
+  transition: var(--mca-transition-smooth);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  object-fit: cover;
+}
+
+.mcaCoolPeelHeroImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg, 
+    rgba(var(--color-teal-500-rgb), 0.35) 0%, 
+    rgba(var(--color-teal-700-rgb), 0.25) 50%, 
+    rgba(var(--color-slate-500-rgb), 0.4) 100%
+  );
+  z-index: 2;
+}
+
+.mcaCoolPeelMainTitle {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-bold);
+  color: #ffffff !important;
+  margin-bottom: var(--space-16);
+  text-shadow: 0 var(--space-2) var(--space-10) rgba(0, 0, 0, 0.4);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+  position: relative;
+  z-index: 3;
+  overflow: visible;
+  padding-top: var(--space-24);
+}
+
+.mcaCoolPeelIntroText {
+  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+  line-height: var(--line-height-relaxed);
+  color: #ffffff !important;
+  max-width: 900px;
+  margin: 0 auto var(--space-16) auto;
+  opacity: 1;
+  position: relative;
+  z-index: 3;
+  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.3);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  overflow: visible !important;
+  white-space: normal;
+}
+
+/* Image Holders */
+.mcaCoolPeelImageHolder {
+  position: relative;
+  margin: var(--space-8) 0;
+  overflow: visible !important;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  z-index: 3;
+}
+
+.mcaCoolPeelImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform var(--duration-normal) var(--ease-standard);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.mcaCoolPeelImage:hover {
+  transform: scale(1.05);
+  filter: contrast(1.1) saturate(1.2);
+}
+
+/* Bottom Border Accent */
+.mcaCoolPeelImageBorderAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
+  opacity: 0.5;
+}
+
+/* Enhanced Curved Top Line */
+.mcaCoolPeelImageBorderAccentTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
+  opacity: 0.5;
+  clip-path: ellipse(60% 100% at 50% 100%);
+}
+
+/* Call to Action */
+.mcaCoolPeelCallToAction {
+  text-align: center;
+  margin: var(--space-24) 0;
+  position: relative;
+  z-index: 3;
+}
+
+.mcaCoolPeelCtaText {
+  display: inline-block;
+  padding: var(--space-12) var(--space-32);
+  background: var(--mca-pink-highlight);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--mca-transition-luxury);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.mcaCoolPeelCtaText::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.6s ease;
+}
+
+.mcaCoolPeelCtaText:hover::before {
+  left: 100%;
+}
+
+.mcaCoolPeelCtaText:hover {
+  transform: translateY(calc(-1 * var(--space-4)));
+  box-shadow: var(--shadow-lg);
+  background: var(--mca-vivid-pink);
+}
+
+/* Content Sections */
+.mcaCoolPeelContentSection {
+  padding: var(--space-48) 0;
+  border-bottom: 1px solid rgba(var(--color-border), 0.3);
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+  background: linear-gradient(145deg, var(--mca-cream-white), var(--mca-soft-white));
+  opacity: 0;
+  transform: translateY(var(--space-20));
+  animation: fadeInUp 0.6s ease-out forwards;
+  z-index: 2;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-20));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mcaCoolPeelSectionTitle {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--space-24);
+  letter-spacing: var(--letter-spacing-tight);
+  text-shadow: 0 var(--space-1) var(--space-4) rgba(0, 0, 0, 0.2);
+}
+
+.mcaCoolPeelContentLayout {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-32);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.mcaCoolPeelContentText {
+  flex: 1;
+  min-width: 100%;
+}
+
+.mcaCoolPeelParagraph {
+  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-16);
+  color: var(--color-text-secondary);
+  text-shadow: 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.1);
+  word-break: break-word;
+}
+
+.mcaCoolPeelIntroParagraph {
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  margin-bottom: var(--space-24);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Lists */
+.mcaCoolPeelListContainer {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-16) 0;
+}
+
+.mcaCoolPeelListItem {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-16);
+  padding-left: var(--space-24);
+  position: relative;
+}
+
+.mcaCoolPeelListItem::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-teal-500);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .mcaCoolPeelContentLayout {
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .mcaCoolPeelMainTitle {
+    font-size: var(--font-size-3xl);
+    padding-top: var(--space-32);
+  }
+
+  .mcaCoolPeelSectionTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .mcaCoolPeelPageWrapper {
+    padding: var(--space-16);
+  }
+
+  .mcaCoolPeelContentSection {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
+    padding: var(--space-32) 0;
+  }
+
+  .mcaCoolPeelHero {
+    min-height: 50vh;
+    padding: var(--space-32) var(--space-16) var(--space-24) var(--space-16);
+    clip-path: ellipse(100% 80% at 50% 0%);
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .mcaCoolPeelIntroText,
+  .mcaCoolPeelParagraph {
+    line-height: var(--line-height-normal);
+    max-width: 100%;
+    white-space: normal;
+    padding: 0 var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .mcaCoolPeelImageHolder {
+    order: 3;
+    margin-top: var(--space-8);
+    z-index: 3;
+  }
+
+  .mcaCoolPeelHeaderToHeroTransition {
+    height: 40px;
+    margin-bottom: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .mcaCoolPeelPageWrapper {
+    font-size: var(--font-size-sm);
+  }
+
+  .mcaCoolPeelContentSection {
+    padding: var(--space-24) 0;
+  }
+
+  .mcaCoolPeelIntroText {
+    font-size: var(--font-size-md);
+  }
+
+  .mcaCoolPeelHero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: var(--space-40);
+  }
+
+  .mcaCoolPeelImageHolder {
+    margin-bottom: var(--space-24);
+  }
+
+  .mcaCoolPeelCallToAction {
+    margin: var(--space-16) 0;
+  }
+}
+
+/* Force dark readable text colors */
+.mcaCoolPeelMainTitle {
+  color: #ffffff !important; /* Keep white for hero */
+}
+
+.mcaCoolPeelIntroText {
+  color: #ffffff !important; /* Keep white for hero */
+}
+
+.mcaCoolPeelSectionTitle {
+  color: #1a1a1a !important; /* Very dark */
+}
+
+.mcaCoolPeelParagraph {
+  color: #333333 !important; /* Dark gray */
+}
+
+.mcaCoolPeelIntroParagraph {
+  color: #2c2c2c !important; /* Dark charcoal */
+}
+
+.mcaCoolPeelListItem {
+  color: #333333 !important; /* Dark gray */
+}
+
+.mcaCoolPeelListItem strong {
+  color: #1a1a1a !important; /* Very dark */
+}
+
+.mcaCoolPeelCtaText {
+  color: #ffffff !important; /* Keep white for CTA */
+}
+
+/* Force dark text for headings and paragraphs */
+.mcaCoolPeelPageWrapper h1,
+.mcaCoolPeelPageWrapper h2,
+.mcaCoolPeelPageWrapper h3,
+.mcaCoolPeelPageWrapper h4,
+.mcaCoolPeelPageWrapper h5,
+.mcaCoolPeelPageWrapper h6 {
+  color: #1a1a1a !important;
+}
+
+.mcaCoolPeelPageWrapper p {
+  color: #333333 !important;
+}
+
+.mcaCoolPeelPageWrapper li {
+  color: #333333 !important;
+}
+
+/* Special handling for hero section text - keep white */
+.mcaCoolPeelHero h1,
+.mcaCoolPeelHero p {
+  color: #ffffff !important;
+}

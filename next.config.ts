@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/aesthetic-services/coolpeel-co2-laser', // Adjust if your dynamic path is different
+        destination: '/coolpeel',
+        permanent: true, // 301 redirect for SEO
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -35,6 +35,7 @@ const NewHeader: React.FC = () => {
   const navigationItems: NavigationItem[] = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
+    { name: 'Coolpeel', href: '/coolpeel' },
     {
       name: 'Aesthetic Services',
       href: '/aesthetic-services/all-aesthetic-services',

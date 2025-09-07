@@ -117,7 +117,7 @@ const galleryItems = [
     title: 'CoolPeel CO2 Laser',
     description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
     imageUrl: '/images/CO2Coolpeel.jpg',
-    href: '/aesthetic-services/coolpeel%20co2%20laser',
+    href: '/coolpeel',
     altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
   },
   // 1. Micro-Needling (Scarlet RF Microneedling)

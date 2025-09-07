@@ -5,6 +5,7 @@ export async function GET() {
   const baseUrl = 'https://mc-aesthetics.vercel.app';
   
   // Static routes from app directory, including privacy-policy and accessibility
+  // Added /coolpeel here as it's now a standalone static page
   const staticRoutes = [
     { path: '/', priority: '1.0', changefreq: 'monthly' },
     { path: '/about', priority: '0.8', changefreq: 'monthly' },
@@ -14,13 +15,14 @@ export async function GET() {
     { path: '/financing', priority: '0.7', changefreq: 'monthly' },
     { path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
     { path: '/laser-hair', priority: '0.7', changefreq: 'monthly' },
-    
     { path: '/membership', priority: '0.7', changefreq: 'monthly' }, // Added membership page
     { path: '/privacy-policy', priority: '0.5', changefreq: 'yearly' },
     { path: '/zo-skin-health', priority: '0.7', changefreq: 'monthly' },
+    { path: '/coolpeel', priority: '0.8', changefreq: 'monthly' }, // New standalone CoolPeel page
   ];
   
   // Dynamic service routes (top-level services from aestheticServicesData)
+  // Removed /aesthetic-services/coolpeel-co2-laser since it's now static and redirected
   const serviceRoutes = [
     { path: '/aesthetic-services/wrinkle-reducers', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers', priority: '0.8', changefreq: 'monthly' },
@@ -28,7 +30,6 @@ export async function GET() {
     { path: '/aesthetic-services/sclerotherapy', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/chemical-peels-perfect-derma', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/scarlet-rf-microneedling', priority: '0.8', changefreq: 'monthly' },
-    { path: '/aesthetic-services/coolpeel-co2-laser', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/all-aesthetic-services', priority: '0.8', changefreq: 'monthly' },
   ];
   
