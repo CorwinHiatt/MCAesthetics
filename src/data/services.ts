@@ -223,28 +223,28 @@ const aestheticServicesData: ServiceCategory = {
 },
       ],
     },
-    {
-  name: "CoolPeel CO2 Laser",
-  imageUrl: "/images/CO2Coolpeel.jpg",
-  meta: {
-    title: "CoolPeel CO2 Laser McMinnville - Skin Resurfacing Innovation",
-    description: "CoolPeel CO2 Laser at MC Aesthetics in McMinnville offers powerful resurfacing with minimal downtime. Smooth skin, reduce pores, and erase fine lines now.",
-    keywords: ["CoolPeel CO2 Laser McMinnville", "skin resurfacing Oregon", "anti-aging laser", "minimal downtime treatment", "glowing skin solution", "fine line reduction"],
-  },
-  details: {
-    overview: "CoolPeel CO2 Laser is a revolutionary skin resurfacing treatment that delivers the powerful benefits of traditional CO2 laser technology with significantly less downtime. Unlike older CO2 lasers that required weeks of recovery due to intense heat damage, CoolPeel uses short, controlled bursts of energy to target the superficial layers of skin, removing damaged tissue while stimulating collagen production. At MC Aesthetics in McMinnville, we use CoolPeel to address a variety of skin concerns, from fine lines to sun damage, giving you a refreshed, youthful glow with results that keep improving over time. It’s the perfect balance of efficacy and convenience for busy individuals.",
-    treats: ["Fine lines and wrinkles", "Sun damage and age spots", "Uneven skin texture", "Enlarged pores", "Acne scars", "Dull or tired-looking skin"],
-    benefits: ["Powerful skin resurfacing with minimal downtime (often just 1-3 days)", "Stimulates collagen for long-term skin firmness", "Improves skin tone and texture in just one session", "Customizable to your specific skin needs", "Safe for most skin types with proper consultation"],
-    candidacy: "CoolPeel is ideal for adults seeking to improve skin texture, tone, and signs of aging without the lengthy recovery of traditional lasers. It’s best for those with mild to moderate skin concerns like fine lines, sun damage, or acne scarring. A consultation at MC Aesthetics will confirm if CoolPeel matches your skin type and goals.",
-    notCandidacy: "This treatment may not be suitable for individuals with active skin infections, certain autoimmune conditions, or very dark skin tones due to pigmentation risks. Pregnant or breastfeeding individuals should postpone treatment. We’ll evaluate your skin and medical history to ensure safety.",
-    resultsDuration: "You’ll notice smoother, brighter skin within a week after treatment as the superficial layer peels away. Collagen production continues for months, enhancing firmness and texture over time. For optimal results, a series of 2-3 sessions spaced 4-6 weeks apart is often recommended, with maintenance treatments every 6-12 months.",
-    whatToExpect: "Your CoolPeel session at MC Aesthetics begins with a thorough skin assessment and discussion of your goals. The treatment itself takes about 15-30 minutes, depending on the area. You might feel a mild stinging sensation, but we ensure comfort with cooling techniques or numbing cream if needed. Post-treatment, your skin may feel like a mild sunburn with slight redness or flaking for 1-3 days. Most clients resume normal activities quickly, following our tailored aftercare plan. Full results develop over weeks as new, healthy skin emerges.",
-    preCare: ["Avoid sun exposure and tanning for at least 2 weeks before treatment.", "Discontinue retinoids or exfoliating products 5-7 days prior.", "Inform us of any skin conditions or medications during consultation."],
-    postCare: ["Keep skin hydrated with recommended moisturizers.", "Avoid direct sun exposure and use SPF 30+ religiously for at least 4 weeks.", "Don’t pick at flaking skin—let it shed naturally.", "Skip harsh skincare products for a few days post-treatment."],
-    tips: ["Pair CoolPeel with a medical-grade skincare routine for enhanced results—ask us for recommendations!", "Schedule treatments during cooler months if possible to minimize sun exposure risks.", "Stay consistent with follow-up sessions for cumulative benefits."],
-    whyChoose: "At MC Aesthetics, we’re committed to cutting-edge treatments that fit into your life. CoolPeel CO2 Laser is a game-changer, and our team, led by Nurse Practitioner Melissa Cook, is trained to customize each session to your unique skin profile. We prioritize your comfort and safety, offering detailed guidance before and after treatment. Our McMinnville clients love how CoolPeel delivers dramatic improvements without sidelining their schedules—because we believe glowing skin shouldn’t come at the cost of downtime."
-  },
-},
+//     {
+//   name: "CoolPeel CO2 Laser",
+//   imageUrl: "/images/CO2Coolpeel.jpg",
+//   meta: {
+//     title: "CoolPeel CO2 Laser McMinnville - Skin Resurfacing Innovation",
+//     description: "CoolPeel CO2 Laser at MC Aesthetics in McMinnville offers powerful resurfacing with minimal downtime. Smooth skin, reduce pores, and erase fine lines now.",
+//     keywords: ["CoolPeel CO2 Laser McMinnville", "skin resurfacing Oregon", "anti-aging laser", "minimal downtime treatment", "glowing skin solution", "fine line reduction"],
+//   },
+//   details: {
+//     overview: "CoolPeel CO2 Laser is a revolutionary skin resurfacing treatment that delivers the powerful benefits of traditional CO2 laser technology with significantly less downtime. Unlike older CO2 lasers that required weeks of recovery due to intense heat damage, CoolPeel uses short, controlled bursts of energy to target the superficial layers of skin, removing damaged tissue while stimulating collagen production. At MC Aesthetics in McMinnville, we use CoolPeel to address a variety of skin concerns, from fine lines to sun damage, giving you a refreshed, youthful glow with results that keep improving over time. It’s the perfect balance of efficacy and convenience for busy individuals.",
+//     treats: ["Fine lines and wrinkles", "Sun damage and age spots", "Uneven skin texture", "Enlarged pores", "Acne scars", "Dull or tired-looking skin"],
+//     benefits: ["Powerful skin resurfacing with minimal downtime (often just 1-3 days)", "Stimulates collagen for long-term skin firmness", "Improves skin tone and texture in just one session", "Customizable to your specific skin needs", "Safe for most skin types with proper consultation"],
+//     candidacy: "CoolPeel is ideal for adults seeking to improve skin texture, tone, and signs of aging without the lengthy recovery of traditional lasers. It’s best for those with mild to moderate skin concerns like fine lines, sun damage, or acne scarring. A consultation at MC Aesthetics will confirm if CoolPeel matches your skin type and goals.",
+//     notCandidacy: "This treatment may not be suitable for individuals with active skin infections, certain autoimmune conditions, or very dark skin tones due to pigmentation risks. Pregnant or breastfeeding individuals should postpone treatment. We’ll evaluate your skin and medical history to ensure safety.",
+//     resultsDuration: "You’ll notice smoother, brighter skin within a week after treatment as the superficial layer peels away. Collagen production continues for months, enhancing firmness and texture over time. For optimal results, a series of 2-3 sessions spaced 4-6 weeks apart is often recommended, with maintenance treatments every 6-12 months.",
+//     whatToExpect: "Your CoolPeel session at MC Aesthetics begins with a thorough skin assessment and discussion of your goals. The treatment itself takes about 15-30 minutes, depending on the area. You might feel a mild stinging sensation, but we ensure comfort with cooling techniques or numbing cream if needed. Post-treatment, your skin may feel like a mild sunburn with slight redness or flaking for 1-3 days. Most clients resume normal activities quickly, following our tailored aftercare plan. Full results develop over weeks as new, healthy skin emerges.",
+//     preCare: ["Avoid sun exposure and tanning for at least 2 weeks before treatment.", "Discontinue retinoids or exfoliating products 5-7 days prior.", "Inform us of any skin conditions or medications during consultation."],
+//     postCare: ["Keep skin hydrated with recommended moisturizers.", "Avoid direct sun exposure and use SPF 30+ religiously for at least 4 weeks.", "Don’t pick at flaking skin—let it shed naturally.", "Skip harsh skincare products for a few days post-treatment."],
+//     tips: ["Pair CoolPeel with a medical-grade skincare routine for enhanced results—ask us for recommendations!", "Schedule treatments during cooler months if possible to minimize sun exposure risks.", "Stay consistent with follow-up sessions for cumulative benefits."],
+//     whyChoose: "At MC Aesthetics, we’re committed to cutting-edge treatments that fit into your life. CoolPeel CO2 Laser is a game-changer, and our team, led by Nurse Practitioner Melissa Cook, is trained to customize each session to your unique skin profile. We prioritize your comfort and safety, offering detailed guidance before and after treatment. Our McMinnville clients love how CoolPeel delivers dramatic improvements without sidelining their schedules—because we believe glowing skin shouldn’t come at the cost of downtime."
+//   },
+// },
     {
       name: "Kybella",
       imageUrl: "/images/Kybella.webp",
