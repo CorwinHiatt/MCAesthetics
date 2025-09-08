@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   // Your domain
-  const baseUrl = 'https://mc-aesthetics.vercel.app';
+  const baseUrl = 'https://www.mcaestheticsclinic.com/';
   
   // Static routes from app directory, including privacy-policy and accessibility
   // Added /coolpeel here as it's now a standalone static page
