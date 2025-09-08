@@ -143,7 +143,7 @@ export default function AboutPage() {
           </div>
           <div className={styles.mcaAboutImageHolder}>
             <Image
-              src="/images/maleah.png"
+              src="/images/maleah.jpg"
               alt="Maleah Espinoza, Aesthetic Nurse Injector at MC Aesthetics in McMinnville, in a Professional Setting Showcasing Her Passion for Natural Enhancements"
               className={styles.mcaAboutImage}
               width={800}
