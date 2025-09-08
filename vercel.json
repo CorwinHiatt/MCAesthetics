@@ -109,11 +109,6 @@
       ],
       "destination": "https://www.mcaestheticsclinic.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "destination": "/",
-      "permanent": true
     }
   ]
 }
