@@ -7,5 +7,113 @@
         "installCommand": "npm install --platform=linux --arch=x64"
       }
     }
+  ],
+  "redirects": [
+    {
+      "source": "/xeomin",
+      "destination": "/aesthetic-services/wrinkle-reducers/xeomin",
+      "permanent": true
+    },
+    {
+      "source": "/dysport",
+      "destination": "/aesthetic-services/wrinkle-reducers/dysport",
+      "permanent": true
+    },
+    {
+      "source": "/daxxify",
+      "destination": "/aesthetic-services/wrinkle-reducers/daxxify",
+      "permanent": true
+    },
+    {
+      "source": "/jeuveau",
+      "destination": "/aesthetic-services/wrinkle-reducers/jeuveau",
+      "permanent": true
+    },
+    {
+      "source": "/sculptra",
+      "destination": "/aesthetic-services/dermal-fillers/sculptra",
+      "permanent": true
+    },
+    {
+      "source": "/restylane",
+      "destination": "/aesthetic-services/dermal-fillers/restylane",
+      "permanent": true
+    },
+    {
+      "source": "/rha",
+      "destination": "/aesthetic-services/dermal-fillers/rha",
+      "permanent": true
+    },
+    {
+      "source": "/revanesse",
+      "destination": "/aesthetic-services/dermal-fillers/revanesse",
+      "permanent": true
+    },
+    {
+      "source": "/belotero",
+      "destination": "/aesthetic-services/dermal-fillers/belotero",
+      "permanent": true
+    },
+    {
+      "source": "/radiesse",
+      "destination": "/aesthetic-services/dermal-fillers/radiesse",
+      "permanent": true
+    },
+    {
+      "source": "/kybella",
+      "destination": "/aesthetic-services/kybella",
+      "permanent": true
+    },
+    {
+      "source": "/sclerotherapy",
+      "destination": "/aesthetic-services/sclerotherapy",
+      "permanent": true
+    },
+    {
+      "source": "/chemical-peels",
+      "destination": "/aesthetic-services/chemical-peels-perfect-derma",
+      "permanent": true
+    },
+    {
+      "source": "/scarlet-rf-microneedling",
+      "destination": "/aesthetic-services/scarlet-rf-microneedling",
+      "permanent": true
+    },
+    {
+      "source": "/laser-hair-removal",
+      "destination": "/laser-hair",
+      "permanent": true
+    },
+    {
+      "source": "/weight-loss",
+      "destination": "/aesthetic-services/all-aesthetic-services",
+      "permanent": true
+    },
+    {
+      "source": "/zo-skin-health",
+      "destination": "/zo-skin-health",
+      "permanent": true
+    },
+    {
+      "source": "/financing",
+      "destination": "/financing",
+      "permanent": true
+    },
+    {
+      "source": ":path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "mcaestheticsclinic.com"
+        }
+      ],
+      "destination": "https://www.mcaestheticsclinic.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
