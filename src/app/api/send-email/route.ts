@@ -54,9 +54,9 @@ export async function POST(req: NextRequest) {
     // Proceed with Resend email
     const resend = new Resend(process.env.RESEND_API_KEY);
     const emailResponse = await resend.emails.send({
-      from: 'onboarding@resend.dev', // Update to a custom verified domain if needed (e.g., 'contact@mcaestheticsclinic.com')
-      to: 'admin@mcaestheticsclinic.com', // Updated to your requested recipient
-      subject: `Prescreened Contact Form Submission from ${name} via MC Aesthetics`, // Enhanced subject for clarity
+      from: 'contact@mcaestheticsclinic.com', // Custom verified domain address – update if you want a different one (e.g., 'leads@')
+      to: 'admin@mcaestheticsclinic.com',
+      subject: `Prescreened Contact Form Submission from ${name} via MC Aesthetics`,
       html: `
         <h1>New Message from MC Aesthetics Contact Form</h1>
         <p><strong>This email is a prescreened potential client form from https://www.mcaestheticsclinic.com/</strong></p>
