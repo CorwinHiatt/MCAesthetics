@@ -123,8 +123,15 @@ export default function ContactPage() {
             <button type="submit" className={styles.mcaContactSubmitButton}>Send Message</button>
           </form>
 
-          {/* Status Message */}
-          {status && <p className={styles.mcaContactStatusMessage}>{status}</p>}
+          {/* Status Message with Conditional Success/Error Classes and Accessibility */}
+          {status && (
+            <p 
+              className={`${styles.mcaContactStatusMessage} ${status.includes('successfully') ? styles.success : styles.error}`}
+              aria-live="polite" // For screen reader announcements
+            >
+              {status}
+            </p>
+          )}
         </div>
       </section>
 

@@ -2,7 +2,6 @@
 
 import Head from 'next/head';
 import Image from 'next/image';
-import { useState } from 'react';
 import styles from './CoolPeel.module.css'; // Import the new module CSS
 
 const CoolPeelPage = () => {
