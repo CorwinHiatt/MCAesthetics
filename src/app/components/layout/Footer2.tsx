@@ -3,8 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import React, { useRef, useState } from 'react';
-import Script from 'next/script'; // For loading reCAPTCHA v3 script
+import React, { useRef, useState, useEffect } from 'react';
 import logo from '../../../../public/images/logo.png'; // Assumes pink logo; update path if needed
 import styles from './Footer2.module.css';
 
@@ -22,6 +21,32 @@ export default function Footer2() {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<string>(''); // For success/error/processing messages
   const [isSubmitting, setIsSubmitting] = useState(false); // To disable button during submission
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false); // Track if reCAPTCHA script is loaded
+
+  // Function to dynamically load reCAPTCHA script
+  const loadRecaptcha = () => {
+    if (!recaptchaLoaded && !document.getElementById('recaptcha-script')) {
+      const script = document.createElement('script');
+      script.id = 'recaptcha-script';
+      script.src = 'https://www.google.com/recaptcha/api.js?render=6LcvfMErAAAAAI3zzfntZawJciDSdzwhXcmSqvlL';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        console.log('reCAPTCHA v3 script loaded dynamically!');
+        setRecaptchaLoaded(true);
+      };
+      script.onerror = () => {
+        console.error('Error loading reCAPTCHA v3 script!');
+        setStatus('Failed to load verification system. Check your network and try again.');
+      };
+      document.body.appendChild(script);
+    }
+  };
+
+  // Load reCAPTCHA only on form interaction (e.g., when component mounts or on focus – adjust as needed)
+  useEffect(() => {
+    // Optionally load on mount for eager users, or tie to focus event below
+  }, []);
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default submission
@@ -33,6 +58,13 @@ export default function Footer2() {
       console.log('Status set to: Verifying and subscribing...'); // Debug
 
       try {
+        // Load reCAPTCHA if not already loaded
+        if (!recaptchaLoaded) {
+          loadRecaptcha();
+          // Wait a short time for script to load (or use a promise-based wait)
+          await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust timeout if needed
+        }
+
         // Ensure grecaptcha is ready before executing
         await window.grecaptcha.ready(async () => {
           // Execute reCAPTCHA v3 to get token
@@ -81,6 +113,11 @@ export default function Footer2() {
         setTimeout(() => setStatus(''), 5000); // Auto-clear status
       }
     }
+  };
+
+  // Optional: Add focus handler to inputs to trigger loadRecaptcha on user interaction
+  const handleFocus = () => {
+    if (!recaptchaLoaded) loadRecaptcha();
   };
 
   return (
@@ -166,7 +203,7 @@ export default function Footer2() {
                 height="100%"
                 style={{ border: 0, minHeight: '200px' }} // Added min-height for better mobile responsiveness
                 allowFullScreen
-                loading="lazy"
+                loading="lazy" // Already optimizing – enhanced for perf
                 referrerPolicy="no-referrer-when-downgrade"
                 title="MC Aesthetics Location Map"
               ></iframe>
@@ -203,6 +240,7 @@ export default function Footer2() {
                   placeholder="First Name" 
                   className={styles.mcaLuxFooterInput}
                   aria-label="First Name"
+                  onFocus={handleFocus} // Trigger lazy load on focus
                 />
               </div>
               <div className={styles.mcaLuxFooterInputGroup}>
@@ -215,6 +253,7 @@ export default function Footer2() {
                   className={styles.mcaLuxFooterInput}
                   aria-label="Email Address"
                   required
+                  onFocus={handleFocus} // Trigger lazy load on focus
                 />
               </div>
               <button 
@@ -268,17 +307,6 @@ export default function Footer2() {
           </div>
         </div>
       </div>
-
-      {/* Load reCAPTCHA v3 script with your provided site key */}
-      <Script
-        src="https://www.google.com/recaptcha/api.js?render=6LcvfMErAAAAAI3zzfntZawJciDSdzwhXcmSqvlL"
-        strategy="afterInteractive"
-        onLoad={() => console.log('reCAPTCHA v3 script loaded successfully!')}
-        onError={() => {
-          console.error('Error loading reCAPTCHA v3 script!');
-          setStatus('Failed to load verification system. Check your network and try again.');
-        }}
-      />
     </footer>
   );
 }
