@@ -94,7 +94,7 @@ export default function FinancingPage() {
           rel="noopener noreferrer"
           className={styles.mcaFinancingCtaButton}
         >
-          Apply for Cherry Financing
+          Apply for Cherry Financing!
         </a>
       </div>
 
