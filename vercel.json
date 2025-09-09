@@ -89,16 +89,7 @@
       "destination": "/aesthetic-services/all-aesthetic-services",
       "permanent": true
     },
-    {
-      "source": "/zo-skin-health",
-      "destination": "/zo-skin-health",
-      "permanent": true
-    },
-    {
-      "source": "/financing",
-      "destination": "/financing",
-      "permanent": true
-    },
+   
     {
       "source": ":path*",
       "has": [
