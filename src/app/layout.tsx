@@ -65,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
         <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
-
+        <link rel="preconnect" href="https://r2cdn.perplexity.ai" />
         {/* NEW: Google Analytics Script - Added Here */}
         <script 
           async 
