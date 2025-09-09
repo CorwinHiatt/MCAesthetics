@@ -27,6 +27,8 @@
   margin: 0;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  word-wrap: break-word; /* Allow wrapping for long titles */
+  hyphens: auto; /* Automatic hyphenation for better breaks */
 }
 
 .accessibilityHero {
@@ -60,6 +62,14 @@
   width: 100%;
   height: 5px;
   background: linear-gradient(90deg, #d4af37, #c0a080);
+}
+
+.accessibilityCaption {
+  font-size: 0.875rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
 }
 
 .accessibilitySection {
@@ -122,6 +132,7 @@
   outline: 2px solid #d4af37;
   outline-offset: 2px;
   border-radius: 3px;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3); /* Enhanced focus ring */
 }
 
 .accessibilityCallToAction {
@@ -140,6 +151,42 @@
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Mobile-specific fixes for heading overflow */
+@media (max-width: 767px) {
+  .accessibilityTitle {
+    font-size: 1.8rem; /* Smaller size to prevent overflow */
+    letter-spacing: 0.02em; /* Reduce spacing for tighter fit */
+    padding: 0 1rem; /* Add side padding to keep from edges */
+    hyphens: auto;
+    word-break: break-word; /* Ensure wrapping */
+  }
+
+  .accessibilitySubtitle {
+    font-size: 1.5rem;
+  }
+
+  .accessibilityText,
+  .accessibilityListItem {
+    font-size: 1rem;
+  }
+
+  .accessibilityMain {
+    padding: 2rem 1rem; /* Tighter padding for mobile */
+  }
 }
 
 @media (min-width: 768px) {
@@ -194,6 +241,10 @@
   .accessibilityLink:focus {
     color: #000099;
   }
+
+  .accessibilityImageBorderAccent {
+    background: linear-gradient(90deg, #000000, #333333); /* High contrast accent */
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -203,5 +254,43 @@
 
   .accessibilityLink {
     transition: none;
+  }
+}
+.accessibilityFooter {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.accessibilityCredit {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.accessibilityCreditLink {
+  color: #d4af37;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.accessibilityCreditLink:hover,
+.accessibilityCreditLink:focus {
+  color: #c0a080;
+  text-decoration: underline;
+}
+
+.accessibilityCreditLink:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .accessibilityFooter {
+    font-size: 0.85rem;
+    padding-top: 1.5rem;
   }
 }

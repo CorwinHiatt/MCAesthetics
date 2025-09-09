@@ -1,10 +1,88 @@
+'use client'; // Enable client-side interactivity
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import Script from 'next/script'; // For loading reCAPTCHA v3 script
 import logo from '../../../../public/images/logo.png'; // Assumes pink logo; update path if needed
 import styles from './Footer2.module.css';
 
+// Extend Window interface to type grecaptcha properly
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 export default function Footer2() {
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<string>(''); // For success/error/processing messages
+  const [isSubmitting, setIsSubmitting] = useState(false); // To disable button during submission
+
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevent default submission
+    console.log('Signup handler fired!'); // Debug: Log attempt start
+
+    if (form.current && !isSubmitting) {
+      setIsSubmitting(true);
+      setStatus('Verifying and subscribing...');
+      console.log('Status set to: Verifying and subscribing...'); // Debug
+
+      try {
+        // Ensure grecaptcha is ready before executing
+        await window.grecaptcha.ready(async () => {
+          // Execute reCAPTCHA v3 to get token
+          const token = await window.grecaptcha.execute('6LcvfMErAAAAAI3zzfntZawJciDSdzwhXcmSqvlL', { action: 'signup' });
+          console.log('reCAPTCHA v3 token generated:', token); // Log successful token generation
+
+          const formData = new FormData(form.current!);
+          formData.append('g-recaptcha-response', token); // Add v3 token
+
+          console.log('Sending FormData to API:', Object.fromEntries(formData)); // Log form data
+
+          const response = await fetch('/api/signup-email', {
+            method: 'POST',
+            body: formData,
+          });
+
+          console.log('API response status:', response.status); // Log response status
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Signup failed:', errorData); // Log failed attempt details
+            if (errorData.error?.includes('reCAPTCHA')) {
+              throw new Error('Verification failed—looks like something went wrong. Please try again.'); // Friendly retry message
+            } else {
+              throw new Error(`Error: ${errorData.error || 'Unknown issue'}`);
+            }
+          }
+
+          const result = await response.json();
+          console.log('Signup successful!', result); // Log successful submission
+          setStatus('Subscribed successfully! Check your email for confirmation.');
+          if (form.current) {
+            form.current.reset(); // Reset form only on success
+          }
+        });
+      } catch (error) {
+        console.error('Client-side error during signup:', error); // Log any client errors
+        const errorMessage = (error as Error).message || 'Oops! Something went wrong. Please try again.';
+        if (errorMessage.includes('network')) {
+          setStatus('Network issue detected—check your connection and try again.');
+        } else {
+          setStatus(errorMessage);
+        }
+      } finally {
+        setIsSubmitting(false);
+        setTimeout(() => setStatus(''), 5000); // Auto-clear status
+      }
+    }
+  };
+
   return (
     <footer className={styles.mcaLuxFooter}>
       <div className={styles.mcaLuxFooterTopBorder}></div>
@@ -86,7 +164,7 @@ export default function Footer2() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.123456789!2d-123.1986!3d45.21034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5494469c3b7b2f4d%3A0x1d4d3a1e8f4f8e9c!2s609%20NE%20Baker%20St%20%23130%2C%20McMinnville%2C%20OR%2097128!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, minHeight: '200px' }} // Added min-height for better mobile responsiveness
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -115,30 +193,49 @@ export default function Footer2() {
               Elevate your self-care journey—join our exclusive email list for premium treatment updates, luxurious promotions, special events, and more.
             </p>
             
-            <form className={styles.mcaLuxFooterForm}>
+            <form ref={form} onSubmit={handleSignup} className={styles.mcaLuxFooterForm}>
               <div className={styles.mcaLuxFooterInputGroup}>
+                <label htmlFor="firstName" className="sr-only">First Name</label> {/* Accessible label */}
                 <input 
+                  id="firstName"
                   type="text" 
+                  name="firstName"
                   placeholder="First Name" 
                   className={styles.mcaLuxFooterInput}
                   aria-label="First Name"
                 />
               </div>
               <div className={styles.mcaLuxFooterInputGroup}>
+                <label htmlFor="email" className="sr-only">Email Address</label> {/* Accessible label */}
                 <input 
+                  id="email"
                   type="email" 
+                  name="email"
                   placeholder="Email" 
                   className={styles.mcaLuxFooterInput}
                   aria-label="Email Address"
+                  required
                 />
               </div>
               <button 
                 type="submit" 
                 className={styles.mcaLuxFooterButton}
+                disabled={isSubmitting} // Prevent multiple submissions
               >
-                Subscribe Now
+                {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
               </button>
             </form>
+
+            {/* Status Message with Conditional Success/Error Classes and Accessibility */}
+            {status && (
+              <p 
+                className={`${styles.mcaLuxFooterStatusMessage} ${status.includes('successfully') ? styles.success : styles.error}`}
+                aria-live="polite" // For screen reader announcements
+                role="status" // Enhanced ARIA for dynamic content
+              >
+                {status}
+              </p>
+            )}
           </div>
         </div>
         
@@ -171,6 +268,17 @@ export default function Footer2() {
           </div>
         </div>
       </div>
+
+      {/* Load reCAPTCHA v3 script with your provided site key */}
+      <Script
+        src="https://www.google.com/recaptcha/api.js?render=6LcvfMErAAAAAI3zzfntZawJciDSdzwhXcmSqvlL"
+        strategy="afterInteractive"
+        onLoad={() => console.log('reCAPTCHA v3 script loaded successfully!')}
+        onError={() => {
+          console.error('Error loading reCAPTCHA v3 script!');
+          setStatus('Failed to load verification system. Check your network and try again.');
+        }}
+      />
     </footer>
   );
 }
