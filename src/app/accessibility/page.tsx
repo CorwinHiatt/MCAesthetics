@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from 'next/link';
@@ -32,14 +33,14 @@ export default function AccessibilityPage() {
         <section className={styles.accessibilitySection}>
           <h2 className={styles.accessibilitySubtitle}>Our Ethical Commitment to Universal Access</h2>
           <p className={styles.accessibilityText}>
-            At MC Aesthetics, accessibility isn't just compliance—it's an ethical imperative. We envision a world where beauty and wellness are truly universal, breaking barriers for all abilities, backgrounds, and experiences. Ahead of our time, we're not waiting for mandates; we're actively working towards meeting WCAG 2.2 standards at Level AA, incorporating principles like cognitive accessibility and inclusive design. This reflects our core values: empathy, equity, and empowerment. As a digital-first presence, we focus on creating seamless online experiences while continuously improving.
+            At MC Aesthetics, accessibility isn&apos;t just compliance—it&apos;s an ethical imperative. We envision a world where beauty and wellness are truly universal, breaking barriers for all abilities, backgrounds, and experiences. Ahead of our time, we&apos;re not waiting for mandates; we&apos;re actively working towards meeting WCAG 2.2 standards at Level AA, incorporating principles like cognitive accessibility and inclusive design. This reflects our core values: empathy, equity, and empowerment. As a digital-first presence, we focus on creating seamless online experiences while continuously improving.
           </p>
         </section>
 
         <section className={styles.accessibilitySection}>
           <h2 className={styles.accessibilitySubtitle}>Digital Accessibility: Best Practices in Action</h2>
           <p className={styles.accessibilityText}>
-            Our Next.js-powered site is built with inclusive design in mind, striving to meet WCAG 2.2 Level AA standards (with ongoing efforts towards AAA elements where feasible). We're transparent about our progress: Mobile accessibility is a key focus, and while we're not at 100% yet, we conduct regular audits to close gaps. Here are key features, plus practical tips to enhance your experience:
+            Our Next.js-powered site is built with inclusive design in mind, striving to meet WCAG 2.2 Level AA standards (with ongoing efforts towards AAA elements where feasible). We&apos;re transparent about our progress: Mobile accessibility is a key focus, and while we&apos;re not at 100% yet, we conduct regular audits to close gaps. Here are key features, plus practical tips to enhance your experience:
           </p>
           <ul className={styles.accessibilityList}>
             <li className={styles.accessibilityListItem}>
@@ -49,7 +50,7 @@ export default function AccessibilityPage() {
               <strong>Screen Reader Optimization:</strong> Semantic HTML, ARIA labels, and landmarks ensure tools like NVDA, VoiceOver, or JAWS read content intuitively. We conduct regular audits with real users.
             </li>
             <li className={styles.accessibilityListItem}>
-              <strong>Descriptive Alt Text:</strong> Every image conveys purpose—e.g., not just "photo," but context for non-visual users.
+              <strong>Descriptive Alt Text:</strong> Every image conveys purpose—e.g., not just &quot;photo,&quot; but context for non-visual users.
             </li>
             <li className={styles.accessibilityListItem}>
               <strong>High Color Contrast:</strong> Ratios meet or exceed 4.5:1, with options for high-contrast modes. Check yours with tools like WAVE.
@@ -65,14 +66,14 @@ export default function AccessibilityPage() {
             </li>
           </ul>
           <p className={styles.accessibilityText}>
-            Encounter an issue? Report it via our form—we respond within 24 hours and use feedback to iterate ethically. We're committed to transparency and continuous enhancement.
+            Encounter an issue? Report it via our form—we respond within 24 hours and use feedback to iterate ethically. We&apos;re committed to transparency and continuous enhancement.
           </p>
         </section>
 
         <section className={styles.accessibilitySection}>
           <h2 className={styles.accessibilitySubtitle}>Innovative Accessibility: Ahead of the Curve</h2>
           <p className={styles.accessibilityText}>
-            We're pioneers in ethical digital design, prioritizing user-centered practices like inclusive language and diverse representation. Sustainability matters too—our site optimizes for efficient loading to support low-bandwidth users. We collaborate with accessibility communities for user testing, ensuring our efforts uplift underrepresented voices and evolve with best practices.
+            We&apos;re pioneers in ethical digital design, prioritizing user-centered practices like inclusive language and diverse representation. Sustainability matters too—our site optimizes for efficient loading to support low-bandwidth users. We collaborate with accessibility communities for user testing, ensuring our efforts uplift underrepresented voices and evolve with best practices.
           </p>
         </section>
 
@@ -106,7 +107,7 @@ export default function AccessibilityPage() {
           <div className={styles.accessibilityImageHolder}>
             <Image
               src="/images/AcessibilityGoldStandard.jpg"
-              alt="Symbolic gold standard seal representing MC Aesthetics' commitment to ethical, forward-thinking accessibility practices, with elements like inclusive icons and innovative tech motifs."
+              alt="Symbolic gold standard seal representing MC Aesthetics&apos; commitment to ethical, forward-thinking accessibility practices, with elements like inclusive icons and innovative tech motifs."
               className={styles.accessibilityImage}
               width={800}
               height={400}
