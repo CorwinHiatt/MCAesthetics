@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   experimental: {
-    inlineCss: true,  // This will inline critical CSS
+    inlineCss: true,  // Inlines critical CSS
   },
   images: {
     remotePatterns: [
@@ -21,11 +21,10 @@ const nextConfig: NextConfig = {
         hostname: 'picsum.photos',
         pathname: '/**',
       },
-      // Add this for local images (optional but helps in some edge cases)
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '3002', // Your dev port
+        port: '3002',
         pathname: '/images/**',
       },
     ],
@@ -34,9 +33,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/aesthetic-services/coolpeel-co2-laser', // Adjust if your dynamic path is different
+        source: '/aesthetic-services/coolpeel-co2-laser',
         destination: '/coolpeel',
-        permanent: true, // 301 redirect for SEO
+        permanent: true,
       },
     ];
   },
