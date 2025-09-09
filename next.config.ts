@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    inlineCss: true,  // This will inline critical CSS
+  },
   images: {
     remotePatterns: [
       {
