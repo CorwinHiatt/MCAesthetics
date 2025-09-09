@@ -1,14 +1,12 @@
-// import Header from './components/layout/Header';
+// app/layout.tsx
+
 import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
-
-// import Script from 'next/script';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-// Metadata for SEO and Social Previews (App Router style)
 export const metadata: Metadata = {
   title: {
     default: "MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise",
@@ -47,7 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Separate viewport export for Next.js compliance
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
@@ -60,39 +57,51 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#ffffff" />
+
+        {/* Favicons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon_io/apple-touch-icon-152x152.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
         <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
-        <link rel="preconnect" href="https://r2cdn.perplexity.ai" />
-        <link  rel="preload" href="/_next/static/css/3fa3c81f7107dbf2.css" as="style" />
-        <link rel="preload" href="/_next/static/css/0d0514e18f0a015e.css"  as="style"/>
-        {/* NEW: Google Analytics Script - Added Here */}
-        <script 
-          async 
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z090FBSXB2"
+
+        {/* Preconnect & Preload Font */}
+        <link rel="preconnect" href="https://r2cdn.perplexity.ai" crossOrigin="" />
+        <link
+          rel="preload"
+          href="https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin=""
         />
+
+        {/* Preload CSS then load stylesheet */}
+        <link rel="preload" href="/_next/static/css/3fa3c81f7107dbf2.css" as="style" />
+        <link rel="stylesheet" href="/_next/static/css/3fa3c81f7107dbf2.css" />
+        <link rel="preload" href="/_next/static/css/0d0514e18f0a015e.css" as="style" />
+        <link rel="stylesheet" href="/_next/static/css/0d0514e18f0a015e.css" />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z090FBSXB2" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-Z090FBSXB2');
+              gtag('config', 'G-Z090FBSXB2', { 'send_page_view': false });
             `,
           }}
         />
       </head>
-      <body 
-        className="min-h-screen bg-white"
-        suppressHydrationWarning={true}
-      >
+      <body className="min-h-screen bg-white" suppressHydrationWarning>
         <NewHeader />
-        <main className="mainContent" style={{ marginTop: '180px' }}>{children}</main>
+        <main className="mainContent" style={{ marginTop: '180px' }}>
+          {children}
+        </main>
         <Carousel />
         <Footer2 />
-        <Analytics /> {/* Integrated Vercel Analytics here for site-wide tracking */}
+        <Analytics />
       </body>
     </html>
   );
