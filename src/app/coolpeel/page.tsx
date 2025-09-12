@@ -38,7 +38,7 @@ const CoolPeelPage = () => {
         </div>
         <h1 className={styles.mcaCoolPeelMainTitle}>CoolPeel CO2 Laser Facials in McMinnville, Oregon</h1>
         <p className={styles.mcaCoolPeelIntroText}>
-          Experience McMinnville's premier CoolPeel laser treatment – our #1 ROI service for radiant, youthful skin with minimal downtime and maximum results!
+          Experience McMinnville&apos;s premier CoolPeel laser treatment – our #1 ROI service for radiant, youthful skin with minimal downtime and maximum results!
         </p>
         <div className={styles.mcaCoolPeelCallToAction}>
           <a 
@@ -58,7 +58,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              CoolPeel CO2 laser is McMinnville's most advanced fractional laser skin resurfacing treatment, delivering powerful anti-aging results with minimal downtime. Unlike traditional CO2 lasers that required weeks of recovery, our CoolPeel technology at MC Aesthetics uses controlled, cool energy bursts to target damaged skin layers while stimulating natural collagen production. This revolutionary laser facial treatment addresses fine lines, sun damage, and skin texture concerns throughout Yamhill County, giving you a refreshed, youthful glow that continues improving over time.
+              CoolPeel CO2 laser is McMinnville&apos;s most advanced fractional laser skin resurfacing treatment, delivering powerful anti-aging results with minimal downtime. Unlike traditional CO2 lasers that required weeks of recovery, our CoolPeel technology at MC Aesthetics uses controlled, cool energy bursts to target damaged skin layers while stimulating natural collagen production. This revolutionary laser facial treatment addresses fine lines, sun damage, and skin texture concerns throughout Yamhill County, giving you a refreshed, youthful glow that continues improving over time.
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              CoolPeel targets both the epidermis and dermis to stimulate your body's natural healing and collagen production. Here's why McMinnville clients love this treatment:
+              CoolPeel targets both the epidermis and dermis to stimulate your body&apos;s natural healing and collagen production. Here&apos;s why McMinnville clients love this treatment:
             </p>
             <ul className={styles.mcaCoolPeelListContainer}>
               <li className={styles.mcaCoolPeelListItem}>
@@ -113,7 +113,7 @@ const CoolPeelPage = () => {
                 <strong>Smooths Fine Lines and Wrinkles:</strong> Vaporizes damaged cells while boosting collagen production – perfect for erasing years of Oregon sun exposure!
               </li>
               <li className={styles.mcaCoolPeelListItem}>
-                <strong>Fades Sun Damage and Pigmentation:</strong> Breaks down excess melanin for even skin tone throughout Yamhill County's sunny seasons
+                <strong>Fades Sun Damage and Pigmentation:</strong> Breaks down excess melanin for even skin tone throughout Yamhill County&apos;s sunny seasons
               </li>
               <li className={styles.mcaCoolPeelListItem}>
                 <strong>Minimizes Acne Scars and Large Pores:</strong> Resurfaces skin for refined texture and helps with active acne concerns
@@ -132,7 +132,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              CoolPeel laser treatment is ideal for McMinnville area residents seeking to improve skin texture, tone, and signs of aging without lengthy recovery periods. Perfect candidates include those with mild to moderate skin concerns like fine lines, sun damage from Oregon outdoor activities, or acne scarring. During your consultation at MC Aesthetics, we'll evaluate your skin type, concerns, and goals to confirm if CoolPeel matches your needs and lifestyle.
+              CoolPeel laser treatment is ideal for McMinnville area residents seeking to improve skin texture, tone, and signs of aging without lengthy recovery periods. Perfect candidates include those with mild to moderate skin concerns like fine lines, sun damage from Oregon outdoor activities, or acne scarring. During your consultation at MC Aesthetics, we&apos;ll evaluate your skin type, concerns, and goals to confirm if CoolPeel matches your needs and lifestyle.
             </p>
           </div>
         </div>
@@ -156,7 +156,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              You'll notice smoother, brighter skin within one week as the superficial damaged layer naturally peels away. Collagen production continues for 3-6 months, progressively enhancing skin firmness and texture. For optimal anti-aging results, McMinnville clients typically benefit from a series of 2-3 CoolPeel sessions spaced 4-6 weeks apart, with maintenance treatments every 6-12 months to preserve your youthful glow.
+              You&apos;ll notice smoother, brighter skin within one week as the superficial damaged layer naturally peels away. Collagen production continues for 3-6 months, progressively enhancing skin firmness and texture. For optimal anti-aging results, McMinnville clients typically benefit from a series of 2-3 CoolPeel sessions spaced 4-6 weeks apart, with maintenance treatments every 6-12 months to preserve your youthful glow.
             </p>
           </div>
         </div>
@@ -191,7 +191,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              Here's your complete CoolPeel experience at MC Aesthetics McMinnville:
+              Here&apos;s your complete CoolPeel experience at MC Aesthetics McMinnville:
             </p>
             <ul className={styles.mcaCoolPeelListContainer}>
               <li className={styles.mcaCoolPeelListItem}>
@@ -252,7 +252,7 @@ const CoolPeelPage = () => {
           <div className={styles.mcaCoolPeelContentText}>
             <ul className={styles.mcaCoolPeelListContainer}>
               <li className={styles.mcaCoolPeelListItem}>Combine CoolPeel with our medical-grade skincare regimen for enhanced anti-aging results</li>
-              <li className={styles.mcaCoolPeelListItem}>Schedule treatments during Oregon's cooler months (fall/winter) to minimize sun exposure risks</li>
+              <li className={styles.mcaCoolPeelListItem}>Schedule treatments during Oregon&apos;s cooler months (fall/winter) to minimize sun exposure risks</li>
               <li className={styles.mcaCoolPeelListItem}>Maintain consistent follow-up sessions for cumulative collagen-building benefits</li>
               <li className={styles.mcaCoolPeelListItem}>Consider pairing with our other services like Botox or dermal fillers for comprehensive facial rejuvenation</li>
             </ul>
@@ -266,7 +266,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              At MC Aesthetics, we're McMinnville's premier destination for advanced laser treatments that fit seamlessly into your busy lifestyle. CoolPeel CO2 laser is our signature treatment, and our team, led by experienced Nurse Practitioner Melissa Cook, specializes in customizing each session to your unique skin profile and aesthetic goals. We prioritize your comfort, safety, and satisfaction, providing comprehensive consultation, treatment, and aftercare guidance. Our Yamhill County clients choose us because we deliver dramatic skin improvements without disrupting their schedules—proving that achieving radiant, youthful skin doesn't require extensive downtime.
+              At MC Aesthetics, we&apos;re McMinnville&apos;s premier destination for advanced laser treatments that fit seamlessly into your busy lifestyle. CoolPeel CO2 laser is our signature treatment, and our team, led by experienced Nurse Practitioner Melissa Cook, specializes in customizing each session to your unique skin profile and aesthetic goals. We prioritize your comfort, safety, and satisfaction, providing comprehensive consultation, treatment, and aftercare guidance. Our Yamhill County clients choose us because we deliver dramatic skin improvements without disrupting their schedules—proving that achieving radiant, youthful skin doesn&apos;t require extensive downtime.
             </p>
             <p className={styles.mcaCoolPeelParagraph}>
               Juggling work, family, and self-care in McMinnville? CoolPeel fits perfectly into your routine with quick treatment sessions, minimal recovery time, and confidence-boosting results that let you face each day with natural radiance and renewed self-assurance.
@@ -281,7 +281,7 @@ const CoolPeelPage = () => {
         <div className={styles.mcaCoolPeelContentLayout}>
           <div className={styles.mcaCoolPeelContentText}>
             <p className={styles.mcaCoolPeelParagraph}>
-              Experience why CoolPeel is McMinnville's most requested laser facial treatment. Book your consultation today and discover how this revolutionary CO2 laser technology can transform your skin with minimal downtime and maximum results.
+              Experience why CoolPeel is McMinnville&apos;s most requested laser facial treatment. Book your consultation today and discover how this revolutionary CO2 laser technology can transform your skin with minimal downtime and maximum results.
             </p>
           </div>
         </div>

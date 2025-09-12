@@ -4,6 +4,7 @@ import Footer2 from './components/layout/Footer2';
 import Carousel from './components/features/Carousel';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Carousel />
         <Footer2 />
         <Analytics />
+        <SpeedInsights/>
       </body>
     </html>
   );
