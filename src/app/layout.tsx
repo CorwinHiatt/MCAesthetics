@@ -26,12 +26,13 @@ export const metadata: Metadata = {
         url: "/images/shadowMain.png",
         width: 1200,
         height: 630,
-        alt: "MC Aesthetics McMinnville - Shadowed Elegance in Luxury Skin Care and Anti-Aging Treatments",
+        alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
       },
     ],
-    url: "/",
+    url: "https://mc-aesthetics.vercel.app/",
     type: "website",
     siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -47,6 +48,7 @@ export const metadata: Metadata = {
     icon: "/images/favicon_io/favicon.ico",
   },
 };
+
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -104,10 +106,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="mainContent" style={{ marginTop: '180px' }}>
           {children}
         </main>
+        <SpeedInsights/>
         <Carousel />
         <Footer2 />
         <Analytics />
-        <SpeedInsights/>
       </body>
     </html>
   );

@@ -1,25 +1,39 @@
-"use client";
-
-import Head from 'next/head';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import styles from './CoolPeel.module.css'; // Import the new module CSS
+
+export const metadata: Metadata = {
+  title: "CoolPeel CO2 Laser McMinnville Oregon | Best Laser Facial Treatment | MC Aesthetics",
+  description: "Experience CoolPeel CO2 laser facials in McMinnville, Oregon at MC Aesthetics. Our #1 ROI treatment for wrinkle reduction, sun damage repair, and skin rejuvenation with minimal downtime.",
+  keywords: "CoolPeel McMinnville, CO2 laser facial Oregon, laser skin resurfacing McMinnville, CoolPeel laser treatment Yamhill County, fractional CO2 laser McMinnville, anti-aging laser Oregon, minimal downtime laser facial, skin rejuvenation McMinnville",
+  metadataBase: new URL("https://mcaesthetics.com/"),
+  openGraph: {
+    title: "CoolPeel CO2 Laser Facials McMinnville Oregon | MC Aesthetics",
+    description: "Transform your skin with CoolPeel laser facials in McMinnville. Minimal downtime, maximum results for wrinkles, sun damage & texture.",
+    images: [
+      {
+        url: "/images/coolpeelMetaTag.png",
+        width: 1200,
+        height: 630,
+        alt: "CoolPeel CO2 Laser Treatment at MC Aesthetics McMinnville",
+      },
+    ],
+    url: "https://mcaesthetics.com/coolpeel",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CoolPeel CO2 Laser Facials McMinnville Oregon | MC Aesthetics",
+    description: "Transform your skin with CoolPeel laser facials in McMinnville. Minimal downtime, maximum results!",
+    images: ["/images/coolpeelMetaTag.png"],
+  },
+};
 
 const CoolPeelPage = () => {
   return (
     <div className={styles.mcaCoolPeelPageWrapper}>
-      <Head>
-        <title>CoolPeel CO2 Laser McMinnville Oregon | Best Laser Facial Treatment | MC Aesthetics</title>
-        <meta name="description" content="Experience CoolPeel CO2 laser facials in McMinnville, Oregon at MC Aesthetics. Our #1 ROI treatment for wrinkle reduction, sun damage repair, and skin rejuvenation with minimal downtime." />
-        <meta name="keywords" content="CoolPeel McMinnville, CO2 laser facial Oregon, laser skin resurfacing McMinnville, CoolPeel laser treatment Yamhill County, fractional CO2 laser McMinnville, anti-aging laser Oregon, minimal downtime laser facial, skin rejuvenation McMinnville" />
-        <link rel="canonical" href="https://mcaesthetics.com/coolpeel-laser-mcminnville" />
-        <meta property="og:title" content="CoolPeel CO2 Laser Facials McMinnville Oregon | MC Aesthetics" />
-        <meta property="og:description" content="Transform your skin with CoolPeel laser facials in McMinnville. Minimal downtime, maximum results for wrinkles, sun damage & texture." />
-        <meta name="geo.region" content="US-OR" />
-        <meta name="geo.placename" content="McMinnville" />
-        <meta name="geo.position" content="45.2101;-123.1987" />
-        <meta name="ICBM" content="45.2101, -123.1987" />
-      </Head>
-
       {/* Curved Header to Hero Transition */}
       <div className={styles.mcaCoolPeelHeaderToHeroTransition} />
 
