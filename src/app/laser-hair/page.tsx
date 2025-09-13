@@ -1,6 +1,35 @@
+import type { Metadata } from 'next';
 import styles from './LaserHair.module.css';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  title: "Laser Hair Removal McMinnville | Elysion Technology at MC Aesthetics",
+  description: "Experience effortless smoothness with Elysion Laser Hair Removal at MC Aesthetics in McMinnville, OR. Safe, comfortable treatments for all skin types. Book today!",
+  keywords: "laser hair removal McMinnville, Elysion laser hair removal Oregon, hair removal treatments Yamhill County, smooth skin MC Aesthetics, permanent hair reduction",
+  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
+  openGraph: {
+    title: "Laser Hair Removal in McMinnville | Elysion at MC Aesthetics",
+    description: "Discover silky, hair-free skin with Elysion Laser Hair Removal at MC Aesthetics in McMinnville, OR. Advanced, painless technology for lasting results!",
+    images: [
+      {
+        url: "/images/laserFaceHair.jpg",
+        width: 800,
+        height: 400,
+        alt: "Laser Hair Removal Treatment on Face for Smooth Skin at MC Aesthetics McMinnville",
+      },
+    ],
+    url: "https://www.mcaestheticsclinic.com/services/laser-hair-removal",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laser Hair Removal in McMinnville | Elysion at MC Aesthetics",
+    description: "Achieve hair-free confidence with Elysion Laser Hair Removal at MC Aesthetics, McMinnville. Painless, safe, and effective. Schedule now!",
+    images: ["/images/laserFaceHair.jpg"],
+  },
+};
 export default function LaserHairPage() {
   return (
     <div className={styles.mcaLaserHairPageWrapper}>
