@@ -1,6 +1,36 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ZoSkinHealth.module.css';
+
+export const metadata: Metadata = {
+  title: "ZO Skin Health | MC Aesthetics McMinnville, OR",
+  description: "Discover ZO Skin Health products at MC Aesthetics in McMinnville, OR. Medical-grade skincare for radiant, timeless skin transformations across all skin types.",
+  keywords: "ZO Skin Health McMinnville, MC Aesthetics skincare, Yamhill County medical-grade skincare, ZO products Oregon, anti-aging skin care",
+  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
+  openGraph: {
+    title: "ZO Skin Health | MC Aesthetics McMinnville, OR",
+    description: "Experience medical-grade ZO Skin Health products at MC Aesthetics in McMinnville for luminous, healthy skin that defies time.",
+    images: [
+      {
+        url: "/images/zo-hero.webp", // Using the hero image as the meta preview per your request
+        width: 1200,
+        height: 600,
+        alt: "Elegant ZO Skin Health Hero Image Showcasing Radiant Skin at MC Aesthetics in McMinnville",
+      },
+    ],
+    url: "https://www.mcaestheticsclinic.com/zo-skin-health",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZO Skin Health | MC Aesthetics McMinnville, OR",
+    description: "Transform your skin with ZO Skin Health at MC Aesthetics in McMinnville. Medical-grade skincare for lasting elegance!",
+    images: ["/images/zo-hero.webp"], // Using the hero image as the meta preview
+  },
+};
 
 export default function ZoSkinHealthPage() {
   return (

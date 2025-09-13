@@ -1,4 +1,34 @@
+import type { Metadata } from 'next';
 import styles from './PrivacyPolicy.module.css';
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | MC Aesthetics McMinnville, OR",
+  description: "Review the Privacy Policy of MC Aesthetics in McMinnville, OR to understand how we protect your personal information and data during skin care services.",
+  keywords: "MC Aesthetics privacy policy, McMinnville skin care privacy, Yamhill County aesthetics data protection, laser treatment privacy, personal data policy",
+  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
+  openGraph: {
+    title: "Privacy Policy | MC Aesthetics McMinnville, OR",
+    description: "Learn how MC Aesthetics in McMinnville safeguards your personal information and privacy during aesthetic treatments.",
+    images: [
+      {
+        url: "/images/logo.png", // Replace with a relevant image if available; using logo as a placeholder
+        width: 800,
+        height: 400,
+        alt: "MC Aesthetics Logo in McMinnville",
+      },
+    ],
+    url: "https://www.mcaestheticsclinic.com/privacy-policy",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | MC Aesthetics McMinnville, OR",
+    description: "Understand how MC Aesthetics in McMinnville protects your privacy and personal data with our detailed policy.",
+    images: ["/images/logo.png"], // Replace with a relevant image if available
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

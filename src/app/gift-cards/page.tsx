@@ -1,5 +1,35 @@
+import type { Metadata } from 'next';
 import styles from './GiftCards.module.css';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: "Gift Cards | MC Aesthetics McMinnville, OR",
+  description: "Purchase MC Aesthetics gift cards in McMinnville, OR for premium skin care and laser hair removal services. The perfect gift for beauty and relaxation!",
+  keywords: "MC Aesthetics gift cards, McMinnville skin care gifts, Yamhill County aesthetics gift card, laser hair removal gift, beauty gift McMinnville",
+  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
+  openGraph: {
+    title: "Gift Cards | MC Aesthetics McMinnville, OR",
+    description: "Give the gift of beauty with MC Aesthetics gift cards in McMinnville. Perfect for skin care treatments and laser services!",
+    images: [
+      {
+        url: "/images/giftCardGrafic.png", // Using the existing image from your code
+        width: 800,
+        height: 400,
+        alt: "Luxurious Gift Card Illustration at MC Aesthetics in McMinnville",
+      },
+    ],
+    url: "https://www.mcaestheticsclinic.com/gift-cards",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gift Cards | MC Aesthetics McMinnville, OR",
+    description: "Surprise someone with MC Aesthetics gift cards in McMinnville for premium beauty and skin care treatments. Buy now!",
+    images: ["/images/giftCardGrafic.png"],
+  },
+};
 
 export default function GiftCardsPage() {
   return (

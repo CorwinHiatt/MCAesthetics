@@ -13,7 +13,7 @@ export const metadata = {
   title: "MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise",
   description: "Experience unparalleled skin care at MC Aesthetics in McMinnville, Oregon. Specializing in wrinkle reducers, dermal fillers, CoolPeel CO2 Laser, and bespoke aesthetic treatments.",
   keywords: "MC Aesthetics McMinnville, luxury skin care Oregon, anti-aging expertise, dermal fillers, wrinkle reducers, CoolPeel laser, facial rejuvenation, premium aesthetics McMinnville",
-  metadataBase: new URL("https://mc-aesthetics.vercel.app/"),
+  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
   openGraph: {
     title: "MC Aesthetics McMinnville - Elevate Your Beauty",
     description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
