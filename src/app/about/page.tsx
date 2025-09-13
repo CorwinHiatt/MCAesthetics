@@ -1,5 +1,35 @@
+import type { Metadata } from 'next';
 import styles from './About.module.css';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: "About MC Aesthetics McMinnville | Anti-Aging & Skin Care Experts Oregon",
+  description: "Discover MC Aesthetics in McMinnville, Oregon. Led by Melissa Cook, we specialize in anti-aging treatments like Botox, fillers, and CoolPeel laser with personalized care. Learn our story!",
+  keywords: "MC Aesthetics McMinnville, anti-aging treatments Oregon, skin care McMinnville, Botox Yamhill County, aesthetic clinic Oregon, Melissa Cook aesthetics",
+  metadataBase: new URL("https://mcaesthetics.com/"),
+  openGraph: {
+    title: "About MC Aesthetics McMinnville | Anti-Aging & Skin Care Experts",
+    description: "Learn about MC Aesthetics in McMinnville, OR. Specializing in anti-aging with Botox, fillers & more. Meet Melissa Cook & our team!",
+    images: [
+      {
+        url: "/images/teamShot.jpg",
+        width: 800,
+        height: 400,
+        alt: "The Dedicated Team at MC Aesthetics in McMinnville, Oregon",
+      },
+    ],
+    url: "https://mcaesthetics.com/about",
+    type: "website",
+    siteName: "MC Aesthetics McMinnville",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About MC Aesthetics McMinnville | Anti-Aging & Skin Care Experts",
+    description: "Learn about MC Aesthetics in McMinnville, OR. Experts in anti-aging with Botox, fillers & more. Meet our team!",
+    images: ["/public/images/teamShot.jpg"],
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -192,7 +222,7 @@ export default function AboutPage() {
           <div className={styles.mcaAboutImageHolder}>
             <Image
               src="/images/teamShot.jpg"
-              alt="Welcoming Entrance of MC Aesthetics Clinic in McMinnville Inviting Clients to Experience Premium Beauty Services"
+              alt="The Dedicated Team at MC Aesthetics in McMinnville, Oregon"
               className={styles.mcaAboutImage}
               width={800}
               height={400}
