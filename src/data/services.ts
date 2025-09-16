@@ -301,31 +301,31 @@ const aestheticServicesData: ServiceCategory = {
         ]
       },
     },
-    {
-      name: "Chemical Peels - Perfect Derma™",
-      imageUrl: "/images/ChemicalPeel.webp",
-      meta: {
-        title: "Perfect Derma Peel McMinnville - Radiant Skin Rejuvenation",
-        description: "Perfect Derma™ Peel at MC Aesthetics in McMinnville brightens skin and treats acne scars, melasma, and wrinkles. Safe for all skin types with no downtime.",
-        keywords: ["chemical peels McMinnville", "Perfect Derma Oregon", "skin rejuvenation", "acne scar treatment", "hyperpigmentation solution", "anti-aging peel"],
-      },
-      details: {
-        overview: "If you’re looking for chemical peels in McMinnville, the Perfect Derma™ Peel is a safe, effective, medical-grade, medium-depth peel for all skin types and ethnicities. This product is virtually painless, with no pre-peel skin preparation and little downtime. The Perfect Derma™ Peel is the only peel that includes the powerful antioxidant Glutathione, which lightens and brightens the skin, slows down the aging process, and helps prevent wrinkles. After one treatment, overall skin tone and complexion will appear smooth, glowing, and fresh. Depending on skin conditions, multiple skin peel treatments at our McMinnville med spa may be necessary for desired results. A series of 2–3 treatments applied once every 4 weeks will allow for optimal results for more severe skin conditions such as melasma and active acne.",
-        treats: ["Hyper pigmentation", "Sun damage", "Melasma", "Acne scars", "Fine lines and wrinkles", "Enlarged pores"],
-        benefits: [
-          "Builds collagen and elastin for a healthier, firmer complexion",
-          "Refines pores and overall skin texture",
-          "Controls acne and prevents acne scarring",
-          "Normal daily activities can be resumed immediately post-peel",
-          "No preconditioning of the skin prior to treatment",
-          "All skin types are safe to treat",
-          "Virtually painless"
-        ],
-        candidacy: "The Perfect Derma™ Peel is suitable for all skin types and ethnicities. Schedule a consultation with us in McMinnville to determine if this chemical peel treatment is right for you.",
-        resultsDuration: "After just one treatment of The Perfect Derma Peel, your overall skin tone and complexion will appear smoother, glowing, and fresh. It all depends on your skin conditions, but multiple treatments may be necessary for desired results. Proper skin care will extend the results. It is recommended that 2 to 4 treatments of The Perfect Derma Peel per year are done to sustain desired results for regular maintenance and skin rejuvenation."
-      },
-    },
-   
+    
+     {
+  name: "Chemical Peels Perfect Derma",
+  imageUrl: "/images/ChemicalPeel.webp",
+  meta: {
+    title: "Perfect Derma Peel McMinnville - Radiant Skin Rejuvenation",
+    description: "Perfect Derma Peel at MC Aesthetics in McMinnville brightens skin and treats acne scars, melasma, and wrinkles. Safe for all skin types with no downtime.",
+    keywords: ["chemical peels McMinnville", "Perfect Derma Oregon", "skin rejuvenation", "acne scar treatment", "hyperpigmentation solution", "anti-aging peel"]
+  },
+  details: {
+    overview: "If you’re looking for chemical peels in McMinnville, the Perfect Derma Peel is a safe, effective, medical-grade, medium-depth peel for all skin types and ethnicities. This product is virtually painless, with no pre-peel skin preparation and little downtime. The Perfect Derma Peel is the only peel that includes the powerful antioxidant Glutathione, which lightens and brightens the skin, slows down the aging process, and helps prevent wrinkles. After one treatment, overall skin tone and complexion will appear smooth, glowing, and fresh. Depending on skin conditions, multiple skin peel treatments at our McMinnville med spa may be necessary for desired results. A series of 2–3 treatments applied once every 4 weeks will allow for optimal results for more severe skin conditions such as melasma and active acne.",
+    treats: ["Hyper pigmentation", "Sun damage", "Melasma", "Acne scars", "Fine lines and wrinkles", "Enlarged pores"],
+    benefits: [
+      "Builds collagen and elastin for a healthier, firmer complexion",
+      "Refines pores and overall skin texture",
+      "Controls acne and prevents acne scarring",
+      "Normal daily activities can be resumed immediately post-peel",
+      "No preconditioning of the skin prior to treatment",
+      "All skin types are safe to treat",
+      "Virtually painless"
+    ],
+    candidacy: "The Perfect Derma Peel is suitable for all skin types and ethnicities. Schedule a consultation with us in McMinnville to determine if this chemical peel treatment is right for you.",
+    resultsDuration: "After just one treatment of The Perfect Derma Peel, your overall skin tone and complexion will appear smoother, glowing, and fresh. It all depends on your skin conditions, but multiple treatments may be necessary for desired results. Proper skin care will extend the results. It is recommended that 2 to 4 treatments of The Perfect Derma Peel per year are done to sustain desired results for regular maintenance and skin rejuvenation."
+  }
+},
 // Update for Scarlet RF Microneedling under Aesthetic Services
 {
   name: "Scarlet RF Microneedling",
