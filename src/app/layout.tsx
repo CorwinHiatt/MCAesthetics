@@ -100,6 +100,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-Z090FBSXB2');
           `}
         </Script>
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="K1JZYgCL+MBzhPTJHCPJ8w" async></script>
       </head>
       <body className="min-h-screen bg-white" suppressHydrationWarning>
         <NewHeader />
