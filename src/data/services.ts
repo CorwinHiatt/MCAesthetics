@@ -116,7 +116,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Dermal Fillers",
-      imageUrl: "/images/dermalfillers.webp",
+      imageUrl: "/images/DermalFiller.jpg",
       meta: {
         title: "Dermal Fillers McMinnville - Restore Volume and Youth",
         description: "Enhance facial volume and smooth deep nasolabial folds with dermal fillers at MC Aesthetics in McMinnville. Immediate, non-surgical results lasting 6-18 months.",
@@ -354,7 +354,7 @@ const aestheticServicesData: ServiceCategory = {
 
     {
       name: "All Aesthetic Services",
-      imageUrl: "/images/allaesthetics.webp",
+      imageUrl: "/images/aestheticOfficeSpace.jpg",
       meta: {
         title: "All Aesthetic Services McMinnville - Comprehensive Skin Care",
         description: "Explore all aesthetic services at MC Aesthetics in McMinnville for tailored skin care solutions. From fillers to lasers, achieve your best look with expert care.",
