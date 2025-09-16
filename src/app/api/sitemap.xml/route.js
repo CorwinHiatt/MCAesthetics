@@ -4,8 +4,7 @@ export async function GET() {
   // Your domain
   const baseUrl = 'https://www.mcaestheticsclinic.com/';
   
-  // Static routes from app directory, including privacy-policy and accessibility
-  // Added /coolpeel here as it's now a standalone static page
+  // Static routes from app directory
   const staticRoutes = [
     { path: '/', priority: '1.0', changefreq: 'monthly' },
     { path: '/about', priority: '0.8', changefreq: 'monthly' },
@@ -15,14 +14,13 @@ export async function GET() {
     { path: '/financing', priority: '0.7', changefreq: 'monthly' },
     { path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
     { path: '/laser-hair', priority: '0.7', changefreq: 'monthly' },
-    { path: '/membership', priority: '0.7', changefreq: 'monthly' }, // Added membership page
+    { path: '/membership', priority: '0.7', changefreq: 'monthly' },
     { path: '/privacy-policy', priority: '0.5', changefreq: 'yearly' },
     { path: '/zo-skin-health', priority: '0.7', changefreq: 'monthly' },
-    { path: '/coolpeel', priority: '0.8', changefreq: 'monthly' }, // New standalone CoolPeel page
+    { path: '/coolpeel', priority: '0.8', changefreq: 'monthly' },
   ];
   
-  // Dynamic service routes (top-level services from aestheticServicesData)
-  // Removed /aesthetic-services/coolpeel-co2-laser since it's now static and redirected
+  // Dynamic service routes
   const serviceRoutes = [
     { path: '/aesthetic-services/wrinkle-reducers', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers', priority: '0.8', changefreq: 'monthly' },
@@ -53,17 +51,21 @@ export async function GET() {
   // Combine all routes
   const allRoutes = [...staticRoutes, ...serviceRoutes, ...nestedRoutes];
   
-  // Generate XML
+  // Generate XML, ensuring no double slashes by trimming leading slash from path if needed
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allRoutes.map(route => `
+${allRoutes
+  .map(
+    (route) => `
   <url>
-    <loc>${baseUrl}${route.path}</loc>
+    <loc>${baseUrl}${route.path.replace(/^\//, '')}</loc>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>
-`).join('')}
+`
+  )
+  .join('')}
 </urlset>`;
 
   // Serve as XML
