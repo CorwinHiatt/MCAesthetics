@@ -56,16 +56,16 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-// Services data with categories, descriptions, and routes (FIXED: Membership href updated to /membership)
+// Services data with categories, descriptions, and routes (Updated Laser Hair Removal Membership category and hrefs)
 const services = [
   {
-    category: "1-Hour Laser Hair Removal Membershi",
-    description: "Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance. We can typically cover 3-4 body areas in one hour ",
+    category: "1-Hour Laser Hair Removal Membership",
+    description: "Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance. We can typically cover 3-4 body areas in one hour.",
     items: [
       { name: "Elysion Laser Hair Removal", href: "/laser-hair" },
       { name: "1-Hour Membership", href: "/laser-hair/membership" },
       { name: "6-month minimum commitment for best results", href: "/laser-hair/membership" },
-      { name: "1-Hour Membership", href: "/laser-hair/membership" }
+      { name: "1-Hour Membership Details", href: "/laser-hair/membership" }
     ]
   },
   {
@@ -105,12 +105,12 @@ const services = [
     category: "Membership",
     description: "Unlock exclusive benefits, discounts, and priority access to our premium treatments with our VIP membership program.",
     items: [
-      { name: "VIP Membership", href: "/membership" } // FIXED: Changed to /membership
+      { name: "VIP Membership", href: "/membership" }
     ]
   }
 ];
 
-// Gallery items for featured services - Reorganized in priority order with assigned local images (typo fix in dermalFillers imageUrl)
+// Gallery items for featured services - Reorganized in priority order with assigned local images
 const galleryItems = [
   // Featured: CoolPeel CO2 Laser (Moved to top for prominence)
   {
@@ -168,10 +168,10 @@ const galleryItems = [
     href: '/laser-hair',
     altText: 'Laser Hair on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
   },
-  // NEW: Additional card for 1-Hour Laser Hair Removal Membership (condensed content)
+  // Uncommented and updated: Additional card for 1-Hour Laser Hair Removal Membership
   // {
   //   title: '1-Hour Laser Hair Removal Membership',
-  //   description: '$299/month | 1 full hour per session covering 3-4 areas (e.g., face, underarms, legs—customized to you!) | 6-month commitment for optimal, pain-free results and lasting smoothness. Invest in yourself—ditch daily shaving and embrace effortless confidence!',
+  //   description: '$299/month | 1 full hour per session covering 3-4 areas (e.g., face, underarms, legs—customized to you!) | 6-month commitment for optimal, pain-free results and lasting smoothness.',
   //   imageUrl: '/images/laserLegs.jpg', // Reusing for consistency; swap if you have a dedicated image
   //   href: '/laser-hair/membership',
   //   altText: '1-Hour Laser Hair Removal Membership for Lasting Smoothness at MC Aesthetics McMinnville'
@@ -370,7 +370,14 @@ export default function HomePage() {
                 ))}
                 {serviceGroup.items.length > 3 && (
                   <li className={styles.mcaLuxHomeServiceTileEntry}>
-                    <Link href={`/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`} className={styles.mcaLuxHomeServiceTileMore}>
+                    <Link 
+                      href={
+                        serviceGroup.category === "1-Hour Laser Hair Removal Membership" 
+                          ? "/laser-hair/membership" 
+                          : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
+                      } 
+                      className={styles.mcaLuxHomeServiceTileMore}
+                    >
                       View All...
                     </Link>
                   </li>
