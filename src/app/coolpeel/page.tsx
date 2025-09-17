@@ -61,7 +61,7 @@ const CoolPeelPage = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Book Your CoolPeel Session Now
+            BookSession Now
           </a>
         </div>
       </section>
