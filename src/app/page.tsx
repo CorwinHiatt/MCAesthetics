@@ -56,7 +56,7 @@ export const viewport = {
   initialScale: 1.0,
 };
 
-// Services data with categories, descriptions, and routes (Updated Laser Hair Removal Membership category and hrefs)
+// Services data with categories, descriptions, and routes (Updated Laser Hair Removal Membership category and hrefs, and cleaned up encoded spaces)
 const services = [
   {
     category: "1-Hour Laser Hair Removal Membership",
@@ -96,9 +96,9 @@ const services = [
     items: [
       { name: "Kybella", href: "/aesthetic-services/kybella" },
       { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
-      { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels" },
+      { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels-perfect-derma" },
       { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
-      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel%20co2%20laser" }
+      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel-co2-laser" } // Fixed: Replaced %20 with hyphens for cleaner URL
     ]
   },
   {
@@ -148,7 +148,7 @@ const galleryItems = [
   {
     title: 'Dermal Fillers - Restylane',
     description: 'Enhance facial volume with Restylane fillers.',
-    imageUrl: '/images/dermalFIllers.jpg', // FIXED: Typo correction (dermalFIllers → dermalFillers)
+    imageUrl: '/images/dermalFillers.jpg', // FIXED: Typo correction (dermalFIllers → dermalFillers)
     href: '/aesthetic-services/dermal-fillers/restylane',
     altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
   },
@@ -374,7 +374,9 @@ export default function HomePage() {
                       href={
                         serviceGroup.category === "1-Hour Laser Hair Removal Membership" 
                           ? "/laser-hair/membership" 
-                          : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
+                          : serviceGroup.category === "Specialty Treatments"
+                            ? "/aesthetic-services"  // Updated: Redirect Specialty Treatments to a general page since no specific page exists
+                            : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
                       } 
                       className={styles.mcaLuxHomeServiceTileMore}
                     >

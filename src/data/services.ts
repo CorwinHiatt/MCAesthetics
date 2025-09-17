@@ -37,7 +37,7 @@ const aestheticServicesData: ServiceCategory = {
   items: [
     {
       name: "Wrinkle Reducers",
-      imageUrl: "/images/wrinklereducer.webp",
+      imageUrl:"/images/DermalFiller.jpg",
       meta: {
         title: "Wrinkle Reducers McMinnville - Smooth Fine Lines Naturally",
         description: "Soften crow’s feet, forehead lines, and frown lines with wrinkle reducers at MC Aesthetics in McMinnville. Non-surgical, natural results in just 15-30 minutes with no downtime.",
