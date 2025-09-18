@@ -9,7 +9,7 @@ export async function GET() {
     { path: '/', priority: '1.0', changefreq: 'monthly' },
     { path: '/about', priority: '0.8', changefreq: 'monthly' },
     { path: '/accessibility', priority: '0.5', changefreq: 'yearly' },
-    { path: '/book', priority: '0.9', changefreq: 'monthly' },
+    
     { path: '/contact', priority: '0.8', changefreq: 'monthly' },
     { path: '/financing', priority: '0.7', changefreq: 'monthly' },
     { path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
