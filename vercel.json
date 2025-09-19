@@ -75,6 +75,11 @@
       "permanent": true
     },
     {
+      "source": "/book",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
       "source": "/scarlet-rf-microneedling",
       "destination": "/aesthetic-services/scarlet-rf-microneedling",
       "permanent": true
