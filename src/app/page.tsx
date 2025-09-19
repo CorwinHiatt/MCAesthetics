@@ -148,7 +148,7 @@ const galleryItems = [
   {
     title: 'Dermal Fillers - Restylane',
     description: 'Enhance facial volume with Restylane fillers.',
-    imageUrl: '/images/dermalFillers.jpg', // FIXED: Typo correction (dermalFIllers → dermalFillers)
+    imageUrl: '/images/dermalFIllers.jpg', 
     href: '/aesthetic-services/dermal-fillers/restylane',
     altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
   },
