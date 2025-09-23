@@ -1,6 +1,7 @@
 /* About.module.css - Enhanced Luxurious Styling for MC Aesthetics About Page */
 /* Mobile-First Design with Premium Aesthetics, Crystal Clear Images, and High-Contrast Text for Readability */
 /* Latest Fixes: Restored top curve with balanced height/margins; optimizations for shorter text to lift image higher */
+/* New Updates: Enhanced image handling for desktop to prevent grainy appearance */
 
 /* Wrapper for the entire page - spacious and centered for luxury feel */
 .mcaAboutPageWrapper {
@@ -180,7 +181,7 @@
   white-space: normal; /* Ensure wrapping */
 }
 
-/* Image Holders - Higher z-index; overflow visible; reduced margins for lift with shorter text */
+/* UPDATED: Image Holders - Enhanced for better desktop display */
 .mcaAboutHeroImageHolder,
 .mcaAboutImageHolder {
   position: relative;
@@ -190,20 +191,26 @@
   box-shadow: var(--shadow-sm);
   width: 100%;
   z-index: 3;
+  max-height: 600px; /* Control maximum height on all screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* UPDATED: Image styling for better quality on all screens */
 .mcaAboutImage {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: cover; /* Default for mobile */
   transition: transform var(--duration-normal) var(--ease-standard);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   filter: contrast(1.05) saturate(1.1);
+  max-height: 600px; /* Control maximum height */
 }
 
 .mcaAboutImage:hover {
-  transform: scale(1.05);
+  transform: scale(1.02); /* Reduced scale effect to prevent pixelation */
   filter: contrast(1.1) saturate(1.2);
 }
 
@@ -310,12 +317,12 @@
   text-shadow: 0 var(--space-1) var(--space-4) rgba(0, 0, 0, 0.2);
 }
 
+/* UPDATED: Content layout for better image display */
 .mcaAboutContentLayout {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Default to column for mobile */
   gap: var(--space-32);
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .mcaAboutContentText {
@@ -360,7 +367,46 @@
   color: var(--color-teal-500);
 }
 
-/* Responsive Adjustments - Further loosened clips, added padding/margins for visibility and curve restoration */
+/* UPDATED: Desktop-specific styles for better image display */
+@media (min-width: 768px) {
+  .mcaAboutContentLayout {
+    flex-direction: row; /* Switch to row layout on desktop */
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .mcaAboutContentText {
+    flex: 1;
+    min-width: 0; /* Allow text to shrink */
+  }
+  
+  .mcaAboutImageHolder {
+    flex: 1;
+    max-width: 50%; /* Limit width on desktop */
+    margin: 0 auto; /* Center the image */
+  }
+  
+  /* IMPORTANT: Desktop-specific image styling to prevent grainy appearance */
+  .mcaAboutImage {
+    object-fit: contain; /* Change to contain on desktop */
+    max-height: 500px;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  /* Special case for team photos that might need different treatment */
+  .teamPhoto .mcaAboutImage {
+    object-fit: cover;
+    object-position: center top;
+  }
+  
+  /* Hero image special handling */
+  .mcaAboutHeroImageHolder .mcaAboutImage {
+    max-height: 400px;
+  }
+}
+
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .mcaAboutContentLayout {
     flex-direction: column;
@@ -412,6 +458,12 @@
     height: 40px; /* Balanced for mobile curve visibility */
     margin-bottom: var(--space-4); /* Gentle positive margin */
   }
+  
+  /* Mobile-specific image styling */
+  .mcaAboutImage {
+    object-fit: cover; /* Cover for mobile */
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -441,7 +493,6 @@
     margin: var(--space-16) 0;
   }
 }
-/* Add this to the end of your About.module.css file */
 
 /* Force dark readable text colors - Override global CSS */
 .mcaAboutMainTitle {

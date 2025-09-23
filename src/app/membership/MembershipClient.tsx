@@ -8,13 +8,14 @@ const MembershipClient = () => {
   return (
     <div className={styles['mca-membership-container']}>
       {/* Header Section */}
-      <header className={styles['mca-membership-header']}>
+      {/* <header className={styles['mca-membership-header']}>
         <div className="container mx-auto px-4">
           <h1 className={styles['mca-membership-header-title']}>
             MC Aesthetics Membership Club – McMinnville, OR
           </h1>
           <p className={styles['mca-membership-header-subtitle']}>Book Your Appointment</p>
-        </div>
+        </div> */}
+        <header>
       </header>
 
       {/* Main Content */}

@@ -1273,3 +1273,46 @@ body {
 .btn--secondary {
   background-color: rgba(250, 244, 230, 1) !important; /* Light beige for surfaces */
 }
+
+/* Target common header selectors */
+header,
+.header,
+#header,
+.site-header,
+#site-header,
+.navbar,
+.nav-container,
+[role="banner"] {
+  margin-bottom: -8rem !important; /* Pull content up to close gap */
+}
+
+/* If the above doesn't work, try this alternative approach */
+body {
+  --header-gap-fix: -8rem;
+}
+
+header,
+.header,
+#header,
+.site-header,
+#site-header,
+.navbar,
+.nav-container,
+[role="banner"] {
+  position: relative;
+  z-index: 20;
+  margin-bottom: var(--header-gap-fix) !important;
+}
+
+/* Ensure content doesn't get hidden */
+main,
+.main,
+.main-content,
+#main-content,
+.page-content,
+#page-content,
+.content-wrapper,
+.site-content {
+  position: relative;
+  z-index: 10;
+}
