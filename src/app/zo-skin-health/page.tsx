@@ -100,7 +100,7 @@ export default function ZoSkinHealthPage() {
           <div className={styles.zoSkinProductCard}>
             <div className={styles.zoSkinImageWrapper}>
               <Image 
-                src="/images/ZOproduct1.webp" 
+                src="/images/ZOproduct1.png" 
                 alt="ZO Skin Health Radiance Product" 
                 width={300} 
                 height={400} 
