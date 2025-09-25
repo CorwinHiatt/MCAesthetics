@@ -36,6 +36,20 @@ const nextConfig: NextConfig = {
         source: '/aesthetic-services/coolpeel-co2-laser',
         destination: '/coolpeel',
         permanent: true,
+        // Note: Other redirects are managed in vercel.json
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',  // Applies to all paths
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, stale-while-revalidate=86400',
+          },
+        ],
       },
     ];
   },
