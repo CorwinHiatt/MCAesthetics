@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   experimental: {
     inlineCss: true,  // Inlines critical CSS
   },
-  turbopack: {
-    root: '/Users/a1111/coleeExpenseRecites/otherColeeFiles/Melissa/mca-next', // Explicitly set project root
-  },
   images: {
     remotePatterns: [
       {
