@@ -9,7 +9,6 @@ export async function GET() {
     { path: '/', priority: '1.0', changefreq: 'monthly' },
     { path: '/about', priority: '0.8', changefreq: 'monthly' },
     { path: '/accessibility', priority: '0.5', changefreq: 'yearly' },
-    
     { path: '/contact', priority: '0.8', changefreq: 'monthly' },
     { path: '/financing', priority: '0.7', changefreq: 'monthly' },
     { path: '/gift-cards', priority: '0.7', changefreq: 'monthly' },
@@ -24,7 +23,7 @@ export async function GET() {
   const serviceRoutes = [
     { path: '/aesthetic-services/wrinkle-reducers', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers', priority: '0.8', changefreq: 'monthly' },
-    { path: '/aesthetic-services/kybella', priority: '0.8', changefreq: 'monthly' },
+    { path: '/aesthetic-services/kybella', priority: '0.8', changefreq: 'monthly' }, // Redirect destination for /weight-loss
     { path: '/aesthetic-services/sclerotherapy', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/chemical-peels-perfect-derma', priority: '0.8', changefreq: 'monthly' },
     { path: '/aesthetic-services/scarlet-rf-microneedling', priority: '0.8', changefreq: 'monthly' },

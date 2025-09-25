@@ -2,10 +2,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "installCommand": "npm install --platform=linux --arch=x64"
-      }
+      "use": "@vercel/next"
     }
   ],
   "redirects": [
@@ -91,16 +88,27 @@
     },
     {
       "source": "/weight-loss",
-      "destination": "/aesthetic-services/all-aesthetic-services",
-      "permanent": true
+      "destination": "/aesthetic-services/kybella",
+      "permanent": false
     },
-   
     {
       "source": ":path*",
       "has": [
         {
           "type": "host",
           "value": "mcaestheticsclinic.com"
+        }
+      ],
+      "destination": "https://www.mcaestheticsclinic.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": ":path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
         }
       ],
       "destination": "https://www.mcaestheticsclinic.com/:path*",
