@@ -236,8 +236,17 @@ export default function HomePage() {
       <section className={styles.mcaLuxHomeTeamSection}>
         <div className={styles.mcaLuxHomeTeamContainer}>
           <h2 className={styles.mcaLuxHomeTeamHeader}>About MC Aesthetics</h2>
+          <div className={styles.spacer}></div>
           <p className={styles.mcaLuxHomeTeamIntro}>
-            At MC Aesthetics, we are dedicated to enhancing your natural beauty with personalized, safe, and precise treatments. Meet our passionate team of professionals who bring expertise, warmth, and a commitment to excellence to every client.
+              &nbsp;
+          </p>
+          
+          <p className={styles.mcaLuxHomeTeamIntro}>
+              &nbsp;
+          </p>
+          
+          <p className={styles.mcaLuxHomeTeamIntro}>
+              &nbsp;
           </p>
           
           <div className={styles.mcaLuxHomeTeamCards}>
