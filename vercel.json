@@ -86,6 +86,11 @@
       "destination": "/laser-hair",
       "permanent": true
     },
+     {
+      "source": "/laser-hair/membership",
+      "destination": "/laser-hair",
+      "permanent": true
+    },
     {
       "source": "/weight-loss",
       "destination": "/aesthetic-services/kybella",
@@ -102,6 +107,7 @@
       "destination": "https://www.mcaestheticsclinic.com/:path*",
       "permanent": true
     },
+    
     {
       "source": ":path*",
       "has": [

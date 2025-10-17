@@ -75,7 +75,7 @@ const NewHeader: React.FC = () => {
     {
       name: 'Laser Hair Removal',
       href: '/laser-hair',
-      dropdown: [{ name: 'Membership', href: '/laser-hair/membership' }],
+      dropdown: [{ name: 'Membership', href: '/laser-hair#membership' }], // ✅ FIXED - Changed from '/laser-hair/membership' to '/laser-hair#membership'
     },
     { name: 'ZO Skin Health', href: '/zo-skin-health' },
     { name: 'Financing', href: '/financing' },

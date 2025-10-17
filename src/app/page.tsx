@@ -63,9 +63,9 @@ const services = [
     description: "Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance. We can typically cover 3-4 body areas in one hour.",
     items: [
       { name: "Elysion Laser Hair Removal", href: "/laser-hair" },
-      { name: "1-Hour Membership", href: "/laser-hair/membership" },
-      { name: "6-month minimum commitment for best results", href: "/laser-hair/membership" },
-      { name: "1-Hour Membership Details", href: "/laser-hair/membership" }
+      { name: "1-Hour Membership", href: "/laser-hair" },
+      { name: "6-month minimum commitment for best results", href: "/laser-hair" },
+      { name: "1-Hour Membership Details", href: "/laser-hair" }
     ]
   },
   {
@@ -382,7 +382,7 @@ export default function HomePage() {
                     <Link 
                       href={
                         serviceGroup.category === "1-Hour Laser Hair Removal Membership" 
-                          ? "/laser-hair/membership" 
+                          ? "/laser-hair" 
                           : serviceGroup.category === "Specialty Treatments"
                             ? "/aesthetic-services"  // Updated: Redirect Specialty Treatments to a general page since no specific page exists
                             : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
