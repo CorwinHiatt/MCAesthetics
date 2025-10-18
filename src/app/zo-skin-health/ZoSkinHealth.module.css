@@ -1,12 +1,44 @@
+/* ZoSkinHealth.module.css - MC Aesthetics Brand Styling */
+/* Unique identifier to confirm CSS update: MCA_ZO_BRANDING_2025_APPLIED */
+
+/* Font Definitions */
+@font-face {
+  font-family: 'Merilux';
+  src: url('/fonts/merilux/Merilux-Regular.ttf') format('truetype'),
+       url('/fonts/merilux/Merilux-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Merilux';
+  src: url('/fonts/merilux/Merilux-Oblique.ttf') format('truetype'),
+       url('/fonts/merilux/Merilux-Oblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/monserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Note: 'Beautiful y Delicious' font path assumed; adjust if different */
+@font-face {
+  font-family: 'Beautiful y Delicious';
+  src: url('/fonts/beautiful-y-delicious/BeautifulYDelicious.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Container for the entire ZO Skin Health page */
 .zoSkinPageWrapper {
-   background: linear-gradient(180deg, var(--mca-soft-white, #f8f8f8) 0%, rgba(226, 213, 177, 0.1) 100%); /* Softer opacity and top-to-bottom direction for better readability */
+  background: linear-gradient(180deg, #EFEDE6 0%, rgba(196, 200, 195, 0.1) 100%); /* Brand cream to soft gray-green with opacity */
   min-height: 100vh;
   padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif; /* Secondary font for body */
   position: relative;
   overflow-x: hidden;
 }
@@ -21,18 +53,19 @@
 .zoSkinMainTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--mca-deep-purple, #9c0491);
+  color: #B4A698; /* Primary neutral tone */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 1rem;
   position: relative;
   z-index: 1;
+  font-family: 'Merilux', serif; /* Primary font */
 }
 
 .zoSkinTitleDivider {
   width: 6rem;
   height: 3px;
-  background: var(--mca-lux-gold, #d4af37);
+  background: #C5C1BD; /* Light gray-beige accent */
   margin: 0 auto;
   border-radius: 2px;
   position: relative;
@@ -44,7 +77,7 @@
   top: 50%;
   width: 1.5rem;
   height: 1px;
-  background: var(--mca-lux-gold, #d4af37);
+  background: #C5C1BD; /* Light gray-beige accent */
 }
 
 .zoSkinTitleDivider::before {
@@ -89,10 +122,10 @@
 
 .zoSkinIntroText {
   font-size: 1.15rem;
-  color: var(--mca-elegant-gray, #4a4a4a);
+  color: #5B615B; /* Dark gray for text */
   line-height: 1.8;
   margin-bottom: 1.75rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Secondary font */
   font-style: italic;
   opacity: 0;
   animation: fadeIn 0.8s ease-in forwards;
@@ -121,11 +154,12 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--mca-deep-purple, #9c0491);
+  color: #B4A698; /* Primary neutral tone */
   text-align: center;
   letter-spacing: 0.05em;
   position: relative;
   padding-bottom: 0.75rem;
+  font-family: 'Merilux', serif; /* Primary font */
 }
 
 .zoSkinSectionHeading::after {
@@ -136,7 +170,7 @@
   transform: translateX(-50%);
   width: 5rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--mca-gold-accent, #a08d6d), var(--mca-lux-gold, #d4af37));
+  background: linear-gradient(90deg, #B4A698, #C5C1BD); /* Brand gradient */
   border-radius: 1px;
 }
 
@@ -157,11 +191,11 @@
 /* Paragraph text in sections */
 .zoSkinContentText {
   font-size: 1.1rem;
-  color: var(--mca-elegant-gray, #4a4a4a);
+  color: #5B615B; /* Dark gray for text */
   line-height: 1.8;
   margin-bottom: 1.25rem;
   text-align: justify;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Secondary font */
 }
 
 @media (max-width: 640px) {
@@ -178,19 +212,19 @@
 
 .zoSkinListItem {
   font-size: 1.1rem;
-  color: var(--mca-elegant-gray, #4a4a4a);
+  color: #5B615B; /* Dark gray for text */
   line-height: 1.7;
   margin-bottom: 0.75rem;
   position: relative;
   padding-left: 1.5rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Secondary font */
 }
 
 .zoSkinListItem::before {
   content: "✦";
   position: absolute;
   left: 0;
-  color: var(--mca-lux-gold, #d4af37);
+  color: #C5C1BD; /* Light gray-beige accent */
   font-size: 1.2rem;
 }
 
@@ -202,14 +236,14 @@
 
 /* Call to action section */
 .zoSkinCallToAction {
-  background: linear-gradient(135deg, var(--mca-light-gold, #e2d5b1) 0%, rgba(226, 213, 177, 0.7) 100%);
+  background: linear-gradient(135deg, #EFEDE6 0%, rgba(196, 200, 195, 0.7) 100%); /* Light cream to soft gray-green */
   border-radius: 0.5rem;
-  box-shadow: 0 6px 12px var(--mca-shadow-deep, rgba(0, 0, 0, 0.15));
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   padding: 2.5rem;
   text-align: center;
   max-width: 50rem;
   margin: 0 auto 3rem;
-  border: 1px solid var(--mca-lux-gold, #d4af37);
+  border: 1px solid #C5C1BD; /* Light gray-beige border */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -222,7 +256,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: url('/images/pattern.png') repeat; Placeholder for a subtle pattern if desired */
   opacity: 0.1;
   z-index: 0;
 }
@@ -234,10 +267,10 @@
 
 .zoSkinCtaText {
   font-size: 1.5rem;
-  color: var(--mca-deep-purple, #9c0491);
+  color: #B4A698; /* Primary neutral tone */
   font-weight: 600;
   margin-bottom: 1.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Merilux', serif; /* Primary font */
   position: relative;
   z-index: 1;
 }
@@ -247,19 +280,19 @@
   padding: 0.75rem 1.5rem;
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--mca-soft-white, #f8f8f8);
-  background: linear-gradient(135deg, var(--mca-primary-purple, #cb1ed4), var(--mca-deep-purple, #9c0491));
-  border: 1px solid var(--mca-lux-gold, #d4af37);
+  color: #EFEDE6; /* Light cream text */
+  background: linear-gradient(135deg, #B4A698, #5B615B); /* Brand gradient */
+  border: 1px solid #C5C1BD; /* Light gray-beige border */
   border-radius: 0.3rem;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Merilux', serif; /* Primary font */
   position: relative;
   z-index: 1;
 }
 
 .zoSkinCtaButton:hover {
-  background: linear-gradient(135deg, var(--mca-deep-purple, #9c0491), var(--mca-primary-purple, #cb1ed4));
+  background: linear-gradient(135deg, #5B615B, #B4A698); /* Reverse brand gradient */
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -295,12 +328,12 @@
 }
 
 .zoSkinProductCard {
-  background-color: var(--mca-soft-white, #f8f8f8);
+  background-color: #EFEDE6; /* Light cream background */
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 6px 15px var(--mca-shadow-subtle, rgba(0, 0, 0, 0.1));
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
-  border: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold border */
+  border: 1px solid rgba(197, 193, 189, 0.3); /* Subtle light gray-beige border */
   position: relative;
 }
 
@@ -316,14 +349,14 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--mca-gold-accent, #a08d6d), var(--mca-lux-gold, #d4af37));
+  background: linear-gradient(90deg, #B4A698, #C5C1BD); /* Brand gradient */
   z-index: 1;
 }
 
 .zoSkinImageWrapper {
   overflow: hidden;
   height: 220px;
-  background-color: rgba(226, 213, 177, 0.1);
+  background-color: rgba(239, 237, 230, 0.1); /* Light cream tint */
   position: relative; /* Added for better control over image positioning */
 }
 
@@ -342,10 +375,10 @@
 .zoSkinProductCaption {
   padding: 1.25rem;
   font-size: 0.95rem;
-  color: var(--mca-deep-purple, #9c0491);
-  font-family: 'Playfair Display', serif;
+  color: #B4A698; /* Primary neutral tone */
+  font-family: 'Beautiful y Delicious', cursive; /* Decorative secondary font */
   text-align: center;
-  background-color: rgba(226, 213, 177, 0.15); /* Light gold tint */
+  background-color: rgba(239, 237, 230, 0.15); /* Light cream tint */
   font-style: italic;
 }
 
@@ -353,25 +386,25 @@
 .zoSkinFaqItem {
   margin-bottom: 1.75rem;
   padding: 1rem;
-  background-color: rgba(248, 248, 248, 0.7);
+  background-color: rgba(239, 237, 230, 0.7); /* Light cream with opacity */
   border-radius: 0.5rem;
-  border-left: 3px solid var(--mca-lux-gold, #d4af37);
+  border-left: 3px solid #C5C1BD; /* Light gray-beige accent */
 }
 
 .zoSkinFaqQuestion {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--mca-primary-purple, #cb1ed4);
+  color: #B4A698; /* Primary neutral tone */
   margin-bottom: 0.85rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Merilux', serif; /* Primary font */
 }
 
 .zoSkinFaqAnswer {
   font-size: 1.05rem;
-  color: var(--mca-elegant-gray, #4a4a4a);
+  color: #5B615B; /* Dark gray for text */
   line-height: 1.8;
   text-align: justify;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif; /* Secondary font */
 }
 
 @media (max-width: 640px) {
@@ -413,7 +446,54 @@
     min-height: 160px; /* Further adjust image height for very small screens */
   }
 }
+
 .zoSkinContentSection p,
 .zoSkinContentSection li {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow to make text pop on gradient */
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  .zoSkinPageWrapper {
+    background: linear-gradient(180deg, #5B615B 0%, rgba(197, 193, 189, 0.1) 100%); /* Darker gradient */
+  }
+  
+  .zoSkinMainTitle,
+  .zoSkinSectionHeading,
+  .zoSkinCtaText,
+  .zoSkinFaqQuestion,
+  .zoSkinProductCaption {
+    color: #C5C1BD !important; /* Light gray-beige for headings */
+  }
+  
+  .zoSkinIntroText,
+  .zoSkinContentText,
+  .zoSkinListItem,
+  .zoSkinFaqAnswer {
+    color: #EFEDE6 !important; /* Light cream for body text */
+  }
+  
+  .zoSkinCtaButton {
+    background: linear-gradient(135deg, #C5C1BD, #EFEDE6); /* Lighter gradient */
+    color: #5B615B !important; /* Dark text for contrast */
+  }
+  
+  .zoSkinCtaButton:hover {
+    background: linear-gradient(135deg, #EFEDE6, #C5C1BD); /* Reverse lighter gradient */
+  }
+  
+  .zoSkinCallToAction,
+  .zoSkinProductCard {
+    background: #5B615B; /* Dark gray background */
+    border-color: #C5C1BD; /* Light gray-beige border */
+  }
+  
+  .zoSkinProductCard::before {
+    background: linear-gradient(90deg, #C5C1BD, #EFEDE6); /* Lighter gradient */
+  }
+  
+  .zoSkinFaqItem {
+    background-color: rgba(91, 97, 91, 0.7); /* Dark gray with opacity */
+    border-left-color: #C5C1BD; /* Light gray-beige accent */
+  }
 }

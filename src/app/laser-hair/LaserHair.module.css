@@ -1,12 +1,42 @@
-/* LaserHair.module.css - FORCE OVERRIDE ALL COLORS */
+/* LaserHair.module.css - MC Aesthetics Brand Styling */
+/* Unique identifier to confirm CSS update: MCA_BRANDING_2025_APPLIED */
 
-/* GLOBAL OVERRIDES - Must be at top */
+/* Font Definitions */
+@font-face {
+  font-family: 'Merilux';
+  src: url('/fonts/merilux/Merilux-Regular.ttf') format('truetype'),
+       url('/fonts/merilux/Merilux-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Merilux';
+  src: url('/fonts/merilux/Merilux-Oblique.ttf') format('truetype'),
+       url('/fonts/merilux/Merilux-Oblique.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/monserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Note: 'Beautiful y Delicious' font path not confirmed; assumed to be in public/fonts/ */
+@font-face {
+  font-family: 'Beautiful y Delicious';
+  src: url('/fonts/beautiful-y-delicious/BeautifulYDelicious.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* GLOBAL OVERRIDES */
 .mcaLaserHairPageWrapper {
-  background: linear-gradient(135deg, #fefefe 0%, #e8f4f8 100%);
+  background: linear-gradient(135deg, #EFEDE6 0%, #C4C8C3 100%); /* Brand cream to soft gray-green gradient */
   min-height: 100vh;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  color: #4a4a4a !important;
+  font-family: 'Montserrat', sans-serif; /* Secondary font for body text */
+  color: #5B615B !important; /* Dark gray for primary text */
   overflow-x: hidden;
 }
 
@@ -16,12 +46,12 @@
 }
 
 .mcaLaserHairPageWrapper a {
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone for links */
   text-decoration: none !important;
 }
 
 .mcaLaserHairPageWrapper a:hover {
-  color: #4a90a4 !important;
+  color: #5B615B !important; /* Darker gray on hover for contrast */
 }
 
 .mcaLaserHairPageWrapper h1,
@@ -30,13 +60,13 @@
 .mcaLaserHairPageWrapper h4,
 .mcaLaserHairPageWrapper h5,
 .mcaLaserHairPageWrapper h6 {
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone for headings */
 }
 
 .mcaLaserHairPageWrapper p,
 .mcaLaserHairPageWrapper li,
 .mcaLaserHairPageWrapper span {
-  color: #4a4a4a !important;
+  color: #5B615B !important; /* Dark gray for body text */
 }
 
 /* Hero Section */
@@ -49,14 +79,15 @@
 }
 
 .mcaLaserHairMainTitle {
+  font-family: 'Merilux', serif; /* Primary brand font for headings */
   font-size: 2rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #2c5f7c, #4a90a4);
+  background: linear-gradient(135deg, #B4A698, #5B615B); /* Gradient with brand colors */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Fallback for browsers not supporting gradient text */
   line-height: 1.2;
   letter-spacing: -0.02em;
   animation: fadeInDown 0.8s ease-out;
@@ -76,7 +107,7 @@
 
 .mcaLaserHairIntroText {
   font-size: 1rem;
-  color: #4a4a4a !important;
+  color: #5B615B !important; /* Dark gray for text */
   line-height: 1.8;
   max-width: 800px;
   margin: 0 auto 2rem;
@@ -149,20 +180,20 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(to right, #4a90a4, #5fa8be);
+  background: linear-gradient(to right, #B4A698, #C4C8C3); /* Brand gradient for accent */
   z-index: 2;
 }
 
 /* Call to Action Section */
 .mcaLaserHairCallToAction {
-  background: #fefefe;
+  background: #EFEDE6; /* Light cream background */
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   padding: 2rem 1.5rem;
   text-align: center;
   max-width: 900px;
   margin: 3rem auto;
-  border: 2px solid #4a90a4;
+  border: 2px solid #B4A698; /* Primary neutral tone border */
   transition: all 0.3s ease;
 }
 
@@ -179,8 +210,9 @@
 }
 
 .mcaLaserHairCtaText {
+  font-family: 'Merilux', serif; /* Primary font for emphasis */
   font-size: 1.5rem;
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone */
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -195,14 +227,15 @@
 }
 
 .mcaLaserHairCtaText:hover {
-  color: #4a90a4 !important;
+  color: #5B615B !important; /* Darker gray on hover */
 }
 
 /* Section Titles */
 .mcaLaserHairSectionTitle {
+  font-family: 'Merilux', serif; /* Primary font */
   font-size: 1.75rem;
   font-weight: 700;
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone */
   text-align: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
@@ -224,7 +257,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: linear-gradient(to right, #4a90a4, #5fa8be);
+  background: linear-gradient(to right, #B4A698, #C4C8C3); /* Brand gradient */
   border-radius: 2px;
 }
 
@@ -263,7 +296,7 @@
 .mcaLaserHairParagraph,
 .mcaLaserHairIntroParagraph {
   font-size: 1rem;
-  color: #4a4a4a !important;
+  color: #5B615B !important; /* Dark gray for text */
   line-height: 1.8;
   margin-bottom: 1.5rem;
 }
@@ -346,17 +379,17 @@
 .mcaLaserHairGalleryCaption {
   margin-top: 1rem;
   font-size: 1.125rem;
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone */
   font-weight: 600;
 }
 
 /* Membership Card */
 .mcaLaserHairMembershipCard {
-  background: #fefefe;
+  background: #EFEDE6; /* Light cream background */
   border-radius: 24px;
   padding: 2rem 1.5rem;
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
-  border: 3px solid #4a90a4;
+  border: 3px solid #B4A698; /* Primary neutral border */
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
@@ -370,7 +403,7 @@
 }
 
 .mcaLaserHairMembershipCard h3 {
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone */
   font-size: 1.8rem;
   margin-bottom: 1rem;
 }
@@ -378,11 +411,11 @@
 .mcaLaserHairPriceTag {
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #4a90a4, #5fa8be);
+  background: linear-gradient(135deg, #B4A698, #C4C8C3); /* Brand gradient */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: #4a90a4 !important;
+  color: #B4A698 !important; /* Fallback */
   margin: 1rem 0 2rem;
 }
 
@@ -414,7 +447,7 @@
 }
 
 .mcaLaserHairBenefitCard {
-  background: #fefefe;
+  background: #EFEDE6; /* Light cream background */
   border-radius: 20px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -439,19 +472,19 @@
 .mcaLaserHairBenefitCard:hover {
   transform: translateY(-12px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  border-color: #4a90a4;
+  border-color: #B4A698; /* Primary neutral on hover */
 }
 
 .mcaLaserHairIconWrapper {
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, #4a90a4, #5fa8be);
+  background: linear-gradient(135deg, #B4A698, #C4C8C3); /* Brand gradient */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.3);
+  box-shadow: 0 8px 24px rgba(180, 166, 152, 0.3); /* Shadow with primary neutral */
   transition: all 0.3s ease;
 }
 
@@ -477,9 +510,10 @@
 }
 
 .mcaLaserHairBenefitTitle {
+  font-family: 'Beautiful y Delicious', cursive; /* Decorative secondary font */
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2c5f7c !important;
+  color: #B4A698 !important; /* Primary neutral tone */
   margin-bottom: 1rem;
 }
 
@@ -491,7 +525,7 @@
 
 .mcaLaserHairBenefitText {
   font-size: 1rem;
-  color: #555555 !important;
+  color: #5B615B !important; /* Dark gray for text */
   line-height: 1.7;
 }
 
@@ -499,13 +533,14 @@
 .mcaLaserHairCtaButton {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #2c5f7c, #4a90a4);
-  color: #fefefe !important;
+  background: linear-gradient(135deg, #B4A698, #5B615B); /* Brand gradient */
+  color: #EFEDE6 !important; /* Light cream text */
+  font-family: 'Merilux', serif; /* Primary font */
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none !important;
   border-radius: 50px;
-  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.3);
+  box-shadow: 0 8px 24px rgba(180, 166, 152, 0.3); /* Shadow with primary neutral */
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -520,15 +555,15 @@
 }
 
 .mcaLaserHairCtaButton:hover {
-  background: linear-gradient(135deg, #4a90a4, #2c5f7c);
+  background: linear-gradient(135deg, #5B615B, #B4A698); /* Reverse gradient on hover */
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(74, 144, 164, 0.4);
-  color: #ffffff !important;
+  box-shadow: 0 12px 32px rgba(180, 166, 152, 0.4);
+  color: #EFEDE6 !important;
 }
 
 /* Final CTA Section */
 .mcaLaserHairFinalCta {
-  background: linear-gradient(135deg, #e8f4f8, #fefefe);
+  background: linear-gradient(135deg, #C4C8C3, #EFEDE6); /* Soft brand gradient */
   border-radius: 24px;
   padding: 3rem 1.5rem;
   text-align: center;
@@ -556,7 +591,7 @@
 
 .mcaLaserHairListItem {
   font-size: 1rem;
-  color: #4a4a4a !important;
+  color: #5B615B !important; /* Dark gray for text */
   line-height: 1.8;
   margin-bottom: 1rem;
   position: relative;
@@ -573,7 +608,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #4a90a4;
+  color: #B4A698; /* Primary neutral tone */
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -666,4 +701,59 @@ html {
 /* Scroll margin for anchor links */
 #membership {
   scroll-margin-top: 100px;
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  .mcaLaserHairPageWrapper {
+    background: linear-gradient(135deg, #5B615B 0%, #C5C1BD 100%); /* Darker gradient */
+    color: #EFEDE6 !important; /* Light cream text */
+  }
+  
+  .mcaLaserHairPageWrapper p,
+  .mcaLaserHairPageWrapper li,
+  .mcaLaserHairPageWrapper span {
+    color: #EFEDE6 !important; /* Light cream for body text */
+  }
+  
+  .mcaLaserHairPageWrapper a {
+    color: #C5C1BD !important; /* Light gray for links */
+  }
+  
+  .mcaLaserHairPageWrapper a:hover {
+    color: #EFEDE6 !important; /* Brighter on hover */
+  }
+  
+  .mcaLaserHairPageWrapper h1,
+  .mcaLaserHairPageWrapper h2,
+  .mcaLaserHairPageWrapper h3,
+  .mcaLaserHairPageWrapper h4,
+  .mcaLaserHairPageWrapper h5,
+  .mcaLaserHairPageWrapper h6 {
+    color: #C5C1BD !important; /* Light gray for headings */
+  }
+  
+  .mcaLaserHairCallToAction,
+  .mcaLaserHairMembershipCard,
+  .mcaLaserHairBenefitCard {
+    background: #5B615B; /* Dark gray background */
+    border-color: #C5C1BD; /* Light gray border */
+  }
+  
+  .mcaLaserHairCtaButton {
+    background: linear-gradient(135deg, #C5C1BD, #EFEDE6); /* Lighter gradient */
+    color: #5B615B !important; /* Dark text for contrast */
+  }
+  
+  .mcaLaserHairCtaButton:hover {
+    background: linear-gradient(135deg, #EFEDE6, #C5C1BD) !important; /* Reverse gradient on hover */
+  }
+  
+  .mcaLaserHairIconWrapper {
+    background: linear-gradient(135deg, #C5C1BD, #EFEDE6); /* Lighter gradient */
+  }
+  
+  .mcaLaserHairFinalCta {
+    background: linear-gradient(135deg, #5B615B, #C5C1BD) !important; /* Darker gradient */
+  }
 }

@@ -1,0 +1,124 @@
+/* Button.module.css - MC Aesthetics Button Styling */
+/* Unique identifier to confirm CSS update: MCA_BUTTON_BRANDING_2025_APPLIED */
+
+/* Base styles shared by all buttons */
+.mcaBaseButton {
+  font-family: 'Merilux', serif; /* Primary brand font */
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mcaBaseButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Primary Button - Main CTA */
+.mcaPrimaryButton {
+  composes: mcaBaseButton;
+  background: linear-gradient(135deg, #B4A698, #5B615B); /* Brand gradient */
+  color: #EFEDE6; /* Light cream text */
+  box-shadow: 0 8px 24px rgba(180, 166, 152, 0.3); /* Shadow with primary neutral */
+}
+
+.mcaPrimaryButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5B615B, #B4A698); /* Reverse gradient on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(180, 166, 152, 0.4);
+}
+
+.mcaPrimaryButton:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 4px 16px rgba(180, 166, 152, 0.3);
+}
+
+/* Secondary Button - Subtle Action */
+.mcaSecondaryButton {
+  composes: mcaBaseButton;
+  background: #C5C1BD; /* Light gray-beige */
+  color: #5B615B; /* Dark gray text */
+  box-shadow: 0 6px 18px rgba(197, 193, 189, 0.3); /* Subtle shadow */
+}
+
+.mcaSecondaryButton:hover:not(:disabled) {
+  background: #C4C8C3; /* Slightly darker gray-green */
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(197, 193, 189, 0.4);
+}
+
+.mcaSecondaryButton:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 3px 12px rgba(197, 193, 189, 0.3);
+}
+
+/* Outline Button - Alternative Action */
+.mcaOutlineButton {
+  composes: mcaBaseButton;
+  background: transparent;
+  color: #B4A698; /* Primary neutral tone */
+  border: 2px solid #B4A698; /* Primary neutral border */
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.2); /* Light shadow */
+}
+
+.mcaOutlineButton:hover:not(:disabled) {
+  background: rgba(180, 166, 152, 0.1); /* Slight fill on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(180, 166, 152, 0.3);
+}
+
+.mcaOutlineButton:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(180, 166, 152, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .mcaBaseButton {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+  }
+}
+
+/* Dark Mode Overrides */
+@media (prefers-color-scheme: dark) {
+  .mcaPrimaryButton {
+    background: linear-gradient(135deg, #C5C1BD, #EFEDE6); /* Lighter gradient */
+    color: #5B615B; /* Dark text for contrast */
+  }
+  
+  .mcaPrimaryButton:hover:not(:disabled) {
+    background: linear-gradient(135deg, #EFEDE6, #C5C1BD); /* Reverse lighter gradient */
+  }
+  
+  .mcaSecondaryButton {
+    background: #5B615B; /* Dark gray */
+    color: #EFEDE6; /* Light cream text */
+  }
+  
+  .mcaSecondaryButton:hover:not(:disabled) {
+    background: #C5C1BD; /* Light gray-beige */
+  }
+  
+  .mcaOutlineButton {
+    color: #C5C1BD; /* Light gray-beige */
+    border-color: #C5C1BD; /* Light gray-beige border */
+  }
+  
+  .mcaOutlineButton:hover:not(:disabled) {
+    background: rgba(197, 193, 189, 0.1); /* Slight fill on hover */
+  }
+}

@@ -7,6 +7,9 @@ import maleahImg from '../../public/images/maleah.jpg';
 import shadowMain from '../../public/images/shadowMain.png';
 // import laserLegs from '../../public/images/laserLegs.jpg'; // New import for laser legs image
 import styles from './HomeLuxury.module.css';
+import PrimaryButton from './components/buttons/PrimaryButton';
+import SecondaryButton from './components/buttons/SecondaryButton';
+import OutlineButton from './components/buttons/OutlineButton';
 
 // Metadata for SEO and Social Previews (App Router style)
 export const metadata = {
@@ -98,7 +101,7 @@ const services = [
       { name: "Sclerotherapy", href: "/aesthetic-services/sclerotherapy" },
       { name: "Chemical Peels - Perfect Derma™", href: "/aesthetic-services/chemical-peels-perfect-derma" },
       { name: "Scarlet RF Microneedling", href: "/aesthetic-services/scarlet-rf-microneedling" },
-      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel-co2-laser" } // Fixed: Replaced %20 with hyphens for cleaner URL
+      { name: "CoolPeel CO2 Laser", href: "/aesthetic-services/coolpeel-co2-laser" }
     ]
   },
   {
@@ -112,7 +115,6 @@ const services = [
 
 // Gallery items for featured services - Reorganized in priority order with assigned local images
 const galleryItems = [
-  // Featured: CoolPeel CO2 Laser (Moved to top for prominence)
   {
     title: 'CoolPeel CO2 Laser',
     description: 'Rejuvenate skin with advanced CoolPeel laser technology.',
@@ -120,7 +122,6 @@ const galleryItems = [
     href: '/coolpeel',
     altText: 'CoolPeel CO2 Laser skin rejuvenation at MC Aesthetics McMinnville'
   },
-  // 1. Micro-Needling (Scarlet RF Microneedling)
   {
     title: 'Scarlet RF Microneedling',
     description: 'Tighten skin with cutting-edge RF microneedling.',
@@ -128,7 +129,6 @@ const galleryItems = [
     href: '/aesthetic-services/scarlet-rf-microneedling',
     altText: 'Scarlet RF Microneedling skin tightening at MC Aesthetics McMinnville'
   },
-  // 2. Wrinkle Reducers - Primary image for Xeomin
   {
     title: 'Wrinkle Reducers - Xeomin',
     description: 'Smooth fine lines with Xeomin, a trusted anti-aging solution.',
@@ -136,7 +136,6 @@ const galleryItems = [
     href: '/aesthetic-services/wrinkle-reducers/xeomin',
     altText: 'Xeomin wrinkle reduction results at MC Aesthetics McMinnville'
   },
-  // 2. Wrinkle Reducers - Alternative image for Dysport (handling duplicate category)
   {
     title: 'Wrinkle Reducers - Dysport',
     description: 'Achieve a refreshed look with Dysport wrinkle reduction.',
@@ -144,7 +143,6 @@ const galleryItems = [
     href: '/aesthetic-services/wrinkle-reducers/dysport',
     altText: 'Dysport wrinkle treatment results at MC Aesthetics McMinnville'
   },
-  // 4. Dermal Fillers - Primary image for Restylane
   {
     title: 'Dermal Fillers - Restylane',
     description: 'Enhance facial volume with Restylane fillers.',
@@ -152,7 +150,6 @@ const galleryItems = [
     href: '/aesthetic-services/dermal-fillers/restylane',
     altText: 'Restylane dermal filler application at MC Aesthetics McMinnville'
   },
-  // 4. Dermal Fillers - Alternative image for Sculptra (handling duplicate category)
   {
     title: 'Dermal Fillers - Sculptra',
     description: 'Stimulate collagen with Sculptra for lasting results.',
@@ -160,7 +157,6 @@ const galleryItems = [
     href: '/aesthetic-services/dermal-fillers/sculptra',
     altText: 'Sculptra filler for collagen boost at MC Aesthetics McMinnville'
   },
-  // Existing Laser Hair card (simplified and fixed)
   {
     title: 'Laser Hair',
     description: 'Embrace smooth, hair-free skin with our advanced Elysion laser technology for effortless elegance.',
@@ -168,20 +164,11 @@ const galleryItems = [
     href: '/laser-hair',
     altText: 'Laser Hair on Legs for Silky, Radiant Results at MC Aesthetics McMinnville'
   },
-  // Uncommented and updated: Additional card for 1-Hour Laser Hair Removal Membership
-  // {
-  //   title: '1-Hour Laser Hair Removal Membership',
-  //   description: '$299/month | 1 full hour per session covering 3-4 areas (e.g., face, underarms, legs—customized to you!) | 6-month commitment for optimal, pain-free results and lasting smoothness.',
-  //   imageUrl: '/images/laserLegs.jpg', // Reusing for consistency; swap if you have a dedicated image
-  //   href: '/laser-hair/membership',
-  //   altText: '1-Hour Laser Hair Removal Membership for Lasting Smoothness at MC Aesthetics McMinnville'
-  // },
-  // New Membership card
   {
     title: 'VIP Membership',
     description: 'Join our exclusive membership for priority access, discounts, and personalized beauty perks.',
     imageUrl: '/images/membership.jpg',
-    href: '/membership', // Already correct, kept as-is for consistency
+    href: '/membership',
     altText: 'VIP Membership Benefits at MC Aesthetics McMinnville'
   },
 ];
@@ -226,9 +213,8 @@ export default function HomePage() {
           <p className={styles.mcaLuxHomeHeroSubText}>
             McMinnville&apos;s premier destination for bespoke skin care and anti-aging treatments. Discover radiance in every detail.
           </p>
-          <Link href="/contact" className={styles.mcaLuxHomeHeroActionBtn}>
-            Book Your Consultation
-          </Link>
+          {/* Replaced Link with PrimaryButton for main CTA */}
+          <PrimaryButton text="Book Your Consultation" href="/contact" />
         </div>
       </section>
 
@@ -314,9 +300,8 @@ export default function HomePage() {
             <p className={styles.mcaLuxHomeAboutParagraph}>
               Nestled in the heart of McMinnville, OR, MC Aesthetics offers an oasis of luxury with services ranging from wrinkle reducers to CoolPeel CO2 Laser. Our mission? To unveil your timeless beauty while prioritizing safety, education, and natural-looking results.
             </p>
-            <Link href="/about" className={styles.mcaLuxHomeAboutNavLink}>
-              Learn More About Our Philosophy
-            </Link>
+            {/* Replaced Link with SecondaryButton for a less prominent CTA */}
+            <SecondaryButton text="Learn More About Our Philosophy" href="/about" />
           </div>
           <div className={styles.mcaLuxHomeAboutVisual}>
             <Image 
@@ -332,7 +317,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Services Gallery - Visual Focus with Enhanced Spacing and Wow Effects (MOVED ABOVE SERVICES) */}
+      {/* Featured Services Gallery - Visual Focus with Enhanced Spacing and Wow Effects */}
       <section className={styles.mcaLuxHomeGallerySpace}>
         <h2 className={styles.mcaLuxHomeGalleryCaption}>Featured Transformations</h2>
         <div className={styles.mcaLuxHomeGalleryDisplay}>
@@ -358,7 +343,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section - Interactive Cards (MOVED BELOW GALLERY) */}
+      {/* Services Section - Interactive Cards */}
       <section className={styles.mcaLuxHomeServicesZone}>
         <h2 className={styles.mcaLuxHomeServicesHeader}>Our Signature Aesthetic Services</h2>
         <p className={styles.mcaLuxHomeServicesIntroText}>
@@ -379,18 +364,17 @@ export default function HomePage() {
                 ))}
                 {serviceGroup.items.length > 3 && (
                   <li className={styles.mcaLuxHomeServiceTileEntry}>
-                    <Link 
+                    {/* Replaced Link with OutlineButton for tertiary navigation */}
+                    <OutlineButton 
+                      text="View All..." 
                       href={
                         serviceGroup.category === "1-Hour Laser Hair Removal Membership" 
                           ? "/laser-hair" 
                           : serviceGroup.category === "Specialty Treatments"
-                            ? "/aesthetic-services"  // Updated: Redirect Specialty Treatments to a general page since no specific page exists
+                            ? "/aesthetic-services"
                             : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
                       } 
-                      className={styles.mcaLuxHomeServiceTileMore}
-                    >
-                      View All...
-                    </Link>
+                    />
                   </li>
                 )}
               </ul>
