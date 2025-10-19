@@ -8,12 +8,12 @@
   max-width: 100%; /* Ensure no overflow on mobile */
   margin: 1.5rem auto;
   padding: 1.5rem 1rem;
-  background: linear-gradient(135deg, #f9f5f0 0%, #ffffff 100%); /* Subtle luxurious gradient for depth */
+  background: linear-gradient(135deg, #EFEDE6 0%, #C5C1BD 100%); /* Subtle luxurious gradient using brand colors */
   border-radius: 16px; /* Softer, modern corners */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Elegant shadow for lift */
+  box-shadow: 0 6px 20px rgba(91, 97, 91, 0.08); /* Elegant shadow with brand color tint */
   position: relative;
   overflow: hidden;
-  font-family: 'Playfair Display', serif; /* Luxurious serif font for WOW factor */
+  font-family: 'Merilux', serif; /* Primary brand font for luxurious feel */
   box-sizing: border-box;
   animation: mcFadeIn 1s ease-out; /* WOW: Fade-in animation on load */
 }
@@ -31,9 +31,9 @@
   align-items: center;
   margin-bottom: 1.5rem;
   padding: 1rem 0;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(135deg, #C4C8C3 0%, #EFEDE6 100%); /* Brand color gradient */
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(91, 97, 91, 0.05); /* Shadow with brand color tint */
   animation: mcHeaderSlideIn 1.2s ease-out;
 }
 
@@ -58,19 +58,19 @@
   width: 100%;
   height: auto;
   display: block;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 2px 6px rgba(91, 97, 91, 0.1)); /* Shadow with brand color */
   transition: filter 0.3s ease;
 }
 
 .mcGoogleGraphicImage:hover {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15)); /* Enhanced shadow on hover */
+  filter: drop-shadow(0 4px 12px rgba(91, 97, 91, 0.15)); /* Enhanced shadow on hover */
 }
 
 /* Title Styling with Elegance */
 .mcReviewShowcaseTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a; /* Deep, sophisticated black */
+  color: #5B615B; /* Deep brand color for sophistication */
   text-align: center;
   margin-bottom: 1.2rem;
   display: flex;
@@ -80,25 +80,27 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: color 0.3s ease;
+  font-family: 'Merilux', serif; /* Primary brand font */
 }
 
 .mcReviewShowcaseTitle:hover {
-  color: #c49f45; /* Gold hover for interaction WOW */
+  color: #B4A698; /* Brand accent color on hover for interaction WOW */
 }
 
 /* Google Badge Styling for Authenticity */
 .mcGoogleBadge {
   display: inline-flex;
   align-items: center;
-  background-color: #4285F4; /* Google Blue */
-  color: #ffffff;
+  background-color: #B4A698; /* Brand color for badge */
+  color: #EFEDE6; /* Light brand color for text */
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);
+  box-shadow: 0 2px 6px rgba(180, 166, 152, 0.3);
   font-style: italic; /* Mimic Google branding */
   animation: mcPulse 2s infinite; /* WOW: Subtle pulse animation */
+  font-family: 'Montserrat Regular', sans-serif; /* Secondary brand font */
 }
 
 /* Pulse Animation for WOW Factor */
@@ -125,8 +127,8 @@
 
 .mcCarouselArrowLeft,
 .mcCarouselArrowRight {
-  background: linear-gradient(135deg, #c49f45, #b08a3e); /* Luxurious gold gradient */
-  color: #ffffff;
+  background: linear-gradient(135deg, #B4A698, #5B615B); /* Brand color gradient for buttons */
+  color: #EFEDE6; /* Light brand color for text */
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -139,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 8px rgba(196, 159, 69, 0.3);
+  box-shadow: 0 3px 8px rgba(180, 166, 152, 0.3); /* Brand color shadow */
   opacity: 0.8; /* Semi-transparent for mobile elegance */
   position: absolute;
 }
@@ -148,7 +150,7 @@
 .mcCarouselArrowRight:hover {
   opacity: 1;
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(196, 159, 69, 0.5); /* Glow on hover for WOW */
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.5); /* Glow on hover for WOW */
 }
 
 .mcCarouselArrowLeft:disabled,
@@ -199,14 +201,14 @@
 
 /* Google Reviews Card Styling - Responsive and Elegant */
 .mcGoogleReviewCard {
-  background: #ffffff;
-  border: 1px solid #e8e8e8; /* Subtle border */
+  background: #EFEDE6; /* Light brand background */
+  border: 1px solid #C5C1BD; /* Subtle brand border */
   border-radius: 12px;
   padding: 1rem;
   margin: 0 auto;
   width: 90%; /* Flexible width for mobile */
   max-width: 400px; /* Prevent stretching on small screens */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  box-shadow: 0 4px 12px rgba(91, 97, 91, 0.05); /* Soft shadow with brand tint */
   display: flex;
   gap: 0.75rem;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -216,7 +218,7 @@
 
 .mcGoogleReviewCard:hover {
   transform: translateY(-5px) scale(1.02); /* Lift and zoom for interaction WOW */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(91, 97, 91, 0.1);
 }
 
 /* Card Reveal Animation for WOW Factor */
@@ -229,8 +231,8 @@
 .mcReviewerAvatar {
   width: 32px;
   height: 32px;
-  background: #757575; /* Google gray for avatar */
-  color: #ffffff;
+  background: #5B615B; /* Dark brand color for avatar */
+  color: #EFEDE6; /* Light brand color for text */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -255,8 +257,9 @@
 .mcGoogleReviewerName {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #202124; /* Google's text color */
+  color: #5B615B; /* Brand color for text */
   margin: 0 0 0.2rem;
+  font-family: 'Merilux', serif; /* Primary brand font */
 }
 
 /* Star Rating */
@@ -279,24 +282,25 @@
 /* Review Date */
 .mcGoogleReviewDate {
   font-size: 0.75rem;
-  color: #5f6368; /* Google gray text */
+  color: #C5C1BD; /* Light brand color for secondary text */
   margin-bottom: 0.5rem;
+  font-family: 'Montserrat Regular', sans-serif; /* Secondary brand font */
 }
 
 /* Review Text */
 .mcGoogleReviewText {
   font-size: 0.85rem;
-  color: #202124;
+  color: #5B615B; /* Brand color for text */
   line-height: 1.3;
   margin-bottom: 0.6rem;
   max-height: 180px;
   overflow-y: auto;
-  font-family: 'Roboto', sans-serif; /* Switch to sans-serif for readability */
+  font-family: 'Beautiful y Delicious', sans-serif; /* Secondary brand font for body text */
 }
 
 /* Owner Response Section */
 .mcGoogleOwnerResponse {
-  background: #f8f9fa; /* Google light gray background */
+  background: #C4C8C3; /* Subtle brand background */
   padding: 0.6rem;
   border-radius: 6px;
   margin-top: 0.6rem;
@@ -304,32 +308,34 @@
 }
 
 .mcGoogleReviewCard:hover .mcGoogleOwnerResponse {
-  background: #e8f0fe; /* Subtle blue tint on hover for WOW */
+  background: rgba(180, 166, 152, 0.2); /* Subtle brand tint on hover for WOW */
 }
 
 /* Response Title */
 .mcGoogleResponseTitle {
   font-size: 0.85rem;
   font-weight: 500;
-  color: #202124;
+  color: #5B615B; /* Brand color */
   margin: 0 0 0.2rem;
+  font-family: 'Merilux', serif; /* Primary brand font */
 }
 
 /* Response Date */
 .mcGoogleResponseDate {
   font-size: 0.75rem;
-  color: #5f6368;
+  color: #C5C1BD; /* Light brand color */
   margin-bottom: 0.3rem;
+  font-family: 'Montserrat Regular', sans-serif; /* Secondary brand font */
 }
 
 /* Response Text */
 .mcGoogleResponseText {
   font-size: 0.8rem;
-  color: #202124;
+  color: #5B615B; /* Brand color */
   line-height: 1.3;
   max-height: 130px;
   overflow-y: auto;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Beautiful y Delicious', sans-serif; /* Secondary brand font */
 }
 
 /* Dots Navigation with Luxury Styling */
@@ -344,7 +350,7 @@
 .mcCarouselDot {
   width: 7px;
   height: 7px;
-  background: #d1d1d1;
+  background: #C5C1BD; /* Light brand color */
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -352,12 +358,12 @@
 }
 
 .mcActiveDot {
-  background: #c49f45; /* Gold for active dot */
+  background: #B4A698; /* Brand accent color for active dot */
   transform: scale(1.2);
 }
 
 .mcCarouselDot:hover {
-  background: #b0b0b0;
+  background: #5B615B; /* Dark brand color on hover */
   transform: scale(1.3); /* WOW: Dot grow on hover */
 }
 
@@ -366,24 +372,25 @@
   text-align: center;
   margin-top: 1.2rem;
   padding: 0.8rem 0;
-  background: rgba(196, 159, 69, 0.1); /* Subtle gold tint */
+  background: rgba(180, 166, 152, 0.1); /* Subtle brand tint */
   border-radius: 8px;
 }
 
 .mcReviewCtaTitle {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #1a1a1a;
+  color: #5B615B; /* Brand color */
   margin-bottom: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.7px;
+  font-family: 'Merilux', serif; /* Primary brand font */
 }
 
 /* Review Button */
 .mcReviewButton {
   display: inline-block;
-  background: linear-gradient(to right, #c49f45, #b08a3e); /* Luxurious gold gradient */
-  color: #ffffff;
+  background: linear-gradient(to right, #B4A698, #5B615B); /* Brand gradient */
+  color: #EFEDE6; /* Light brand color for text */
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.5rem 1.2rem;
@@ -394,12 +401,13 @@
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  font-family: 'Merilux', serif; /* Primary brand font */
 }
 
 .mcReviewButton:hover {
-  background: linear-gradient(to right, #b08a3e, #9c7a32); /* Darker gold on hover */
+  background: linear-gradient(to right, #5B615B, #C5C1BD); /* Alternate brand gradient on hover */
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(196, 159, 69, 0.4); /* Gold glow for WOW */
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.4); /* Brand glow for WOW */
 }
 
 /* Media Queries for Larger Screens - Responsive Scaling */
@@ -646,20 +654,20 @@
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   .mcReviewCarouselContainer {
-    border: 2px solid #000000;
+    border: 2px solid #5B615B; /* Dark brand color */
   }
 
   .mcGoogleReviewCard {
-    border: 2px solid #000000;
+    border: 2px solid #5B615B;
   }
 
   .mcCarouselArrowLeft,
   .mcCarouselArrowRight {
-    border: 2px solid #ffffff;
+    border: 2px solid #EFEDE6; /* Light brand color */
   }
 
   .mcReviewButton {
-    border: 2px solid #ffffff;
+    border: 2px solid #EFEDE6;
   }
 }
 
@@ -667,7 +675,7 @@
 @media print {
   .mcReviewCarouselContainer {
     box-shadow: none;
-    background: #ffffff;
+    background: #EFEDE6; /* Light brand color */
     page-break-inside: avoid;
   }
 
@@ -690,6 +698,6 @@
 
   .mcGoogleReviewCard {
     box-shadow: none;
-    border: 1px solid #000000;
+    border: 1px solid #5B615B; /* Dark brand color */
   }
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import styles from './Button.module.css';
@@ -9,6 +11,8 @@ interface SecondaryButtonProps {
   disabled?: boolean;
   className?: string;
   ariaLabel?: string;
+  target?: string;
+  rel?: string;
 }
 
 const SecondaryButton: React.FC<SecondaryButtonProps> = ({
@@ -17,21 +21,30 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   onClick,
   disabled = false,
   className = '',
-  ariaLabel = text,
+  ariaLabel,
+  target,
+  rel,
 }) => {
+  // Safely combine class names to prevent hydration errors
+  const combinedClassName = [styles.mcaSecondaryButton, className]
+    .filter(Boolean)
+    .join(' ')
+    .trim();
+
   const buttonContent = (
     <button
-      className={`${styles.mcaSecondaryButton} ${className}`}
+      className={combinedClassName}
       onClick={onClick}
       disabled={disabled}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || text}
+      type="button"
     >
       {text}
     </button>
   );
 
   return href ? (
-    <Link href={href} passHref>
+    <Link href={href} passHref target={target} rel={rel}>
       {buttonContent}
     </Link>
   ) : (
