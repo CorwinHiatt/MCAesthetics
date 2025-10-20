@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -8,9 +8,8 @@ interface OutlineButtonProps {
   text: string;
   href?: string;
   onClick?: () => void;
-  disabled?: boolean;
   className?: string;
-  ariaLabel?: string;
+  disabled?: boolean;
   target?: string;
   rel?: string;
 }
@@ -19,37 +18,35 @@ const OutlineButton: React.FC<OutlineButtonProps> = ({
   text,
   href,
   onClick,
-  disabled = false,
   className = '',
-  ariaLabel,
+  disabled = false,
   target,
   rel,
 }) => {
-  // Safely combine class names to prevent hydration errors
-  const combinedClassName = [styles.mcaOutlineButton, className]
-    .filter(Boolean)
-    .join(' ')
-    .trim();
+  // Fix: Trim and ensure consistent spacing
+  const combinedClassName = `${styles.mcaOutlineButton}${className ? ' ' + className : ''}`.trim();
 
   const buttonContent = (
     <button
       className={combinedClassName}
       onClick={onClick}
       disabled={disabled}
-      aria-label={ariaLabel || text}
-      type="button"
+      aria-label={text}
+      type="button" // IMPORTANT: Always include type
     >
       {text}
     </button>
   );
 
-  return href ? (
-    <Link href={href} passHref target={target} rel={rel}>
-      {buttonContent}
-    </Link>
-  ) : (
-    buttonContent
-  );
+  if (href) {
+    return (
+      <Link href={href} passHref target={target} rel={rel}>
+        {buttonContent}
+      </Link>
+    );
+  }
+
+  return buttonContent;
 };
 
 export default OutlineButton;
