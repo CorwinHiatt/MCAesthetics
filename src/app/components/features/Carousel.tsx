@@ -7,7 +7,6 @@ import Image from 'next/image';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 
-// Define the type for review data
 interface Review {
   reviewer: string;
   reviewText: string;
@@ -16,11 +15,10 @@ interface Review {
   ownerResponse?: string;
   ownerResponseDate?: string;
   ownerResponseDaysAgo?: number;
-  initials?: string; // For avatar display like Google Reviews
-  photoCount?: number; // Optional property for photo count
+  initials?: string;
+  photoCount?: number;
 }
 
-// Utility function to format days into readable "ago" text
 const formatDaysAgo = (totalDays: number): string => {
   if (totalDays < 1) return 'today';
   if (totalDays < 7) return `${totalDays} day${totalDays > 1 ? 's' : ''} ago`;
@@ -38,19 +36,16 @@ const formatDaysAgo = (totalDays: number): string => {
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentDate, setCurrentDate] = useState(new Date());
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [expandedReviews, setExpandedReviews] = useState<{ [key: number]: boolean }>({});
+  const [mounted, setMounted] = useState(false);
 
-  // Update current date daily for "ago" text (minimal latency)
+  // Fix hydration - only render interactive elements after mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 86400000); // Update every 24 hours
-    return () => clearInterval(interval);
+    setMounted(true);
   }, []);
 
-  // Handle touch events for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -61,10 +56,13 @@ export default function Carousel() {
 
   const handleTouchEnd = () => {
     if (touchStart !== null && touchEnd !== null) {
-      if (touchStart - touchEnd > 50) {
-        nextReview(); // Swipe left, go to next
-      } else if (touchEnd - touchStart > 50) {
-        prevReview(); // Swipe right, go to previous
+      const swipeDistance = touchStart - touchEnd;
+      if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 0) {
+          nextReview();
+        } else {
+          prevReview();
+        }
       }
     }
     setTouchStart(null);
@@ -83,12 +81,14 @@ export default function Carousel() {
     setCurrentIndex(index);
   };
 
-  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
-
-  const getDynamicDateText = (baseDays: number) => {
-    const adjustedDays = baseDays;
-    return formatDaysAgo(adjustedDays);
+  const toggleExpanded = (index: number) => {
+    setExpandedReviews(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
   };
+
+  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
 
   const getInitials = (name: string) => {
     const nameParts = name.split(' ');
@@ -97,7 +97,6 @@ export default function Carousel() {
       : nameParts[0][0];
   };
 
-  // Placeholder for reviews array (omitted as per request)
   const reviews: Review[] = [
     {
       "reviewer": "Gehna Greenslate",
@@ -432,9 +431,8 @@ export default function Carousel() {
       ownerResponseDate: '2 weeks ago',
       ownerResponseDaysAgo: 14,
     }
- ]; // Reviews array should be populated here as in the original code
+ ];
 
-  // Dynamically calculate the review count to prevent hydration mismatch
   const reviewCount = reviews.length;
 
   return (
@@ -446,15 +444,16 @@ export default function Carousel() {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Google Reviews Header Section - Only Google Review Graphic */}
+      {/* Header Section */}
       <div className={styles.mcGoogleReviewsHeader}>
         <div className={styles.mcGoogleReviewsGraphic}>
           <Image
-            width={100}
-            height={100}
+            width={200}
+            height={80}
             src="/images/googleReviewGraphic.png"
             alt="Google Reviews Rating Graphic"
             className={styles.mcGoogleGraphicImage}
+            priority
           />
         </div>
       </div>
@@ -462,70 +461,104 @@ export default function Carousel() {
       <h2 className={styles.mcReviewShowcaseTitle}>
         {`${reviewCount} Five-Star Reviews & Counting!`}
         <span className={styles.mcGoogleBadge}>
-          <Star className={styles.mcGoogleStarIcon} size={18} fill="#FBBC05" />
+          <Star className={styles.mcGoogleStarIcon} size={18} fill="#FBBC05" stroke="#FBBC05" />
           on Google Reviews
         </span>
       </h2>
 
       <div className={styles.mcCarouselWrapper}>
-        <SecondaryButton
-          text="‹"
-          onClick={prevReview}
-          disabled={currentIndex === 0}
-          className={`${styles.mcCarouselArrowLeft} ${styles.mcCustomButton}`}
-          ariaLabel="Previous review"
-        />
+        {mounted && (
+          <SecondaryButton
+            text="‹"
+            onClick={prevReview}
+            disabled={currentIndex === 0}
+            className={`${styles.mcCarouselArrowLeft} ${styles.mcCustomButton}`}
+            ariaLabel="Previous review"
+          />
+        )}
 
         <div className={styles.mcCarouselContent}>
           <div
             className={styles.mcCarouselSlider}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {reviews.map((review, index) => (
-              <div key={index} className={styles.mcCarouselItem}>
-                <div className={styles.mcGoogleReviewCard}>
-                  <div className={styles.mcReviewerAvatar}>
-                    {review.initials || getInitials(review.reviewer)}
-                  </div>
-                  <div className={styles.mcReviewContent}>
-                    <h3 className={styles.mcGoogleReviewerName}>{review.reviewer}</h3>
-                    <div className={styles.mcGoogleStarRating}>
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
+            {reviews.map((review, index) => {
+              const isExpanded = expandedReviews[index] || false;
+              const shouldTruncate = review.reviewText && review.reviewText.length > 200;
+
+              return (
+                <div key={index} className={styles.mcCarouselItem}>
+                  <article className={styles.mcGoogleReviewCard}>
+                    <div className={styles.mcReviewerAvatar}>
+                      {review.initials || getInitials(review.reviewer)}
                     </div>
-                    <p className={styles.mcGoogleReviewDate}>{getDynamicDateText(review.baseDaysAgo)}</p>
-                    {review.reviewText && review.reviewText !== 'N/A' && (
-                      <p className={styles.mcGoogleReviewText}>{review.reviewText}</p>
-                    )}
-                    {(!review.reviewText || review.reviewText === 'N/A') && (
-                      <p className={styles.mcGoogleReviewText}>No detailed review provided.</p>
-                    )}
-                    {review.ownerResponse && (
-                      <div className={styles.mcGoogleOwnerResponse}>
-                        <h4 className={styles.mcGoogleResponseTitle}>MC Aesthetics (Owner)</h4>
-                        <p className={styles.mcGoogleResponseDate}>
-                          {review.ownerResponseDaysAgo ? getDynamicDateText(review.ownerResponseDaysAgo) : review.ownerResponseDate}
-                        </p>
-                        <p className={styles.mcGoogleResponseText}>{review.ownerResponse}</p>
+                    <div className={styles.mcReviewContent}>
+                      <h3 className={styles.mcGoogleReviewerName}>{review.reviewer}</h3>
+                      <div className={styles.mcGoogleStarRating}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star 
+                            key={i} 
+                            className={styles.mcGoogleStar} 
+                            size={16} 
+                            fill="#FBBC05" 
+                            stroke="#FBBC05" 
+                          />
+                        ))}
                       </div>
-                    )}
-                  </div>
+                      <time className={styles.mcGoogleReviewDate}>
+                        {formatDaysAgo(review.baseDaysAgo)}
+                      </time>
+                      
+                      {review.reviewText && review.reviewText !== 'N/A' ? (
+                        <div className={styles.mcReviewTextWrapper}>
+                          <p className={`${styles.mcGoogleReviewText} ${!isExpanded && shouldTruncate ? styles.mcTruncated : ''}`}>
+                            {review.reviewText}
+                          </p>
+                          {mounted && shouldTruncate && (
+                            <button 
+                              onClick={() => toggleExpanded(index)}
+                              className={styles.mcReadMoreButton}
+                              aria-expanded={isExpanded}
+                              type="button"
+                            >
+                              {isExpanded ? 'Show less' : 'Read more'}
+                            </button>
+                          )}
+                        </div>
+                      ) : (
+                        <p className={styles.mcGoogleReviewText}>No detailed review provided.</p>
+                      )}
+                      
+                      {review.ownerResponse && (
+                        <div className={styles.mcGoogleOwnerResponse}>
+                          <div className={styles.mcGoogleResponseHeader}>
+                            <strong>MC Aesthetics (Owner)</strong>
+                            <time className={styles.mcGoogleResponseDate}>
+                              {review.ownerResponseDaysAgo 
+                                ? formatDaysAgo(review.ownerResponseDaysAgo) 
+                                : review.ownerResponseDate}
+                            </time>
+                          </div>
+                          <p className={styles.mcGoogleResponseText}>{review.ownerResponse}</p>
+                        </div>
+                      )}
+                    </div>
+                  </article>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        <SecondaryButton
-          text="›"
-          onClick={nextReview}
-          disabled={currentIndex === reviews.length - 1}
-          className={`${styles.mcCarouselArrowRight} ${styles.mcCustomButton}`}
-          ariaLabel="Next review"
-        />
+        {mounted && (
+          <SecondaryButton
+            text="›"
+            onClick={nextReview}
+            disabled={currentIndex === reviews.length - 1}
+            className={`${styles.mcCarouselArrowRight} ${styles.mcCustomButton}`}
+            ariaLabel="Next review"
+          />
+        )}
       </div>
 
       <div className={styles.mcCarouselDots}>
@@ -536,6 +569,7 @@ export default function Carousel() {
             onClick={() => goToReview(index)}
             aria-label={`Go to review ${index + 1}`}
             aria-current={index === currentIndex ? 'true' : 'false'}
+            type="button"
           />
         ))}
       </div>

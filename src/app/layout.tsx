@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <SpeedInsights/>
-        <Carousel />
+        {/* <Carousel /> */}
         <Footer2 />
         <Analytics />
       </body>
