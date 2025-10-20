@@ -720,53 +720,78 @@
   width: 1.5rem;
   height: 1.5rem;
 }
-
 /* ========================================
-   MOBILE MENU - CRITICAL Z-INDEX FIX
+   MOBILE MENU - FIXED VERSION
    ======================================== */
-.mobileMenu {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10000 !important;
-  background: linear-gradient(180deg, var(--cream) 0%, rgba(239, 237, 230, 0.98) 100%);
-  backdrop-filter: blur(20px);
-  box-shadow: -10px 0 50px rgba(91, 97, 91, 0.3);
-  transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-y: auto;
-  overflow-x: hidden;
-  /* CRITICAL: Hide on desktop */
-  display: none;
-}
 
-/* Show mobile menu only on mobile/tablet */
-@media (max-width: 1023px) {
+/* Hide mobile menu completely on desktop */
+@media (min-width: 1024px) {
   .mobileMenu {
-    display: block;
+    display: none !important;
+  }
+  
+  .mobileMenuButton {
+    display: none !important;
   }
 }
 
+/* Mobile menu - only show on mobile/tablet */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 85%;
+  max-width: 400px;
+  height: 100vh;
+  z-index: 9999;
+  background: var(--cream);
+  box-shadow: -10px 0 50px rgba(91, 97, 91, 0.3);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* When menu is open */
 .mobileMenu.open {
-  transform: translateX(0);
+  right: 0;
+}
+
+/* Overlay backdrop - FIXED */
+.mobileMenu::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(91, 97, 91, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, left 0s 0.4s;
+  pointer-events: none;
+}
+
+.mobileMenu.open::before {
+  left: 0;
+  opacity: 1;
   pointer-events: auto;
+  transition: opacity 0.4s ease-in-out, left 0s 0s;
 }
 
 .mobileMenuContent {
   position: relative;
-  z-index: 10001;
+  z-index: 1;
   width: 100%;
   min-height: 100vh;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  background: linear-gradient(180deg, var(--cream) 0%, rgba(239, 237, 230, 0.98) 100%);
+  gap: 1.5rem;
+  background: var(--cream);
 }
+
 
 .mobileMenuHeader {
   display: flex;
@@ -783,9 +808,8 @@
 }
 
 .logoMainText {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.025em;
   color: var(--primary-green);
   font-family: var(--font-primary);
   margin: 0;
@@ -809,8 +833,9 @@
   border-radius: var(--border-radius-md);
   color: var(--white);
   cursor: pointer;
-  transition: var(--transition-bounce);
+  transition: var(--transition-smooth);
   box-shadow: 0 4px 12px rgba(180, 166, 152, 0.3);
+  flex-shrink: 0;
 }
 
 .mobileCloseButton:hover {
@@ -818,7 +843,34 @@
   box-shadow: var(--shadow-glow);
 }
 
-/* ===== MOBILE NAVIGATION LIST ===== */
+/* Mobile Menu Button - Always visible on mobile */
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem;
+  background: linear-gradient(135deg, var(--primary-tan) 0%, #9d8f82 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-md);
+  color: var(--white);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.3);
+  position: relative;
+  z-index: 10000;
+}
+
+.mobileMenuButton:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.menuIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Mobile Navigation List */
 .mobileNavList {
   list-style: none;
   margin: 0;
@@ -853,6 +905,12 @@
   transform: translateX(4px);
 }
 
+.mobileNavLink.active {
+  background: linear-gradient(135deg, rgba(180, 166, 152, 0.3) 0%, rgba(180, 166, 152, 0.4) 100%);
+  border-color: var(--primary-tan);
+  font-weight: 700;
+}
+
 .mobileNavLink.featured {
   background: linear-gradient(135deg, var(--primary-tan) 0%, #9d8f82 100%);
   color: var(--white);
@@ -882,17 +940,32 @@
   border-color: var(--primary-tan);
 }
 
+.mobileDropdownButton.active {
+  background: linear-gradient(135deg, rgba(180, 166, 152, 0.3) 0%, rgba(180, 166, 152, 0.4) 100%);
+  border-color: var(--primary-tan);
+  font-weight: 700;
+}
+
 .mobileDropdownButton.featured {
   background: linear-gradient(135deg, var(--primary-tan) 0%, #9d8f82 100%);
   color: var(--white);
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.mobileDropdownContent {
+.chevronIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  transition: transform 0.3s ease;
+}
 
+.chevronIcon.rotated {
+  transform: rotate(180deg);
+}
+
+.mobileDropdownContent {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.3s ease-in-out;
 }
 
 .mobileDropdownContent.open {
@@ -911,6 +984,7 @@
 .mobileSubNavItem {
   margin-left: 1rem;
 }
+
 .mobileSubNavLink {
   display: flex;
   align-items: center;
@@ -930,6 +1004,12 @@
   background: linear-gradient(135deg, rgba(180, 166, 152, 0.15) 0%, rgba(180, 166, 152, 0.25) 100%);
   border-color: rgba(180, 166, 152, 0.3);
   transform: translateX(4px);
+}
+
+.mobileSubNavLink.active {
+  background: linear-gradient(135deg, rgba(180, 166, 152, 0.25) 0%, rgba(180, 166, 152, 0.35) 100%);
+  border-color: var(--primary-tan);
+  font-weight: 600;
 }
 
 .mobileSubNavLink.featured {
@@ -1002,8 +1082,8 @@
   transform: translateX(4px);
 }
 
-/* ===== MOBILE MENU FOOTER ===== */
-.mobileMenuFooter {
+/* Mobile Contact Section */
+.mobileContactSection {
   padding-top: 1.5rem;
   border-top: 2px solid var(--primary-tan);
   display: flex;
@@ -1011,34 +1091,30 @@
   gap: 1rem;
 }
 
-.mobileContactInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.mobileContactItem {
+.mobileContactSection .phoneLink {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
-  padding: 0.875rem 1rem;
+  padding: 1rem;
   background: rgba(180, 166, 152, 0.08);
   border: 1px solid rgba(180, 166, 152, 0.2);
   border-radius: var(--border-radius-md);
   color: var(--text-dark);
   text-decoration: none;
   transition: var(--transition-smooth);
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  font-weight: 600;
   font-family: var(--font-body);
 }
 
-.mobileContactItem:hover {
+.mobileContactSection .phoneLink:hover {
   background: linear-gradient(135deg, rgba(180, 166, 152, 0.15) 0%, rgba(180, 166, 152, 0.25) 100%);
   border-color: var(--primary-tan);
-  transform: translateX(4px);
+  transform: translateY(-2px);
 }
 
-.mobileBookButton {
+.mobileContactSection .bookButton {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1051,37 +1127,32 @@
   text-transform: uppercase;
   background: linear-gradient(135deg, var(--primary-tan) 0%, #9d8f82 100%);
   box-shadow: 0 6px 20px rgba(180, 166, 152, 0.4);
-  transition: var(--transition-bounce);
+  transition: var(--transition-smooth);
   text-decoration: none;
   font-size: 1rem;
   font-family: var(--font-body);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  position: relative;
-  overflow: hidden;
 }
 
-.mobileBookButton::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-  z-index: -1;
-}
-
-.mobileBookButton:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.mobileBookButton:hover {
+.mobileContactSection .bookButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(180, 166, 152, 0.6), var(--shadow-neon);
+  box-shadow: 0 10px 30px rgba(180, 166, 152, 0.6);
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .mobileMenu {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .logoMainText {
+    font-size: 1.25rem;
+  }
+  
+  .mobileMenuContent {
+    padding: 1rem;
+  }
 }
 
 /* ===== ACCESSIBILITY & FOCUS STATES ===== */
@@ -1098,14 +1169,11 @@
 .mobileSubDropdownButton:focus-visible,
 .mobileNestedSubNavLink:focus-visible,
 .bookButton:focus-visible,
-.mobileBookButton:focus-visible,
-.phoneLink:focus-visible,
-.mobileContactItem:focus-visible {
+.phoneLink:focus-visible {
   outline: 3px solid var(--primary-tan);
   outline-offset: 2px;
 }
 
-/* ===== REDUCED MOTION SUPPORT ===== */
 /* ===== REDUCED MOTION SUPPORT ===== */
 @media (prefers-reduced-motion: reduce) {
   .header *,
@@ -1182,48 +1250,6 @@
   overflow: hidden;
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (max-width: 1023px) {
-  .navContent {
-    padding: 0.75rem 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .topBarContent {
-    padding: 0.5rem 0;
-  }
-
-  .bookButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
-  }
-
-  .icon {
-    width: 1rem;
-    height: 1rem;
-  }
-}
-
-@media (max-width: 639px) {
-  .mobileMenu {
-    max-width: 100%;
-  }
-
-  .topBarActions {
-    gap: 0.5rem;
-  }
-
-  .phoneLink {
-    padding: 0.375rem 0.625rem;
-    font-size: 0.8125rem;
-  }
-
-  .bookButton {
-    padding: 0.5rem 0.875rem;
-  }
-}
-
 /* ===== ANIMATION PERFORMANCE OPTIMIZATION ===== */
 .header,
 .dropdown,
@@ -1238,22 +1264,6 @@
 .dropdownButton,
 .dropdownLink {
   will-change: transform, background-color;
-}
-
-/* ========================================
-   CRITICAL: FORCE HIDE MOBILE MENU ON DESKTOP
-   ======================================== */
-@media (min-width: 1024px) {
-  .mobileMenu {
-    display: none !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    opacity: 0 !important;
-  }
-  
-  .mobileMenuButton {
-    display: none !important;
-  }
 }
 
 /* ===== END OF STYLES ===== */
