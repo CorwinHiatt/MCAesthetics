@@ -37,7 +37,7 @@ const aestheticServicesData: ServiceCategory = {
   items: [
     {
       name: "Wrinkle Reducers",
-      imageUrl:"/images/DermalFiller.jpg",
+      imageUrl:"",
       meta: {
         title: "Wrinkle Reducers McMinnville - Smooth Fine Lines Naturally",
         description: "Soften crow’s feet, forehead lines, and frown lines with wrinkle reducers at MC Aesthetics in McMinnville. Non-surgical, natural results in just 15-30 minutes with no downtime.",
@@ -116,7 +116,7 @@ const aestheticServicesData: ServiceCategory = {
     },
     {
       name: "Dermal Fillers",
-      imageUrl: "/images/DermalFiller.jpg",
+      imageUrl: "",
       meta: {
         title: "Dermal Fillers McMinnville - Restore Volume and Youth",
         description: "Enhance facial volume and smooth deep nasolabial folds with dermal fillers at MC Aesthetics in McMinnville. Immediate, non-surgical results lasting 6-18 months.",

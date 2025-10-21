@@ -204,7 +204,10 @@ const NewHeader = () => {
           <div className={styles.topBarContainer}>
             <div className={styles.topBarContent}>
               <div className={styles.premiumBadge}>
-                <span className={styles.premiumText}>Premium Aesthetic Services</span>
+               <span className={styles.iconSparkle}>
+  <Sparkles aria-hidden="true" />
+  <span className="sr-only">Premium Aesthetic Services</span>
+</span>
               </div>
               <div className={styles.topBarActions}>
                 <a href="tel:9712672322" className={styles.phoneLink}>

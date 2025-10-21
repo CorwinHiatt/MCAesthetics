@@ -1,8 +1,4 @@
 // src/app/aesthetic-services/page.tsx
-// This file remains largely unchanged as it's the main listing page.
-// It uses slugs generated from service names for links.
-// Assumes data import from '@/data/services' (your aestheticServicesData).
-
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
@@ -11,86 +7,143 @@ import aestheticServicesData from '@/data/services';
 import styles from './AestheticServices.module.css';
 
 export default function AestheticServicesPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openAccordions, setOpenAccordions] = useState<Set<number>>(new Set());
 
   const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenAccordions((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
   };
-
-  // Debug: Log image URLs to console to verify paths
-  console.log('Service image URLs:', aestheticServicesData.items.map(s => s.imageUrl));
 
   return (
     <div className={styles.aestheticServicesPageWrapper}>
-      <h1 className={styles.aestheticServicesMainTitle}>Aesthetic Services at MC Aesthetics</h1>
-      <p className={styles.aestheticServicesIntroText}>
-        At MC Aesthetics, we offer a wide range of premium aesthetic services tailored to your unique needs. Explore our offerings below to find the perfect treatment for you. Click on each category to learn more.
-      </p>
+      <div className={styles.aestheticServicesHeader}>
+        <h1 className={styles.aestheticServicesMainTitle}>
+          Aesthetic Services at MC Aesthetics
+        </h1>
+        <p className={styles.aestheticServicesIntroText}>
+          At MC Aesthetics, we offer a wide range of premium aesthetic services tailored to your unique needs. 
+          Explore our offerings below to find the perfect treatment for you.
+        </p>
+      </div>
+
       <div className={styles.aestheticServicesAccordionContainer}>
-        {aestheticServicesData.items.map((service, index) => (
-          <div key={index} className={styles.aestheticServicesAccordionItem}>
-            <div
-              className={styles.aestheticServicesAccordionHeader}
-              onClick={() => toggleAccordion(index)}
-              role="button"
-              aria-expanded={openIndex === index}
-              aria-controls={`service-panel-${index}`}
-            >
-              <h2 className={styles.aestheticServicesAccordionTitle}>{service.name}</h2>
-              <span
-                className={`${styles.aestheticServicesAccordionIcon} ${openIndex === index ? styles.open : ''}`}
-              >
-                ▼
-              </span>
-            </div>
-            <div
-              id={`service-panel-${index}`}
-              className={`${styles.aestheticServicesAccordionContent} ${openIndex === index ? styles.open : ''}`}
-              style={{ maxHeight: openIndex === index ? '500px' : '0' }}
-            >
-              <div className={styles.aestheticServicesImageContainer}>
-                <Image
-                   src={service.imageUrl}
-                   alt={service.name}
-                   width={800}
-                   height={480}
-                   className={styles.aestheticServicesImage}
-                   priority={index === 0}
-                   onError={(e) => {
-                     console.error(`Image load error for ${service.imageUrl}`);
-                     // Set a fallback image to stop retries
-                     e.currentTarget.srcset = '';
-                     e.currentTarget.src = '/images/placeholder.webp'; // Ensure this exists in public/images/
-                   }}
-                 />
+        {aestheticServicesData.items.map((service, index) => {
+          // Skip "All Aesthetic Services" card
+          if (service.name === "All Aesthetic Services") return null;
+
+          const serviceSlug = service.name.toLowerCase().replace(/\s+/g, '-');
+          const isOpen = openAccordions.has(index);
+          const hasNested = service.nested && service.nested.length > 0;
+
+          return (
+            <div key={index} className={styles.aestheticServicesAccordionItem}>
+              {/* ACCORDION HEADER */}
+              <div className={styles.aestheticServicesAccordionHeader}>
+                {/* Left side: Image + Title */}
+                <Link
+                  href={`/aesthetic-services/${serviceSlug}`}
+                  className={styles.aestheticServicesAccordionTitleWrapper}
+                >
+                  {service.imageUrl && service.imageUrl.trim() !== '' && (
+                    <div className={styles.aestheticServicesAccordionImageWrapper}>
+                      <Image
+                        src={service.imageUrl}
+                        alt={service.name}
+                        width={80}
+                        height={80}
+                        className={styles.aestheticServicesAccordionImage}
+                      />
+                    </div>
+                  )}
+                  <div className={styles.aestheticServicesAccordionTitleContent}>
+                    <h2 className={styles.aestheticServicesAccordionTitle}>
+                      {service.name}
+                    </h2>
+                    <p className={styles.aestheticServicesAccordionDescription}>
+                      {service.meta.description}
+                    </p>
+                  </div>
+                </Link>
+
+                {/* Right side: Toggle button (only if nested items exist) */}
+                {hasNested && (
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className={styles.aestheticServicesAccordionToggle}
+                    aria-expanded={isOpen}
+                    aria-label={`Toggle ${service.name} nested services`}
+                  >
+                    <svg
+                      className={`${styles.aestheticServicesAccordionIcon} ${
+                        isOpen ? styles.aestheticServicesAccordionIconOpen : ''
+                      }`}
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                )}
               </div>
-              <p className={styles.aestheticServicesAccordionDescription}>{service.meta.description}</p>
-              <Link
-                href={`/aesthetic-services/${encodeURIComponent(service.name.toLowerCase().replace(/\s+/g, '-'))}`}
-                className={styles.aestheticServicesAccordionLink}
-              >
-                Learn More About {service.name}
-              </Link>
-              {service.nested && (
-                <div className="mt-3">
-                  <h3 className="text-md font-medium text-gray-700 mb-2">Options Available:</h3>
-                  <ul className="space-y-2">
-                    {service.nested.map((item, subIndex) => (
-                      <li key={subIndex} className="text-sm text-gray-600">
+
+              {/* ACCORDION CONTENT (Nested Products) */}
+              {hasNested && (
+                <div
+                  className={`${styles.aestheticServicesAccordionContent} ${
+                    isOpen ? styles.aestheticServicesAccordionContentOpen : ''
+                  }`}
+                >
+                  <div className={styles.aestheticServicesNestedList}>
+                    {service.nested!.map((nestedItem, nestedIndex) => {
+                      const productSlug = nestedItem.name.toLowerCase().replace(/\s+/g, '-');
+                      
+                      return (
                         <Link
-                          href={`/aesthetic-services/${encodeURIComponent(service.name.toLowerCase().replace(/\s+/g, '-'))}/${encodeURIComponent(item.name.toLowerCase().replace(/\s+/g, '-'))}`}
-                          className="hover:text-blue-500 transition-colors"
+                          key={nestedIndex}
+                          href={`/aesthetic-services/${serviceSlug}/${productSlug}`}
+                          className={styles.aestheticServicesNestedItem}
                         >
-                          {item.name}
+                          {nestedItem.imageUrl && nestedItem.imageUrl.trim() !== '' && (
+                            <div className={styles.aestheticServicesNestedImageWrapper}>
+                              <Image
+                                src={nestedItem.imageUrl}
+                                alt={nestedItem.name}
+                                width={60}
+                                height={60}
+                                className={styles.aestheticServicesNestedImage}
+                              />
+                            </div>
+                          )}
+                          <div className={styles.aestheticServicesNestedContent}>
+                            <h3 className={styles.aestheticServicesNestedTitle}>
+                              {nestedItem.name}
+                            </h3>
+                            <p className={styles.aestheticServicesNestedDescription}>
+                              {nestedItem.meta.description}
+                            </p>
+                          </div>
                         </Link>
-                      </li>
-                    ))}
-                  </ul>
+                      );
+                    })}
+                  </div>
                 </div>
               )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
