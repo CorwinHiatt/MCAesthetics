@@ -694,9 +694,7 @@
 }
 
 /* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
+
 
 /* Scroll margin for anchor links */
 #membership {

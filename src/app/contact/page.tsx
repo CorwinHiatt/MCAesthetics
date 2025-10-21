@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
   openGraph: {
     title: "Contact MC Aesthetics in McMinnville, OR",
-    description: "Reach out to MC Aesthetics for expert skin care and laser treatments in McMinnville. We’re here to help!",
+    description: "Reach out to MC Aesthetics for expert skin care and laser treatments in McMinnville. We're here to help!",
     images: [
       {
         url: "/images/contactPhoto.png",
