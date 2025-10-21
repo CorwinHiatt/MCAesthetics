@@ -1,43 +1,40 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ChevronDown, ChevronRight, Menu, X, Phone, Calendar } from 'lucide-react';
-import styles from './NewHeader.module.css';
+import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X, Phone, ChevronDown, ChevronRight, Sparkles, Zap } from 'lucide-react';
+import styles from './NewHeaderStyles.module.css';
 
-interface SubItem {
-  name: string;
-  href: string;
-}
+const NewHeader = () => {
+  const pathname = usePathname();
 
-interface DropdownItem {
-  name: string;
-  href: string;
-  subitems?: SubItem[];
-}
-
-interface NavigationItem {
-  name: string;
-  href: string;
-  dropdown?: DropdownItem[];
-}
-
-const NewHeader: React.FC = () => {
-  const router = useRouter();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [openMobileSubDropdown, setOpenMobileSubDropdown] = useState<string | null>(null);
-  const [isMounted, setIsMounted] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const navigationItems: NavigationItem[] = [
+  const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Active state logic
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
+  const isActiveSection = (basePath: string) => {
+    if (basePath === '/' && pathname !== '/') return false;
+    if (basePath === '/') return pathname === '/';
+    return pathname.startsWith(basePath);
+  };
+
+  const navigationItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Coolpeel', href: '/coolpeel' },
+    { name: 'CoolPeel', href: '/coolpeel', featured: true },
     {
       name: 'Aesthetic Services',
       href: '/aesthetic-services/all-aesthetic-services',
@@ -68,14 +65,14 @@ const NewHeader: React.FC = () => {
         { name: 'Sclerotherapy', href: '/aesthetic-services/sclerotherapy' },
         { name: 'Chemical Peels', href: '/aesthetic-services/chemical-peels-perfect-derma' },
         { name: 'Scarlet RF Microneedling', href: '/aesthetic-services/scarlet-rf-microneedling' },
-        { name: 'CoolPeel CO2 Laser', href: '/aesthetic-services/coolpeel-co2-laser' },
+        { name: 'CoolPeel CO2 Laser', href: '/aesthetic-services/coolpeel-co2-laser', featured: true },
         { name: 'All Services', href: '/aesthetic-services/all-aesthetic-services' },
       ],
     },
     {
       name: 'Laser Hair Removal',
       href: '/laser-hair',
-      dropdown: [{ name: 'Membership', href: '/laser-hair/membership' }],
+      dropdown: [{ name: 'Membership', href: '/laser-hair#membership' }],
     },
     { name: 'ZO Skin Health', href: '/zo-skin-health' },
     { name: 'Financing', href: '/financing' },
@@ -84,83 +81,139 @@ const NewHeader: React.FC = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
+  // Scroll handler
   useEffect(() => {
-    setIsMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Body scroll lock for mobile menu
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
+  // Click outside handler for desktop dropdowns
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+
+      if (headerRef.current && !headerRef.current.contains(target)) {
         setOpenDropdown(null);
         setOpenSubDropdown(null);
       }
     };
+
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Click outside handler for mobile menu
   useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isMobileMenuOpen]);
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
 
-  const handleNavClick = (href: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    router.push(href);
-  };
+      if (
+        isMenuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(target) &&
+        !target.closest(`.${styles.mobileMenuButton}`)
+      ) {
+        closeMenu();
+      }
+    };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((open) => !open);
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
     setOpenMobileDropdown(null);
     setOpenMobileSubDropdown(null);
   };
 
-  const toggleMobileDropdown = (name: string) => {
-    setOpenMobileDropdown((open) => (open === name ? null : name));
-    setOpenMobileSubDropdown(null);
-  };
-
-  const toggleMobileSubDropdown = (name: string) => {
-    setOpenMobileSubDropdown((open) => (open === name ? null : name));
+  const toggleMenu = () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      setIsMenuOpen(true);
+    }
   };
 
   const handleDropdownEnter = (name: string) => {
     setOpenDropdown(name);
     setOpenSubDropdown(null);
   };
+
   const handleDropdownLeave = () => {
-    setTimeout(() => { setOpenDropdown(null); setOpenSubDropdown(null); }, 150);
+    setOpenDropdown(null);
+    setOpenSubDropdown(null);
   };
-  const handleSubDropdownEnter = (name: string) => setOpenSubDropdown(name);
-  const handleSubDropdownLeave = () => setTimeout(() => setOpenSubDropdown(null), 150);
+
+  const handleSubDropdownEnter = (name: string) => {
+    setOpenSubDropdown(name);
+  };
+
+  const handleSubDropdownLeave = () => {
+    setOpenSubDropdown(null);
+  };
+
+  const toggleMobileDropdown = (name: string) => {
+    setOpenMobileDropdown(openMobileDropdown === name ? null : name);
+    setOpenMobileSubDropdown(null);
+  };
+
+  const toggleMobileSubDropdown = (name: string) => {
+    setOpenMobileSubDropdown(openMobileSubDropdown === name ? null : name);
+  };
+
+  const handleNavClick = () => {
+    closeMenu();
+    setOpenDropdown(null);
+    setOpenSubDropdown(null);
+  };
 
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      {/* Futuristic Background Elements */}
+      <div className={styles.headerBackground}>
+        <div className={styles.gridPattern}></div>
+        <div className={styles.glowOrb1}></div>
+        <div className={styles.glowOrb2}></div>
+      </div>
+
       {/* Top Bar */}
       <div className={styles.topBar}>
         <div className={styles.topBarContainer}>
           <div className={styles.topBarContent}>
             <div className={styles.premiumBadge}>
-              <span className={styles.premiumText}>
-                Professional Aesthetic Services
-              </span>
+              <Sparkles className={styles.iconSparkle} aria-hidden="true" />
+              <span className={styles.premiumText}>Premium Aesthetic Services</span>
             </div>
+
             <div className={styles.topBarActions}>
-              <a href="tel:+19712672322" className={styles.phoneLink}>
-                <Phone className={styles.icon} />
-                <span className={styles.phoneNumber}>
-                  (971) 267-2322
-                </span>
+              <a href="tel:9712672322" className={styles.phoneLink}>
+                <Phone className={styles.icon} aria-hidden="true" />
+                <span className={styles.phoneNumber}>(971) 267-2322</span>
               </a>
               <a
                 href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
-                className={styles.bookButton}
                 target="_blank"
                 rel="noopener noreferrer"
+                className={styles.bookButton}
               >
-                <Calendar className={styles.icon} />
-                Book Now
+                <Zap className={styles.icon} aria-hidden="true" />
+                <span>Book Now</span>
               </a>
             </div>
           </div>
@@ -170,89 +223,103 @@ const NewHeader: React.FC = () => {
       {/* Main Navigation */}
       <div className={styles.mainNav}>
         <div className={styles.navContent}>
-          <Link href="/" className={styles.logoLink}>
+          {/* Logo */}
+          <Link href="/" className={styles.logoLink} onClick={handleNavClick}>
             <div className={styles.logoContainer}>
+              <div className={styles.logoGlow}></div>
               <Image
                 src="/images/logo.png"
-                alt="MC Aesthetics Logo"
-                width={72}
-                height={72}
+                alt="MC Aesthetics - Medical Spa & Wellness"
                 className={styles.logoImage}
+                width={200}
+                height={80}
                 priority
               />
             </div>
+            <div className={styles.logoTextContainer}>
+              <span className={styles.logoTagline}>Where Beauty Meets Science</span>
+            </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className={styles.desktopNav} ref={dropdownRef}>
+          {/* Desktop Navigation */}
+          <nav className={styles.desktopNav} aria-label="Main navigation">
             {navigationItems.map((item) => (
-              <div key={item.name} className={styles.navItem}>
-                {!isMounted ? (
-                  <Link href={item.href} className={styles.navLink}>
-                    {item.name}
-                  </Link>
-                ) : item.href === '/zo-skin-health' || item.href === '/financing' ? (
-                  <a
-                    href={item.href}
-                    onClick={(e) => handleNavClick(item.href, e)}
-                    className={styles.navLink}
-                  >
-                    {item.name}
-                  </a>
-                ) : item.dropdown ? (
-                  <div
-                    onMouseEnter={() => handleDropdownEnter(item.name)}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <button className={styles.navButton}>
-                      {item.name}
-                      <ChevronDown className={styles.chevronIcon} />
-                    </button>
-                    <div
-                      className={`${styles.dropdown} ${
-                        openDropdown === item.name ? styles.visible : ''
-                      }`}
+              <div
+                key={item.name}
+                className={styles.navItem}
+                onMouseEnter={() => item.dropdown && handleDropdownEnter(item.name)}
+                onMouseLeave={handleDropdownLeave}
+              >
+                {item.dropdown ? (
+                  <>
+                    <button
+                      type="button"
+                      className={`${styles.navButton} ${isActiveSection(item.href.split('#')[0]) ? styles.active : ''}`}
+                      aria-expanded={openDropdown === item.name}
+                      aria-haspopup="true"
                     >
-                      {item.dropdown.map((di) => (
-                        <div key={di.name} className={styles.dropdownItem}>
-                          {di.subitems ? (
-                            <div
-                              onMouseEnter={() => handleSubDropdownEnter(di.name)}
-                              onMouseLeave={handleSubDropdownLeave}
-                            >
-                              <div className={styles.dropdownButton}>
-                                <Link href={di.href} className="flex-1">
-                                  {di.name}
-                                </Link>
-                                <ChevronRight className={styles.chevronIcon} />
-                              </div>
-                              <div
-                                className={`${styles.subDropdown} ${
-                                  openSubDropdown === di.name ? styles.visible : ''
-                                }`}
+                      {item.name}
+                      <ChevronDown
+                        className={`${styles.chevronIcon} ${openDropdown === item.name ? styles.rotated : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
+                      <div className={styles.dropdownGlow}></div>
+                      {item.dropdown.map((dropItem) => (
+                        <div
+                          key={dropItem.name}
+                          className={styles.dropdownItem}
+                          onMouseEnter={() => dropItem.subitems && handleSubDropdownEnter(dropItem.name)}
+                          onMouseLeave={handleSubDropdownLeave}
+                        >
+                          {dropItem.subitems ? (
+                            <>
+                              <button
+                                type="button"
+                                className={`${styles.dropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
+                                aria-expanded={openSubDropdown === dropItem.name}
+                                aria-haspopup="true"
                               >
-                                {di.subitems.map((sub) => (
+                                {dropItem.name}
+                                <ChevronRight className={styles.chevronIcon} aria-hidden="true" />
+                              </button>
+                              <div className={`${styles.subDropdown} ${openSubDropdown === dropItem.name ? styles.visible : ''}`}>
+                                <div className={styles.subDropdownGlow}></div>
+                                {dropItem.subitems.map((subItem) => (
                                   <Link
-                                    key={sub.name}
-                                    href={sub.href}
-                                    className={styles.subDropdownLink}
+                                    key={subItem.name}
+                                    href={subItem.href}
+                                    className={`${styles.subDropdownLink} ${isActive(subItem.href) ? styles.active : ''}`}
+                                    onClick={handleNavClick}
                                   >
-                                    {sub.name}
+                                    <span className={styles.linkAccent}></span>
+                                    {subItem.name}
                                   </Link>
                                 ))}
                               </div>
-                            </div>
+                            </>
                           ) : (
-                            <Link href={di.href} className={styles.dropdownLink}>
-                              {di.name}
+                            <Link
+                              href={dropItem.href}
+                              className={`${styles.dropdownLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
+                              onClick={handleNavClick}
+                            >
+                              {dropItem.featured && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
+                              <span className={styles.linkAccent}></span>
+                              {dropItem.name}
                             </Link>
                           )}
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </>
                 ) : (
-                  <Link href={item.href} className={styles.navLink}>  
+                  <Link
+                    href={item.href}
+                    className={`${styles.navLink} ${isActive(item.href) ? styles.active : ''}`}
+                    onClick={handleNavClick}
+                  >
                     {item.name}
                   </Link>
                 )}
@@ -262,132 +329,91 @@ const NewHeader: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={toggleMobileMenu}
+            type="button"
+            onClick={toggleMenu}
             className={styles.mobileMenuButton}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
-            {isMobileMenuOpen ? (
-              <X className={styles.menuIcon} />
+            {isMenuOpen ? (
+              <X className={styles.menuIcon} aria-hidden="true" />
             ) : (
-              <Menu className={styles.menuIcon} />
+              <Menu className={styles.menuIcon} aria-hidden="true" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Menu */}
       <div
-        className={`${styles.mobileMenu} ${
-          isMobileMenuOpen ? styles.open : ''
-        }`}
+        id="mobile-menu"
+        ref={mobileMenuRef}
+        className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}
+        aria-hidden={!isMenuOpen}
       >
         <div className={styles.mobileMenuContent}>
           <div className={styles.mobileMenuHeader}>
-            <Link
-              href="/"
-              className={styles.logoLink}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <Image
-                src="/images/logo.png"
-                alt="MC Aesthetics Logo"
-                width={56}
-                height={56}
-                priority
-                className={styles.logoImage}
-              />
-            </Link>
+            <div className={styles.mobileLogoSection}>
+              <h2 className={styles.logoMainText}>MC Aesthetics</h2>
+              <p className={styles.logoTaglineMobile}>Where Beauty Meets Science</p>
+            </div>
             <button
-              onClick={() => setIsMobileMenuOpen(false)}
+              type="button"
+              onClick={closeMenu}
               className={styles.mobileCloseButton}
+              aria-label="Close menu"
             >
-              <X className={styles.menuIcon} />
+              <X className={styles.menuIcon} aria-hidden="true" />
             </button>
           </div>
-          <nav>
+
+          <nav aria-label="Mobile navigation">
             <ul className={styles.mobileNavList}>
               {navigationItems.map((item) => (
                 <li key={item.name} className={styles.mobileNavItem}>
-                  {item.href === '/zo-skin-health' ||
-                  item.href === '/financing' ? (
-                    <a
-                      href={item.href}
-                      onClick={(e) => handleNavClick(item.href, e)}
-                      className={styles.mobileNavLink}
-                    >
-                      {item.name}
-                    </a>
-                  ) : item.dropdown ? (
+                  {item.dropdown ? (
                     <>
                       <button
+                        type="button"
                         onClick={() => toggleMobileDropdown(item.name)}
-                        className={styles.mobileDropdownButton}
+                        className={`${styles.mobileDropdownButton} ${isActiveSection(item.href.split('#')[0]) ? styles.active : ''}`}
+                        aria-expanded={openMobileDropdown === item.name}
                       >
                         {item.name}
                         <ChevronDown
-                          className={`${styles.chevronIcon} ${
-                            openMobileDropdown === item.name
-                              ? styles.rotated
-                              : ''
-                          }`}
+                          className={`${styles.chevronIcon} ${openMobileDropdown === item.name ? styles.rotated : ''}`}
+                          aria-hidden="true"
                         />
                       </button>
-                      <div
-                        className={`${styles.mobileDropdownContent} ${
-                          openMobileDropdown === item.name
-                            ? styles.open
-                            : ''
-                        }`}
-                      >
+                      <div className={`${styles.mobileDropdownContent} ${openMobileDropdown === item.name ? styles.open : ''}`}>
                         <ul className={styles.mobileSubNavList}>
-                          {item.dropdown.map((di) => (
-                            <li
-                              key={di.name}
-                              className={styles.mobileSubNavItem}
-                            >
-                              {di.subitems ? (
+                          {item.dropdown.map((dropItem) => (
+                            <li key={dropItem.name} className={styles.mobileSubNavItem}>
+                              {dropItem.subitems ? (
                                 <>
                                   <button
-                                    onClick={() =>
-                                      toggleMobileSubDropdown(di.name)
-                                    }
-                                    className={styles.mobileDropdownButton}
+                                    type="button"
+                                    onClick={() => toggleMobileSubDropdown(dropItem.name)}
+                                    className={`${styles.mobileDropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
+                                    aria-expanded={openMobileSubDropdown === dropItem.name}
                                   >
-                                    {di.name}
+                                    {dropItem.name}
                                     <ChevronDown
-                                      className={`${styles.chevronIcon} ${
-                                        openMobileSubDropdown === di.name
-                                          ? styles.rotated
-                                          : ''
-                                      }`}
+                                      className={`${styles.chevronIcon} ${openMobileSubDropdown === dropItem.name ? styles.rotated : ''}`}
+                                      aria-hidden="true"
                                     />
                                   </button>
-                                  <div
-                                    className={`${styles.mobileDropdownContent} ${
-                                      openMobileSubDropdown === di.name
-                                        ? styles.open
-                                        : ''
-                                    }`}
-                                  >
-                                    <ul
-                                      className={styles.mobileSubNavList}
-                                    >
-                                      {di.subitems.map((sub) => (
-                                        <li
-                                          key={sub.name}
-                                          className={
-                                            styles.mobileSubNavItem
-                                          }
-                                        >
+                                  <div className={`${styles.mobileDropdownContent} ${openMobileSubDropdown === dropItem.name ? styles.open : ''}`}>
+                                    <ul className={styles.mobileSubNavList}>
+                                      {dropItem.subitems.map((subItem) => (
+                                        <li key={subItem.name} className={styles.mobileSubNavItem}>
                                           <Link
-                                            href={sub.href}
-                                            className={
-                                              styles.mobileSubNavLink
-                                            }
-                                            onClick={() =>
-                                              setIsMobileMenuOpen(false)
-                                            }
+                                            href={subItem.href}
+                                            onClick={handleNavClick}
+                                            className={`${styles.mobileSubNavLink} ${isActive(subItem.href) ? styles.active : ''}`}
                                           >
-                                            {sub.name}
+                                            {subItem.name}
                                           </Link>
                                         </li>
                                       ))}
@@ -396,13 +422,12 @@ const NewHeader: React.FC = () => {
                                 </>
                               ) : (
                                 <Link
-                                  href={di.href}
-                                  className={styles.mobileSubNavLink}
-                                  onClick={() =>
-                                    setIsMobileMenuOpen(false)
-                                  }
+                                  href={dropItem.href}
+                                  onClick={handleNavClick}
+                                  className={`${styles.mobileSubNavLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
                                 >
-                                  {di.name}
+                                  {dropItem.featured && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
+                                  {dropItem.name}
                                 </Link>
                               )}
                             </li>
@@ -413,8 +438,8 @@ const NewHeader: React.FC = () => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={styles.mobileNavLink}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={handleNavClick}
+                      className={`${styles.mobileNavLink} ${isActive(item.href) ? styles.active : ''}`}
                     >
                       {item.name}
                     </Link>
@@ -423,20 +448,22 @@ const NewHeader: React.FC = () => {
               ))}
             </ul>
           </nav>
+
+          {/* Mobile Contact Section */}
           <div className={styles.mobileContactSection}>
-            <a href="tel:+19712672322" className={styles.phoneLink}>
-              <Phone className={styles.icon} />
+            <a href="tel:9712672322" className={styles.phoneLink} onClick={closeMenu}>
+              <Phone className={styles.icon} aria-hidden="true" />
               <span>(971) 267-2322</span>
             </a>
             <a
               href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
-              className={styles.bookButton}
-              onClick={() => setIsMobileMenuOpen(false)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={closeMenu}
+              className={styles.bookButton}
             >
-              <Calendar className={styles.icon} />
-              Book Now
+              <Zap className={styles.icon} aria-hidden="true" />
+              <span>Book Appointment</span>
             </a>
           </div>
         </div>

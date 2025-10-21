@@ -44,7 +44,7 @@ export async function GET() {
     { path: '/aesthetic-services/dermal-fillers/revanesse', priority: '0.7', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers/belotero', priority: '0.7', changefreq: 'monthly' },
     { path: '/aesthetic-services/dermal-fillers/radiesse', priority: '0.7', changefreq: 'monthly' },
-    { path: '/laser-hair/membership', priority: '0.7', changefreq: 'monthly' },
+    // { path: '/laser-hair/membership', priority: '0.7', changefreq: 'monthly' },
   ];
   
   // Combine all routes

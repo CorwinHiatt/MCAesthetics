@@ -1,7 +1,6 @@
 // app/layout.tsx
 import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
-import Carousel from './components/features/Carousel';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -54,7 +53,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
 };
-// Load Roboto with display swap and preload
+
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -78,16 +77,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
 
         {/* Preconnect & Preload Perplexity Font */}
-        <link rel="preconnect" href="https://r2cdn.perplexity.ai" crossOrigin="" />
+        <link rel="preconnect" href="https://r2cdn.perplexity.ai" crossOrigin="anonymous" />
         <link
           rel="preload"
           href="https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2"
           as="font"
           type="font/woff2"
-          crossOrigin=""
+          crossOrigin="anonymous"
         />
 
-        {/* Google Analytics (deferred via next/script) */}
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Z090FBSXB2"
           strategy="lazyOnload"
@@ -100,15 +99,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-Z090FBSXB2');
           `}
         </Script>
-        <script src="https://analytics.ahrefs.com/analytics.js" data-key="K1JZYgCL+MBzhPTJHCPJ8w" async></script>
+        <Script src="https://analytics.ahrefs.com/analytics.js" data-key="K1JZYgCL+MBzhPTJHCPJ8w" strategy="lazyOnload" />
       </head>
-      <body className="min-h-screen bg-white" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <NewHeader />
-        <main className="mainContent" style={{ marginTop: '180px' }}>
+        <main>
           {children}
         </main>
         <SpeedInsights/>
-        <Carousel />
         <Footer2 />
         <Analytics />
       </body>

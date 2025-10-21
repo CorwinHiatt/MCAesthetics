@@ -1,65 +1,40 @@
-import type { Metadata } from 'next';
-import styles from './GiftCards.module.css';
+'use client';
+
+import React from 'react';
 import Image from 'next/image';
+import PrimaryButton from '@/app/components/buttons/PrimaryButton';
+import styles from './GiftCards.module.css';
 
-export const metadata: Metadata = {
-  title: "Gift Cards | MC Aesthetics McMinnville, OR",
-  description: "Purchase MC Aesthetics gift cards in McMinnville, OR for premium skin care and laser hair removal services. The perfect gift for beauty and relaxation!",
-  keywords: "MC Aesthetics gift cards, McMinnville skin care gifts, Yamhill County aesthetics gift card, laser hair removal gift, beauty gift McMinnville",
-  metadataBase: new URL("https://www.mcaestheticsclinic.com/"),
-  openGraph: {
-    title: "Gift Cards | MC Aesthetics McMinnville, OR",
-    description: "Give the gift of beauty with MC Aesthetics gift cards in McMinnville. Perfect for skin care treatments and laser services!",
-    images: [
-      {
-        url: "/images/giftCardGrafic.png", // Using the existing image from your code
-        width: 800,
-        height: 400,
-        alt: "Luxurious Gift Card Illustration at MC Aesthetics in McMinnville",
-      },
-    ],
-    url: "https://www.mcaestheticsclinic.com/gift-cards",
-    type: "website",
-    siteName: "MC Aesthetics McMinnville",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Gift Cards | MC Aesthetics McMinnville, OR",
-    description: "Surprise someone with MC Aesthetics gift cards in McMinnville for premium beauty and skin care treatments. Buy now!",
-    images: ["/images/giftCardGrafic.png"],
-  },
-};
+const GiftCardsClient = () => {
+  const handleBuyGiftCard = () => {
+    window.open('https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type', '_blank', 'noopener,noreferrer');
+  };
 
-export default function GiftCardsPage() {
   return (
     <div className={styles.mcaGiftPageWrapper}>
-      {/* Enhanced Hero Section with Elegant, Curved Top and Luxury Accents */}
-      <section className={styles.mcaGiftHero}>
+      <div className={styles.mcaGiftHero}>
         <h1 className={styles.mcaGiftMainTitle}>Gift Cards at MC Aesthetics</h1>
         <p className={styles.mcaGiftTagline}>Your Road to Beauty – Gift Elegance Today</p>
-        {/* Placeholder Image with Curved, Gold-Accented Border */}
         <div className={styles.mcaGiftHeroImageHolder}>
           <Image
-            src="/images/giftCardGrafic.png" // Corrected spelling from your code
+            src="/images/giftCardGrafic.png"
             alt="Luxurious Gift Card Illustration at MC Aesthetics in McMinnville"
             className={styles.mcaGiftImage}
             width={800}
             height={400}
+            priority
           />
           <div className={styles.mcaGiftImageBorderAccent}></div>
         </div>
-      </section>
+      </div>
 
-      {/* Introduction Text – Concise and Promotional */}
-      <section className={styles.mcaGiftContentSection}>
+      <div className={styles.mcaGiftContentSection}>
         <p className={styles.mcaGiftIntroText}>
           Looking for the perfect gift for someone special? MC Aesthetics offers gift cards that can be used for a variety of our premium services, including laser hair removal, skin care treatments, and more. Give the gift of beauty and relaxation with a personalized touch – unlock radiant confidence!
         </p>
-      </section>
+      </div>
 
-      {/* New: Why Choose Section – Promotional Benefits List */}
-      <section className={styles.mcaGiftWhySection}>
+      <div className={styles.mcaGiftWhySection}>
         <h2 className={styles.mcaGiftSubTitle}>Why Choose MC Aesthetics Gift Cards?</h2>
         <ul className={styles.mcaGiftBenefitsList}>
           <li>Flexible amounts starting from $50 – perfect for any budget.</li>
@@ -67,32 +42,35 @@ export default function GiftCardsPage() {
           <li>Instant digital delivery or elegant physical cards for that luxury feel.</li>
           <li>Never expires – timeless beauty at your convenience!</li>
         </ul>
-      </section>
+      </div>
 
-      {/* New: How It Works Section – Concise Steps */}
-      <section className={styles.mcaGiftHowSection}>
+      <div className={styles.mcaGiftHowSection}>
         <h2 className={styles.mcaGiftSubTitle}>How It Works</h2>
         <ol className={styles.mcaGiftStepsList}>
           <li>Select your amount and personalize with a message.</li>
           <li>Purchase securely through our platform.</li>
           <li>Redeem online or in-person at our McMinnville location.</li>
         </ol>
-      </section>
+      </div>
 
-      {/* Call to Action – Amplified for Promotion */}
       <div className={styles.mcaGiftCallToAction}>
+        <h2 className={styles.mcaGiftCtaTitle}>Ready to Give the Gift of Beauty?</h2>
         <p className={styles.mcaGiftCtaText}>
           Treat someone (or yourself!) to the ultimate in beauty and wellness. Purchase or redeem your MC Aesthetics gift card today!
         </p>
-        <a
-          href="https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.mcaGiftCtaButton}
-        >
-          Buy a Gift Card Now
-        </a>
+        <div className={styles.mcaGiftCtaButtonWrapper}>
+          <PrimaryButton 
+            text="Buy a Gift Card Now"
+            onClick={handleBuyGiftCard}
+            ariaLabel="Purchase MC Aesthetics Gift Card"
+          />
+        </div>
+        <p className={styles.mcaGiftCtaSubtext}>
+          Questions? <a href="/contact" className={styles.mcaGiftCtaLink}>Contact us</a> anytime—we&apos;re excited to help you celebrate!
+        </p>
       </div>
     </div>
   );
-}
+};
+
+export default GiftCardsClient;

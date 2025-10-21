@@ -1,335 +1,377 @@
 /* AestheticServices.module.css */
-/* Restyled for elegance and professionalism, matching the MC Aesthetics brand theme. */
-/* Uses Playfair Display font, gold accents (#d4af37), dark blues (#2c3e50), and subtle shadows for a luxurious feel. */
-/* Ensures compatibility with dynamic routes by not altering structural classes, only enhancing styles. */
-/* Careful with image handling: Preserves existing logic for images (which may serve as titles for products), adding elegant framing without breaking paths or onError handling. */
+/* MC AESTHETICS BRANDED - Accordion Layout */
 
-/* Container for the entire Aesthetic Services page */
+/* ============================================
+   PAGE WRAPPER
+   ============================================ */
 .aestheticServicesPageWrapper {
   width: 100%;
   min-height: 100vh;
-  background-color: #f9f9f9;
+  background-color: #EFEDE6;
   padding: 3rem 1rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Main title for the page */
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.aestheticServicesHeader {
+  max-width: 60rem;
+  width: 100%;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
 .aestheticServicesMainTitle {
   font-size: 2.5rem;
   font-weight: 700;
   color: #2c3e50;
-  margin-bottom: 2rem;
-  text-align: center;
+  margin-bottom: 1.5rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  font-family: 'Merilux', 'Playfair Display', serif;
+}
+
+.aestheticServicesIntroText {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* ============================================
+   ACCORDION CONTAINER
+   ============================================ */
+.aestheticServicesAccordionContainer {
+  max-width: 60rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ============================================
+   ACCORDION ITEM
+   ============================================ */
+.aestheticServicesAccordionItem {
+  background-color: #ffffff;
+  border: 2px solid #C5C1BD;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(180, 166, 152, 0.1);
+}
+
+.aestheticServicesAccordionItem:hover {
+  box-shadow: 0 4px 16px rgba(180, 166, 152, 0.2);
+  border-color: #B4A698;
+}
+
+/* ============================================
+   ACCORDION HEADER
+   ============================================ */
+.aestheticServicesAccordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.aestheticServicesAccordionTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.aestheticServicesAccordionTitleWrapper:hover {
+  opacity: 0.8;
+}
+
+.aestheticServicesAccordionImageWrapper {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #EFEDE6;
+}
+
+.aestheticServicesAccordionImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aestheticServicesAccordionTitleContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.aestheticServicesAccordionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5B615B;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  letter-spacing: 0.03em;
+}
+
+.aestheticServicesAccordionDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* ============================================
+   ACCORDION TOGGLE BUTTON
+   ============================================ */
+.aestheticServicesAccordionToggle {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #EFEDE6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #5B615B;
+}
+
+.aestheticServicesAccordionToggle:hover {
+  background-color: #B4A698;
+  color: #ffffff;
+}
+
+.aestheticServicesAccordionToggle:focus {
+  outline: 3px solid #B4A698;
+  outline-offset: 2px;
+}
+
+.aestheticServicesAccordionIcon {
+  transition: transform 0.3s ease;
+}
+
+.aestheticServicesAccordionIconOpen {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   ACCORDION CONTENT (Collapsible)
+   ============================================ */
+.aestheticServicesAccordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background-color: #EFEDE6;
+}
+
+.aestheticServicesAccordionContentOpen {
+  max-height: 2000px;
+  padding: 1.5rem;
+}
+
+/* ============================================
+   NESTED LIST
+   ============================================ */
+.aestheticServicesNestedList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.aestheticServicesNestedItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #C5C1BD;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.aestheticServicesNestedItem:hover {
+  background-color: #f9f9f9;
+  border-color: #B4A698;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(180, 166, 152, 0.15);
+}
+
+.aestheticServicesNestedItem:focus {
+  outline: 3px solid #B4A698;
+  outline-offset: 2px;
+}
+
+.aestheticServicesNestedImageWrapper {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #EFEDE6;
+}
+
+.aestheticServicesNestedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aestheticServicesNestedContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.aestheticServicesNestedTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #5B615B;
+  margin: 0 0 0.25rem 0;
+  font-family: 'Merilux', 'Playfair Display', serif;
+}
+
+.aestheticServicesNestedDescription {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4a4a4a;
+  margin: 0;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* ============================================
+   ACCORDION LINK (for breadcrumbs/back links)
+   ============================================ */
+.aestheticServicesAccordionLink {
+  color: #B4A698;
+  text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.aestheticServicesMainTitle:hover {
-  color: #d4af37;
+.aestheticServicesAccordionLink:hover {
+  color: #5B615B;
+  text-decoration: underline;
 }
 
+/* ============================================
+   DETAIL SECTION (for individual pages)
+   ============================================ */
+.aestheticServicesDetailSection {
+  margin-bottom: 2rem;
+}
+
+.aestheticServicesDetailHeading {
+  color: #5B615B;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.aestheticServicesDetailParagraph {
+  line-height: 1.7;
+  color: #4a4a4a;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+.aestheticServicesDetailList {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+.aestheticServicesDetailList li {
+  margin-bottom: 0.5rem;
+}
+
+.aestheticServicesImageContainer {
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.aestheticServicesImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE (640px and below)
+   ============================================ */
+@media (max-width: 640px) {
+  .aestheticServicesMainTitle {
+    font-size: 2rem;
+  }
+
+  .aestheticServicesIntroText {
+    font-size: 1rem;
+  }
+
+  .aestheticServicesAccordionHeader {
+    padding: 1rem;
+  }
+
+  .aestheticServicesAccordionTitleWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .aestheticServicesAccordionImageWrapper {
+    width: 100%;
+    height: 150px;
+  }
+
+  .aestheticServicesAccordionTitle {
+    font-size: 1.25rem;
+  }
+
+  .aestheticServicesAccordionDescription {
+    font-size: 0.9rem;
+  }
+
+  .aestheticServicesNestedItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aestheticServicesNestedImageWrapper {
+    width: 100%;
+    height: 120px;
+  }
+}
+
+/* ============================================
+   TABLET BREAKPOINT (768px+)
+   ============================================ */
 @media (min-width: 768px) {
   .aestheticServicesMainTitle {
     font-size: 3rem;
   }
 }
 
-@media (max-width: 640px) {
-  .aestheticServicesMainTitle {
-    font-size: 2rem;
-  }
-}
-
-/* Introductory text */
-.aestheticServicesIntroText {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #4a4a4a;
-  margin-bottom: 2.5rem;
-  text-align: center;
-  max-width: 40rem;
-  font-family: 'Roboto', sans-serif;
-}
-
-@media (max-width: 640px) {
-  .aestheticServicesIntroText {
-    font-size: 1rem;
-  }
-}
-
-/* Accordion container for services */
-.aestheticServicesAccordionContainer {
-  max-width: 50rem;
-  width: 100%;
-  margin-bottom: 3rem;
-}
-
-/* Individual accordion item */
-.aestheticServicesAccordionItem {
-  background-color: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.aestheticServicesAccordionItem:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-}
-
-/* Accordion header (clickable) */
-.aestheticServicesAccordionHeader {
-  padding: 1.5rem 2rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #ffffff;
-  transition: background-color 0.3s ease;
-}
-
-.aestheticServicesAccordionHeader:hover {
-  background-color: #f9f9f9;
-}
-
-.aestheticServicesAccordionTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #34495e;
-  letter-spacing: 0.03em;
-}
-
-/* Accordion icon (chevron) */
-.aestheticServicesAccordionIcon {
-  font-size: 1.25rem;
-  color: #d4af37;
-  transition: transform 0.3s ease;
-}
-
-.aestheticServicesAccordionIcon.open {
-  transform: rotate(180deg);
-}
-
-/* Accordion content (expandable) */
-.aestheticServicesAccordionContent {
-  padding: 0 2rem;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
-  overflow: hidden;
-}
-
-.aestheticServicesAccordionContent.open {
-  padding: 2rem;
-  opacity: 1;
-}
-
-.aestheticServicesAccordionDescription {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-  font-family: 'Roboto', sans-serif;
-}
-
-.aestheticServicesAccordionLink {
-  display: inline-block;
-  color: #d4af37;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-  font-family: 'Roboto', sans-serif;
-}
-
-.aestheticServicesAccordionLink:hover {
-  color: #c0a080;
-  transform: scale(1.03);
-  text-decoration: underline;
-}
-
-/* Container for images to add elegant framing (preserves existing image logic, e.g., titles as images) */
-.aestheticServicesImageContainer {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.aestheticServicesImageContainer:hover {
-  transform: scale(1.02);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Class for the image itself (ensures no breakage in dynamic loading or error handling) */
-.aestheticServicesImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 640px) {
-  .aestheticServicesAccordionTitle {
-    font-size: 1.25rem;
-  }
-  .aestheticServicesAccordionDescription {
-    font-size: 1rem;
-  }
-  .aestheticServicesAccordionHeader {
-    padding: 1.25rem 1.5rem;
-  }
-  .aestheticServicesAccordionContent.open {
-    padding: 1.5rem;
-  }
-  /* Adjust image container for mobile elegance */
-  .aestheticServicesImageContainer {
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* Accessibility enhancements */
-@media (prefers-contrast: high) {
-  .aestheticServicesMainTitle,
-  .aestheticServicesAccordionTitle {
-    color: #000000;
-  }
-
-  .aestheticServicesIntroText,
-  .aestheticServicesAccordionDescription {
-    color: #000000;
-  }
-
-  .aestheticServicesAccordionLink {
-    color: #0000ee;
-  }
-
-  .aestheticServicesAccordionLink:hover {
-    color: #000099;
-  }
-}
-
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .aestheticServicesAccordionItem,
-  .aestheticServicesImageContainer,
-  .aestheticServicesImage,
-  .aestheticServicesAccordionLink {
-    transition: none;
-  }
-
-  .aestheticServicesAccordionIcon {
-    transition: none;
-  }
-}
-
-/* NEW STYLES FOR DETAILED SECTIONS (e.g., Overview, Benefits, Treats) */
-/* These are additive and won't affect existing elements. Apply to your TSX for dynamic route details. */
-
-/* Wrapper for each detail section (e.g., <section className="aestheticServicesDetailSection mb-8">) */
-.aestheticServicesDetailSection {
-  background-color: #ffffff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.aestheticServicesDetailSection:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-}
-
-/* Headings for details (e.g., <h2 className="aestheticServicesDetailHeading">Overview</h2>) */
-.aestheticServicesDetailHeading {
-  font-size: 1.75rem; /* For h2; adjust to 1.5rem for h3 if needed */
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  font-family: 'Playfair Display', serif;
-  transition: color 0.3s ease;
-}
-
-.aestheticServicesDetailHeading:hover {
-  color: #d4af37;
-}
-
-/* Paragraphs in details (e.g., <p className="aestheticServicesDetailParagraph">{overview}</p>) */
-.aestheticServicesDetailParagraph {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #4a4a4a;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Lists in details (e.g., <ul className="aestheticServicesDetailList">...</ul>) */
-.aestheticServicesDetailList {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #4a4a4a;
-  font-family: 'Roboto', sans-serif;
-}
-
-.aestheticServicesDetailList li {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
-  transition: color 0.3s ease;
-}
-
-.aestheticServicesDetailList li:hover {
-  color: #d4af37;
-}
-
-/* Responsive adjustments for details */
-@media (max-width: 640px) {
-  .aestheticServicesDetailSection {
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-
-  .aestheticServicesDetailHeading {
-    font-size: 1.5rem; /* For h2; 1.25rem for h3 */
-  }
-
-  .aestheticServicesDetailParagraph,
-  .aestheticServicesDetailList li {
-    font-size: 1rem;
-  }
-}
-
-/* Accessibility for details */
-@media (prefers-contrast: high) {
-  .aestheticServicesDetailHeading {
-    color: #000000;
-  }
-
-  .aestheticServicesDetailParagraph,
-  .aestheticServicesDetailList li {
-    color: #000000;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aestheticServicesDetailSection,
-  .aestheticServicesDetailList li {
+  .aestheticServicesAccordionContent,
+  .aestheticServicesAccordionIcon,
+  .aestheticServicesNestedItem {
     transition: none;
   }
 }

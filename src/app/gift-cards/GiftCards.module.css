@@ -4,16 +4,16 @@
 /* Enhanced for non-flat top: curved borders, wave effects, and luxury framing */
 
 .mcaGiftPageWrapper {
-  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white)); /* Luxurious gradient background matching site theme */
+  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white));
   min-height: 100vh;
   padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Playfair Display', serif; /* Elegant font for professionalism */
+  font-family: 'Playfair Display', serif;
   box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-x: hidden;
 }
 
 /* Hero Section – Now with elegant, non-flat styling */
@@ -21,11 +21,12 @@
   position: relative;
   width: 100%;
   max-width: 1200px;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--mca-lux-gold); /* Gold underline for luxury */
-  border-radius: 0 0 50% 50% / 0 0 20px 20px; /* Curved bottom for elegant flow */
-  overflow: hidden; /* Contain any overflow */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle depth */
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--mca-lux-gold);
+  border-radius: 0 0 50% 50% / 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Main title for the page */
@@ -34,17 +35,17 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   text-align: center;
-  color: var(--mca-deep-purple); /* Deep purple for professional titles */
-  text-shadow: 1px 1px 2px var(--mca-shadow-subtle); /* Subtle shadow for depth */
+  color: var(--mca-deep-purple);
+  text-shadow: 1px 1px 2px var(--mca-shadow-subtle);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .mcaGiftMainTitle:hover {
-  color: var(--mca-lux-gold); /* Gold on hover for luxurious interaction */
+  color: var(--mca-lux-gold);
   transform: scale(1.02);
 }
 
-/* New: Tagline for promotional flair */
+/* Tagline for promotional flair */
 .mcaGiftTagline {
   font-size: 1.5rem;
   font-style: italic;
@@ -70,10 +71,10 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  border: 3px solid var(--mca-lux-gold); /* Gold border for luxury */
-  border-radius: 20px; /* Soft curves */
+  border: 3px solid var(--mca-lux-gold);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); /* Gold glow shadow */
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
 .mcaGiftImage {
@@ -84,7 +85,7 @@
 }
 
 .mcaGiftImage:hover {
-  transform: scale(1.05); /* Zoom for engagement */
+  transform: scale(1.05);
 }
 
 .mcaGiftImageBorderAccent {
@@ -93,40 +94,51 @@
   left: 0;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold)); /* Accent gradient */
+  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold));
+}
+
+/* Content Section */
+.mcaGiftContentSection {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
 }
 
 /* Introductory text */
 .mcaGiftIntroText {
   font-size: 1.125rem;
-  color: var(--mca-elegant-gray); /* Elegant gray for readability */
+  color: var(--mca-elegant-gray);
   line-height: 1.7;
   margin-bottom: 2rem;
   text-align: center;
   max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
   transition: color 0.3s ease;
 }
 
 .mcaGiftIntroText:hover {
-  color: var(--mca-gold-accent); /* Subtle gold tint on hover for engagement */
+  color: var(--mca-gold-accent);
 }
 
 @media (max-width: 640px) {
   .mcaGiftIntroText { font-size: 1rem; }
 }
 
-/* New: Why Choose Section */
+/* Why Choose & How It Works Sections */
 .mcaGiftWhySection,
 .mcaGiftHowSection {
-  max-width: 36rem;
-  margin: 2rem auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
 .mcaGiftSubTitle {
   font-size: 1.75rem;
   color: var(--mca-deep-purple);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   text-shadow: 1px 1px 2px var(--mca-shadow-subtle);
 }
 
@@ -135,7 +147,7 @@
   list-style: none;
   padding: 0;
   text-align: left;
-  max-width: 28rem;
+  max-width: 36rem;
   margin: 0 auto;
 }
 
@@ -143,15 +155,17 @@
 .mcaGiftStepsList li {
   font-size: 1.125rem;
   color: var(--mca-elegant-gray);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
+  line-height: 1.6;
 }
 
 .mcaGiftBenefitsList li::before {
-  content: '✨'; /* Sparkle for luxury promo */
+  content: '✨';
   position: absolute;
   left: 0;
+  font-size: 1.25rem;
 }
 
 .mcaGiftStepsList {
@@ -163,6 +177,8 @@
   content: counter(step) '. ';
   color: var(--mca-lux-gold);
   font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
 @media (max-width: 640px) {
@@ -170,53 +186,63 @@
   .mcaGiftBenefitsList li, .mcaGiftStepsList li { font-size: 1rem; }
 }
 
-/* Call to action section */
+/* Call to Action Section - Styled like Membership */
 .mcaGiftCallToAction {
-  background-color: var(--mca-soft-white); /* Clean white for professionalism */
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle); /* Subtle shadow for depth */
-  padding: 2rem;
+  background-color: var(--mca-soft-white);
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px var(--mca-shadow-subtle);
+  padding: 3rem 2rem;
   text-align: center;
-  max-width: 36rem;
-  margin: 2rem auto;
-  border: 1px solid var(--mca-bronze); /* Bronze border for elegant framing */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  max-width: 48rem;
+  margin: 4rem auto;
+  border: 2px solid var(--mca-lux-gold);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mcaGiftCallToAction:hover {
-  transform: translateY(-5px) scale(1.02); /* Lift and scale for "pop" */
-  box-shadow: 0 10px 15px var(--mca-shadow-deep), 0 0 10px rgba(212, 175, 55, 0.3); /* Gold glow on hover */
-  border-color: var(--mca-lux-gold); /* Gold border on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
+}
+
+.mcaGiftCtaTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--mca-deep-purple);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px var(--mca-shadow-subtle);
 }
 
 .mcaGiftCtaText {
-  font-size: 1.25rem;
-  color: var(--mca-deep-purple); /* Deep purple for consistency */
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.mcaGiftCtaButton {
-  display: inline-block;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink)); /* Pink gradient for vibrant, professional call-to-action */
-  color: var(--mca-soft-white);
   font-size: 1.125rem;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  color: var(--mca-elegant-gray);
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
-.mcaGiftCtaButton:hover {
-  background: linear-gradient(to right, var(--mca-vivid-pink), var(--mca-pink-highlight)); /* Reverse gradient for dynamic hover */
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(242, 15, 206, 0.3); /* Pink glow for luxurious emphasis */
+.mcaGiftCtaButtonWrapper {
+  margin: 2rem 0;
+}
+
+.mcaGiftCtaSubtext {
+  font-size: 0.9375rem;
+  color: var(--mca-elegant-gray);
+  margin-top: 1.5rem;
+}
+
+.mcaGiftCtaLink {
+  color: var(--mca-lux-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.mcaGiftCtaLink:hover {
+  color: var(--mca-pink-highlight);
+  text-decoration: underline;
 }
 
 @media (max-width: 640px) {
-  .mcaGiftCtaText { font-size: 1.125rem; }
-  .mcaGiftCtaButton { font-size: 1rem; padding: 0.625rem 1.25rem; }
-  .mcaGiftCallToAction { padding: 1.5rem; }
+  .mcaGiftCtaTitle { font-size: 1.5rem; }
+  .mcaGiftCtaText { font-size: 1rem; }
+  .mcaGiftCallToAction { padding: 2rem 1.5rem; }
 }

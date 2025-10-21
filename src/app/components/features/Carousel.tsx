@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
 import styles from './Carousel.module.css';
-
 import Image from 'next/image';
+import PrimaryButton from '../buttons/PrimaryButton';
+import SecondaryButton from '../buttons/SecondaryButton';
 
-// Define the type for review data
 interface Review {
   reviewer: string;
   reviewText: string;
@@ -15,10 +15,10 @@ interface Review {
   ownerResponse?: string;
   ownerResponseDate?: string;
   ownerResponseDaysAgo?: number;
-  initials?: string; // For avatar display like Google Reviews
+  initials?: string;
+  photoCount?: number;
 }
 
-// Utility function to format days into readable "ago" text
 const formatDaysAgo = (totalDays: number): string => {
   if (totalDays < 1) return 'today';
   if (totalDays < 7) return `${totalDays} day${totalDays > 1 ? 's' : ''} ago`;
@@ -36,19 +36,16 @@ const formatDaysAgo = (totalDays: number): string => {
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [, setCurrentDate] = useState(new Date());
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [expandedReviews, setExpandedReviews] = useState<{ [key: number]: boolean }>({});
+  const [mounted, setMounted] = useState(false);
 
-  // Update current date daily for "ago" text (minimal latency)
+  // Fix hydration - only render interactive elements after mount
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDate(new Date());
-    }, 86400000); // Update every 24 hours
-    return () => clearInterval(interval);
+    setMounted(true);
   }, []);
 
-  // Handle touch events for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -59,10 +56,13 @@ export default function Carousel() {
 
   const handleTouchEnd = () => {
     if (touchStart !== null && touchEnd !== null) {
-      if (touchStart - touchEnd > 50) {
-        nextReview(); // Swipe left, go to next
-      } else if (touchEnd - touchStart > 50) {
-        prevReview(); // Swipe right, go to previous
+      const swipeDistance = touchStart - touchEnd;
+      if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 0) {
+          nextReview();
+        } else {
+          prevReview();
+        }
       }
     }
     setTouchStart(null);
@@ -81,12 +81,14 @@ export default function Carousel() {
     setCurrentIndex(index);
   };
 
-  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
-
-  const getDynamicDateText = (baseDays: number) => {
-    const adjustedDays = baseDays;
-    return formatDaysAgo(adjustedDays);
+  const toggleExpanded = (index: number) => {
+    setExpandedReviews(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
   };
+
+  const googleReviewLink = "https://g.page/r/CZUCluKVE6bvEBM/review";
 
   const getInitials = (name: string) => {
     const nameParts = name.split(' ');
@@ -95,14 +97,48 @@ export default function Carousel() {
       : nameParts[0][0];
   };
 
-  // Reviews array with your existing data
   const reviews: Review[] = [
     {
-
+      "reviewer": "Gehna Greenslate",
+      "reviewText": "Great price! Maleah did an amazing job! She is kind, personable, and incredibly talented. She answered all of my questions thoroughly. I’m very happy with the experience at MC Aesthetics.",
+      "reviewDate": "3 weeks ago",
+      "baseDaysAgo": 21,
+      "ownerResponse": "Thank you so much for your kind review, Gehna! We are very happy you had an excellent experience with us and we look forward to seeing you again soon.",
+      "ownerResponseDate": "3 weeks ago",
+      "ownerResponseDaysAgo": 21
+    },
+    {
+      "reviewer": "Rebecca Casciato",
+      "reviewText": "Melissa is amazing! She is professional, warm, welcoming and answered all of my questions putting me at ease. I am very happy with my results after only one treatment! So happy to have found her and saved the drive to PDX. Highly recommend!",
+      "reviewDate": "7 weeks ago",
+      "baseDaysAgo": 49,
+      "ownerResponse": "Thank you, Rebecca, for your kind words! We are thrilled to hear that you had a positive experience with Melissa at MC Aesthetics. Our team takes pride in providing professional and welcoming service to all our clients. We are delighted that you are happy with the results after just one treatment. Your recommendation means a lot to us, and we look forward to seeing you again soon for your next session!",
+      "ownerResponseDate": "6 weeks ago",
+      "ownerResponseDaysAgo": 42
+    },
+    {
+      "reviewer": "Corwin Hiatt",
+      "reviewText": "Melissa at MC Aesthetics is exceptional. Her expertise and attention to detail are unmatched, and she creates a welcoming environment for every client. As a business owner, I value professionalism and trust, and Melissa delivers both effortlessly. Highly recommend MC Aesthetics for anyone seeking top-tier care with aesthetic services!",
+      "reviewDate": "8 weeks ago",
+      "baseDaysAgo": 56,
+      "ownerResponse": "Thank you for your kind words, Corwin! We are delighted to hear about your exceptional experience with Melissa at MC Aesthetics. Our team takes great pride in delivering top-tier care and creating a welcoming environment for all our clients. Your recommendation means a lot to us, and we look forward to serving you again soon for all your aesthetic needs.",
+      "ownerResponseDate": "6 weeks ago",
+      "ownerResponseDaysAgo": 42
+    },
+    {
+      "reviewer": "Holly Starr",
+      "reviewText": "Very gentle, kind and professional nurse practitioner!! Melissa provides excellent results and makes sure you are comfortable also!!! Highly recommend! LOVED the cool peel and think everyone should do this!!! Tanning in high school had caught up to me in my 50's!!! So thankful for this service!! I have one sun spot if you zoom in you can see how much it bothered me in the before picture!!! After just one treatment it is almost gone! Can't wait for the results from my last two!",
+      "reviewDate": "2 weeks ago",
+      "baseDaysAgo": 14,
+      "ownerResponse": "Thank you, Holly, for your wonderful feedback! We're so glad to hear about your positive experience with Melissa and the amazing results from your Cool Peel treatment. At MC Aesthetics, ensuring your comfort and satisfaction is our priority. We're thrilled to be part of your journey and can't wait to see the results from your upcoming treatments. Looking forward to welcoming you back soon!",
+      "ownerResponseDate": "3 days ago",
+      "ownerResponseDaysAgo": 3
+    },
+    {
       reviewer: 'Lea Mackenbach',
       reviewText: 'Mellissa explains everything clearly, answers all my questions, and has such a welcoming personality - it\'s like visiting a friend. Her expertise really shows and I\'m always happy with my results. If you\'re looking for someone who truly cares about their patients, definitely go see Melissa at MC Aesthetic!',
       reviewDate: '2 weeks ago',
-      baseDaysAgo: 14,
+      baseDaysAgo: 44,
       ownerResponse: 'Thank you so much for your kind words and for sharing your experience. We\'re thrilled to hear that you feel so comfortable and valued during your visits. Melissa and the entire team at MC Aesthetics are committed to ensuring a welcoming and professional environment. Your satisfaction and trust mean the world to us. We look forward to seeing you again soon!',
       ownerResponseDate: '3 days ago',
       ownerResponseDaysAgo: 3,
@@ -111,7 +147,7 @@ export default function Carousel() {
       reviewer: 'Linnea Kittrell',
       reviewText: 'I had an amazing experience at MC Aesthetics! Melissa and Angela were incredibly professional, knowledgeable, and made me completely at ease. I had botox and filler done, and the results are absolutely perfect-natural, refreshed, and...',
       reviewDate: '4 months ago',
-      baseDaysAgo: 120,
+      baseDaysAgo: 150,
       ownerResponse: 'We are so glad you are happy with your results! 😊 Thank you so much!',
       ownerResponseDate: '4 months ago',
       ownerResponseDaysAgo: 120,
@@ -120,7 +156,7 @@ export default function Carousel() {
       reviewer: 'Karee Wasson',
       reviewText: 'I recently had the pleasure of visiting Melissa and I couldn\'t be more impressed with the experience! From the moment I walked in, I felt welcomed and at ease. She took the time to assess my skin and customize the treatment to my needs...',
       reviewDate: '5 months ago',
-      baseDaysAgo: 150,
+      baseDaysAgo: 190,
       ownerResponse: 'Thank you for your wonderful review, Karee! We\'re thrilled to hear about your positive experience with Melissa and the fantastic results you achieved. Your satisfaction means a lot to us, and we look forward to welcoming you back for more treatments!',
       ownerResponseDate: '5 months ago',
       ownerResponseDaysAgo: 150,
@@ -129,7 +165,7 @@ export default function Carousel() {
       reviewer: 'Maureen Cook',
       reviewText: 'I hope this review finds others like me…. A nearly 60 year old, farm girl with soap and some lotion being my only beauty routine … Melissa introduced me to a skincare line called "ZO" …',
       reviewDate: 'a week ago',
-      baseDaysAgo: 7,
+      baseDaysAgo: 70,
       ownerResponse: 'Thank you so much for your heartfelt review! We\'re thrilled to hear that you\'ve had such a positive experience and that Melissa was able to introduce you to a skincare routine that shows great results. We believe everyone deserves to feel good about themselves, and it\'s wonderful to know that you\'ve noticed improvements in your skin. We appreciate your trust and recommendation. Please don\'t hesitate to reach out if you need any further assistance or guidance on your beauty journey.',
       ownerResponseDate: '3 days ago',
       ownerResponseDaysAgo: 3,
@@ -138,7 +174,7 @@ export default function Carousel() {
       reviewer: 'Brianna Bracelin',
       reviewText: 'Maleah is amazing, she makes you feel very comfortable and does a seamless job! My Botox lasted and my lip filler is perfect. Very knowledgeable and precise work. I\'ve seen a few injectors over the years and Maleah has done an exceptional job for me. Ive found my forever injector!',
       reviewDate: '4 weeks ago',
-      baseDaysAgo: 28,
+      baseDaysAgo: 78,
       ownerResponse: 'Thank you so much for your amazing review! We\'re thrilled to hear that Maleah made you feel comfortable and delivered such perfect results with your Botox and lip filler. Your kind words about her knowledge and precision mean the world to us. We\'re honored that you\'ve found your forever injector with us at MC Aesthetics! Looking forward to seeing you again soon! 😊',
       ownerResponseDate: '2 weeks ago',
       ownerResponseDaysAgo: 14,
@@ -333,15 +369,6 @@ export default function Carousel() {
       ownerResponseDaysAgo: 1460,
     },
     {
-      reviewer: 'Holly Starr',
-      reviewText: 'Very gentle, kind and professional nurse practitioner!! Melissa Provides excellent results and makes sure you are comfortable also!!! Highly recommend!...',
-      reviewDate: '4 years ago',
-      baseDaysAgo: 1460,
-      ownerResponse: 'Thank you Holly! I am so appreciative of your kind review and can\'t wait to see you next week!!',
-      ownerResponseDate: '4 years ago',
-      ownerResponseDaysAgo: 1460,
-    },
-    {
       reviewer: 'Irma Del Rayo',
       reviewText: "I've been doing Botox and skin care! Very happy with my results! Best skin care products! Highly recommend!...",
       reviewDate: '3 years ago',
@@ -370,7 +397,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'J.R. Cook',
-      reviewText: '',
+      reviewText: 'N/A',
       reviewDate: '2 years ago',
       baseDaysAgo: 730,
       ownerResponse: 'Thank you!',
@@ -379,7 +406,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'Christina Golden',
-      reviewText: '',
+      reviewText: 'N/A',
       reviewDate: '4 years ago',
       baseDaysAgo: 1460,
       ownerResponse: 'Thank you for your review!',
@@ -388,7 +415,7 @@ export default function Carousel() {
     },
     {
       reviewer: 'Trish Steven',
-      reviewText: '',
+      reviewText: 'N/A',
       reviewDate: '3 years ago',
       baseDaysAgo: 1095,
       ownerResponse: 'Thank you!',
@@ -397,106 +424,143 @@ export default function Carousel() {
     },
     {
       reviewer: 'Keri Bridges',
-      reviewText: '',
+      reviewText: 'N/A',
       reviewDate: '3 years ago',
       baseDaysAgo: 1095,
       ownerResponse: 'Thank you!',
       ownerResponseDate: '2 weeks ago',
       ownerResponseDaysAgo: 14,
     }
-    ];
+ ];
+
+  const reviewCount = reviews.length;
 
   return (
-    <div 
-      className={styles.mcReviewCarouselContainer} 
-      role="region" 
+    <div
+      className={styles.mcReviewCarouselContainer}
+      role="region"
       aria-label="Customer reviews carousel"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Google Reviews Header Section - Only Google Review Graphic */}
+      {/* Header Section */}
       <div className={styles.mcGoogleReviewsHeader}>
         <div className={styles.mcGoogleReviewsGraphic}>
           <Image
-            width={100}
-            height={100}
-            src="/images/googleReviewGraphic.png" 
-            alt="Google Reviews Rating Graphic" 
+            width={200}
+            height={80}
+            src="/images/googleReviewGraphic.png"
+            alt="Google Reviews Rating Graphic"
             className={styles.mcGoogleGraphicImage}
+            priority
           />
-       
         </div>
       </div>
 
       <h2 className={styles.mcReviewShowcaseTitle}>
-        35 Five-Star Reviews & Counting!
+        {`${reviewCount} Five-Star Reviews & Counting!`}
         <span className={styles.mcGoogleBadge}>
-          <Star className={styles.mcGoogleStarIcon} size={18} fill="#FBBC05" />
+          <Star className={styles.mcGoogleStarIcon} size={18} fill="#FBBC05" stroke="#FBBC05" />
           on Google Reviews
         </span>
       </h2>
-      
+
       <div className={styles.mcCarouselWrapper}>
-        <button 
-          className={styles.mcCarouselArrowLeft} 
-          onClick={prevReview} 
-          aria-label="Previous review"
-          disabled={currentIndex === 0}
-        >
-          &#8249;
-        </button>
-        
+        {mounted && (
+          <SecondaryButton
+            text="‹"
+            onClick={prevReview}
+            disabled={currentIndex === 0}
+            className={`${styles.mcCarouselArrowLeft} ${styles.mcCustomButton}`}
+            ariaLabel="Previous review"
+          />
+        )}
+
         <div className={styles.mcCarouselContent}>
           <div
             className={styles.mcCarouselSlider}
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {reviews.map((review, index) => (
-              <div key={index} className={styles.mcCarouselItem}>
-                <div className={styles.mcGoogleReviewCard}>
-                  <div className={styles.mcReviewerAvatar}>
-                    {review.initials || getInitials(review.reviewer)}
-                  </div>
-                  <div className={styles.mcReviewContent}>
-                    <h3 className={styles.mcGoogleReviewerName}>{review.reviewer}</h3>
-                    <div className={styles.mcGoogleStarRating}>
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
-                      <Star className={styles.mcGoogleStar} size={16} fill="#FBBC05" stroke="#FBBC05" />
+            {reviews.map((review, index) => {
+              const isExpanded = expandedReviews[index] || false;
+              const shouldTruncate = review.reviewText && review.reviewText.length > 200;
+
+              return (
+                <div key={index} className={styles.mcCarouselItem}>
+                  <article className={styles.mcGoogleReviewCard}>
+                    <div className={styles.mcReviewerAvatar}>
+                      {review.initials || getInitials(review.reviewer)}
                     </div>
-                    <p className={styles.mcGoogleReviewDate}>{getDynamicDateText(review.baseDaysAgo)}</p>
-                    {review.reviewText && (
-                      <p className={styles.mcGoogleReviewText}>{review.reviewText}</p>
-                    )}
-                    {review.ownerResponse && (
-                      <div className={styles.mcGoogleOwnerResponse}>
-                        <h4 className={styles.mcGoogleResponseTitle}>MC Aesthetics (Owner)</h4>
-                        <p className={styles.mcGoogleResponseDate}>
-                          {review.ownerResponseDaysAgo ? getDynamicDateText(review.ownerResponseDaysAgo) : review.ownerResponseDate}
-                        </p>
-                        <p className={styles.mcGoogleResponseText}>{review.ownerResponse}</p>
+                    <div className={styles.mcReviewContent}>
+                      <h3 className={styles.mcGoogleReviewerName}>{review.reviewer}</h3>
+                      <div className={styles.mcGoogleStarRating}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star 
+                            key={i} 
+                            className={styles.mcGoogleStar} 
+                            size={16} 
+                            fill="#FBBC05" 
+                            stroke="#FBBC05" 
+                          />
+                        ))}
                       </div>
-                    )}
-                  </div>
+                      <time className={styles.mcGoogleReviewDate}>
+                        {formatDaysAgo(review.baseDaysAgo)}
+                      </time>
+                      
+                      {review.reviewText && review.reviewText !== 'N/A' ? (
+                        <div className={styles.mcReviewTextWrapper}>
+                          <p className={`${styles.mcGoogleReviewText} ${!isExpanded && shouldTruncate ? styles.mcTruncated : ''}`}>
+                            {review.reviewText}
+                          </p>
+                          {mounted && shouldTruncate && (
+                            <button 
+                              onClick={() => toggleExpanded(index)}
+                              className={styles.mcReadMoreButton}
+                              aria-expanded={isExpanded}
+                              type="button"
+                            >
+                              {isExpanded ? 'Show less' : 'Read more'}
+                            </button>
+                          )}
+                        </div>
+                      ) : (
+                        <p className={styles.mcGoogleReviewText}>No detailed review provided.</p>
+                      )}
+                      
+                      {review.ownerResponse && (
+                        <div className={styles.mcGoogleOwnerResponse}>
+                          <div className={styles.mcGoogleResponseHeader}>
+                            <strong>MC Aesthetics (Owner)</strong>
+                            <time className={styles.mcGoogleResponseDate}>
+                              {review.ownerResponseDaysAgo 
+                                ? formatDaysAgo(review.ownerResponseDaysAgo) 
+                                : review.ownerResponseDate}
+                            </time>
+                          </div>
+                          <p className={styles.mcGoogleResponseText}>{review.ownerResponse}</p>
+                        </div>
+                      )}
+                    </div>
+                  </article>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
-        
-        <button 
-          className={styles.mcCarouselArrowRight} 
-          onClick={nextReview} 
-          aria-label="Next review"
-          disabled={currentIndex === reviews.length - 1}
-        >
-          &#8250;
-        </button>
+
+        {mounted && (
+          <SecondaryButton
+            text="›"
+            onClick={nextReview}
+            disabled={currentIndex === reviews.length - 1}
+            className={`${styles.mcCarouselArrowRight} ${styles.mcCustomButton}`}
+            ariaLabel="Next review"
+          />
+        )}
       </div>
-      
+
       <div className={styles.mcCarouselDots}>
         {reviews.map((_, index) => (
           <button
@@ -505,20 +569,20 @@ export default function Carousel() {
             onClick={() => goToReview(index)}
             aria-label={`Go to review ${index + 1}`}
             aria-current={index === currentIndex ? 'true' : 'false'}
+            type="button"
           />
         ))}
       </div>
-      
+
       <div className={styles.mcReviewCta}>
         <h3 className={styles.mcReviewCtaTitle}>Been a customer?</h3>
-        <a 
-          href={googleReviewLink} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className={styles.mcReviewButton}
-        >
-          Tell us how we did on Google
-        </a>
+        <PrimaryButton
+          text="Tell us how we did on Google"
+          href={googleReviewLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.mcReviewButton} ${styles.mcCustomButton}`}
+        />
       </div>
     </div>
   );

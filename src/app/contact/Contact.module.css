@@ -1,307 +1,380 @@
-/* Contact.module.css - Updated Contact Page for MC Aesthetics */
-/* Prefix: .mcaContact* for uniqueness; Mirrors gift card style with wavy accents, gold trims, purple titles, pink highlights, subtle shadows, and smooth transitions for luxury */
+/* ============================================
+   MC AESTHETICS CONTACT PAGE - ELEGANT & BRANDED
+   Colors: #B4A698, #5B615B, #C5C1BD, #C4C8C3, #EFEDE6
+   Fonts: Merilux (Primary), Beautifully Delicious, Montserrat
+   ============================================ */
 
+/* === PAGE WRAPPER === */
 .mcaContactPageWrapper {
-  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
   min-height: 100vh;
-  padding: 4rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
-  box-sizing: border-box;
-  overflow-x: hidden;
+  background: linear-gradient(135deg, #FFFFFF 0%, #EFEDE6 100%);
+  padding: 0;
+  width: 100%;
 }
 
-/* Hero Section with Wavy Accent (Inspired by Gift Card Top Line) */
+/* === HERO SECTION === */
 .mcaContactHero {
   text-align: center;
-  max-width: 48rem;
-  margin-bottom: 3rem;
-  position: relative;
+  padding: 5rem 1.5rem 4rem;
+  background: linear-gradient(180deg, rgba(239, 237, 230, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  max-width: 100%;
 }
 
 .mcaContactMainTitle {
-  font-size: 2.75rem;
-  font-weight: 700;
+  font-family: 'Merilux', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #5B615B;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.mcaContactTagline {
+  font-family: 'Beautifully Delicious', cursive;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  color: #B4A698;
   margin-bottom: 1.5rem;
-  color: var(--mca-deep-purple);
-  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
-}
-
-.mcaContactMainTitle::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold));
-  border-radius: 50%;
-  clip-path: path('M0,2 Q50,0 100,2 Q150,4 200,2 Q250,0 300,2'); /* Subtle wavy line for luxury flair */
-}
-
-.mcaContactMainTitle:hover {
-  color: var(--mca-lux-gold);
-  transform: scale(1.02);
-}
-
-@media (max-width: 768px) {
-  .mcaContactMainTitle {
-    font-size: 2.25rem;
-  }
+  font-weight: 300;
 }
 
 .mcaContactIntroText {
-  font-size: 1.125rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.7;
-  max-width: 100%;
-  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.125rem);
+  color: #5B615B;
+  max-width: 45rem;
+  margin: 0 auto 3rem;
+  line-height: 1.8;
+  font-weight: 300;
+  padding: 0 1rem;
 }
 
+/* === HERO IMAGE === */
 .mcaContactHeroImageHolder {
-  width: 100%;
-  height: 20rem;
   position: relative;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
-}
-
-.mcaContactHeroImageHolder:hover {
-  transform: scale(1.03);
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .mcaContactImage {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(91, 97, 91, 0.15);
+  display: block;
 }
 
 .mcaContactImageBorderAccent {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0.25rem;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
+  top: -1rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 1rem;
+  border: 2px solid #B4A698;
+  border-radius: 1rem;
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* Section Titles */
-.mcaContactSectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple);
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--mca-lux-gold);
-  padding-bottom: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.mcaContactSectionTitle:hover {
-  color: var(--mca-pink-highlight);
-}
-
-/* Content Sections */
+/* === CONTENT SECTIONS === */
 .mcaContactContentSection {
   max-width: 64rem;
-  margin: 0 auto 3rem;
-  padding: 0 1rem;
-}
-
-.mcaContactContentLayout {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .mcaContactContentLayout {
-    flex-direction: row;
-    align-items: center;
-  }
-  .mcaContactContentText {
-    flex: 1;
-  }
-}
-
-.mcaContactInfoText {
-  font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-
-/* Contact Form */
-.mcaContactFormContainer {
-  background-color: var(--mca-soft-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  padding: 2rem;
-  max-width: 36rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
   width: 100%;
-  margin: 0 auto 3rem;
-  border: 1px solid var(--mca-bronze);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mcaContactFormContainer:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+.mcaContactSectionTitle {
+  font-family: 'Merilux', serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 400;
+  color: #5B615B;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
 }
 
+/* === FORM CONTAINER === */
+.mcaContactFormContainer {
+  background: #FFFFFF;
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  box-shadow: 0 8px 30px rgba(91, 97, 91, 0.08);
+  border: 1px solid #EFEDE6;
+  max-width: 42rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* === FORM FIELDS === */
 .mcaContactFormField {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .mcaContactFormLabel {
   display: block;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--mca-elegant-gray);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #5B615B;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .mcaContactFormInput,
 .mcaContactFormTextarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--mca-bronze);
-  border-radius: 0.375rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid #C4C8C3;
+  border-radius: 0.75rem;
   font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  transition: border-color 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+  color: #5B615B;
+  background-color: #EFEDE6;
+  transition: all 0.3s ease;
+}
+
+.mcaContactFormInput::placeholder,
+.mcaContactFormTextarea::placeholder {
+  color: #B4A698;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 .mcaContactFormInput:focus,
 .mcaContactFormTextarea:focus {
   outline: none;
-  border-color: var(--mca-deep-purple);
+  border-color: #B4A698;
+  box-shadow: 0 0 0 4px rgba(180, 166, 152, 0.15);
+  background-color: #FFFFFF;
+}
+
+.mcaContactFormInput:hover:not(:disabled),
+.mcaContactFormTextarea:hover:not(:disabled) {
+  border-color: #B4A698;
+  background-color: #FFFFFF;
+}
+
+.mcaContactFormInput:disabled,
+.mcaContactFormTextarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #EFEDE6;
 }
 
 .mcaContactFormTextarea {
-  min-height: 8rem;
+  min-height: 10rem;
   resize: vertical;
+  line-height: 1.7;
 }
 
-.mcaContactSubmitButton {
-  display: block;
-  background: linear-gradient(to right, var(--mca-deep-purple), var(--mca-lux-gold));
-  color: var(--mca-soft-white);
-  font-size: 1.125rem;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin: 0 auto;
-  transition: background 0.3s ease, transform 0.2s ease;
+/* === BUTTON WRAPPER === */
+.mcaContactButtonWrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.mcaContactSubmitButton:hover {
-  background: linear-gradient(to right, var(--mca-lux-gold), var(--mca-deep-purple));
-  transform: scale(1.05);
+.mcaContactButtonWrapper > div {
+  width: 100%;
+  max-width: 20rem;
 }
 
-/* Status Message Styles (Updated for Reliable Fade-In Animation) */
+.mcaContactSubmitButtonHidden {
+  display: none;
+}
+
+/* === STATUS MESSAGES === */
 .mcaContactStatusMessage {
-  margin-top: 1rem;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  font-size: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
   font-weight: 500;
   text-align: center;
-  box-shadow: 0 2px 4px var(--mca-shadow-subtle);
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: fadeIn 0.3s ease forwards; /* Simple keyframe animation for appearance */
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .mcaContactStatusMessage.success {
-  background-color: rgba(144, 238, 144, 0.2); /* Light green for success, tying into luxury with subtle gold tint */
-  color: var(--mca-lux-gold);
-  border: 1px solid var(--mca-lux-gold);
+  background-color: rgba(180, 166, 152, 0.1);
+  color: #5B615B;
+  border: 2px solid #B4A698;
 }
 
 .mcaContactStatusMessage.error {
-  background-color: rgba(255, 99, 71, 0.2); /* Soft red-pink for errors, matching theme's vivid pink */
-  color: var(--mca-vivid-pink);
-  border: 1px solid var(--mca-vivid-pink);
+  background-color: rgba(197, 193, 189, 0.15);
+  color: #5B615B;
+  border: 2px solid #C5C1BD;
 }
 
-/* Call to Action */
-.mcaContactCallToAction {
-  background-color: var(--mca-soft-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  padding: 2rem;
+/* === CONTACT INFO GRID === */
+.mcaContactInfoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  justify-items: center;
+}
+
+.mcaContactInfoCard {
+  background: #FFFFFF;
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
   text-align: center;
-  max-width: 48rem;
-  margin: 2rem auto;
-  border: 1px solid var(--mca-bronze);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(91, 97, 91, 0.06);
+  border: 1px solid #EFEDE6;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 20rem;
 }
 
-.mcaContactCallToAction:hover {
+.mcaContactInfoCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px var(--mca-shadow-deep);
+  box-shadow: 0 8px 30px rgba(91, 97, 91, 0.12);
+  border-color: #B4A698;
 }
 
-.mcaContactCtaText {
-  font-size: 1.5rem;
-  color: var(--mca-deep-purple);
-  font-weight: 600;
-  margin-bottom: 0;
+.mcaContactInfoIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  filter: grayscale(20%);
+}
+
+.mcaContactInfoCardTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #5B615B;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.mcaContactInfoText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #5B615B;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.mcaContactInfoLink {
+  color: #B4A698;
   text-decoration: none;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.mcaContactCtaText:hover {
-  color: var(--mca-pink-highlight);
+.mcaContactInfoLink:hover {
+  color: #5B615B;
+  text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 640px) {
-  .mcaContactMainTitle {
-    font-size: 2rem;
+.mcaContactInfoSubtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #5B615B;
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 300;
+  font-style: italic;
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === CALL TO ACTION === */
+.mcaContactCallToAction {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(135deg, #EFEDE6 0%, #FFFFFF 100%);
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mcaContactCtaTitle {
+  font-family: 'Merilux', serif;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 400;
+  color: #5B615B;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.mcaContactCtaSubtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: #5B615B;
+  max-width: 40rem;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  font-weight: 300;
+  padding: 0 1rem;
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  .mcaContactHero {
+    padding: 3rem 1rem 2.5rem;
   }
-  .mcaContactSectionTitle {
-    font-size: 1.75rem;
+
+  .mcaContactContentSection {
+    padding: 3rem 1rem;
   }
-  .mcaContactIntroText, .mcaContactInfoText {
-    font-size: 0.875rem;
-  }
-  .mcaContactCtaText {
-    font-size: 1.25rem;
-  }
-  .mcaContactHeroImageHolder {
-    height: 16rem;
-  }
+
   .mcaContactFormContainer {
-    padding: 1.5rem;
+    padding: 2rem 1.25rem;
   }
-  .mcaContactSubmitButton {
-    font-size: 1rem;
-    padding: 0.625rem 1.25rem;
+
+  .mcaContactInfoGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
+
   .mcaContactCallToAction {
-    padding: 1.5rem;
+    padding: 3rem 1rem;
   }
-  .mcaContactStatusMessage {
-    font-size: 0.875rem;
-    padding: 0.5rem;
+
+  .mcaContactImageBorderAccent {
+    top: -0.5rem;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: 0.5rem;
+  }
+
+  .mcaContactButtonWrapper > div {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .mcaContactHero {
+    padding: 2rem 0.75rem 2rem;
+  }
+
+  .mcaContactFormContainer {
+    padding: 1.5rem 1rem;
+  }
+
+  .mcaContactFormField {
+    margin-bottom: 1.5rem;
+  }
+
+  .mcaContactFormInput,
+  .mcaContactFormTextarea {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .mcaContactInfoCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .mcaContactContentSection {
+    padding: 2.5rem 0.75rem;
   }
 }

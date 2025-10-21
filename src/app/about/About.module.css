@@ -1,63 +1,59 @@
-/* About.module.css - Enhanced Luxurious Styling for MC Aesthetics About Page */
-/* Mobile-First Design with Premium Aesthetics, Crystal Clear Images, and High-Contrast Text for Readability */
-/* Latest Fixes: Restored top curve with balanced height/margins; optimizations for shorter text to lift image higher */
-/* New Updates: Enhanced image handling for desktop to prevent grainy appearance */
+/* About.module.css - MC Aesthetics About Page */
+/* Mobile-First Design Following Home Page Foundation */
 
-/* Wrapper for the entire page - spacious and centered for luxury feel */
-.mcaAboutPageWrapper {
-  max-width: var(--container-xl); /* From global */
+.mcaAboutWrapper {
+  width: 100%;
   margin: 0 auto;
-  padding: var(--space-32) var(--space-16); /* Generous padding for elegance */
-  background-color: var(--color-cream-100); /* Lighter cream for brighter, high-end backdrop */
+  background-color: var(--color-background);
   color: var(--color-text);
-  font-family: var(--font-family-base);
-  box-shadow: var(--shadow-xs); /* Even subtler shadow for lightness */
   overflow-x: hidden;
-  overflow-y: auto; /* For smooth scrolling */
+  font-family: var(--font-family-base);
   
-  /* Brand Color Palette - Using design system colors where possible (mirroring HomeLuxury) */
-  --mca-primary-purple: var(--color-primary);
-  --mca-gradient-purple: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary));
-  --mca-rose-brown: var(--color-brown-600);
-  --mca-gold-accent: var(--color-brown-600);
-  --mca-light-gold: var(--color-cream-100);
-  --mca-pink-highlight: var(--color-primary-hover);
-  --mca-deep-purple: var(--color-primary-active);
-  --mca-navy-blue: var(--color-slate-900);
-  --mca-light-blue: var(--color-teal-400);
-  --mca-sky-blue: var(--color-teal-300);
-  --mca-bronze: var(--color-brown-600);
-  --mca-vivid-pink: var(--color-primary-hover);
-  --mca-mustard-gold: var(--color-orange-500);
+  /* Brand Color Palette (Matching Home Page) */
+  --mca-mauve: #B4A698;
+  --mca-plum: #5B615B;
+  --mca-dusty-rose: #C5C1BD;
+  --mca-cream: #EFEDE6;
+  --mca-sage: #C4C8C3;
   
-  /* Luxury Enhancement Colors - Using design system */
-  --mca-soft-white: #ffffff; /* Updated to pure white for high contrast */
-  --mca-elegant-gray: var(--color-text-secondary);
-  --mca-lux-gold: var(--color-orange-400);
-  --mca-cream-white: var(--color-cream-100);
-  --mca-charcoal: var(--color-charcoal-700);
+  /* RGB versions for opacity */
+  --mca-mauve-rgb: 180, 166, 152;
+  --mca-plum-rgb: 91, 97, 91;
+  --mca-dusty-rose-rgb: 197, 193, 189;
+  --mca-cream-rgb: 239, 237, 230;
+  --mca-sage-rgb: 196, 200, 195;
   
-  /* Advanced Shadow System - Using design system shadows */
-  --mca-shadow-subtle: var(--shadow-xs);
-  --mca-shadow-medium: var(--shadow-sm);
-  --mca-shadow-deep: var(--shadow-md);
-  --mca-shadow-luxury: var(--shadow-lg);
+  /* Semantic assignments */
+  --mca-primary: var(--mca-mauve);
+  --mca-primary-dark: var(--mca-plum);
+  --mca-accent: var(--mca-dusty-rose);
+  --mca-light: var(--mca-cream);
+  --mca-neutral: var(--mca-sage);
   
-  /* Premium Transitions - Using design system timing */
-  --mca-transition-smooth: all var(--duration-normal) var(--ease-standard);
-  --mca-transition-luxury: all var(--duration-normal) var(--ease-standard);
+  /* Gradients */
+  --mca-gradient-primary: linear-gradient(135deg, var(--mca-mauve), var(--mca-plum));
+  --mca-gradient-soft: linear-gradient(145deg, var(--mca-cream), var(--mca-sage));
+  
+  /* Shadow System */
+  --mca-shadow-subtle: 0 1px 3px rgba(var(--mca-plum-rgb), 0.1);
+  --mca-shadow-medium: 0 4px 6px rgba(var(--mca-plum-rgb), 0.15);
+  --mca-shadow-deep: 0 10px 15px rgba(var(--mca-plum-rgb), 0.2);
+  --mca-shadow-luxury: 0 20px 25px rgba(var(--mca-plum-rgb), 0.15);
+  
+  /* Transitions */
+  --mca-transition-smooth: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --mca-transition-luxury: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Curved Header to Hero Transition - Restored with increased height and positive margins for visibility */
+/* Curved Header Transition */
 .mcaAboutHeaderToHeroTransition {
   width: 100%;
-  height: 50px; /* Increased to restore visible curve without overlap */
-  background: var(--mca-gradient-purple);
+  height: 60px;
+  background: var(--mca-gradient-primary);
   position: relative;
-  margin: 0 0 var(--space-8) 0; /* Positive bottom margin for gentle spacing */
+  margin: 0;
   padding: 0;
   overflow: hidden;
-  z-index: 1; /* Lower to stay behind content */
 }
 
 .mcaAboutHeaderToHeroTransition::before {
@@ -67,8 +63,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--color-background);
-  clip-path: ellipse(100% 90% at 50% 0%); /* Deeper curve for luxurious flow */
+  background: var(--mca-cream);
+  clip-path: ellipse(100% 80% at 50% 0%);
   z-index: 1;
 }
 
@@ -78,43 +74,22 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--space-20);
-  background: linear-gradient(to bottom, rgba(var(--color-brown-600-rgb), 0.1) 0%, transparent 100%);
+  height: 20px;
+  background: linear-gradient(to bottom, rgba(var(--mca-mauve-rgb), 0.1) 0%, transparent 100%);
   z-index: 2;
 }
 
-/* Hero Section - Loosened clip-path; overflow visible; added padding for text visibility */
-.mcaAboutHero {
-  text-align: center;
-  padding: var(--space-32) 0 var(--space-24) 0; /* Added bottom padding to space from curve */
-  border-bottom: 1px solid rgba(var(--color-border), 0.3); /* Lighter divider for airiness */
+/* Hero Section */
+.mcaAboutHeroBanner {
   position: relative;
   min-height: 70vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: visible !important; /* Force visibility for text and images */
-  background: var(--mca-gradient-purple);
-  clip-path: ellipse(100% 80% at 50% 0%); /* Loosened further to reduce clipping */
-  z-index: 2; /* Higher than transition */
-}
-
-/* Ensure hero content has high z-index */
-.mcaAboutHero > * {
-  position: relative;
-  z-index: 3; /* Above backgrounds */
-}
-
-/* New: Negative Z-Index Wrapper for Background Image to Keep It Behind Content */
-.mcaAboutHeroBackgroundWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Behind everything else */
   overflow: hidden;
+  background: var(--mca-gradient-primary);
+  padding: 4rem 2rem;
+  margin-top: 0;
 }
 
 .mcaAboutHeroImageContainer {
@@ -123,7 +98,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Within the negative wrapper */
+  z-index: 1;
 }
 
 .mcaAboutHeroBackgroundImage {
@@ -131,7 +106,6 @@
   filter: blur(0.3px);
   transition: var(--mca-transition-smooth);
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
 }
 
 .mcaAboutHeroImageOverlay {
@@ -142,164 +116,94 @@
   height: 100%;
   background: linear-gradient(
     135deg, 
-    rgba(var(--color-teal-500-rgb), 0.35) 0%, 
-    rgba(var(--color-teal-700-rgb), 0.25) 50%, 
-    rgba(var(--color-slate-500-rgb), 0.4) 100%
+    rgba(var(--mca-mauve-rgb), 0.35) 0%, 
+    rgba(var(--mca-plum-rgb), 0.45) 50%, 
+    rgba(var(--mca-dusty-rose-rgb), 0.3) 100%
   );
   z-index: 2;
 }
 
-.mcaAboutMainTitle {
-  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
-  font-weight: var(--font-weight-bold);
-  color: #ffffff;
-  margin-bottom: var(--space-16);
-  text-shadow: 0 var(--space-2) var(--space-10) rgba(0, 0, 0, 0.4);
-  line-height: var(--line-height-tight);
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-tight);
-  position: relative;
-  z-index: 3;
-  overflow: visible;
-  padding-top: var(--space-24); /* Extra top padding to shift down on mobile */
-}
-
-.mcaAboutIntroText {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  line-height: var(--line-height-relaxed);
-  color: #ffffff;
-  max-width: 900px;
-  margin: 0 auto var(--space-16) auto;
-  opacity: 1;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.3);
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  overflow: visible !important; /* Prevent text clipping */
-  white-space: normal; /* Ensure wrapping */
-}
-
-/* UPDATED: Image Holders - Enhanced for better desktop display */
-.mcaAboutHeroImageHolder,
-.mcaAboutImageHolder {
-  position: relative;
-  margin: var(--space-8) 0; /* Reduced margins to lift image higher with shorter text */
-  overflow: visible !important;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-sm);
-  width: 100%;
-  z-index: 3;
-  max-height: 600px; /* Control maximum height on all screens */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* UPDATED: Image styling for better quality on all screens */
-.mcaAboutImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Default for mobile */
-  transition: transform var(--duration-normal) var(--ease-standard);
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  filter: contrast(1.05) saturate(1.1);
-  max-height: 600px; /* Control maximum height */
-}
-
-.mcaAboutImage:hover {
-  transform: scale(1.02); /* Reduced scale effect to prevent pixelation */
-  filter: contrast(1.1) saturate(1.2);
-}
-
-/* Bottom Border Accent - Thin gold-like accent */
-.mcaAboutImageBorderAccent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
-  opacity: 0.5;
-}
-
-/* Enhanced Curved Top Line - More pronounced ellipse */
-.mcaAboutImageBorderAccentTop {
+.mcaAboutHeroShade {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(to right, var(--color-brown-600), var(--color-teal-500));
-  opacity: 0.5;
-  clip-path: ellipse(60% 100% at 50% 100%);
-}
-
-/* Call to Action - Reduced margin; z-index matching content */
-.mcaAboutCallToAction {
-  text-align: center;
-  margin: var(--space-24) 0;
-  position: relative;
-  z-index: 3;
-}
-
-.mcaAboutCtaText {
-  display: inline-block;
-  padding: var(--space-12) var(--space-32);
-  background: var(--mca-pink-highlight);
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-lg);
-  box-shadow: var(--shadow-lg);
-  transition: var(--mca-transition-luxury);
-  position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.mcaAboutCtaText::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(
+    45deg,
+    rgba(var(--mca-plum-rgb), 0.08) 0%,
+    transparent 50%,
+    rgba(var(--mca-plum-rgb), 0.04) 100%
+  );
+  z-index: 3;
 }
 
-.mcaAboutCtaText:hover::before {
-  left: 100%;
-}
-
-.mcaAboutCtaText:hover {
-  transform: translateY(calc(-1 * var(--space-4)));
-  box-shadow: var(--shadow-lg);
-  background: var(--mca-vivid-pink);
-}
-
-/* Content Sections - Clean, spacious layouts with added curve mimic */
-.mcaAboutContentSection {
-  padding: var(--space-48) 0;
-  border-bottom: 1px solid rgba(var(--color-border), 0.3);
+.mcaAboutHeroContentBox {
   position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
-  background: linear-gradient(145deg, var(--mca-cream-white), var(--mca-soft-white));
+  z-index: 4;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  padding: 3rem;
+  background: rgba(var(--mca-cream-rgb), 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
+  box-shadow: var(--mca-shadow-luxury);
+  animation: heroContentFadeIn 1.2s ease-out;
+}
+
+@keyframes heroContentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mcaAboutHeroMainText {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--mca-plum);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(var(--mca-plum-rgb), 0.2);
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.mcaAboutHeroSubText {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--mca-plum);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Container */
+.mcaAboutContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Content Sections */
+.mcaAboutContentSection {
+  padding: 5rem 0;
+  background: var(--mca-gradient-soft);
   opacity: 0;
-  transform: translateY(var(--space-20));
+  transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
-  z-index: 2;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(var(--space-20));
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -308,301 +212,418 @@
 }
 
 .mcaAboutSectionTitle {
-  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--mca-plum);
   text-align: center;
-  margin-bottom: var(--space-24);
-  letter-spacing: var(--letter-spacing-tight);
-  text-shadow: 0 var(--space-1) var(--space-4) rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
 }
 
-/* UPDATED: Content layout for better image display */
+.mcaAboutIntroText {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--mca-plum);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  opacity: 0.9;
+}
+
+/* Content Layout */
 .mcaAboutContentLayout {
   display: flex;
-  flex-direction: column; /* Default to column for mobile */
-  gap: var(--space-32);
+  flex-direction: column;
+  gap: 3rem;
   align-items: center;
 }
 
-.mcaAboutContentText {
+.mcaAboutTextBlock {
   flex: 1;
-  min-width: 100%;
+  background: var(--mca-cream);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--mca-shadow-medium);
+  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
 }
 
 .mcaAboutParagraph {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-16);
-  color: var(--color-text-secondary);
-  text-shadow: 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.1);
-  word-break: break-word;
+  font-size: clamp(1.0625rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--mca-plum);
+  margin-bottom: 1.5rem;
 }
 
-.mcaAboutIntroParagraph {
-  font-size: var(--font-size-xl);
-  font-style: italic;
-  margin-bottom: var(--space-24);
-  line-height: var(--line-height-relaxed);
+.mcaAboutParagraph:last-child {
+  margin-bottom: 0;
 }
 
-/* Lists - Clean and professional */
-.mcaAboutListContainer {
+.mcaAboutSubheading {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--mca-plum);
+  margin: 2rem 0 1rem;
+}
+
+/* Lists */
+.mcaAboutList {
   list-style: none;
   padding: 0;
-  margin: var(--space-16) 0;
+  margin: 1.5rem 0;
 }
 
 .mcaAboutListItem {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-16);
-  padding-left: var(--space-24);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--mca-plum);
+  margin-bottom: 1rem;
+  padding-left: 2rem;
   position: relative;
+  line-height: 1.6;
 }
 
 .mcaAboutListItem::before {
   content: '•';
   position: absolute;
   left: 0;
-  color: var(--color-teal-500);
+  color: var(--mca-mauve);
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
-/* UPDATED: Desktop-specific styles for better image display */
-@media (min-width: 768px) {
-  .mcaAboutContentLayout {
-    flex-direction: row; /* Switch to row layout on desktop */
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  .mcaAboutContentText {
-    flex: 1;
-    min-width: 0; /* Allow text to shrink */
-  }
-  
-  .mcaAboutImageHolder {
-    flex: 1;
-    max-width: 50%; /* Limit width on desktop */
-    margin: 0 auto; /* Center the image */
-  }
-  
-  /* IMPORTANT: Desktop-specific image styling to prevent grainy appearance */
-  .mcaAboutImage {
-    object-fit: contain; /* Change to contain on desktop */
-    max-height: 500px;
-    width: auto;
-    max-width: 100%;
-  }
-  
-  /* Special case for team photos that might need different treatment */
-  .teamPhoto .mcaAboutImage {
-    object-fit: cover;
-    object-position: center top;
-  }
-  
-  /* Hero image special handling */
-  .mcaAboutHeroImageHolder .mcaAboutImage {
-    max-height: 400px;
-  }
+/* Images */
+.mcaAboutVisual {
+  flex: 1;
+  max-width: 600px;
+  width: 100%;
 }
 
-/* Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-  .mcaAboutContentLayout {
-    flex-direction: column;
-    gap: var(--space-16);
-  }
-
-  .mcaAboutMainTitle {
-    font-size: var(--font-size-3xl);
-    padding-top: var(--space-32); /* Increased to shift further down */
-  }
-
-  .mcaAboutSectionTitle {
-    font-size: var(--font-size-2xl);
-  }
-
-  .mcaAboutPageWrapper {
-    padding: var(--space-16);
-  }
-
-  .mcaAboutContentSection {
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
-    padding: var(--space-32) 0;
-  }
-
-  .mcaAboutHero {
-    min-height: 50vh;
-    padding: var(--space-32) var(--space-16) var(--space-24) var(--space-16); /* Added side padding for wrapping */
-    clip-path: ellipse(100% 80% at 50% 0%); /* Loosened more for mobile */
-    flex-wrap: wrap;
-    justify-content: flex-start; /* Start from top */
-  }
-
-  .mcaAboutIntroText,
-  .mcaAboutParagraph {
-    line-height: var(--line-height-normal);
-    max-width: 100%;
-    white-space: normal;
-    padding: 0 var(--space-8); /* Side padding to center text */
-    margin-bottom: var(--space-8); /* Reduced for shorter text lift */
-  }
-
-  .mcaAboutHeroImageHolder {
-    order: 3;
-    margin-top: var(--space-8); /* Reduced to lift image higher */
-    z-index: 3;
-  }
-
-  .mcaAboutHeaderToHeroTransition {
-    height: 40px; /* Balanced for mobile curve visibility */
-    margin-bottom: var(--space-4); /* Gentle positive margin */
-  }
-  
-  /* Mobile-specific image styling */
-  .mcaAboutImage {
-    object-fit: cover; /* Cover for mobile */
-    width: 100%;
-  }
+.mcaAboutImage {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: var(--mca-shadow-luxury);
+  border: 2px solid rgba(var(--mca-mauve-rgb), 0.3);
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.05) saturate(1.05);
+  transition: var(--mca-transition-luxury);
 }
 
-@media (max-width: 480px) {
-  .mcaAboutPageWrapper {
-    font-size: var(--font-size-sm);
-  }
-
-  .mcaAboutContentSection {
-    padding: var(--space-24) 0;
-  }
-
-  .mcaAboutIntroText {
-    font-size: var(--font-size-md);
-  }
-
-  .mcaAboutHero {
-    min-height: auto;
-    justify-content: flex-start;
-    padding-top: var(--space-40); /* Extra for very small screens */
-  }
-
-  .mcaAboutHeroImageHolder {
-    margin-bottom: var(--space-24);
-  }
-
-  .mcaAboutCallToAction {
-    margin: var(--space-16) 0;
-  }
+.mcaAboutImage:hover {
+  transform: scale(1.02);
+  box-shadow: var(--mca-shadow-luxury);
 }
 
-/* Force dark readable text colors - Override global CSS */
-.mcaAboutMainTitle {
-  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
-  font-weight: var(--font-weight-bold);
-  color: #ffffff !important; /* Keep white for hero section */
-  margin-bottom: var(--space-16);
-  text-shadow: 0 var(--space-2) var(--space-10) rgba(0, 0, 0, 0.4);
-  line-height: var(--line-height-tight);
+/* Team Section */
+.mcaAboutTeamSection {
+  padding: 5rem 0;
+  background: var(--mca-cream);
+}
+
+.mcaAboutTeamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.mcaAboutTeamCard {
+  background: var(--mca-light);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--mca-shadow-medium);
+  transition: var(--mca-transition-luxury);
+  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+}
+
+.mcaAboutTeamCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--mca-shadow-luxury);
+}
+
+.mcaAboutTeamPhotoWrapper {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(45deg, var(--mca-sage), var(--mca-mauve));
+}
+
+.mcaAboutTeamPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: var(--mca-transition-luxury);
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.05) saturate(1.1);
+}
+
+.mcaAboutTeamCard:hover .mcaAboutTeamPhoto {
+  transform: scale(1.05);
+  filter: contrast(1.1) saturate(1.2);
+}
+
+.mcaAboutTeamDetails {
+  padding: 2rem;
+  background: var(--mca-cream);
+}
+
+.mcaAboutTeamName {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--mca-plum);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.mcaAboutTeamTitle {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  color: var(--mca-mauve);
+  margin-bottom: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-tight);
-  position: relative;
-  z-index: 3;
-  overflow: visible;
-  padding-top: var(--space-24);
+  letter-spacing: -0.01em;
 }
 
-.mcaAboutIntroText {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  line-height: var(--line-height-relaxed);
-  color: #ffffff !important; /* Keep white for hero section */
-  max-width: 900px;
-  margin: 0 auto var(--space-16) auto;
-  opacity: 1;
-  position: relative;
-  z-index: 3;
-  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.3);
-  word-break: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  overflow: visible !important;
-  white-space: normal;
+.mcaAboutTeamBio {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--mca-plum);
 }
 
-.mcaAboutSectionTitle {
-  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: var(--font-weight-bold);
-  color: #1a1a1a !important; /* Very dark for maximum readability */
+/* Values Section */
+.mcaAboutValuesSection {
+  padding: 5rem 0;
+  background: var(--mca-gradient-primary);
+}
+
+.mcaAboutValuesSection .mcaAboutSectionTitle {
+  color: var(--mca-cream);
+}
+
+.mcaAboutValuesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.mcaAboutValueCard {
+  background: rgba(var(--mca-cream-rgb), 0.95);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--mca-shadow-medium);
+  transition: var(--mca-transition-luxury);
+  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
+}
+
+.mcaAboutValueCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--mca-shadow-luxury);
+}
+
+.mcaAboutValueTitle {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--mca-plum);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.mcaAboutValueText {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--mca-plum);
+}
+
+/* CTA Section */
+.mcaAboutCtaSection {
+  padding: 6rem 0;
+  background: var(--mca-gradient-soft);
   text-align: center;
-  margin-bottom: var(--space-24);
-  letter-spacing: var(--letter-spacing-tight);
-  text-shadow: 0 var(--space-1) var(--space-4) rgba(0, 0, 0, 0.2);
 }
 
-.mcaAboutParagraph {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-16);
-  color: #333333 !important; /* Dark gray for body text */
-  text-shadow: 0 var(--space-1) var(--space-2) rgba(0, 0, 0, 0.1);
-  word-break: break-word;
-}
-
-.mcaAboutIntroParagraph {
-  font-size: var(--font-size-xl);
-  font-style: italic;
-  margin-bottom: var(--space-24);
-  line-height: var(--line-height-relaxed);
-  color: #2c2c2c !important; /* Dark charcoal */
-}
-
-.mcaAboutListItem {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--space-16);
-  padding-left: var(--space-24);
-  position: relative;
-  color: #333333 !important; /* Dark gray for list items */
-}
-
-.mcaAboutListItem strong {
-  color: #1a1a1a !important; /* Very dark for names/emphasis */
+.mcaAboutCtaTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--mca-plum);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
 .mcaAboutCtaText {
-  display: inline-block;
-  padding: var(--space-12) var(--space-32);
-  background: var(--mca-pink-highlight);
-  color: #ffffff !important; /* Keep white for CTA button */
-  text-decoration: none;
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-lg);
-  box-shadow: var(--shadow-lg);
-  transition: var(--mca-transition-luxury);
-  position: relative;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--mca-plum);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  opacity: 0.9;
+}
+
+.mcaAboutCtaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.mcaAboutTeamImageWrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 1rem;
   overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-tight);
+  box-shadow: var(--mca-shadow-luxury);
+  border: 2px solid rgba(var(--mca-mauve-rgb), 0.3);
 }
 
-/* Force dark text for any remaining elements */
-.mcaAboutPageWrapper h1,
-.mcaAboutPageWrapper h2,
-.mcaAboutPageWrapper h3,
-.mcaAboutPageWrapper h4,
-.mcaAboutPageWrapper h5,
-.mcaAboutPageWrapper h6 {
-  color: #1a1a1a !important;
+.mcaAboutTeamImage {
+  width: 100%;
+  height: auto;
+  transition: var(--mca-transition-luxury);
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.05) saturate(1.1);
 }
 
-.mcaAboutPageWrapper p {
-  color: #333333 !important;
+.mcaAboutTeamImage:hover {
+  transform: scale(1.02);
+  filter: contrast(1.1) saturate(1.2);
 }
 
-.mcaAboutPageWrapper li {
-  color: #333333 !important;
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .mcaAboutWrapper * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-/* Special handling for hero section text - keep white */
-.mcaAboutHero h1,
-.mcaAboutHero p {
-  color: #ffffff !important;
+/* Tablet Breakpoint (768px+) */
+@media (min-width: 768px) {
+  .mcaAboutContentLayout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .mcaAboutContentLayout:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  
+  .mcaAboutTextBlock,
+  .mcaAboutVisual {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .mcaAboutTeamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .mcaAboutValuesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .mcaAboutCtaButtons {
+    flex-direction: row;
+  }
+  
+  .mcaAboutHeroContentBox {
+    padding: 4rem;
+  }
+}
+
+/* Desktop Breakpoint (1024px+) */
+@media (min-width: 1024px) {
+  .mcaAboutContainer {
+    padding: 0 3rem;
+  }
+  
+  .mcaAboutHeroBanner {
+    min-height: 80vh;
+    padding: 5rem 3rem;
+  }
+  
+  .mcaAboutContentSection {
+    padding: 6rem 0;
+  }
+  
+  .mcaAboutTeamSection {
+    padding: 6rem 0;
+  }
+  
+  .mcaAboutValuesSection {
+    padding: 6rem 0;
+  }
+  
+  .mcaAboutCtaSection {
+    padding: 7rem 0;
+  }
+}
+
+/* Mobile Adjustments (max-width: 767px) */
+@media (max-width: 767px) {
+  .mcaAboutHeroBanner {
+    min-height: 60vh;
+    padding: 3rem 1rem;
+  }
+  
+  .mcaAboutHeroContentBox {
+    padding: 2rem;
+  }
+  
+  .mcaAboutContainer {
+    padding: 0 1rem;
+  }
+  
+  .mcaAboutContentSection {
+    padding: 3rem 0;
+  }
+  
+  .mcaAboutTeamSection {
+    padding: 3rem 0;
+  }
+  
+  .mcaAboutValuesSection {
+    padding: 3rem 0;
+  }
+  
+  .mcaAboutCtaSection {
+    padding: 4rem 0;
+  }
+  
+  .mcaAboutTextBlock {
+    padding: 2rem;
+  }
+  
+  .mcaAboutTeamPhotoWrapper {
+    height: 300px;
+  }
+  
+  .mcaAboutHeaderToHeroTransition {
+    height: 40px;
+  }
+}
+
+/* Extra Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .mcaAboutHeroMainText {
+    font-size: 1.75rem;
+  }
+  
+  .mcaAboutSectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .mcaAboutTextBlock {
+    padding: 1.5rem;
+  }
+  
+  .mcaAboutTeamDetails {
+    padding: 1.5rem;
+  }
+  
+  .mcaAboutValueCard {
+    padding: 2rem;
+  }
 }
