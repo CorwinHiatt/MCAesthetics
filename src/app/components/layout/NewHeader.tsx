@@ -16,9 +16,15 @@ const NewHeader = () => {
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const [openMobileSubDropdown, setOpenMobileSubDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const headerRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Fix hydration by ensuring client-only rendering
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Active state logic
   const isActive = (path: string) => {
@@ -182,6 +188,85 @@ const NewHeader = () => {
     setOpenDropdown(null);
     setOpenSubDropdown(null);
   };
+
+  // Prevent hydration mismatch by not rendering dynamic content until mounted
+  if (!isMounted) {
+    return (
+      <header ref={headerRef} className={styles.header}>
+        {/* Futuristic Background Elements */}
+        <div className={styles.headerBackground}>
+          <div className={styles.gridPattern}></div>
+          <div className={styles.glowOrb1}></div>
+          <div className={styles.glowOrb2}></div>
+        </div>
+
+        {/* Top Bar */}
+        <div className={styles.topBar}>
+          <div className={styles.topBarContainer}>
+            <div className={styles.topBarContent}>
+              <div className={styles.premiumBadge}>
+                <span className={styles.iconSparkle}></span>
+                <span className={styles.premiumText}>Premium Aesthetic Services</span>
+              </div>
+
+              <div className={styles.topBarActions}>
+                <a href="tel:9712672322" className={styles.phoneLink}>
+                  <span className={styles.icon}></span>
+                  <span className={styles.phoneNumber}>(971) 267-2322</span>
+                </a>
+                <a
+                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.bookButton}
+                >
+                  <span className={styles.icon}></span>
+                  <span>Book Now</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navigation */}
+        <div className={styles.mainNav}>
+          <div className={styles.navContent}>
+            {/* Logo */}
+            <Link href="/" className={styles.logoLink}>
+              <div className={styles.logoContainer}>
+                <div className={styles.logoGlow}></div>
+                <Image
+                  src="/images/logo.png"
+                  alt="MC Aesthetics - Medical Spa & Wellness"
+                  className={styles.logoImage}
+                  width={200}
+                  height={80}
+                  priority
+                />
+              </div>
+              <div className={styles.logoTextContainer}>
+                <span className={styles.logoTagline}>Where Beauty Meets Science</span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className={styles.desktopNav} aria-label="Main navigation">
+              {/* Navigation items will render after mount */}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className={styles.mobileMenuButton}
+              aria-label="Open menu"
+            >
+              <span className={styles.menuIcon}></span>
+            </button>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
