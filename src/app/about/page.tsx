@@ -129,7 +129,7 @@ export default function AboutPage() {
         </section>
 
         {/* Team Section */}
-        <section className={styles.mcaAboutTeamSection}>
+        {/* <section className={styles.mcaAboutTeamSection}>
           <div className={styles.mcaAboutContainer}>
             <h2 className={styles.mcaAboutSectionTitle}>Meet Our Expert Team</h2>
             <p className={styles.mcaAboutIntroText}>
@@ -137,10 +137,10 @@ export default function AboutPage() {
             </p>
             
             <div className={styles.mcaAboutTeamGrid}>
-              {/* Melissa Card */}
+              Melissa Card
               <div className={styles.mcaAboutTeamCard}>
                 <div className={styles.mcaAboutTeamPhotoWrapper}>
-                  {/* <Image 
+                  <Image 
                     src="/images/melissa1.png"
                     alt="Melissa Cook, Founder & Lead Aesthetician"
                     className={styles.mcaAboutTeamPhoto}
@@ -149,7 +149,7 @@ export default function AboutPage() {
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ objectFit: "cover", objectPosition: "center top" }}
-                  /> */}
+                  />
                 </div>
                 <div className={styles.mcaAboutTeamDetails}>
                   <h3 className={styles.mcaAboutTeamName}>Melissa Cook</h3>
@@ -160,10 +160,10 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Maleah Card */}
+              Maleah Card
               <div className={styles.mcaAboutTeamCard}>
                 <div className={styles.mcaAboutTeamPhotoWrapper}>
-                  {/* <Image 
+                  <Image 
                     src="/images/maleah.jpg"
                     alt="Maleah Espinoza, Aesthetic Nurse Injector"
                     className={styles.mcaAboutTeamPhoto}
@@ -172,7 +172,7 @@ export default function AboutPage() {
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     style={{ objectFit: "cover", objectPosition: "center top" }}
-                  /> */}
+                  />
                 </div>
                 <div className={styles.mcaAboutTeamDetails}>
                   <h3 className={styles.mcaAboutTeamName}>Maleah Espinoza</h3>
@@ -184,7 +184,7 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Maleah's Story Section */}
         <section className={styles.mcaAboutContentSection}>
