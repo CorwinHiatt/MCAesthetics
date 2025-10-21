@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import styles from './Membership.module.css';
@@ -137,7 +137,7 @@ const MembershipClient = () => {
 
           {/* Who It's For */}
           <section className={styles.whoSection}>
-            <h2 className={styles.sectionTitle}>Who It's Perfect For</h2>
+            <h2 className={styles.sectionTitle}>Who It&apos;s Perfect For</h2>
             <div className={styles.whoContent}>
               <p className={styles.whoIntro}>This club is ideal for clients who:</p>
               <ul className={styles.whoList}>
@@ -152,7 +152,7 @@ const MembershipClient = () => {
 
           {/* What's Included */}
           <section className={styles.includedSection}>
-            <h2 className={styles.sectionTitle}>What's Included</h2>
+            <h2 className={styles.sectionTitle}>What&apos;s Included</h2>
             <div className={styles.includedGrid}>
 
               <div className={styles.includedItem}>
@@ -196,7 +196,7 @@ const MembershipClient = () => {
                 At MC Aesthetics, we take a personalized, results-driven approach to aesthetics. Led by Melissa Cook, Nurse Practitioner and clinic owner, our team delivers treatments with precision, artistry, and care.
               </p>
               <p className={styles.commitmentText}>
-                The beauty bank model allows for easy, steady progress toward your goals—be it smoothing fine lines, enhancing skin health, or simply taking time for self-care. We're here to support your journey every step of the way.
+                The beauty bank model allows for easy, steady progress toward your goals—be it smoothing fine lines, enhancing skin health, or simply taking time for self-care. We&apos;re here to support your journey every step of the way.
               </p>
             </div>
           </section>
@@ -215,7 +215,7 @@ const MembershipClient = () => {
               />
             </div>
             <p className={styles.ctaSubtext}>
-              Questions? <a href="/contact" className={styles.ctaLink}>Contact us</a> anytime—we're excited to welcome you!
+              Questions? <a href="/contact" className={styles.ctaLink}>Contact us</a> anytime—we&apos;re excited to welcome you!
             </p>
           </section>
 

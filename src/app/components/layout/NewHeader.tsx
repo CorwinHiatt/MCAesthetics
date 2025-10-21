@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, ChevronDown, ChevronRight, Sparkles, Zap } from 'lucide-react';
 import styles from './NewHeaderStyles.module.css';
@@ -191,77 +192,6 @@ const NewHeader = () => {
     setOpenSubDropdown(null);
   };
 
-  // Prevent hydration mismatch by not rendering until mounted
-  if (!isMounted) {
-    return (
-      <header className={styles.header}>
-        <div className={styles.headerBackground}>
-          <div className={styles.gridPattern}></div>
-          <div className={styles.glowOrb1}></div>
-          <div className={styles.glowOrb2}></div>
-        </div>
-        <div className={styles.topBar}>
-          <div className={styles.topBarContainer}>
-            <div className={styles.topBarContent}>
-              <div className={styles.premiumBadge}>
-                <span className={styles.iconSparkle}>
-                  <Sparkles aria-hidden="true" />
-                  <span className="sr-only">Premium Aesthetic Services</span>
-                </span>
-              </div>
-              <div className={styles.topBarActions}>
-                <a href="tel:9712672322" className={styles.phoneLink}>
-                  <span className={styles.phoneNumber}>(971) 267-2322</span>
-                </a>
-                <a
-                  href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.bookButton}
-                >
-                  <span>Book Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.mainNav}>
-          <div className={styles.navContent}>
-            <Link href="/" className={styles.logoLink}>
-              <div className={styles.logoContainer}>
-                <div className={styles.logoGlow}></div>
-                <img
-                  src="/images/logo.png"
-                  alt="MC Aesthetics - Medical Spa & Wellness"
-                  className={styles.logoImage}
-                />
-              </div>
-              <div className={styles.logoTextContainer}>
-                <span className={styles.logoTagline}>Where Beauty Meets Science</span>
-              </div>
-            </Link>
-            <nav className={styles.desktopNav} aria-label="Main navigation">
-              {navigationItems.map((item) => (
-                <div key={item.name} className={styles.navItem}>
-                  <Link href={item.href} className={styles.navLink}>
-                    {item.name}
-                  </Link>
-                </div>
-              ))}
-            </nav>
-            <button
-              type="button"
-              className={styles.mobileMenuButton}
-              aria-label="Open menu"
-            >
-              <span className={styles.menuIcon}></span>
-            </button>
-          </div>
-        </div>
-      </header>
-    );
-  }
-
   return (
     <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       {/* Futuristic Background Elements */}
@@ -276,13 +206,14 @@ const NewHeader = () => {
         <div className={styles.topBarContainer}>
           <div className={styles.topBarContent}>
             <div className={styles.premiumBadge}>
-              <Sparkles className={styles.iconSparkle} aria-hidden="true" />
+              {isMounted && <Sparkles className={styles.iconSparkle} aria-hidden="true" />}
               <span className={styles.premiumText}>Premium Aesthetic Services</span>
             </div>
 
+
             <div className={styles.topBarActions}>
               <a href="tel:9712672322" className={styles.phoneLink}>
-                <Phone className={styles.icon} aria-hidden="true" />
+                {isMounted && <Phone className={styles.icon} aria-hidden="true" />}
                 <span className={styles.phoneNumber}>(971) 267-2322</span>
               </a>
               <a
@@ -291,7 +222,7 @@ const NewHeader = () => {
                 rel="noopener noreferrer"
                 className={styles.bookButton}
               >
-                <Zap className={styles.icon} aria-hidden="true" />
+                {isMounted && <Zap className={styles.icon} aria-hidden="true" />}
                 <span>Book Now</span>
               </a>
             </div>
@@ -306,10 +237,13 @@ const NewHeader = () => {
           <Link href="/" className={styles.logoLink} onClick={handleNavClick}>
             <div className={styles.logoContainer}>
               <div className={styles.logoGlow}></div>
-              <img
+              <Image
                 src="/images/logo.png"
                 alt="MC Aesthetics - Medical Spa & Wellness"
                 className={styles.logoImage}
+                width={200}
+                height={80}
+                priority
               />
             </div>
             <div className={styles.logoTextContainer}>
@@ -335,60 +269,64 @@ const NewHeader = () => {
                       aria-haspopup="true"
                     >
                       {item.name}
-                      <ChevronDown
-                        className={`${styles.chevronIcon} ${openDropdown === item.name ? styles.rotated : ''}`}
-                        aria-hidden="true"
-                      />
+                      {isMounted && (
+                        <ChevronDown
+                          className={`${styles.chevronIcon} ${openDropdown === item.name ? styles.rotated : ''}`}
+                          aria-hidden="true"
+                        />
+                      )}
                     </button>
-                    <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
-                      <div className={styles.dropdownGlow}></div>
-                      {item.dropdown.map((dropItem) => (
-                        <div
-                          key={dropItem.name}
-                          className={styles.dropdownItem}
-                          onMouseEnter={() => dropItem.subitems && handleSubDropdownEnter(dropItem.name)}
-                          onMouseLeave={handleSubDropdownLeave}
-                        >
-                          {dropItem.subitems ? (
-                            <>
-                              <button
-                                type="button"
-                                className={`${styles.dropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
-                                aria-expanded={openSubDropdown === dropItem.name}
-                                aria-haspopup="true"
+                    {isMounted && (
+                      <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
+                        <div className={styles.dropdownGlow}></div>
+                        {item.dropdown.map((dropItem) => (
+                          <div
+                            key={dropItem.name}
+                            className={styles.dropdownItem}
+                            onMouseEnter={() => dropItem.subitems && handleSubDropdownEnter(dropItem.name)}
+                            onMouseLeave={handleSubDropdownLeave}
+                          >
+                            {dropItem.subitems ? (
+                              <>
+                                <button
+                                  type="button"
+                                  className={`${styles.dropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
+                                  aria-expanded={openSubDropdown === dropItem.name}
+                                  aria-haspopup="true"
+                                >
+                                  {dropItem.name}
+                                  <ChevronRight className={styles.chevronIcon} aria-hidden="true" />
+                                </button>
+                                <div className={`${styles.subDropdown} ${openSubDropdown === dropItem.name ? styles.visible : ''}`}>
+                                  <div className={styles.subDropdownGlow}></div>
+                                  {dropItem.subitems.map((subItem) => (
+                                    <Link
+                                      key={subItem.name}
+                                      href={subItem.href}
+                                      className={`${styles.subDropdownLink} ${isActive(subItem.href) ? styles.active : ''}`}
+                                      onClick={handleNavClick}
+                                    >
+                                      <span className={styles.linkAccent}></span>
+                                      {subItem.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </>
+                            ) : (
+                              <Link
+                                href={dropItem.href}
+                                className={`${styles.dropdownLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
+                                onClick={handleNavClick}
                               >
+                                {dropItem.featured && isMounted && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
+                                <span className={styles.linkAccent}></span>
                                 {dropItem.name}
-                                <ChevronRight className={styles.chevronIcon} aria-hidden="true" />
-                              </button>
-                              <div className={`${styles.subDropdown} ${openSubDropdown === dropItem.name ? styles.visible : ''}`}>
-                                <div className={styles.subDropdownGlow}></div>
-                                {dropItem.subitems.map((subItem) => (
-                                  <Link
-                                    key={subItem.name}
-                                    href={subItem.href}
-                                    className={`${styles.subDropdownLink} ${isActive(subItem.href) ? styles.active : ''}`}
-                                    onClick={handleNavClick}
-                                  >
-                                    <span className={styles.linkAccent}></span>
-                                    {subItem.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </>
-                          ) : (
-                            <Link
-                              href={dropItem.href}
-                              className={`${styles.dropdownLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
-                              onClick={handleNavClick}
-                            >
-                              {dropItem.featured && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
-                              <span className={styles.linkAccent}></span>
-                              {dropItem.name}
-                            </Link>
-                          )}
-                        </div>
-                      ))}
-                    </div>
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </>
                 ) : (
                   <Link
@@ -412,138 +350,144 @@ const NewHeader = () => {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
           >
-            {isMenuOpen ? (
-              <X className={styles.menuIcon} aria-hidden="true" />
-            ) : (
-              <Menu className={styles.menuIcon} aria-hidden="true" />
+            {isMounted && (
+              <>
+                {isMenuOpen ? (
+                  <X className={styles.menuIcon} aria-hidden="true" />
+                ) : (
+                  <Menu className={styles.menuIcon} aria-hidden="true" />
+                )}
+              </>
             )}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        id="mobile-menu"
-        ref={mobileMenuRef}
-        className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className={styles.mobileMenuContent}>
-          <div className={styles.mobileMenuHeader}>
-            <div className={styles.mobileLogoSection}>
-              <h2 className={styles.logoMainText}>MC Aesthetics</h2>
-              <p className={styles.logoTaglineMobile}>Where Beauty Meets Science</p>
+      {isMounted && (
+        <div
+          id="mobile-menu"
+          ref={mobileMenuRef}
+          className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}
+          aria-hidden={!isMenuOpen}
+        >
+          <div className={styles.mobileMenuContent}>
+            <div className={styles.mobileMenuHeader}>
+              <div className={styles.mobileLogoSection}>
+                <h2 className={styles.logoMainText}>MC Aesthetics</h2>
+                <p className={styles.logoTaglineMobile}>Where Beauty Meets Science</p>
+              </div>
+              <button
+                type="button"
+                onClick={closeMenu}
+                className={styles.mobileCloseButton}
+                aria-label="Close menu"
+              >
+                <X className={styles.menuIcon} aria-hidden="true" />
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={closeMenu}
-              className={styles.mobileCloseButton}
-              aria-label="Close menu"
-            >
-              <X className={styles.menuIcon} aria-hidden="true" />
-            </button>
-          </div>
 
-          <nav aria-label="Mobile navigation">
-            <ul className={styles.mobileNavList}>
-              {navigationItems.map((item) => (
-                <li key={item.name} className={styles.mobileNavItem}>
-                  {item.dropdown ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => toggleMobileDropdown(item.name)}
-                        className={`${styles.mobileDropdownButton} ${isActiveSection(item.href.split('#')[0]) ? styles.active : ''}`}
-                        aria-expanded={openMobileDropdown === item.name}
+            <nav aria-label="Mobile navigation">
+              <ul className={styles.mobileNavList}>
+                {navigationItems.map((item) => (
+                  <li key={item.name} className={styles.mobileNavItem}>
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => toggleMobileDropdown(item.name)}
+                          className={`${styles.mobileDropdownButton} ${isActiveSection(item.href.split('#')[0]) ? styles.active : ''}`}
+                          aria-expanded={openMobileDropdown === item.name}
+                        >
+                          {item.name}
+                          <ChevronDown
+                            className={`${styles.chevronIcon} ${openMobileDropdown === item.name ? styles.rotated : ''}`}
+                            aria-hidden="true"
+                          />
+                        </button>
+                        <div className={`${styles.mobileDropdownContent} ${openMobileDropdown === item.name ? styles.open : ''}`}>
+                          <ul className={styles.mobileSubNavList}>
+                            {item.dropdown.map((dropItem) => (
+                              <li key={dropItem.name} className={styles.mobileSubNavItem}>
+                                {dropItem.subitems ? (
+                                  <>
+                                    <button
+                                      type="button"
+                                      onClick={() => toggleMobileSubDropdown(dropItem.name)}
+                                      className={`${styles.mobileDropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
+                                      aria-expanded={openMobileSubDropdown === dropItem.name}
+                                    >
+                                      {dropItem.name}
+                                      <ChevronDown
+                                        className={`${styles.chevronIcon} ${openMobileSubDropdown === dropItem.name ? styles.rotated : ''}`}
+                                        aria-hidden="true"
+                                      />
+                                    </button>
+                                    <div className={`${styles.mobileDropdownContent} ${openMobileSubDropdown === dropItem.name ? styles.open : ''}`}>
+                                      <ul className={styles.mobileSubNavList}>
+                                        {dropItem.subitems.map((subItem) => (
+                                          <li key={subItem.name} className={styles.mobileSubNavItem}>
+                                            <Link
+                                              href={subItem.href}
+                                              onClick={handleNavClick}
+                                              className={`${styles.mobileSubNavLink} ${isActive(subItem.href) ? styles.active : ''}`}
+                                            >
+                                              {subItem.name}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  </>
+                                ) : (
+                                  <Link
+                                    href={dropItem.href}
+                                    onClick={handleNavClick}
+                                    className={`${styles.mobileSubNavLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
+                                  >
+                                    {dropItem.featured && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
+                                    {dropItem.name}
+                                  </Link>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={handleNavClick}
+                        className={`${styles.mobileNavLink} ${isActive(item.href) ? styles.active : ''}`}
                       >
                         {item.name}
-                        <ChevronDown
-                          className={`${styles.chevronIcon} ${openMobileDropdown === item.name ? styles.rotated : ''}`}
-                          aria-hidden="true"
-                        />
-                      </button>
-                      <div className={`${styles.mobileDropdownContent} ${openMobileDropdown === item.name ? styles.open : ''}`}>
-                        <ul className={styles.mobileSubNavList}>
-                          {item.dropdown.map((dropItem) => (
-                            <li key={dropItem.name} className={styles.mobileSubNavItem}>
-                              {dropItem.subitems ? (
-                                <>
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleMobileSubDropdown(dropItem.name)}
-                                    className={`${styles.mobileDropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
-                                    aria-expanded={openMobileSubDropdown === dropItem.name}
-                                  >
-                                    {dropItem.name}
-                                    <ChevronDown
-                                      className={`${styles.chevronIcon} ${openMobileSubDropdown === dropItem.name ? styles.rotated : ''}`}
-                                      aria-hidden="true"
-                                    />
-                                  </button>
-                                  <div className={`${styles.mobileDropdownContent} ${openMobileSubDropdown === dropItem.name ? styles.open : ''}`}>
-                                    <ul className={styles.mobileSubNavList}>
-                                      {dropItem.subitems.map((subItem) => (
-                                        <li key={subItem.name} className={styles.mobileSubNavItem}>
-                                          <Link
-                                            href={subItem.href}
-                                            onClick={handleNavClick}
-                                            className={`${styles.mobileSubNavLink} ${isActive(subItem.href) ? styles.active : ''}`}
-                                          >
-                                            {subItem.name}
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </>
-                              ) : (
-                                <Link
-                                  href={dropItem.href}
-                                  onClick={handleNavClick}
-                                  className={`${styles.mobileSubNavLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
-                                >
-                                  {dropItem.featured && <Sparkles className={styles.iconTiny} aria-hidden="true" />}
-                                  {dropItem.name}
-                                </Link>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={handleNavClick}
-                      className={`${styles.mobileNavLink} ${isActive(item.href) ? styles.active : ''}`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </nav>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* Mobile Contact Section */}
-          <div className={styles.mobileContactSection}>
-            <a href="tel:9712672322" className={styles.phoneLink} onClick={closeMenu}>
-              <Phone className={styles.icon} aria-hidden="true" />
-              <span>(971) 267-2322</span>
-            </a>
-            <a
-              href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className={styles.bookButton}
-            >
-              <Zap className={styles.icon} aria-hidden="true" />
-              <span>Book Appointment</span>
-            </a>
+            {/* Mobile Contact Section */}
+            <div className={styles.mobileContactSection}>
+              <a href="tel:9712672322" className={styles.phoneLink} onClick={closeMenu}>
+                <Phone className={styles.icon} aria-hidden="true" />
+                <span>(971) 267-2322</span>
+              </a>
+              <a
+                href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className={styles.bookButton}
+              >
+                <Zap className={styles.icon} aria-hidden="true" />
+                <span>Book Appointment</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };

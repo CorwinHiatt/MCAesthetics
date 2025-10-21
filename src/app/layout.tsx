@@ -1,7 +1,7 @@
 // app/layout.tsx
 import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
-import Carousel from './components/features/Carousel';
+// import Carousel from './components/features/Carousel';
 import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next"

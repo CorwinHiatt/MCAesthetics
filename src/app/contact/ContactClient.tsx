@@ -55,7 +55,7 @@ const ContactClient = () => {
 
         const result = await response.json();
         console.log('Submission successful!', result);
-        setStatus('Message sent successfully! We\'ll get back to you soon. ✨');
+        setStatus('Message sent successfully! We&apos;ll get back to you soon. ✨');
         form.current.reset();
       } catch (error) {
         console.error('Client-side error during submission:', error);
@@ -87,7 +87,7 @@ const ContactClient = () => {
         <h1 className={styles.mcaContactMainTitle}>Contact MC Aesthetics</h1>
         <p className={styles.mcaContactTagline}>Your Journey to Radiance Starts Here</p>
         <p className={styles.mcaContactIntroText}>
-          We'd love to hear from you! Whether you have questions about our services, want to book an appointment, or need more information, feel free to reach out. Fill out the form below, and we'll get back to you as soon as possible.
+          We&apos;d love to hear from you! Whether you have questions about our services, want to book an appointment, or need more information, feel free to reach out. Fill out the form below, and we&apos;ll get back to you as soon as possible.
         </p>
         <div className={styles.mcaContactHeroImageHolder}>
           <Image
@@ -222,7 +222,7 @@ const ContactClient = () => {
           </div>
         </div>
         <p className={styles.mcaContactInfoSubtext}>
-          Reach out to us directly using the details above, or use the form to send a message. We're excited to connect with you!
+          Reach out to us directly using the details above, or use the form to send a message. We&apos;re excited to connect with you!
         </p>
       </div>
 

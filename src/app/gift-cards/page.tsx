@@ -66,7 +66,7 @@ const GiftCardsClient = () => {
           />
         </div>
         <p className={styles.mcaGiftCtaSubtext}>
-          Questions? <a href="/contact" className={styles.mcaGiftCtaLink}>Contact us</a> anytime—we're excited to help you celebrate!
+          Questions? <a href="/contact" className={styles.mcaGiftCtaLink}>Contact us</a> anytime—we&apos;re excited to help you celebrate!
         </p>
       </div>
     </div>

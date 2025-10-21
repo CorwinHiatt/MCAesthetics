@@ -4,15 +4,6 @@
    Fonts: Merilux (Primary), Beautifully Delicious, Montserrat
    ============================================ */
 
-/* === ROOT VARIABLES === */
-:root {
-  --mca-lux-gold: #B4A698;
-  --mca-deep-purple: #5B615B;
-  --mca-bronze: #C5C1BD;
-  --mca-light-gold: #C4C8C3;
-  --mca-cream: #EFEDE6;
-}
-
 /* === PAGE WRAPPER === */
 .mcaContactPageWrapper {
   min-height: 100vh;

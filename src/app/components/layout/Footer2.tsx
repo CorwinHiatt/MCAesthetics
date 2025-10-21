@@ -80,7 +80,7 @@ export default function Footer2() {
             throw new Error(errorData.error || 'Subscription failed');
           }
 
-          const result = await response.json();
+          await response.json(); // Consume the response but don't store it
           setStatus('Success! Check your email for confirmation.');
           form.current?.reset();
         });

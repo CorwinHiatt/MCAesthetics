@@ -115,13 +115,13 @@ export default function AboutPage() {
               </div>
               <div className={styles.mcaAboutTextBlock}>
                 <p className={styles.mcaAboutParagraph}>
-                  Melissa Cook is a board-certified nurse practitioner with over 21 years of clinical experience and 11 years specializing in aesthetic medicine. As a second-generation McMinnville business owner, she's passionate about helping people feel better through advanced, minimally invasive treatments.
+                  Melissa Cook is a board-certified nurse practitioner with over 21 years of clinical experience and 11 years specializing in aesthetic medicine. As a second-generation McMinnville business owner, she&apos;s passionate about helping people feel better through advanced, minimally invasive treatments.
                 </p>
                 <p className={styles.mcaAboutParagraph}>
-                  For the past six years as owner of MC Aesthetics, Melissa has built a practice rooted in trust, results, and a deep understanding of women's health and aging. Known for her skilled, gentle hands and honest communication, she's committed to helping women look refreshed—not overdone—enhancing natural beauty while prioritizing safety and precision.
+                  For the past six years as owner of MC Aesthetics, Melissa has built a practice rooted in trust, results, and a deep understanding of women&apos;s health and aging. Known for her skilled, gentle hands and honest communication, she&apos;s committed to helping women look refreshed—not overdone—enhancing natural beauty while prioritizing safety and precision.
                 </p>
                 <p className={styles.mcaAboutParagraph}>
-                  Her compassionate approach empowers clients with education and expertise, making MC Aesthetics a beacon of excellence in McMinnville where beauty isn't about perfection, but about feeling empowered in your own skin.
+                  Her compassionate approach empowers clients with education and expertise, making MC Aesthetics a beacon of excellence in McMinnville where beauty isn&apos;t about perfection, but about feeling empowered in your own skin.
                 </p>
               </div>
             </div>
@@ -193,10 +193,10 @@ export default function AboutPage() {
             <div className={styles.mcaAboutContentLayout}>
               <div className={styles.mcaAboutTextBlock}>
                 <p className={styles.mcaAboutParagraph}>
-                  "Hi there! I'm Maleah Espinoza, an aesthetic nurse injector at MC Aesthetics. I completed my nursing education at Chemeketa Community College, and I'm excited to continue my journey by pursuing my BSN in the near future."
+                  &quot;Hi there! I&apos;m Maleah Espinoza, an aesthetic nurse injector at MC Aesthetics. I completed my nursing education at Chemeketa Community College, and I&apos;m excited to continue my journey by pursuing my BSN in the near future.&quot;
                 </p>
                 <p className={styles.mcaAboutParagraph}>
-                  "What I love most about this field is that it's constantly evolving, offering endless opportunities for growth. It's incredibly rewarding to help others feel their best, and I'm thrilled to be part of that process."
+                  &quot;What I love most about this field is that it&apos;s constantly evolving, offering endless opportunities for growth. It&apos;s incredibly rewarding to help others feel their best, and I&apos;m thrilled to be part of that process.&quot;
                 </p>
                 <h3 className={styles.mcaAboutSubheading}>Fun Facts About Maleah:</h3>
                 <ul className={styles.mcaAboutList}>
@@ -252,7 +252,7 @@ export default function AboutPage() {
           <div className={styles.mcaAboutContainer}>
             <h2 className={styles.mcaAboutCtaTitle}>Join the MC Aesthetics Family</h2>
             <p className={styles.mcaAboutCtaText}>
-              Whether you're new to aesthetics or seeking advanced care, MC Aesthetics in McMinnville is here to guide you on your journey toward timeless beauty and renewed confidence.
+              Whether you&apos;re new to aesthetics or seeking advanced care, MC Aesthetics in McMinnville is here to guide you on your journey toward timeless beauty and renewed confidence.
             </p>
             <div className={styles.mcaAboutCtaButtons}>
               <PrimaryButton text="Schedule Consultation" href="https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type" />
