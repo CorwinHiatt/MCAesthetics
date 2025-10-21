@@ -8,7 +8,7 @@ import styles from './NewHeaderStyles.module.css';
 
 const NewHeader = () => {
   const pathname = usePathname();
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null);
@@ -111,7 +111,7 @@ const NewHeader = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      
+
       if (headerRef.current && !headerRef.current.contains(target)) {
         setOpenDropdown(null);
         setOpenSubDropdown(null);
@@ -126,10 +126,10 @@ const NewHeader = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      
+
       if (
-        isMenuOpen && 
-        mobileMenuRef.current && 
+        isMenuOpen &&
+        mobileMenuRef.current &&
         !mobileMenuRef.current.contains(target) &&
         !target.closest(`.${styles.mobileMenuButton}`)
       ) {
@@ -140,7 +140,7 @@ const NewHeader = () => {
     if (isMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-    
+
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMenuOpen]);
 
@@ -204,16 +204,16 @@ const NewHeader = () => {
           <div className={styles.topBarContainer}>
             <div className={styles.topBarContent}>
               <div className={styles.premiumBadge}>
-               <span className={styles.iconSparkle}>
-  <Sparkles aria-hidden="true" />
-  <span className="sr-only">Premium Aesthetic Services</span>
-</span>
+                <span className={styles.iconSparkle}>
+                  <Sparkles aria-hidden="true" />
+                  <span className="sr-only">Premium Aesthetic Services</span>
+                </span>
               </div>
               <div className={styles.topBarActions}>
                 <a href="tel:9712672322" className={styles.phoneLink}>
                   <span className={styles.phoneNumber}>(971) 267-2322</span>
                 </a>
-                <a 
+                <a
                   href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -230,9 +230,9 @@ const NewHeader = () => {
             <Link href="/" className={styles.logoLink}>
               <div className={styles.logoContainer}>
                 <div className={styles.logoGlow}></div>
-                <img 
-                  src="/images/logo.png" 
-                  alt="MC Aesthetics - Medical Spa & Wellness" 
+                <img
+                  src="/images/logo.png"
+                  alt="MC Aesthetics - Medical Spa & Wellness"
                   className={styles.logoImage}
                 />
               </div>
@@ -279,13 +279,13 @@ const NewHeader = () => {
               <Sparkles className={styles.iconSparkle} aria-hidden="true" />
               <span className={styles.premiumText}>Premium Aesthetic Services</span>
             </div>
-            
+
             <div className={styles.topBarActions}>
               <a href="tel:9712672322" className={styles.phoneLink}>
                 <Phone className={styles.icon} aria-hidden="true" />
                 <span className={styles.phoneNumber}>(971) 267-2322</span>
               </a>
-              <a 
+              <a
                 href="https://www.joinblvd.com/b/mcaesthetics/widget#/cart/menu/Aesthetic%20Treatments/s_7fc39f5e-9742-48a3-a63b-dd9a234f0e14"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -306,9 +306,9 @@ const NewHeader = () => {
           <Link href="/" className={styles.logoLink} onClick={handleNavClick}>
             <div className={styles.logoContainer}>
               <div className={styles.logoGlow}></div>
-              <img 
-                src="/images/logo.png" 
-                alt="MC Aesthetics - Medical Spa & Wellness" 
+              <img
+                src="/images/logo.png"
+                alt="MC Aesthetics - Medical Spa & Wellness"
                 className={styles.logoImage}
               />
             </div>
@@ -320,39 +320,39 @@ const NewHeader = () => {
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav} aria-label="Main navigation">
             {navigationItems.map((item) => (
-              <div 
-                key={item.name} 
+              <div
+                key={item.name}
                 className={styles.navItem}
                 onMouseEnter={() => item.dropdown && handleDropdownEnter(item.name)}
                 onMouseLeave={handleDropdownLeave}
               >
                 {item.dropdown ? (
                   <>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       className={`${styles.navButton} ${isActiveSection(item.href.split('#')[0]) ? styles.active : ''}`}
                       aria-expanded={openDropdown === item.name}
                       aria-haspopup="true"
                     >
                       {item.name}
-                      <ChevronDown 
+                      <ChevronDown
                         className={`${styles.chevronIcon} ${openDropdown === item.name ? styles.rotated : ''}`}
-                        aria-hidden="true" 
+                        aria-hidden="true"
                       />
                     </button>
                     <div className={`${styles.dropdown} ${openDropdown === item.name ? styles.visible : ''}`}>
                       <div className={styles.dropdownGlow}></div>
                       {item.dropdown.map((dropItem) => (
-                        <div 
-                          key={dropItem.name} 
+                        <div
+                          key={dropItem.name}
                           className={styles.dropdownItem}
                           onMouseEnter={() => dropItem.subitems && handleSubDropdownEnter(dropItem.name)}
                           onMouseLeave={handleSubDropdownLeave}
                         >
                           {dropItem.subitems ? (
                             <>
-                              <button 
-                                type="button" 
+                              <button
+                                type="button"
                                 className={`${styles.dropdownButton} ${isActiveSection(dropItem.href) ? styles.active : ''}`}
                                 aria-expanded={openSubDropdown === dropItem.name}
                                 aria-haspopup="true"
@@ -376,8 +376,8 @@ const NewHeader = () => {
                               </div>
                             </>
                           ) : (
-                            <Link 
-                              href={dropItem.href} 
+                            <Link
+                              href={dropItem.href}
                               className={`${styles.dropdownLink} ${dropItem.featured ? styles.featured : ''} ${isActive(dropItem.href) ? styles.active : ''}`}
                               onClick={handleNavClick}
                             >
@@ -391,8 +391,8 @@ const NewHeader = () => {
                     </div>
                   </>
                 ) : (
-                  <Link 
-                    href={item.href} 
+                  <Link
+                    href={item.href}
                     className={`${styles.navLink} ${isActive(item.href) ? styles.active : ''}`}
                     onClick={handleNavClick}
                   >
@@ -422,7 +422,7 @@ const NewHeader = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
+      <div
         id="mobile-menu"
         ref={mobileMenuRef}
         className={`${styles.mobileMenu} ${isMenuOpen ? styles.open : ''}`}
@@ -434,7 +434,7 @@ const NewHeader = () => {
               <h2 className={styles.logoMainText}>MC Aesthetics</h2>
               <p className={styles.logoTaglineMobile}>Where Beauty Meets Science</p>
             </div>
-            <button 
+            <button
               type="button"
               onClick={closeMenu}
               className={styles.mobileCloseButton}
@@ -457,9 +457,9 @@ const NewHeader = () => {
                         aria-expanded={openMobileDropdown === item.name}
                       >
                         {item.name}
-                        <ChevronDown 
+                        <ChevronDown
                           className={`${styles.chevronIcon} ${openMobileDropdown === item.name ? styles.rotated : ''}`}
-                          aria-hidden="true" 
+                          aria-hidden="true"
                         />
                       </button>
                       <div className={`${styles.mobileDropdownContent} ${openMobileDropdown === item.name ? styles.open : ''}`}>
@@ -475,9 +475,9 @@ const NewHeader = () => {
                                     aria-expanded={openMobileSubDropdown === dropItem.name}
                                   >
                                     {dropItem.name}
-                                    <ChevronDown 
+                                    <ChevronDown
                                       className={`${styles.chevronIcon} ${openMobileSubDropdown === dropItem.name ? styles.rotated : ''}`}
-                                      aria-hidden="true" 
+                                      aria-hidden="true"
                                     />
                                   </button>
                                   <div className={`${styles.mobileDropdownContent} ${openMobileSubDropdown === dropItem.name ? styles.open : ''}`}>

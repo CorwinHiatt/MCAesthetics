@@ -1,460 +1,571 @@
-/* MC Aesthetics Membership Page Styles - Enhanced Luxurious Styling */
-/* Mobile-First Design with Premium Aesthetics and Crystal Clear Image Display */
+/* ============================================
+   MC AESTHETICS MEMBERSHIP PAGE
+   Mobile-First | Brand Colors & Fonts
+   ============================================ */
 
-/* Define custom properties based on design system */
-.mca-membership-wrapper {
+/* Page Wrapper - Ensures full width centering */
+.pageWrapper {
   width: 100%;
-  margin: 0 auto;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
-  font-family: var(--font-family-base);
-  
-  /* Brand Color Palette - Using design system colors where possible */
-  --mca-primary-teal: var(--color-teal-600);
-  --mca-gradient-teal: linear-gradient(135deg, var(--color-teal-500), var(--color-teal-700));
-  --mca-rose-brown: var(--color-brown-600);
-  --mca-gold-accent: var(--color-brown-600);
-  --mca-light-gold: var(--color-cream-100);
-  --mca-teal-highlight: var(--color-teal-500);
-  --mca-deep-teal: var(--color-teal-800);
-  --mca-navy-blue: var(--color-slate-900);
-  --mca-light-blue: var(--color-teal-400);
-  --mca-sky-blue: var(--color-teal-300);
-  --mca-bronze: var(--color-brown-600);
-  --mca-vivid-teal: var(--color-teal-500);
-  --mca-mustard-gold: var(--color-orange-500);
-  
-  /* Luxury Enhancement Colors - Using design system */
-  --mca-soft-white: var(--color-surface);
-  --mca-elegant-gray: var(--color-text-secondary);
-  --mca-lux-gold: var(--color-orange-400);
-  --mca-cream-white: var(--color-cream-50);
-  --mca-charcoal: var(--color-charcoal-700);
-  
-  /* Advanced Shadow System - Using design system shadows */
-  --mca-shadow-subtle: var(--shadow-xs);
-  --mca-shadow-medium: var(--shadow-sm);
-  --mca-shadow-deep: var(--shadow-md);
-  --mca-shadow-luxury: var(--shadow-lg);
-  
-  /* Premium Transitions - Using design system timing */
-  --mca-transition-smooth: all var(--duration-normal) var(--ease-standard);
-  --mca-transition-luxury: all var(--duration-normal) var(--ease-standard);
 }
 
-/* Dark Mode Overrides for Brighter Text - Increased Specificity and !important */
-@media (prefers-color-scheme: dark) {
-  .mca-membership-wrapper {
-    --color-text: rgba(255, 255, 255, 1) !important; /* Bright white for primary text */
-    --mca-elegant-gray: rgba(230, 230, 230, 1) !important; /* Brighter gray for secondary text */
-    --mca-deep-teal: rgba(100, 200, 200, 1) !important; /* Brighter teal for titles */
-    --mca-teal-highlight: rgba(150, 220, 220, 1) !important; /* Lighter highlight teal */
-    --mca-soft-white: rgba(240, 240, 240, 1) !important; /* Brighter white for accents */
-    --mca-navy-blue: rgba(200, 220, 240, 1) !important; /* Brighter navy */
-    --mca-gold-accent: rgba(255, 220, 150, 1) !important; /* Brighter gold */
-  }
+/* Brand Colors - MC Aesthetics Official Palette */
+.membershipWrapper {
+  --mc-gold-primary: #B4A698;
+  --mc-gold-dark: #5B615B;
+  --mc-gold-light: #C5C1BD;
+  --mc-gray-medium: #C4C8C3;
+  --mc-cream: #EFEDE6;
+  --mc-white: #FFFFFF;
+  --mc-charcoal: #2c2c2c;
   
-  .mca-membership-wrapper .mca-membership-header {
-    color: rgba(255, 255, 255, 1) !important; /* Ensure header text is bright white */
-  }
-  
-  .mca-membership-wrapper .mca-membership-section-title,
-  .mca-membership-wrapper .mca-membership-subsection-title,
-  .mca-membership-wrapper .mca-membership-text,
-  .mca-membership-wrapper .mca-membership-list,
-  .mca-membership-wrapper .mca-membership-ordered-list,
-  .mca-membership-wrapper .mca-membership-image-title,
-  .mca-membership-wrapper .mca-membership-image-description {
-    color: var(--color-text) !important; /* Override all text elements to bright white */
-  }
-  
-  .mca-membership-wrapper .mca-membership-cta-button {
-    color: rgba(255, 255, 255, 1) !important; /* Brighten CTA text */
-  }
-  
-  /* Catch-all for any nested text */
-  .mca-membership-wrapper * {
-    color: inherit !important; /* Propagate brightness down the tree */
-  }
-}
-
-[data-color-scheme="dark"] .mca-membership-wrapper {
-  --color-text: rgba(255, 255, 255, 1) !important;
-  --mca-elegant-gray: rgba(230, 230, 230, 1) !important;
-  --mca-deep-teal: rgba(100, 200, 200, 1) !important;
-  --mca-teal-highlight: rgba(150, 220, 220, 1) !important;
-  --mca-soft-white: rgba(240, 240, 240, 1) !important;
-  --mca-navy-blue: rgba(200, 220, 240, 1) !important;
-  --mca-gold-accent: rgba(255, 220, 150, 1) !important;
-}
-
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-header {
-  color: rgba(255, 255, 255, 1) !important;
-}
-
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-section-title,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-subsection-title,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-text,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-list,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-ordered-list,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-image-title,
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-image-description {
-  color: var(--color-text) !important;
-}
-
-[data-color-scheme="dark"] .mca-membership-wrapper .mca-membership-cta-button {
-  color: rgba(255, 255, 255, 1) !important;
-}
-
-/* Container Styling */
-.mca-membership-container {
+  width: 100%;
   min-height: 100vh;
-  background-color: var(--mca-cream-white);
-  color: var(--color-slate-900);
+  background: linear-gradient(to bottom, var(--mc-white), var(--mc-cream));
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--mc-charcoal);
+  margin: 0;
+  padding: 0;
 }
 
-/* Header Section - Enhanced with Gradient */
-.mca-membership-header {
-  background: var(--mca-gradient-teal);
-  color: var(--mca-soft-white);
-  padding: var(--space-16) var(--space-16);
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.heroSection {
+  background: linear-gradient(135deg, var(--mc-gold-primary) 0%, var(--mc-gold-light) 100%);
+  padding: 4rem 1.5rem;
+  text-align: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
-.mca-membership-header::before {
+.heroSection::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(var(--color-teal-500-rgb), 0.2) 0%, transparent 50%);
-  z-index: 1;
-}
-
-.mca-membership-header-title {
-  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-8);
-  line-height: var(--line-height-tight);
-  text-shadow: 0 var(--space-2) var(--space-10) rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 2;
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.mca-membership-header-subtitle {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  font-weight: var(--font-weight-medium);
-  opacity: 0.95;
-  position: relative;
-  z-index: 2;
-}
-
-/* Main Content */
-.mca-membership-main {
-  margin: 0 auto;
-  padding: var(--space-20) var(--space-16);
-  max-width: var(--container-lg);
-}
-
-/* Section Styling - Premium Card-Like Design */
-.mca-membership-section {
-  margin-bottom: var(--space-32);
-  background: var(--mca-soft-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-24);
-  box-shadow: var(--mca-shadow-medium);
-  border: 1px solid rgba(var(--color-teal-500-rgb), 0.1);
-}
-
-.mca-membership-section-title {
-  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  font-weight: var(--font-weight-bold);
-  color: var(--mca-deep-teal);
-  margin-bottom: var(--space-16);
-  letter-spacing: var(--letter-spacing-tight);
-  text-shadow: 0 var(--space-1) var(--space-6) rgba(0, 0, 0, 0.1);
-}
-
-.mca-membership-subsection-title {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  font-weight: var(--font-weight-semibold);
-  color: var(--mca-teal-highlight);
-  margin-bottom: var(--space-8);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.mca-membership-text {
-  color: var(--mca-elegant-gray);
-  font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
-  line-height: var(--line-height-normal);
-  margin-bottom: var(--space-16);
-}
-
-.mca-membership-list {
-  list-style-type: disc;
-  padding-left: var(--space-20);
-  color: var(--mca-elegant-gray);
-  font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
-  margin-bottom: var(--space-16);
-  line-height: var(--line-height-normal);
-}
-
-.mca-membership-list li {
-  margin-bottom: var(--space-8);
-}
-
-.mca-membership-ordered-list {
-  list-style-type: decimal;
-  padding-left: var(--space-20);
-  color: var(--mca-elegant-gray);
-  font-size: clamp(var(--font-size-base), 1.5vw, var(--font-size-lg));
-  margin-bottom: var(--space-16);
-  line-height: var(--line-height-normal);
-}
-
-.mca-membership-ordered-list li {
-  margin-bottom: var(--space-8);
-}
-
-/* Image Card with Enhanced Lux Effect - Crystal Clear Display */
-.mca-membership-image-card {
-  background-color: var(--mca-light-gold);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--mca-shadow-luxury);
-  overflow: hidden;
-  max-width: 400px;
-  margin: 0 auto var(--space-32) auto;
-  position: relative;
-  border: var(--space-2) solid rgba(var(--color-brown-600-rgb), 0.2);
-  transition: var(--mca-transition-luxury);
-}
-
-.mca-membership-image-card:hover {
-  transform: translateY(calc(-1 * var(--space-8))) scale(1.02);
-  box-shadow: var(--mca-shadow-luxury);
-}
-
-.mca-membership-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: linear-gradient(45deg, var(--mca-light-gold), var(--mca-gold-accent));
-}
-
-.mca-membership-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: contrast(1.05) saturate(1.1);
-  transition: var(--mca-transition-luxury);
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-.mca-membership-image-card:hover .mca-membership-image {
-  transform: scale(1.08);
-  filter: contrast(1.1) saturate(1.2);
-}
-
-/* Lux overlay effect with subtle teal shimmer */
-.mca-membership-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(var(--color-teal-500-rgb), 0.2) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(var(--color-teal-500-rgb), 0.2) 100%
-  );
-  opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease-standard);
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
   pointer-events: none;
 }
 
-.mca-membership-image-card:hover .mca-membership-image-overlay {
-  opacity: 1;
-}
-
-.mca-membership-image-content {
-  padding: var(--space-16);
-  background: var(--mca-soft-white);
-}
-
-.mca-membership-image-title {
-  font-size: clamp(var(--font-size-lg), 2vw, var(--font-size-xl));
-  font-weight: var(--font-weight-semibold);
-  color: var(--mca-deep-teal);
-  margin-bottom: var(--space-4);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-.mca-membership-image-description {
-  font-size: clamp(var(--font-size-sm), 1.5vw, var(--font-size-base));
-  color: var(--mca-elegant-gray);
-}
-
-/* CTA Button - Premium Styling */
-.mca-membership-cta-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--mca-teal-highlight);
-  color: var(--mca-soft-white);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  padding: var(--space-12) var(--space-24);
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  transition: var(--mca-transition-luxury);
-  cursor: pointer;
-  border: none;
-  box-shadow: var(--mca-shadow-medium);
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
   position: relative;
-  overflow: hidden;
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-tight);
+  z-index: 1;
 }
 
-.mca-membership-cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  color: var(--mc-white);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 500;
+  color: var(--mc-cream);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.heroDescription {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--mc-cream);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  width: 100%;
+}
+
+/* ============================================
+   FEATURED IMAGE CARD
+   ============================================ */
+
+.featuredSection {
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.featuredCard {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(180, 166, 152, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(180, 166, 152, 0.3);
+}
+
+.featuredImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: var(--mc-gray-medium);
+}
+
+.featuredImage {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.6s ease;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.mca-membership-cta-button:hover::before {
-  left: 100%;
+.featuredCard:hover .featuredImage {
+  transform: scale(1.05);
 }
 
-.mca-membership-cta-button:hover {
-  background-color: var(--mca-vivid-teal);
-  transform: translateY(calc(-1 * var(--space-4)));
-  box-shadow: var(--mca-shadow-deep);
+.featuredOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 2rem 1.5rem;
+  color: var(--mc-white);
 }
 
-.mca-membership-cta-button:active {
-  background-color: var(--mca-deep-teal);
-  transform: translateY(var(--space-2));
+.featuredTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
-/* Center alignment for specific sections */
-.mca-membership-text-center {
+.featuredText {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  opacity: 0.95;
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--mc-gold-primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+
+/* ============================================
+   BENEFITS GRID
+   ============================================ */
+
+.benefitsSection {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefitCard {
+  background: var(--mc-white);
+  border: 2px solid var(--mc-cream);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 48px;
+}
+
+.benefitCard:hover {
+  border-color: var(--mc-gold-primary);
+  box-shadow: 0 8px 20px rgba(180, 166, 152, 0.2);
+  transform: translateY(-4px);
+}
+
+.benefitIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: grayscale(20%);
+}
+
+.benefitTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--mc-gold-primary);
+  margin-bottom: 0.75rem;
+}
+
+.benefitText {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--mc-gold-dark);
+}
+
+/* ============================================
+   HOW IT WORKS
+   ============================================ */
+
+.howItWorksSection {
+  margin-bottom: 5rem;
+  background: var(--mc-white);
+  border-radius: 16px;
+  padding: 3rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--mc-cream);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: scale(1.02);
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--mc-gold-primary), var(--mc-gold-light));
+  color: var(--mc-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.3);
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: var(--mc-gold-primary);
+  margin-bottom: 0.75rem;
+}
+
+.stepText {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--mc-gold-dark);
+}
+
+/* ============================================
+   WHO IT'S FOR
+   ============================================ */
+
+.whoSection {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.whoContent {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--mc-white);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.whoIntro {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 600;
+  color: var(--mc-gold-primary);
+  margin-bottom: 1.5rem;
+}
+
+.whoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.whoList li {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.8;
+  color: var(--mc-gold-dark);
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.whoList li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--mc-gold-primary);
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   WHAT'S INCLUDED
+   ============================================ */
+
+.includedSection {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.includedGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.includedItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--mc-white);
+  padding: 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--mc-gold-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  min-height: 48px;
+}
+
+.includedItem:hover {
+  transform: translateX(8px);
+}
+
+.checkmark {
+  font-size: 1.5rem;
+  color: var(--mc-gold-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.includedItem p {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  color: var(--mc-gold-dark);
+  margin: 0;
+}
+
+/* ============================================
+   COMMITMENT SECTION
+   ============================================ */
+
+.commitmentSection {
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.commitmentCard {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--mc-cream), var(--mc-white));
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 24px rgba(180, 166, 152, 0.15);
+  border: 2px solid var(--mc-gold-light);
+}
+
+.commitmentTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--mc-gold-primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.commitmentText {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--mc-gold-dark);
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.mca-membership-max-w-3xl {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.commitmentText:last-child {
+  margin-bottom: 0;
 }
 
-/* Mobile-First Responsive Design */
-@media (max-width: 768px) {
-  .mca-membership-header-title {
-    font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
-  }
+/* ============================================
+   CTA SECTION
+   ============================================ */
 
-  .mca-membership-header-subtitle {
-    font-size: clamp(var(--font-size-md), 2vw, var(--font-size-lg));
-  }
-
-  .mca-membership-section-title {
-    font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
-  }
-
-  .mca-membership-subsection-title {
-    font-size: clamp(var(--font-size-md), 2vw, var(--font-size-lg));
-  }
-
-  .mca-membership-main {
-    padding: var(--space-16) var(--space-12);
-  }
-
-  .mca-membership-image-wrapper {
-    height: 180px;
-  }
-
-  .mca-membership-section {
-    padding: var(--space-20);
-  }
+.ctaSection {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(135deg, var(--mc-gold-primary), var(--mc-gold-light));
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(180, 166, 152, 0.3);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-@media (max-width: 480px) {
-  .mca-membership-header-title {
-    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-2xl));
+.ctaTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--mc-white);
+  margin-bottom: 1.5rem;
+}
+
+.ctaText {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--mc-cream);
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+.ctaButtonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.ctaSubtext {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: var(--mc-cream);
+  margin-top: 1.5rem;
+}
+
+.ctaLink {
+  color: var(--mc-white);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+
+.ctaLink:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (min-width: 640px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 
-  .mca-membership-header-subtitle {
-    font-size: var(--font-size-md);
-  }
-
-  .mca-membership-section-title {
-    font-size: clamp(var(--font-size-lg), 3vw, var(--font-size-xl));
-  }
-
-  .mca-membership-subsection-title {
-    font-size: var(--font-size-md);
-  }
-
-  .mca-membership-cta-button {
-    padding: var(--space-10) var(--space-16);
-    font-size: var(--font-size-md);
-  }
-
-  .mca-membership-image-wrapper {
-    height: 160px;
-  }
-
-  .mca-membership-section {
-    padding: var(--space-16);
+  .includedGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 768px) {
-  .mca-membership-image-wrapper {
-    height: 220px;
+  .heroSection {
+    padding: 5rem 2rem;
+  }
+
+  .mainContent {
+    padding: 4rem 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .mca-membership-image-wrapper {
-    height: 250px;
+  .benefitsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stepsContainer {
+    flex-direction: row;
+  }
+
+  .step {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .stepNumber {
+    margin-bottom: 1rem;
   }
 }
 
-/* Performance Optimizations */
-.mca-membership-image-card * {
-  will-change: transform;
-  backface-visibility: hidden;
-}
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
 
-/* Accessibility Support */
 @media (prefers-reduced-motion: reduce) {
-  .mca-membership-image-card,
-  .mca-membership-image,
-  .mca-membership-cta-button,
-  .mca-membership-cta-button::before {
-    transition: none;
+  .membershipWrapper,
+  .membershipWrapper .benefitCard,
+  .membershipWrapper .step,
+  .membershipWrapper .featuredCard {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* High DPI Display Optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .mca-membership-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
+@media (prefers-contrast: high) {
+  .membershipWrapper {
+    --mc-gold-primary: #8B7355;
+    --mc-charcoal: #000000;
   }
+
+  .benefitCard,
+  .step,
+  .includedItem {
+    border-width: 3px;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.ctaLink:focus-visible {
+  outline: 3px solid var(--mc-white);
+  outline-offset: 4px;
 }
