@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import Script from 'next/script';
 import PrimaryButton from '@/app/components/buttons/PrimaryButton';
-import OutlineButton from '@/app/components/buttons/OutlineButton';
 import styles from './Contact.module.css';
 import Image from 'next/image';
 
@@ -19,14 +18,12 @@ declare global {
 const ContactClient = () => {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Submit handler fired!');
 
     if (form.current) {
-      setIsSubmitting(true);
       setStatus('Verifying and sending...');
       console.log('Status set to: Verifying and sending...');
 
@@ -64,7 +61,6 @@ const ContactClient = () => {
         console.error('Client-side error during submission:', error);
         setStatus((error as Error).message || 'Oops! Something went wrong. Please try again.');
       } finally {
-        setIsSubmitting(false);
         setTimeout(() => setStatus(''), 6000);
       }
     }
@@ -121,7 +117,7 @@ const ContactClient = () => {
                 placeholder="Jane Doe" 
                 required 
                 aria-required="true"
-                disabled={isSubmitting}
+                autoComplete="name"
               />
             </div>
 
@@ -135,7 +131,7 @@ const ContactClient = () => {
                 placeholder="jane@example.com" 
                 required 
                 aria-required="true"
-                disabled={isSubmitting}
+                autoComplete="email"
               />
             </div>
 
@@ -147,7 +143,7 @@ const ContactClient = () => {
                 name="phone" 
                 className={styles.mcaContactFormInput} 
                 placeholder="(555) 123-4567"
-                disabled={isSubmitting}
+                autoComplete="tel"
               />
             </div>
 
@@ -160,7 +156,6 @@ const ContactClient = () => {
                 placeholder="Tell us how we can help you achieve your beauty goals..." 
                 required 
                 aria-required="true"
-                disabled={isSubmitting}
               ></textarea>
             </div>
 
@@ -168,24 +163,21 @@ const ContactClient = () => {
               <button 
                 type="submit" 
                 className={styles.mcaContactSubmitButtonHidden}
-                disabled={isSubmitting}
                 aria-label="Submit contact form"
                 style={{ display: 'none' }}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                Send Message
               </button>
               
-              {/* Using Your Branded Button */}
               <div onClick={() => {
-                if (!isSubmitting && form.current) {
+                if (form.current) {
                   form.current.requestSubmit();
                 }
               }}>
                 <PrimaryButton 
-                  text={isSubmitting ? 'Sending...' : 'Send Message'}
-                  onClick={() => {}} // Handled by form submit
+                  text="Send Message"
+                  onClick={() => {}}
                   ariaLabel="Submit contact form"
-                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -234,7 +226,7 @@ const ContactClient = () => {
         </p>
       </div>
 
-      {/* Call to Action - Using Your Branded Button */}
+      {/* Call to Action */}
       <div className={styles.mcaContactCallToAction}>
         <h2 className={styles.mcaContactCtaTitle}>Ready to Transform Your Look?</h2>
         <p className={styles.mcaContactCtaSubtext}>Book your consultation today and discover the MC Aesthetics difference.</p>
