@@ -1,107 +1,95 @@
+import React from 'react';
+import PrimaryButton from '@/app/components/buttons/PrimaryButton';
 import styles from './Financing.module.css';
-import Image from 'next/image';
+
+export const metadata = {
+  title: 'Flexible Financing Options | MC Aesthetics | McMinnville, OR',
+  description: 'Affordable beauty financing in Yamhill County, Oregon. PatientFi offers flexible payment plans for aesthetic treatments at MC Aesthetics in McMinnville. Apply today!',
+  keywords: 'beauty financing McMinnville, aesthetic financing Oregon, PatientFi Yamhill County, cosmetic treatment payment plans, medical spa financing',
+};
 
 export default function FinancingPage() {
   return (
-    <div className={styles.mcaFinancingPageWrapper}>
-      {/* Hero Section with Main Title, Subtitle, and Cherry Logo */}
-      <section className={styles.mcaFinancingHero}>
-        <h1 className={styles.mcaFinancingMainTitle}>Flexible Financing Options at MC Aesthetics</h1>
-        <p className={styles.mcaFinancingSubtitle}>
-          Partnering with Cherry for Seamless Payment Plans
+    <main className={styles.pageWrapper}>
+      
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <h1 className={styles.title}>Financing at MC Aesthetics</h1>
+        <p className={styles.subtitle}>Flexible Payment Plans - Make Beauty Affordable Today</p>
+        
+        {/* PatientFi Logo/Card Visual */}
+        <div className={styles.cardImageWrapper}>
+          <div className={styles.financingCard}>
+            <div className={styles.cardContent}>
+              <p className={styles.cardBrand}>PatientFi</p>
+              <p className={styles.cardText}>Flexible Payment Plans</p>
+              <p className={styles.cardSubtext}>3-24 Month Terms Available</p>
+            </div>
+          </div>
+        </div>
+
+        <p className={styles.description}>
+          Looking for flexible payment options for your aesthetic treatments? MC Aesthetics partners with PatientFi to offer affordable financing solutions. Whether it&apos;s injectables, laser treatments, or skincare products, our financing makes it easy to invest in yourself without the financial stress. Get approved in minutes with transparent terms and no hidden fees!
         </p>
-        {/* Cherry Logo Image */}
-        <div className={styles.mcaFinancingLogoHolder}>
-          <Image
-            src="/images/cherryFinacing.png"  // User's specified logo path (fixed typo)
-            alt="Cherry Financing Logo - Partner of MC Aesthetics"
-            className={styles.mcaFinancingLogo}
-            width={300}
-            height={150}  // Adjusted for logo proportions; tweak as needed
-          />
-        </div>
       </section>
 
-      {/* How Cherry Works Section (Text-Only for Optimization) */}
-      <section className={styles.mcaFinancingContentSection}>
-        <h2 className={styles.mcaFinancingSectionTitle}>How Cherry Financing Works</h2>
-        <div className={styles.mcaFinancingContentLayout}>
-          <div className={styles.mcaFinancingContentText}>
-            <p className={styles.mcaFinancingParagraph}>
-              No hidden fees. No paperwork. No hassle. No hard credit checks. Cherry Financing offers a seamless way to afford your med spa treatments at MC Aesthetics.
-            </p>
-            <p className={styles.mcaFinancingParagraph}>
-              <strong>Buy now. Pay monthly.</strong> Split your payments and pay over time with plans tailored to fit any budget.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Payment Plans Section with "You're Approved" Image */}
-      <section className={styles.mcaFinancingContentSection}>
-        <h2 className={styles.mcaFinancingSectionTitle}>A Plan For Any Budget</h2>
-        <div className={styles.mcaFinancingContentLayout}>
-          <div className={styles.mcaFinancingContentText}>
-            <p className={styles.mcaFinancingParagraph}>
-              Choose from 3, 6, 12, 18, or 24-month payment plans, with some qualifying for as low as 0% APR. Enjoy your purchase in no time with our fast approval process. All we require is your state ID and mobile phone number.
-            </p>
-            <p className={styles.mcaFinancingParagraph}>
-              <strong>Pay Over Time:</strong> Autopay and 24/7 access to Cherry’s self-serve customer portal give you more ways to pay and the power to manage your payments.
-            </p>
-            <p className={styles.mcaFinancingParagraph}>
-              <strong>Flexible Payments For Any Budget:</strong> Cherry makes financing simple and accessible for everyone.
-            </p>
-          </div>
-          {/* "You're Approved" Image */}
-          <div className={styles.mcaFinancingImageHolder}>
-            <Image
-              src="/images/Approved.png"  // User's specified promotional image
-              alt="You're Approved - Girl Holding Card in Cherry Shirt for MC Aesthetics Financing"
-              className={styles.mcaFinancingImage}
-              width={800}
-              height={400}
-            />
-            <div className={styles.mcaFinancingImageBorderAccent}></div>
-          </div>
-        </div>
-      </section>
-
-      {/* Reasons to Love Cherry Section */}
-      <section className={styles.mcaFinancingContentSection}>
-        <h2 className={styles.mcaFinancingSectionTitle}>3 Reasons Why Patients Love Cherry Financing</h2>
-        <p className={styles.mcaFinancingIntroParagraph}>
-          Discover why Cherry is the preferred choice for financing your aesthetic treatments:
-        </p>
-        <ul className={styles.mcaFinancingListContainer}>
-          <li className={styles.mcaFinancingListItem}>
-            Qualification for up to $10,000 in financing.
-          </li>
-          <li className={styles.mcaFinancingListItem}>
-            There is no hard credit check required.
-          </li>
-          <li className={styles.mcaFinancingListItem}>
-            0% APR financing available (subject to eligibility).
-          </li>
+      {/* Why Choose Section */}
+      <section className={styles.whyChoose}>
+        <h2 className={styles.sectionTitle}>Why Choose PatientFi Financing?</h2>
+        
+        <ul className={styles.benefitsList}>
+          <li>Instant approval in minutes - no hard credit check</li>
+          <li>Flexible payment plans from 3 to 24 months</li>
+          <li>No hidden fees - transparent pricing you can trust</li>
+          <li>Easy online management with convenient autopay options</li>
+          <li>Available for all treatments and skincare products</li>
         </ul>
       </section>
 
-      {/* Call to Action */}
-      <div className={styles.mcaFinancingCallToAction}>
-        <p className={styles.mcaFinancingCtaText}>Apply Today for Med Spa Treatment Financing</p>
-        <a
-          href="https://pay.withcherry.com/mcaestheticsclinic?utm_source=merchant&utm_medium=website"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.mcaFinancingCtaButton}
-        >
-          Apply for Cherry Financing!
-        </a>
-      </div>
+      {/* How It Works */}
+      <section className={styles.howItWorks}>
+        <h2 className={styles.sectionTitle}>How It Works</h2>
+        
+        <ol className={styles.stepsList}>
+          <li>Complete a quick online application in minutes</li>
+          <li>Get instant approval and choose your payment plan</li>
+          <li>Start your treatment right away with confidence</li>
+        </ol>
+      </section>
 
-      {/* Disclaimer */}
-      <p className={styles.mcaFinancingDisclaimer}>
-        *0% APR and other promotional rates subject to eligibility. Regular APR 9.99% – 35.99%. Down payment may be required.
-      </p>
-    </div>
+      {/* CTA Section */}
+      <section className={styles.cta}>
+        <h2 className={styles.ctaTitle}>Ready to Get Started?</h2>
+        <p className={styles.ctaText}>
+          Apply for PatientFi financing today and make your beauty goals a reality with affordable monthly payments.
+        </p>
+        
+        <div className={styles.ctaButton}>
+          <a 
+            href="https://app.patientfi.com/v2/mc-aesthetics/apply"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.buttonLink}
+          >
+            <PrimaryButton text="Apply Now" />
+          </a>
+        </div>
+
+        <p className={styles.ctaFooter}>
+          Questions? <a href="/contact" className={styles.contactLink}>Contact us</a> - we&apos;re here to help!
+        </p>
+      </section>
+
+      {/* Local SEO Footer */}
+      <section className={styles.seoFooter}>
+        <p className={styles.seoText}>
+          MC Aesthetics proudly serves McMinnville, Newberg, Dundee, Carlton, and all of Yamhill County, Oregon with flexible financing options for aesthetic treatments. Our partnership with PatientFi makes professional beauty services accessible and affordable for everyone in the Willamette Valley.
+        </p>
+        <p className={styles.disclaimer}>
+          *Financing subject to credit approval. Terms and conditions apply.
+        </p>
+      </section>
+
+    </main>
   );
 }

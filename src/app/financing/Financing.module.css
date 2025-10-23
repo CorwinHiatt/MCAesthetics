@@ -1,280 +1,362 @@
-/* Financing.module.css - Optimized Flexible Financing Page for MC Aesthetics */
-/* Prefix: .mcaFinancing* for uniqueness; Mirrors gift card/contact style with wavy accents, gold trims, purple titles, pink highlights, subtle shadows, and smooth transitions */
+/* ============================================
+   FINANCING PAGE - MC AESTHETICS
+   Mobile-First Optimized Design
+   ============================================ */
 
-.mcaFinancingPageWrapper {
-  background: linear-gradient(to bottom, var(--mca-soft-white), var(--mca-light-gold)); /* Elegant gradient for captivating backdrop */
+.pageWrapper {
+  --primary: #B4A698;
+  --secondary: #5B615B;
+  --accent: #C5C1BD;
+  --light: #C4C8C3;
+  --lightest: #EFEDE6;
+  
+  --font-primary: 'Merilux', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
   min-height: 100vh;
-  padding: 4rem 1rem;
+  background: var(--lightest);
+  font-family: var(--font-body);
+  color: var(--secondary);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-primary);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 300;
+  color: var(--secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--secondary);
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+/* ============================================
+   FINANCING CARD VISUAL
+   ============================================ */
+
+.cardImageWrapper {
+  margin: 2.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.financingCard {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1.586;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(180, 166, 152, 0.3);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  font-family: 'Playfair Display', serif; /* Sophisticated font for storytelling */
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-/* Hero Section with Wavy Accent */
-.mcaFinancingHero {
-  text-align: center;
-  max-width: 48rem;
-  margin-bottom: 3rem;
   position: relative;
+  overflow: hidden;
 }
 
-.mcaFinancingMainTitle {
-  font-size: 2.75rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--mca-deep-purple);
-  text-shadow: 1px 1px 3px var(--mca-shadow-subtle);
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
-}
-
-.mcaFinancingMainTitle::after {
+.financingCard::before {
   content: '';
   position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold));
-  border-radius: 50%;
-  clip-path: path('M0,2 Q50,0 100,2 Q150,4 200,2 Q250,0 300,2'); /* Subtle wavy line for luxury flair */
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.mcaFinancingMainTitle:hover {
-  color: var(--mca-lux-gold);
-  transform: scale(1.02);
+.cardContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
+
+.cardBrand {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+.cardText {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.cardSubtext {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  opacity: 0.85;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+/* ============================================
+   WHY CHOOSE SECTION
+   ============================================ */
+
+.whyChoose {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  background: white;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 300;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitsList li {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  opacity: 0.85;
+  padding: 0.75rem 0;
+  padding-left: 1.75rem;
+  position: relative;
+}
+
+.benefitsList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   HOW IT WORKS SECTION
+   ============================================ */
+
+.howItWorks {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  background: var(--lightest);
+}
+
+.stepsList {
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0;
+  margin: 1.5rem 0 0 0;
+}
+
+.stepsList li {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  opacity: 0.85;
+  padding: 1rem 0;
+  padding-left: 3rem;
+  position: relative;
+  counter-increment: step-counter;
+}
+
+.stepsList li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background: white;
+}
+
+.ctaTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 300;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.ctaText {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  margin-bottom: 1.5rem;
+}
+
+.buttonLink {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ctaFooter {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--secondary);
+  opacity: 0.75;
+}
+
+.contactLink {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   SEO FOOTER
+   ============================================ */
+
+.seoFooter {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: var(--lightest);
+}
+
+.seoText {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--secondary);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.disclaimer {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--secondary);
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 
 @media (max-width: 768px) {
-  .mcaFinancingMainTitle {
-    font-size: 2.25rem;
+  .hero {
+    padding: 2rem 1rem;
   }
-}
 
-.mcaFinancingSubtitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.7;
-}
-
-.mcaFinancingLogoHolder {
-  max-width: 300px; /* Scaled for logo size */
-  margin: 0 auto 2rem;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
-}
-
-.mcaFinancingLogoHolder:hover {
-  transform: scale(1.03);
-}
-
-.mcaFinancingLogo {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Section Titles */
-.mcaFinancingSectionTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--mca-deep-purple);
-  text-align: center;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid var(--mca-lux-gold);
-  padding-bottom: 0.5rem;
-  transition: color 0.3s ease;
-}
-
-.mcaFinancingSectionTitle:hover {
-  color: var(--mca-pink-highlight);
-}
-
-/* Content Sections */
-.mcaFinancingContentSection {
-  max-width: 64rem;
-  margin: 0 auto 3rem;
-  padding: 0 1rem;
-}
-
-.mcaFinancingContentLayout {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .mcaFinancingContentLayout {
-    flex-direction: row;
-    align-items: center;
+  .whyChoose,
+  .howItWorks,
+  .cta,
+  .seoFooter {
+    padding: 2rem 1rem;
   }
-  .mcaFinancingContentText {
-    flex: 1;
+
+  .financingCard {
+    max-width: 300px;
+    padding: 1.25rem;
   }
-  .mcaFinancingImageHolder {
-    flex: 1;
-    max-width: 50%;
+
+  .cardBrand {
+    font-size: 1.6rem;
   }
-}
 
-.mcaFinancingParagraph, .mcaFinancingIntroParagraph {
-  font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  text-align: justify;
-}
-
-.mcaFinancingImageHolder {
-  width: 100%;
-  height: 20rem;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  transition: transform 0.3s ease;
-}
-
-.mcaFinancingImageHolder:hover {
-  transform: scale(1.03);
-}
-
-.mcaFinancingImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mcaFinancingImageBorderAccent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0.25rem;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-vivid-pink));
-}
-
-/* List Styling */
-.mcaFinancingListContainer {
-  list-style-type: none;
-  margin-bottom: 1.5rem;
-  padding-left: 0;
-}
-
-.mcaFinancingListItem {
-  font-size: 1rem;
-  color: var(--mca-elegant-gray);
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-  position: relative;
-  padding-left: 1.75rem;
-  transition: color 0.3s ease;
-}
-
-.mcaFinancingListItem:hover {
-  color: var(--mca-deep-purple);
-}
-
-.mcaFinancingListItem::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--mca-lux-gold);
-  font-size: 1.25rem;
-}
-
-/* Call to Action */
-.mcaFinancingCallToAction {
-  background-color: var(--mca-soft-white);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px var(--mca-shadow-subtle);
-  padding: 2rem;
-  text-align: center;
-  max-width: 48rem;
-  margin: 2rem auto;
-  border: 1px solid var(--mca-bronze);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mcaFinancingCallToAction:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px var(--mca-shadow-deep);
-}
-
-.mcaFinancingCtaText {
-  font-size: 1.5rem;
-  color: var(--mca-deep-purple);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.mcaFinancingCtaButton {
-  display: inline-block;
-  background: linear-gradient(to right, var(--mca-deep-purple), var(--mca-lux-gold));
-  color: var(--mca-soft-white);
-  font-size: 1.125rem;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.mcaFinancingCtaButton:hover {
-  background: linear-gradient(to right, var(--mca-lux-gold), var(--mca-deep-purple));
-  transform: scale(1.05);
-}
-
-/* Disclaimer */
-.mcaFinancingDisclaimer {
-  font-size: 0.875rem;
-  color: var(--mca-elegant-gray);
-  text-align: center;
-  margin-top: 1rem;
-  max-width: 48rem;
-  padding: 0 1rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 640px) {
-  .mcaFinancingMainTitle {
-    font-size: 2rem;
-  }
-  .mcaFinancingSectionTitle {
-    font-size: 1.75rem;
-  }
-  .mcaFinancingSubtitle, .mcaFinancingParagraph, .mcaFinancingIntroParagraph {
-    font-size: 0.875rem;
-  }
-  .mcaFinancingCtaText {
-    font-size: 1.25rem;
-  }
-  .mcaFinancingCtaButton {
+  .cardText {
     font-size: 1rem;
-    padding: 0.625rem 1.25rem;
   }
-  .mcaFinancingImageHolder {
-    height: 16rem;
+
+  .benefitsList li,
+  .stepsList li {
+    font-size: 0.95rem;
   }
-  .mcaFinancingCallToAction {
-    padding: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
   }
-  .mcaFinancingListItem {
-    font-size: 0.875rem;
-    padding-left: 1.5rem;
+
+  .subtitle {
+    font-size: 0.9rem;
   }
-  .mcaFinancingDisclaimer {
-    font-size: 0.75rem;
+
+  .financingCard {
+    max-width: 280px;
   }
-  .mcaFinancingLogoHolder {
-    max-width: 200px;
+
+  .cardBrand {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
   }
 }
