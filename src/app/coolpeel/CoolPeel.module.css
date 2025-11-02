@@ -53,58 +53,31 @@
 }
 
 /* ========================================
-   CURVED HEADER TRANSITION
+   NO HEADER TRANSITION - CLEAN WHITE
    ======================================== */
 
 .mcaLuxCoolPeelHeaderTransition {
-  width: 100%;
-  height: 60px;
-  background: var(--mca-gradient-primary);
-  position: relative;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.mcaLuxCoolPeelHeaderTransition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--mca-cream);
-  clip-path: ellipse(100% 80% at 50% 0%);
-  z-index: 1;
-}
-
-.mcaLuxCoolPeelHeaderTransition::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(to bottom, rgba(var(--mca-mauve-rgb), 0.1) 0%, transparent 100%);
-  z-index: 2;
+  display: none;
 }
 
 /* ========================================
-   HERO SECTION
+   HERO SECTION - ULTRA WHITE & CRYSTAL CLEAR
    ======================================== */
 
 .mcaLuxCoolPeelHero {
   position: relative;
-  min-height: 100vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--mca-gradient-primary);
-  padding: 2rem 1.5rem;
+  background: #FFFFFF;
+  padding: clamp(2rem, 5vw, 4rem) 1.5rem;
   margin-top: 0;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
+/* Background Image - CRYSTAL CLEAR, NO OVERLAY */
 .mcaLuxCoolPeelHeroImageContainer {
   position: absolute;
   top: 0;
@@ -115,41 +88,35 @@
 }
 
 .mcaLuxCoolPeelHeroImage {
-  opacity: 0.25;
-  filter: blur(0.3px);
+  opacity: 0.4;
+  filter: brightness(1.15) contrast(1.05) saturate(0.95);
   transition: var(--mca-transition-smooth);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) scale(1.05);
 }
 
+/* NO OVERLAY - REMOVED */
 .mcaLuxCoolPeelHeroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg, 
-    rgba(var(--mca-mauve-rgb), 0.35) 0%, 
-    rgba(var(--mca-plum-rgb), 0.45) 50%, 
-    rgba(var(--mca-dusty-rose-rgb), 0.3) 100%
-  );
-  z-index: 2;
+  display: none;
 }
 
+/* Content Box - Ultra Modern White */
 .mcaLuxCoolPeelHeroContent {
   position: relative;
   z-index: 3;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
-  padding: 2.5rem 2rem;
-  background: rgba(var(--mca-cream-rgb), 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 1rem;
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
-  box-shadow: var(--mca-shadow-luxury);
+  padding: clamp(2.5rem, 5vw, 4rem) 2rem;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.03);
   animation: heroContentFadeIn 1.2s ease-out;
 }
 
@@ -165,14 +132,13 @@
 }
 
 .mcaLuxCoolPeelHeroTitle {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--mca-plum);
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 10px rgba(var(--mca-plum-rgb), 0.2);
-  line-height: 1.2;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
 }
 
 .mcaLuxCoolPeelHeroSubtitle {
@@ -199,16 +165,16 @@
 }
 
 /* ========================================
-   SECTIONS
+   SECTIONS - PURE WHITE
    ======================================== */
 
 .mcaLuxCoolPeelSection {
-  padding: 4rem 2rem;
-  background: var(--mca-gradient-soft);
+  padding: clamp(4rem, 8vw, 6rem) 2rem;
+  background: #FFFFFF;
 }
 
 .mcaLuxCoolPeelSection:nth-child(even) {
-  background: var(--mca-cream);
+  background: #FFFFFF;
 }
 
 .mcaLuxCoolPeelContainer {
@@ -253,17 +219,17 @@
 }
 
 .mcaLuxCoolPeelContent {
-  background: var(--mca-cream);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-medium);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
-  transition: var(--mca-transition-luxury);
+  background: #FFFFFF;
+  padding: clamp(2.5rem, 5vw, 3rem);
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mcaLuxCoolPeelContent:hover {
-  box-shadow: var(--mca-shadow-deep);
-  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+  transform: translateY(-8px);
 }
 
 /* ========================================
@@ -290,12 +256,15 @@
   display: block;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  filter: contrast(1.05) saturate(1.1);
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
   transition: var(--mca-transition-luxury);
 }
 
 .mcaLuxCoolPeelImageWrapper:hover .mcaLuxCoolPeelImage {
-  filter: contrast(1.1) saturate(1.2);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
 /* ========================================
@@ -342,15 +311,18 @@
   grid-template-columns: 1fr;
   gap: 1.5rem;
   margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mcaLuxCoolPeelBenefitCard {
-  background: var(--mca-cream);
-  padding: 2rem;
-  border-radius: 0.75rem;
-  box-shadow: var(--mca-shadow-medium);
-  border-left: 4px solid var(--mca-mauve);
-  transition: var(--mca-transition-luxury);
+  background: #FFFFFF;
+  padding: clamp(2rem, 4vw, 2.5rem);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid var(--mca-mauve);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
@@ -367,8 +339,8 @@
 }
 
 .mcaLuxCoolPeelBenefitCard:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
 }
 
 .mcaLuxCoolPeelBenefitCard:hover::before {
@@ -397,7 +369,7 @@
 .mcaLuxCoolPeelProcessStep {
   margin-bottom: 2rem;
   padding: 2rem;
-  background: var(--mca-cream);
+  background: #FFFFFF;
   border-radius: 0.75rem;
   border-left: 4px solid var(--mca-mauve);
   box-shadow: var(--mca-shadow-subtle);
@@ -426,7 +398,7 @@
    ======================================== */
 
 .mcaLuxCoolPeelCandidacyBox {
-  background: var(--mca-cream);
+  background: #FFFFFF;
   padding: 2.5rem;
   border-radius: 1rem;
   margin-top: 2.5rem;
@@ -452,17 +424,17 @@
 }
 
 .mcaLuxCoolPeelCareCard {
-  background: var(--mca-cream);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-medium);
-  border-top: 4px solid var(--mca-mauve);
-  transition: var(--mca-transition-luxury);
+  background: #FFFFFF;
+  padding: clamp(2.5rem, 5vw, 3rem);
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border-top: 5px solid var(--mca-mauve);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mcaLuxCoolPeelCareCard:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
   border-top-color: var(--mca-plum);
 }
 
@@ -478,12 +450,12 @@
 }
 
 /* ========================================
-   CTA SECTION
+   CTA SECTION - PURE WHITE
    ======================================== */
 
 .mcaLuxCoolPeelCtaSection {
-  padding: 5rem 2rem;
-  background: var(--mca-gradient-primary);
+  padding: clamp(5rem, 10vw, 7rem) 2rem;
+  background: #FFFFFF;
   text-align: center;
 }
 
@@ -493,21 +465,19 @@
 }
 
 .mcaLuxCoolPeelCtaTitle {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--mca-cream);
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 10px rgba(var(--mca-plum-rgb), 0.3);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
 }
 
 .mcaLuxCoolPeelCtaText {
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   line-height: 1.7;
-  color: var(--mca-cream);
-  margin-bottom: 2.5rem;
-  opacity: 0.95;
+  color: #404040;
+  margin-bottom: 3rem;
 }
 
 .mcaLuxCoolPeelCtaButtons {
@@ -570,8 +540,9 @@
   }
 
   .mcaLuxCoolPeelGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 3.5rem;
+    align-items: center;
   }
 
   .mcaLuxCoolPeelBenefitsGrid {
@@ -599,23 +570,34 @@
 
 @media (min-width: 1024px) {
   .mcaLuxCoolPeelHero {
-    min-height: 100vh;
+    min-height: 85vh;
   }
 
   .mcaLuxCoolPeelSection {
-    padding: 6rem 3rem;
+    padding: 5rem 3rem;
   }
 
   .mcaLuxCoolPeelCtaSection {
-    padding: 7rem 3rem;
+    padding: 6rem 3rem;
   }
 
   .mcaLuxCoolPeelBenefitsGrid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
   }
 
   .mcaLuxCoolPeelGrid {
-    gap: 4rem;
+    gap: 4.5rem;
+    align-items: start;
+  }
+
+  .mcaLuxCoolPeelContent {
+    padding: 3.5rem;
+  }
+
+  .mcaLuxCoolPeelImageWrapper {
+    position: sticky;
+    top: 100px;
   }
 }
 

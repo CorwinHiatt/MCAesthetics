@@ -31,7 +31,24 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
     .join(' ')
     .trim();
 
-  const buttonContent = (
+  // If href is provided, render as Link with button styling
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        className={combinedClassName}
+        aria-label={ariaLabel || text}
+        onClick={onClick}
+      >
+        {text}
+      </Link>
+    );
+  }
+
+  // Otherwise render as button
+  return (
     <button
       className={combinedClassName}
       onClick={onClick}
@@ -41,14 +58,6 @@ const SecondaryButton: React.FC<SecondaryButtonProps> = ({
     >
       {text}
     </button>
-  );
-
-  return href ? (
-    <Link href={href} passHref target={target} rel={rel}>
-      {buttonContent}
-    </Link>
-  ) : (
-    buttonContent
   );
 };
 

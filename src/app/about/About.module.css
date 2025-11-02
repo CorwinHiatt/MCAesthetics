@@ -45,53 +45,26 @@
   --mca-transition-luxury: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Curved Header Transition */
+/* NO TRANSITION - CLEAN WHITE */
 .mcaAboutHeaderToHeroTransition {
-  width: 100%;
-  height: 60px;
-  background: var(--mca-gradient-primary);
-  position: relative;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display: none;
 }
 
-.mcaAboutHeaderToHeroTransition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--mca-cream);
-  clip-path: ellipse(100% 80% at 50% 0%);
-  z-index: 1;
-}
-
-.mcaAboutHeaderToHeroTransition::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(to bottom, rgba(var(--mca-mauve-rgb), 0.1) 0%, transparent 100%);
-  z-index: 2;
-}
-
-/* Hero Section */
+/* Hero Section - ULTRA WHITE & CRYSTAL CLEAR */
 .mcaAboutHeroBanner {
   position: relative;
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: var(--mca-gradient-primary);
-  padding: 4rem 2rem;
+  background: #FFFFFF;
+  padding: clamp(4rem, 8vw, 6rem) 2rem;
   margin-top: 0;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
+/* Background Image - CRYSTAL CLEAR, NO OVERLAY */
 .mcaAboutHeroImageContainer {
   position: absolute;
   top: 0;
@@ -102,55 +75,39 @@
 }
 
 .mcaAboutHeroBackgroundImage {
-  opacity: 0.25;
-  filter: blur(0.3px);
+  opacity: 0.35;
+  filter: brightness(1.15) contrast(1.05) saturate(0.95);
   transition: var(--mca-transition-smooth);
   image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0) scale(1.05);
 }
 
+/* NO OVERLAYS - REMOVED */
 .mcaAboutHeroImageOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    135deg, 
-    rgba(var(--mca-mauve-rgb), 0.35) 0%, 
-    rgba(var(--mca-plum-rgb), 0.45) 50%, 
-    rgba(var(--mca-dusty-rose-rgb), 0.3) 100%
-  );
-  z-index: 2;
+  display: none;
 }
 
 .mcaAboutHeroShade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(var(--mca-plum-rgb), 0.08) 0%,
-    transparent 50%,
-    rgba(var(--mca-plum-rgb), 0.04) 100%
-  );
-  z-index: 3;
+  display: none;
 }
 
+/* Content Box - Ultra Modern White */
 .mcaAboutHeroContentBox {
   position: relative;
-  z-index: 4;
+  z-index: 3;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
-  padding: 3rem;
-  background: rgba(var(--mca-cream-rgb), 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 1rem;
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
-  box-shadow: var(--mca-shadow-luxury);
+  padding: clamp(3rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.03);
   animation: heroContentFadeIn 1.2s ease-out;
 }
 
@@ -166,22 +123,21 @@
 }
 
 .mcaAboutHeroMainText {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--mca-plum);
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 10px rgba(var(--mca-plum-rgb), 0.2);
-  line-height: 1.25;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 2rem;
+  line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
 }
 
 .mcaAboutHeroSubText {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  color: var(--mca-plum);
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  color: #404040;
+  margin-bottom: 2.5rem;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 /* Container */
@@ -191,10 +147,10 @@
   padding: 0 2rem;
 }
 
-/* Content Sections */
+/* Content Sections - PURE WHITE */
 .mcaAboutContentSection {
-  padding: 5rem 0;
-  background: var(--mca-gradient-soft);
+  padding: clamp(5rem, 10vw, 7rem) 0;
+  background: #FFFFFF;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
@@ -212,12 +168,12 @@
 }
 
 .mcaAboutSectionTitle {
-  font-size: clamp(1.875rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: var(--mca-plum);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #000000;
   text-align: center;
-  margin-bottom: 3rem;
-  letter-spacing: -0.01em;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  letter-spacing: -0.03em;
 }
 
 .mcaAboutIntroText {
@@ -240,11 +196,11 @@
 
 .mcaAboutTextBlock {
   flex: 1;
-  background: var(--mca-cream);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-medium);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+  background: #FFFFFF;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .mcaAboutParagraph {
@@ -300,23 +256,28 @@
 .mcaAboutImage {
   width: 100%;
   height: auto;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-luxury);
-  border: 2px solid rgba(var(--mca-mauve-rgb), 0.3);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(180, 166, 152, 0.2);
   image-rendering: -webkit-optimize-contrast;
-  filter: contrast(1.05) saturate(1.05);
+  image-rendering: crisp-edges;
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
   transition: var(--mca-transition-luxury);
 }
 
 .mcaAboutImage:hover {
-  transform: scale(1.02);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: scale(1.03);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
-/* Team Section */
+/* Team Section - PURE WHITE */
 .mcaAboutTeamSection {
-  padding: 5rem 0;
-  background: var(--mca-cream);
+  padding: clamp(5rem, 10vw, 7rem) 0;
+  background: #FFFFFF;
 }
 
 .mcaAboutTeamGrid {
@@ -327,24 +288,24 @@
 }
 
 .mcaAboutTeamCard {
-  background: var(--mca-light);
-  border-radius: 1rem;
+  background: #FFFFFF;
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: var(--mca-shadow-medium);
-  transition: var(--mca-transition-luxury);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .mcaAboutTeamCard:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: translateY(-16px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
 }
 
 .mcaAboutTeamPhotoWrapper {
-  height: 400px;
+  height: 420px;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(45deg, var(--mca-sage), var(--mca-mauve));
+  background: #FFFFFF;
 }
 
 .mcaAboutTeamPhoto {
@@ -354,17 +315,21 @@
   object-position: center top;
   transition: var(--mca-transition-luxury);
   image-rendering: -webkit-optimize-contrast;
-  filter: contrast(1.05) saturate(1.1);
+  image-rendering: crisp-edges;
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .mcaAboutTeamCard:hover .mcaAboutTeamPhoto {
-  transform: scale(1.05);
-  filter: contrast(1.1) saturate(1.2);
+  transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
 .mcaAboutTeamDetails {
-  padding: 2rem;
-  background: var(--mca-cream);
+  padding: clamp(2rem, 4vw, 2.5rem);
+  background: #FFFFFF;
 }
 
 .mcaAboutTeamName {
@@ -390,14 +355,14 @@
   color: var(--mca-plum);
 }
 
-/* Values Section */
+/* Values Section - PURE WHITE */
 .mcaAboutValuesSection {
-  padding: 5rem 0;
-  background: var(--mca-gradient-primary);
+  padding: clamp(5rem, 10vw, 7rem) 0;
+  background: #FFFFFF;
 }
 
 .mcaAboutValuesSection .mcaAboutSectionTitle {
-  color: var(--mca-cream);
+  color: #000000;
 }
 
 .mcaAboutValuesGrid {
@@ -408,17 +373,17 @@
 }
 
 .mcaAboutValueCard {
-  background: rgba(var(--mca-cream-rgb), 0.95);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-medium);
-  transition: var(--mca-transition-luxury);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
+  background: #FFFFFF;
+  padding: clamp(2.5rem, 5vw, 3rem);
+  border-radius: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .mcaAboutValueCard:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.10);
 }
 
 .mcaAboutValueTitle {
@@ -435,10 +400,10 @@
   color: var(--mca-plum);
 }
 
-/* CTA Section */
+/* CTA Section - PURE WHITE */
 .mcaAboutCtaSection {
-  padding: 6rem 0;
-  background: var(--mca-gradient-soft);
+  padding: clamp(6rem, 12vw, 8rem) 0;
+  background: #FFFFFF;
   text-align: center;
 }
 

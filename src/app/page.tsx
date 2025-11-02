@@ -10,6 +10,7 @@ import styles from './HomeLuxury.module.css';
 import PrimaryButton from './components/buttons/PrimaryButton';
 import SecondaryButton from './components/buttons/SecondaryButton';
 import OutlineButton from './components/buttons/OutlineButton';
+import Carousel from './components/features/Carousel';
 
 // Metadata for SEO and Social Previews (App Router style)
 export const metadata = {
@@ -181,9 +182,9 @@ export default function HomePage() {
 
       {/* Enhanced Hero Section with Shadow Image */}
       <section className={styles.mcaLuxHomeHeroBanner} role="banner">
-        {/* Background Shadow Image */}
+        {/* Background Image - Crystal Clear */}
         <div className={styles.mcaLuxHomeHeroImageContainer}>
-          <Image 
+          <Image
             src={shadowMain}
             alt="Elegant aesthetic treatment ambiance"
             className={styles.mcaLuxHomeHeroBackgroundImage}
@@ -192,22 +193,8 @@ export default function HomePage() {
             sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
-          <div className={styles.mcaLuxHomeHeroImageOverlay}></div>
         </div>
-        
-        {/* Floating Shadow Element */}
-        <div className={styles.mcaLuxHomeHeroShadowAccent}>
-          <Image 
-            src={shadowMain}
-            alt=""
-            className={styles.mcaLuxHomeHeroFloatingShadow}
-            width={300}
-            height={200}
-            priority
-          />
-        </div>
-        
-        <div className={styles.mcaLuxHomeHeroShade}></div>
+
         <div className={styles.mcaLuxHomeHeroContentBox}>
           <h1 className={styles.mcaLuxHomeHeroMainText}>Elevate Your Beauty at MC Aesthetics</h1>
           <p className={styles.mcaLuxHomeHeroSubText}>
@@ -365,15 +352,15 @@ export default function HomePage() {
                 {serviceGroup.items.length > 3 && (
                   <li className={styles.mcaLuxHomeServiceTileEntry}>
                     {/* Replaced Link with OutlineButton for tertiary navigation */}
-                    <OutlineButton 
-                      text="View All..." 
+                    <OutlineButton
+                      text="View All..."
                       href={
-                        serviceGroup.category === "1-Hour Laser Hair Removal Membership" 
-                          ? "/laser-hair" 
+                        serviceGroup.category === "1-Hour Laser Hair Removal Membership"
+                          ? "/laser-hair"
                           : serviceGroup.category === "Specialty Treatments"
                             ? "/aesthetic-services"
                             : `/aesthetic-services/${serviceGroup.category.toLowerCase().replace(/\s/g, '-')}`
-                      } 
+                      }
                     />
                   </li>
                 )}
@@ -382,6 +369,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Google Reviews Carousel */}
+      <Carousel />
     </div>
   );
 }

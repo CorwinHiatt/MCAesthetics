@@ -2,55 +2,66 @@
 import NewHeader from './components/layout/NewHeader';
 import Footer2 from './components/layout/Footer2';
 import Script from 'next/script';
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 
-
 export const metadata: Metadata = {
   title: {
-    default: "MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise",
-    template: "%s | MC Aesthetics McMinnville",
+    default:
+      'MC Aesthetics McMinnville - Luxury Skin Care & Anti-Aging Expertise',
+    template: '%s | MC Aesthetics McMinnville',
   },
-  description: "Experience unparalleled skin care at MC Aesthetics in McMinnville, Oregon. Specializing in wrinkle reducers, dermal fillers, CoolPeel CO2 Laser, and bespoke aesthetic treatments.",
-  keywords: "MC Aesthetics McMinnville, luxury skin care Oregon, anti-aging expertise, dermal fillers, wrinkle reducers, CoolPeel laser, facial rejuvenation, premium aesthetics McMinnville",
-  metadataBase: new URL("https://mc-aesthetics.vercel.app/"),
+  description:
+    'Experience unparalleled skin care at MC Aesthetics in McMinnville, Oregon. Specializing in wrinkle reducers, dermal fillers, CoolPeel CO2 Laser, and bespoke aesthetic treatments.',
+  keywords:
+    'MC Aesthetics McMinnville, luxury skin care Oregon, anti-aging expertise, dermal fillers, wrinkle reducers, CoolPeel laser, facial rejuvenation, premium aesthetics McMinnville',
+  metadataBase: new URL('https://mc-aesthetics.vercel.app/'),
   openGraph: {
-    title: "MC Aesthetics McMinnville - Elevate Your Beauty",
-    description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!",
+    title: 'MC Aesthetics McMinnville - Elevate Your Beauty',
+    description:
+      'Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. From fillers to CoolPeel laser, unveil your radiant skin with us!',
     images: [
       {
-        url: "/images/shadowMain.png",
+        url: '/images/shadowMain.png',
         width: 1200,
         height: 630,
-        alt: "MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments",
+        alt: 'MC Aesthetics McMinnville - Luxury Skin Care and Anti-Aging Treatments',
       },
     ],
-    url: "https://mc-aesthetics.vercel.app/",
-    type: "website",
-    siteName: "MC Aesthetics McMinnville",
-    locale: "en_US",
+    url: 'https://mc-aesthetics.vercel.app/',
+    type: 'website',
+    siteName: 'MC Aesthetics McMinnville',
+    locale: 'en_US',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "MC Aesthetics McMinnville - Elevate Your Beauty",
-    description: "Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!",
-    images: ["/images/shadowMain.png"],
+    card: 'summary_large_image',
+    title: 'MC Aesthetics McMinnville - Elevate Your Beauty',
+    description:
+      'Indulge in premium aesthetic treatments at MC Aesthetics in McMinnville, OR. Unveil radiant skin with us!',
+    images: ['/images/shadowMain.png'],
   },
   icons: {
     apple: [
-      { url: "/images/favicon_io/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      { url: "/images/favicon_io/apple-touch-icon-152x152.png", sizes: "152x152", type: "image/png" },
+      {
+        url: '/images/favicon_io/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+      {
+        url: '/images/favicon_io/apple-touch-icon-152x152.png',
+        sizes: '152x152',
+        type: 'image/png',
+      },
     ],
-    icon: "/images/favicon_io/favicon.ico",
+    icon: '/images/favicon_io/favicon.ico',
   },
 };
 
-
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1.0,
 };
 
@@ -61,7 +72,11 @@ const roboto = Roboto({
   preload: true,
 });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={roboto.className}>
       <head>
@@ -70,14 +85,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="theme-color" content="#ffffff" />
 
         {/* Favicons & Manifest */}
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon_io/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/favicon_io/apple-touch-icon.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/images/favicon_io/apple-touch-icon-152x152.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/favicon_io/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/images/favicon_io/favicon-16x16.png"
+        />
         <link rel="manifest" href="/images/favicon_io/site.webmanifest" />
 
         {/* Preconnect & Preload Perplexity Font */}
-        <link rel="preconnect" href="https://r2cdn.perplexity.ai" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://r2cdn.perplexity.ai"
+          crossOrigin="anonymous"
+        />
         <link
           rel="preload"
           href="https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2"
@@ -99,14 +136,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-Z090FBSXB2');
           `}
         </Script>
-        <Script src="https://analytics.ahrefs.com/analytics.js" data-key="K1JZYgCL+MBzhPTJHCPJ8w" strategy="lazyOnload" />
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="K1JZYgCL+MBzhPTJHCPJ8w"
+          strategy="lazyOnload"
+        />
       </head>
       <body suppressHydrationWarning>
         <NewHeader />
-        <main>
-          {children}
-        </main>
-        <SpeedInsights/>
+        <main>{children}</main>
+        <SpeedInsights />
         <Footer2 />
         <Analytics />
       </body>

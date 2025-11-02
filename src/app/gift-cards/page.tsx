@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import PrimaryButton from '@/app/components/buttons/PrimaryButton';
 import styles from './GiftCards.module.css';
+import Carousel from '@/app/components/features/Carousel';
 
 const GiftCardsClient = () => {
   const handleBuyGiftCard = () => {
@@ -59,7 +60,7 @@ const GiftCardsClient = () => {
           Treat someone (or yourself!) to the ultimate in beauty and wellness. Purchase or redeem your MC Aesthetics gift card today!
         </p>
         <div className={styles.mcaGiftCtaButtonWrapper}>
-          <PrimaryButton 
+          <PrimaryButton
             text="Buy a Gift Card Now"
             onClick={handleBuyGiftCard}
             ariaLabel="Purchase MC Aesthetics Gift Card"
@@ -69,6 +70,9 @@ const GiftCardsClient = () => {
           Questions? <a href="/contact" className={styles.mcaGiftCtaLink}>Contact us</a> anytime—we&apos;re excited to help you celebrate!
         </p>
       </div>
+
+      {/* Google Reviews Carousel */}
+      <Carousel />
     </div>
   );
 };
