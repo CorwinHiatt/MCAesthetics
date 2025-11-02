@@ -4,7 +4,7 @@
 /* Enhanced for non-flat top: curved borders, wave effects, and luxury framing */
 
 .mcaGiftPageWrapper {
-  background: linear-gradient(to bottom, var(--mca-light-gold), var(--mca-soft-white));
+  background: #FFFFFF;
   min-height: 100vh;
   padding: 3rem 1rem;
   display: flex;
@@ -94,7 +94,7 @@
   left: 0;
   width: 100%;
   height: 10px;
-  background: linear-gradient(to right, var(--mca-pink-highlight), var(--mca-lux-gold));
+  background: #FFFFFF;
 }
 
 /* Content Section */

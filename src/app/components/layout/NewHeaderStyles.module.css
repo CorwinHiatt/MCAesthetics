@@ -495,6 +495,8 @@ display: flex;
 align-items: center;
 justify-content: center;
 padding: 0.5rem;
+min-width: 44px;
+min-height: 44px;
 background: var(--white);
 border: 1px solid rgba(0, 0, 0, 0.15);
 border-radius: var(--border-radius-sm);

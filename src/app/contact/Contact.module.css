@@ -7,7 +7,7 @@
 /* === PAGE WRAPPER === */
 .mcaContactPageWrapper {
   min-height: 100vh;
-  background: linear-gradient(135deg, #FFFFFF 0%, #EFEDE6 100%);
+  background: #FFFFFF;
   padding: 0;
   width: 100%;
 }
@@ -16,7 +16,7 @@
 .mcaContactHero {
   text-align: center;
   padding: 5rem 1.5rem 4rem;
-  background: linear-gradient(180deg, rgba(239, 237, 230, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  background: #FFFFFF;
   max-width: 100%;
 }
 
@@ -32,7 +32,7 @@
 .mcaContactTagline {
   font-family: 'Beautifully Delicious', cursive;
   font-size: clamp(1.25rem, 3vw, 2rem);
-  color: #B4A698;
+  color: #6B5D52;
   margin-bottom: 1.5rem;
   font-weight: 300;
 }
@@ -137,7 +137,7 @@
 
 .mcaContactFormInput::placeholder,
 .mcaContactFormTextarea::placeholder {
-  color: #B4A698;
+  color: #6B5D52;
   font-style: italic;
   opacity: 0.8;
 }
@@ -145,14 +145,14 @@
 .mcaContactFormInput:focus,
 .mcaContactFormTextarea:focus {
   outline: none;
-  border-color: #B4A698;
+  border-color: #6B5D52;
   box-shadow: 0 0 0 4px rgba(180, 166, 152, 0.15);
   background-color: #FFFFFF;
 }
 
 .mcaContactFormInput:hover:not(:disabled),
 .mcaContactFormTextarea:hover:not(:disabled) {
-  border-color: #B4A698;
+  border-color: #6B5D52;
   background-color: #FFFFFF;
 }
 
@@ -233,7 +233,7 @@
 .mcaContactInfoCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(91, 97, 91, 0.12);
-  border-color: #B4A698;
+  border-color: #6B5D52;
 }
 
 .mcaContactInfoIcon {
@@ -261,7 +261,7 @@
 }
 
 .mcaContactInfoLink {
-  color: #B4A698;
+  color: #6B5D52;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -289,7 +289,7 @@
 .mcaContactCallToAction {
   text-align: center;
   padding: 5rem 1.5rem;
-  background: linear-gradient(135deg, #EFEDE6 0%, #FFFFFF 100%);
+  background: #FFFFFF;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;

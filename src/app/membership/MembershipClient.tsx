@@ -2,8 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { UserPlus, Wallet, CalendarCheck } from 'lucide-react';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import styles from './Membership.module.css';
+import Carousel from '../components/features/Carousel';
 
 const MembershipClient = () => {
   const handleJoinClick = () => {
@@ -103,7 +105,9 @@ const MembershipClient = () => {
             <div className={styles.stepsContainer}>
 
               <div className={styles.step}>
-                <div className={styles.stepNumber}>1</div>
+                <div className={styles.stepNumber}>
+                  <UserPlus size={32} strokeWidth={2.5} aria-hidden="true" />
+                </div>
                 <div className={styles.stepContent}>
                   <h3 className={styles.stepTitle}>Join the Club</h3>
                   <p className={styles.stepText}>
@@ -113,7 +117,9 @@ const MembershipClient = () => {
               </div>
 
               <div className={styles.step}>
-                <div className={styles.stepNumber}>2</div>
+                <div className={styles.stepNumber}>
+                  <Wallet size={32} strokeWidth={2.5} aria-hidden="true" />
+                </div>
                 <div className={styles.stepContent}>
                   <h3 className={styles.stepTitle}>Build Your Balance</h3>
                   <p className={styles.stepText}>
@@ -123,7 +129,9 @@ const MembershipClient = () => {
               </div>
 
               <div className={styles.step}>
-                <div className={styles.stepNumber}>3</div>
+                <div className={styles.stepNumber}>
+                  <CalendarCheck size={32} strokeWidth={2.5} aria-hidden="true" />
+                </div>
                 <div className={styles.stepContent}>
                   <h3 className={styles.stepTitle}>Book & Save</h3>
                   <p className={styles.stepText}>
@@ -218,6 +226,9 @@ const MembershipClient = () => {
               Questions? <a href="/contact" className={styles.ctaLink}>Contact us</a> anytime—we&apos;re excited to welcome you!
             </p>
           </section>
+
+          {/* Google Reviews Carousel */}
+          <Carousel />
 
         </main>
       </div>

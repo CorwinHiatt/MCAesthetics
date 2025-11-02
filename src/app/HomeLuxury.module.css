@@ -1,104 +1,79 @@
-/* HomeLuxury.module.css - MC Aesthetics Homepage with Brand Colors */
-/* Mobile-First Design with Premium Aesthetics */
+/* ========================================
+ HomeLuxury.module.css - MC AESTHETICS ULTRA MODERN DESIGN
+ Pure White Background | Crystal Clear Images | Brand Accent Colors
+ ======================================== */
 
-/* Define custom properties based on brand color system */
 .mcaLuxHomeWrapper {
   width: 100%;
   margin: 0 auto;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: #FFFFFF;
+  color: #000000;
   overflow-x: hidden;
   font-family: var(--font-family-base);
-  
-  /* Brand Color Palette - Your 6 Colors Only */
+
+  /* Brand Accent Colors */
   --mca-mauve: #B4A698;
   --mca-plum: #5B615B;
   --mca-dusty-rose: #C5C1BD;
   --mca-cream: #EFEDE6;
   --mca-sage: #C4C8C3;
-  
+
   /* RGB versions for opacity */
   --mca-mauve-rgb: 180, 166, 152;
   --mca-plum-rgb: 91, 97, 91;
   --mca-dusty-rose-rgb: 197, 193, 189;
   --mca-cream-rgb: 239, 237, 230;
   --mca-sage-rgb: 196, 200, 195;
-  
+
   /* Semantic assignments */
   --mca-primary: var(--mca-mauve);
   --mca-primary-dark: var(--mca-plum);
   --mca-accent: var(--mca-dusty-rose);
   --mca-light: var(--mca-cream);
   --mca-neutral: var(--mca-sage);
-  
-  /* Gradients using brand colors */
+
+  /* Gradients using brand accents */
   --mca-gradient-primary: linear-gradient(135deg, var(--mca-mauve), var(--mca-plum));
   --mca-gradient-soft: linear-gradient(145deg, var(--mca-cream), var(--mca-sage));
-  --mca-gradient-luxury: linear-gradient(135deg, 
-    rgba(var(--mca-mauve-rgb), 0.9) 0%, 
-    rgba(var(--mca-plum-rgb), 0.85) 50%, 
-    rgba(var(--mca-dusty-rose-rgb), 0.8) 100%);
-  
-  /* Shadow System */
-  --mca-shadow-subtle: 0 1px 3px rgba(var(--mca-plum-rgb), 0.1);
-  --mca-shadow-medium: 0 4px 6px rgba(var(--mca-plum-rgb), 0.15);
-  --mca-shadow-deep: 0 10px 15px rgba(var(--mca-plum-rgb), 0.2);
-  --mca-shadow-luxury: 0 20px 25px rgba(var(--mca-plum-rgb), 0.15);
-  
-  /* Transitions */
-  --mca-transition-smooth: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  --mca-transition-luxury: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Ultra Modern Shadow System */
+  --mca-shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --mca-shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --mca-shadow-deep: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --mca-shadow-luxury: 0 16px 48px rgba(0, 0, 0, 0.10);
+
+  /* Accent Shadows */
+  --mca-shadow-mauve: 0 12px 32px rgba(var(--mca-mauve-rgb), 0.20);
+  --mca-shadow-plum: 0 12px 32px rgba(var(--mca-plum-rgb), 0.20);
+
+  /* Smooth Transitions */
+  --mca-transition-smooth: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --mca-transition-luxury: all 450ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Curved Header to Hero Transition */
+/* Elegant Header to Hero Transition - Removed for cleaner look */
 .mcaLuxHomeHeaderToHeroTransition {
-  width: 100%;
-  height: 60px;
-  background: var(--mca-gradient-primary);
-  position: relative;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  display: none;
 }
 
-.mcaLuxHomeHeaderToHeroTransition::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--mca-cream);
-  clip-path: ellipse(100% 80% at 50% 0%);
-  z-index: 1;
-}
-
-.mcaLuxHomeHeaderToHeroTransition::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background: linear-gradient(to bottom, rgba(var(--mca-mauve-rgb), 0.1) 0%, transparent 100%);
-  z-index: 2;
-}
-
-/* Enhanced Hero Section - BRIGHT & MODERN */
+/* ========================================
+ HERO SECTION - CRYSTAL CLEAR & ULTRA MODERN
+ ======================================== */
 .mcaLuxHomeHeroBanner {
   position: relative;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   overflow: hidden;
-  background: var(--mca-cream); /* Changed from gradient to solid light background */
-  padding: 0 2rem;
+  background: #FFFFFF;
+  padding: 0 clamp(1rem, 5vw, 3rem);
   margin-top: 0;
-  padding-top: 2rem;
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
 }
 
-/* Background Image Container - FULL BRIGHTNESS, NO OVERLAYS! */
+/* Background Image - CRYSTAL CLEAR, MAXIMUM QUALITY */
 .mcaLuxHomeHeroImageContainer {
   position: absolute;
   top: 0;
@@ -110,34 +85,38 @@
 }
 
 .mcaLuxHomeHeroBackgroundImage {
-  opacity: 1; /* FULL OPACITY - 100% VISIBLE! */
-  filter: brightness(1.1) contrast(1.05) saturate(1.1); /* BRIGHT & VIBRANT */
+  opacity: 1;
+  filter: brightness(1.08) contrast(1.08) saturate(1.12);
   transition: var(--mca-transition-smooth);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-/* OVERLAY REMOVED - NO MORE DIMMING! */
+/* NO OVERLAY - Pure, Unfiltered Images */
 .mcaLuxHomeHeroImageOverlay {
-  display: none; /* COMPLETELY REMOVED */
+  display: none;
 }
 
-/* Floating Shadow Accent */
+/* Floating Accent Element */
 .mcaLuxHomeHeroShadowAccent {
   position: absolute;
   top: 10%;
   left: 5%;
   z-index: 2;
-  opacity: 0.35;
+  opacity: 0.25;
   transform: rotate(-15deg);
-  animation: floatShadow 6s ease-in-out infinite;
+  animation: floatShadow 7s ease-in-out infinite;
   pointer-events: none;
 }
 
 .mcaLuxHomeHeroFloatingShadow {
-  filter: drop-shadow(0 10px 32px rgba(var(--mca-plum-rgb), 0.2));
+  filter: drop-shadow(0 8px 24px rgba(var(--mca-mauve-rgb), 0.15));
   transform: scale(1.2);
   image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
 }
 
 @keyframes floatShadow {
@@ -145,30 +124,30 @@
     transform: rotate(-15deg) translateY(0px);
   }
   50% {
-    transform: rotate(-12deg) translateY(-20px);
+    transform: rotate(-12deg) translateY(-25px);
   }
 }
 
-/* Hero Content - NO MORE SHADE LAYER */
+/* No Overlay Layer */
 .mcaLuxHomeHeroShade {
-  display: none; /* COMPLETELY REMOVED */
+  display: none;
 }
 
 .mcaLuxHomeHeroContentBox {
   position: relative;
-  z-index: 3; /* Above background image */
+  z-index: 3;
   text-align: right;
-  max-width: 600px;
+  max-width: 680px;
   width: 100%;
-  margin-right: 5%;
-  padding: 2rem;
-  background: rgba(var(--mca-cream-rgb), 0.97); /* Slightly more opaque for readability */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 1rem;
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.3);
-  box-shadow: var(--mca-shadow-luxury);
-  animation: heroContentFadeIn 1.2s ease-out;
+  margin-right: clamp(2%, 5vw, 8%);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.03);
+  animation: heroContentFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes heroContentFadeIn {
@@ -183,39 +162,39 @@
 }
 
 .mcaLuxHomeHeroMainText {
-  font-size: clamp(1.875rem, 5vw, 3rem);
-  font-weight: 700;
-  color: var(--mca-plum);
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 10px rgba(var(--mca-plum-rgb), 0.2);
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .mcaLuxHomeHeroSubText {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  color: var(--mca-plum);
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  color: #404040;
+  margin-bottom: 3rem;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .mcaLuxHomeHeroActionBtn {
   display: inline-block;
-  padding: 0.75rem 2rem;
+  padding: 1rem 2.5rem;
   background: var(--mca-mauve);
-  color: var(--mca-cream);
+  color: #FFFFFF;
   text-decoration: none;
   border-radius: 9999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.125rem;
-  box-shadow: var(--mca-shadow-medium);
+  box-shadow: var(--mca-shadow-mauve);
   transition: var(--mca-transition-luxury);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
+  border: 2px solid transparent;
 }
 
 .mcaLuxHomeHeroActionBtn::before {
@@ -225,8 +204,8 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.6s ease;
+  background: #FFFFFF;
+  transition: left 0.7s ease;
 }
 
 .mcaLuxHomeHeroActionBtn:hover::before {
@@ -234,15 +213,32 @@
 }
 
 .mcaLuxHomeHeroActionBtn:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--mca-shadow-luxury);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(var(--mca-mauve-rgb), 0.35);
   background: var(--mca-plum);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Team Section */
+/* ========================================
+ TEAM SECTION - ULTRA WHITE & MODERN
+ ======================================== */
 .mcaLuxHomeTeamSection {
-  padding: 5rem 2rem;
-  background: var(--mca-gradient-soft);
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+  background: #FFFFFF;
+  position: relative;
+}
+
+.mcaLuxHomeTeamSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(var(--mca-mauve-rgb), 0.3);
 }
 
 .mcaLuxHomeTeamContainer {
@@ -251,12 +247,13 @@
 }
 
 .mcaLuxHomeTeamHeader {
-  font-size: clamp(1.5rem, 4vw, 1.875rem);
-  font-weight: 700;
-  color: var(--mca-plum);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #000000;
   text-align: center;
-  margin-bottom: 4rem;
-  letter-spacing: -0.01em;
+  margin-bottom: clamp(3.5rem, 6vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .spacer {
@@ -271,26 +268,45 @@
 }
 
 .mcaLuxHomeTeamCard {
-  background: var(--mca-cream);
-  border-radius: 1rem;
+  background: #FFFFFF;
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: var(--mca-shadow-medium);
-  transition: var(--mca-transition-luxury);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+  box-shadow: var(--mca-shadow-subtle);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.mcaLuxHomeTeamCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
 }
 
 .mcaLuxHomeTeamCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-16px);
   box-shadow: var(--mca-shadow-luxury);
+  border-color: rgba(180, 166, 152, 0.25);
 }
 
-/* Enhanced Photo Display - BASE DESKTOP */
+.mcaLuxHomeTeamCard:hover::before {
+  opacity: 1;
+}
+
+/* Photo Display - CRYSTAL CLEAR */
 .mcaLuxHomeTeamPhotoWrapper {
-  height: 400px;
+  height: 420px;
   overflow: hidden;
   position: relative;
-  border-radius: 1rem 1rem 0 0;
-  background: linear-gradient(45deg, var(--mca-sage), var(--mca-mauve));
+  border-radius: 2rem 2rem 0 0;
+  background: #FFFFFF;
 }
 
 .mcaLuxHomeTeamPhotoContainer {
@@ -309,47 +325,67 @@
   display: block;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  filter: contrast(1.05) saturate(1.1);
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .mcaLuxHomeTeamCard:hover .mcaLuxHomeTeamPhoto {
-  transform: scale(1.05);
-  filter: contrast(1.1) saturate(1.2);
+  transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
 .mcaLuxHomeTeamDetails {
-  padding: 2rem;
-  background: var(--mca-cream);
+  padding: clamp(2rem, 4vw, 2.5rem);
+  background: #FFFFFF;
 }
 
 .mcaLuxHomeTeamName {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-size: clamp(1.5rem, 3vw, 1.875rem);
   font-weight: 700;
-  color: var(--mca-plum);
+  color: #000000;
   margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .mcaLuxHomeTeamTitle {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--mca-mauve);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
 }
 
 .mcaLuxHomeTeamBio {
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  line-height: 1.5;
-  color: var(--mca-plum);
+  font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+  line-height: 1.7;
+  color: #404040;
+  font-weight: 400;
 }
 
-/* About Section */
+/* ========================================
+ ABOUT SECTION - ULTRA WHITE & MODERN
+ ======================================== */
 .mcaLuxHomeAboutArea {
-  padding: 5rem 2rem;
-  background: var(--mca-gradient-soft);
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+  background: #FFFFFF;
   text-align: center;
+  position: relative;
+}
+
+.mcaLuxHomeAboutArea::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(var(--mca-mauve-rgb), 0.3);
 }
 
 .mcaLuxHomeAboutContainer {
@@ -363,27 +399,28 @@
 
 .mcaLuxHomeAboutTextBlock {
   flex: 1;
-  background: var(--mca-cream);
-  padding: 2rem;
-  border-radius: 0.75rem;
-  box-shadow: var(--mca-shadow-medium);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+  background: #FFFFFF;
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+  border-radius: 2rem;
+  box-shadow: var(--mca-shadow-subtle);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .mcaLuxHomeAboutHeadline {
-  font-size: clamp(1.5rem, 4vw, 1.875rem);
-  font-weight: 700;
-  color: var(--mca-plum);
-  margin-bottom: 2rem;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .mcaLuxHomeAboutParagraph {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  line-height: 1.5;
-  color: var(--mca-plum);
-  margin-bottom: 1rem;
-  opacity: 0.9;
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  line-height: 1.7;
+  color: #404040;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
 .mcaLuxHomeAboutNavLink {
@@ -412,42 +449,62 @@
 .mcaLuxHomeAboutPortrait {
   width: 100%;
   height: auto;
-  border-radius: 1rem;
-  box-shadow: var(--mca-shadow-luxury);
-  border: 2px solid rgba(var(--mca-mauve-rgb), 0.3);
+  border-radius: 1.5rem;
+  box-shadow: var(--mca-shadow-medium);
+  border: 2px solid rgba(var(--mca-mauve-rgb), 0.2);
   image-rendering: -webkit-optimize-contrast;
-  filter: contrast(1.05) saturate(1.05);
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
   transition: var(--mca-transition-luxury);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .mcaLuxHomeAboutPortrait:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: var(--mca-shadow-luxury);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
-/* Services Section */
+/* ========================================
+ SERVICES SECTION - ULTRA WHITE & MODERN
+ ======================================== */
 .mcaLuxHomeServicesZone {
-  padding: 5rem 2rem;
-  background: var(--mca-gradient-primary);
-  color: var(--mca-cream);
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+  background: #FFFFFF;
   text-align: center;
+  position: relative;
+}
+
+.mcaLuxHomeServicesZone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(var(--mca-mauve-rgb), 0.3);
 }
 
 .mcaLuxHomeServicesHeader {
-  font-size: clamp(1.5rem, 4vw, 1.875rem);
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: var(--mca-cream);
-  letter-spacing: -0.01em;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 2rem;
+  color: #000000;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .mcaLuxHomeServicesIntroText {
-  font-size: clamp(1.125rem, 2vw, 1.25rem);
-  line-height: 1.5;
+  font-size: clamp(1.0625rem, 2vw, 1.1875rem);
+  line-height: 1.7;
   max-width: 800px;
-  margin: 0 auto 2rem;
-  color: var(--mca-cream);
-  opacity: 0.95;
+  margin: 0 auto 3rem;
+  color: #404040;
+  font-weight: 400;
 }
 
 .mcaLuxHomeServicesLayout {
@@ -459,33 +516,53 @@
 }
 
 .mcaLuxHomeServiceTile {
-  background: var(--mca-cream);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: var(--mca-shadow-medium);
-  transition: var(--mca-transition-luxury);
-  border: 1px solid rgba(var(--mca-mauve-rgb), 0.2);
+  background: #FFFFFF;
+  border-radius: 2rem;
+  padding: clamp(2rem, 4.5vw, 3rem);
+  box-shadow: var(--mca-shadow-subtle);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.mcaLuxHomeServiceTile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #FFFFFF;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .mcaLuxHomeServiceTile:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   box-shadow: var(--mca-shadow-luxury);
+  border-color: rgba(180, 166, 152, 0.25);
+}
+
+.mcaLuxHomeServiceTile:hover::before {
+  opacity: 1;
 }
 
 .mcaLuxHomeServiceTileTitle {
-  font-size: clamp(1.25rem, 3vw, 1.5rem);
-  color: var(--mca-plum);
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+  color: #000000;
+  margin-bottom: 1rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 .mcaLuxHomeServiceTileDesc {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  color: var(--mca-plum);
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  color: #404040;
+  margin-bottom: 1.75rem;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 .mcaLuxHomeServiceTileItems {
@@ -520,19 +597,36 @@
   font-size: 1.125rem;
 }
 
-/* Gallery Section */
+/* ========================================
+ GALLERY SECTION - ULTRA WHITE & MODERN
+ ======================================== */
 .mcaLuxHomeGallerySpace {
-  padding: 4rem 2rem;
-  background: var(--mca-gradient-soft);
+  padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 3rem);
+  background: #FFFFFF;
   text-align: center;
+  position: relative;
+}
+
+.mcaLuxHomeGallerySpace::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(var(--mca-mauve-rgb), 0.3);
 }
 
 .mcaLuxHomeGalleryCaption {
-  font-size: clamp(1.5rem, 4vw, 1.875rem);
-  font-weight: 700;
-  color: var(--mca-plum);
-  margin-bottom: 3rem;
-  letter-spacing: -0.01em;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: clamp(3.5rem, 6vw, 5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .mcaLuxHomeGalleryDisplay {
@@ -546,19 +640,20 @@
 .mcaLuxHomeGalleryPiece {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
-  box-shadow: var(--mca-shadow-medium);
-  transition: var(--mca-transition-luxury);
-  border: 2px solid rgba(var(--mca-mauve-rgb), 0.2);
+  border-radius: 2rem;
+  box-shadow: var(--mca-shadow-subtle);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
+  transform: translateY(40px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  background: #FFFFFF;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -567,8 +662,9 @@
 }
 
 .mcaLuxHomeGalleryPiece:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--mca-shadow-luxury), 0 0 20px rgba(var(--mca-mauve-rgb), 0.3);
+  transform: translateY(-16px);
+  box-shadow: var(--mca-shadow-luxury);
+  border-color: rgba(180, 166, 152, 0.25);
 }
 
 .mcaLuxHomeGalleryNav {
@@ -578,17 +674,20 @@
 
 .mcaLuxHomeGalleryPhoto {
   width: 100%;
-  height: 300px;
+  height: 320px;
   object-fit: cover;
   transition: var(--mca-transition-luxury);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  filter: contrast(1.05) saturate(1.1);
+  filter: brightness(1.05) contrast(1.08) saturate(1.12);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .mcaLuxHomeGalleryPiece:hover .mcaLuxHomeGalleryPhoto {
-  transform: scale(1.08);
-  filter: contrast(1.1) saturate(1.2) brightness(1.05);
+  transform: scale(1.1);
+  filter: brightness(1.08) contrast(1.12) saturate(1.15);
 }
 
 .mcaLuxHomeGalleryHoverLayer {

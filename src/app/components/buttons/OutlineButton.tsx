@@ -23,30 +23,40 @@ const OutlineButton: React.FC<OutlineButtonProps> = ({
   target,
   rel,
 }) => {
-  // Fix: Trim and ensure consistent spacing
-  const combinedClassName = `${styles.mcaOutlineButton}${className ? ' ' + className : ''}`.trim();
+  // Safely combine class names to prevent hydration errors
+  const combinedClassName = [styles.mcaOutlineButton, className]
+    .filter(Boolean)
+    .join(' ')
+    .trim();
 
-  const buttonContent = (
+  // If href is provided, render as Link with button styling
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={target}
+        rel={rel}
+        className={combinedClassName}
+        aria-label={text}
+        onClick={onClick}
+      >
+        {text}
+      </Link>
+    );
+  }
+
+  // Otherwise render as button
+  return (
     <button
       className={combinedClassName}
       onClick={onClick}
       disabled={disabled}
       aria-label={text}
-      type="button" // IMPORTANT: Always include type
+      type="button"
     >
       {text}
     </button>
   );
-
-  if (href) {
-    return (
-      <Link href={href} passHref target={target} rel={rel}>
-        {buttonContent}
-      </Link>
-    );
-  }
-
-  return buttonContent;
 };
 
 export default OutlineButton;

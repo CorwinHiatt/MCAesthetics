@@ -4,6 +4,7 @@ import Image from 'next/image';
 import AboutClientWrapper from './AboutClientWrapper';
 import PrimaryButton from '../components/buttons/PrimaryButton';
 import SecondaryButton from '../components/buttons/SecondaryButton';
+import Carousel from '../components/features/Carousel';
 
 export const metadata: Metadata = {
   title: "About MC Aesthetics McMinnville | Anti-Aging & Skin Care Experts Oregon",
@@ -44,7 +45,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <section className={styles.mcaAboutHeroBanner} role="banner">
           <div className={styles.mcaAboutHeroImageContainer}>
-            <Image 
+            <Image
               src="/images/MCOfficeLogoOnWall.jpg"
               alt="Elegant Interior of MC Aesthetics Clinic"
               className={styles.mcaAboutHeroBackgroundImage}
@@ -53,10 +54,8 @@ export default function AboutPage() {
               sizes="100vw"
               style={{ objectFit: "cover", objectPosition: "center" }}
             />
-            <div className={styles.mcaAboutHeroImageOverlay}></div>
           </div>
-          
-          <div className={styles.mcaAboutHeroShade}></div>
+
           <div className={styles.mcaAboutHeroContentBox}>
             <h1 className={styles.mcaAboutHeroMainText}>Where Beauty Meets Expertise</h1>
             <p className={styles.mcaAboutHeroSubText}>
@@ -258,7 +257,7 @@ export default function AboutPage() {
               <PrimaryButton text="Schedule Consultation" href="https://www.joinblvd.com/b/mcaesthetics/widget#/visit-type" />
               <SecondaryButton text="View Our Services" href="/aesthetic-services" />
             </div>
-            
+
             <div className={styles.mcaAboutTeamImageWrapper}>
               <Image
                 src="/images/teamShot.jpg"
@@ -273,6 +272,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* Google Reviews Carousel */}
+        <Carousel />
       </div>
     </AboutClientWrapper>
   );

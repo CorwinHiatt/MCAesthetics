@@ -4,15 +4,15 @@
    ============================================ */
 
 .pageWrapper {
-  --primary: #B4A698;
-  --secondary: #5B615B;
-  --accent: #C5C1BD;
-  --light: #C4C8C3;
-  --lightest: #EFEDE6;
-  
+  --primary: #b4a698;
+  --secondary: #5b615b;
+  --accent: #c5c1bd;
+  --light: #c4c8c3;
+  --lightest: #efede6;
+
   --font-primary: 'Merilux', serif;
   --font-body: 'Montserrat', sans-serif;
-  
+
   min-height: 100vh;
   background: var(--lightest);
   font-family: var(--font-body);
@@ -24,7 +24,7 @@
    ============================================ */
 
 .hero {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   text-align: center;
@@ -49,80 +49,39 @@
 }
 
 /* ============================================
-   FINANCING CARD VISUAL
+   HERO IMAGE
    ============================================ */
 
-.cardImageWrapper {
+.heroImageWrapper {
+  width: 100%;
+  max-width: 800px;
   margin: 2.5rem auto;
   display: flex;
   justify-content: center;
-}
-
-.financingCard {
-  width: 100%;
-  max-width: 350px;
-  aspect-ratio: 1.586;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 40px rgba(180, 166, 152, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 8px 30px rgba(180, 166, 152, 0.25);
 }
 
-.financingCard::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.cardContent {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.cardBrand {
-  font-family: var(--font-primary);
-  font-size: 2rem;
-  color: white;
-  margin-bottom: 1rem;
-  letter-spacing: 2px;
-  font-weight: 300;
-}
-
-.cardText {
-  font-family: var(--font-body);
-  font-size: 1.1rem;
-  color: white;
-  margin-bottom: 0.5rem;
-  font-weight: 400;
-}
-
-.cardSubtext {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
-  font-weight: 300;
+.heroImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .description {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.8;
   color: var(--secondary);
   opacity: 0.85;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   text-align: left;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ============================================
@@ -130,10 +89,13 @@
    ============================================ */
 
 .whyChoose {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 1.5rem;
   background: white;
+  border-radius: 16px;
+  margin-top: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .sectionTitle {
@@ -141,7 +103,7 @@
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 300;
   color: var(--primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -149,26 +111,41 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .benefitsList li {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.8;
   color: var(--secondary);
   opacity: 0.85;
-  padding: 0.75rem 0;
-  padding-left: 1.75rem;
+  padding: 1rem 0;
+  padding-left: 2.5rem;
   position: relative;
+  border-bottom: 1px solid var(--lightest);
+}
+
+.benefitsList li:last-child {
+  border-bottom: none;
 }
 
 .benefitsList li::before {
   content: '✓';
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: var(--primary);
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ============================================
@@ -176,27 +153,31 @@
    ============================================ */
 
 .howItWorks {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 3rem 1.5rem;
   background: var(--lightest);
+  border-radius: 16px;
 }
 
 .stepsList {
   list-style: none;
   counter-reset: step-counter;
   padding: 0;
-  margin: 1.5rem 0 0 0;
+  margin: 2rem 0 0 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stepsList li {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.8;
   color: var(--secondary);
   opacity: 0.85;
-  padding: 1rem 0;
-  padding-left: 3rem;
+  padding: 1.5rem 0;
+  padding-left: 4rem;
   position: relative;
   counter-increment: step-counter;
 }
@@ -207,16 +188,17 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: var(--primary);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(180, 166, 152, 0.3);
 }
 
 /* ============================================
@@ -224,11 +206,13 @@
    ============================================ */
 
 .cta {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 3.5rem 1.5rem;
   text-align: center;
   background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .ctaTitle {
@@ -241,15 +225,18 @@
 
 .ctaText {
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.8;
   color: var(--secondary);
   opacity: 0.85;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ctaButton {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .buttonLink {
@@ -259,7 +246,7 @@
 
 .ctaFooter {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--secondary);
   opacity: 0.75;
 }
@@ -275,42 +262,97 @@
   opacity: 0.7;
 }
 
+.contactLink:focus,
+.buttonLink:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
 /* ============================================
    SEO FOOTER
    ============================================ */
 
 .seoFooter {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 3rem auto;
   padding: 2.5rem 1.5rem;
   text-align: center;
   background: var(--lightest);
+  border-radius: 16px;
 }
 
 .seoText {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.8;
   color: var(--secondary);
   opacity: 0.8;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .disclaimer {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
   color: var(--secondary);
   opacity: 0.6;
   font-style: italic;
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - TABLET
    ============================================ */
 
 @media (max-width: 768px) {
   .hero {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .heroImageWrapper {
+    margin: 2rem auto;
+    border-radius: 12px;
+  }
+
+  .whyChoose,
+  .howItWorks,
+  .cta,
+  .seoFooter {
+    padding: 2.5rem 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .benefitsList li {
+    padding: 0.9rem 0;
+    padding-left: 2.25rem;
+  }
+
+  .stepsList li {
+    padding: 1.25rem 0;
+    padding-left: 3.5rem;
+  }
+
+  .stepsList li::before {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================ */
+
+@media (max-width: 480px) {
+  .hero {
     padding: 2rem 1rem;
+  }
+
+  .heroImageWrapper {
+    margin: 1.5rem auto;
+    border-radius: 8px;
+  }
+
+  .description {
+    margin-top: 2rem;
   }
 
   .whyChoose,
@@ -318,45 +360,35 @@
   .cta,
   .seoFooter {
     padding: 2rem 1rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
   }
 
-  .financingCard {
-    max-width: 300px;
-    padding: 1.25rem;
-  }
-
-  .cardBrand {
-    font-size: 1.6rem;
-  }
-
-  .cardText {
-    font-size: 1rem;
-  }
-
-  .benefitsList li,
-  .stepsList li {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .subtitle {
+  .benefitsList li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
     font-size: 0.9rem;
   }
 
-  .financingCard {
-    max-width: 280px;
+  .benefitsList li::before {
+    font-size: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
-  .cardBrand {
-    font-size: 1.4rem;
+  .stepsList li {
+    padding: 1rem 0;
+    padding-left: 3rem;
+    font-size: 0.9rem;
   }
 
-  .description {
+  .stepsList li::before {
+    width: 2rem;
+    height: 2rem;
     font-size: 0.95rem;
+  }
+
+  .ctaButton {
+    margin-bottom: 1.5rem;
   }
 }
