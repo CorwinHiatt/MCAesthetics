@@ -330,6 +330,47 @@ background: var(--primary-tan);
 color: var(--white);
 }
 
+/* ===== NAV BUTTON GROUP (Link + Dropdown Toggle) ===== */
+.navButtonGroup {
+display: flex;
+align-items: center;
+gap: 0;
+background: transparent;
+border-radius: var(--border-radius-sm);
+}
+
+.navButtonGroup .navLink {
+padding-right: 0.5rem;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+}
+
+.navDropdownToggle {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0.625rem 0.5rem;
+background: transparent;
+border: 1px solid transparent;
+border-left: none;
+border-top-right-radius: var(--border-radius-sm);
+border-bottom-right-radius: var(--border-radius-sm);
+cursor: pointer;
+transition: var(--transition-smooth);
+color: var(--text-dark);
+}
+
+.navButtonGroup:hover .navLink,
+.navButtonGroup:hover .navDropdownToggle {
+color: var(--primary-tan);
+background: rgba(180, 166, 152, 0.06);
+}
+
+.navButtonGroup .navLink.active {
+background: rgba(180, 166, 152, 0.08);
+border-color: rgba(180, 166, 152, 0.2);
+}
+
 /* ===== DROPDOWN MENUS - PURE WHITE ===== */
 .dropdown {
 position: absolute;
@@ -678,6 +719,50 @@ font-weight: 600;
 color: var(--primary-tan);
 font-weight: 600;
 border-color: var(--primary-tan);
+}
+
+/* ===== MOBILE NAV BUTTON GROUP (Link + Dropdown Toggle) ===== */
+.mobileNavButtonGroup {
+display: flex;
+align-items: stretch;
+gap: 0;
+width: 100%;
+border-radius: var(--border-radius-sm);
+border: 1px solid rgba(0, 0, 0, 0.08);
+overflow: hidden;
+}
+
+.mobileNavButtonGroup .mobileNavLink {
+flex: 1;
+border: none;
+border-radius: 0;
+padding: 0.875rem 1rem;
+}
+
+.mobileDropdownToggle {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0.875rem 1rem;
+background: transparent;
+border: none;
+border-left: 1px solid rgba(0, 0, 0, 0.08);
+cursor: pointer;
+transition: var(--transition-smooth);
+color: var(--text-dark);
+min-width: 48px;
+}
+
+.mobileNavButtonGroup:hover .mobileNavLink,
+.mobileNavButtonGroup:hover .mobileDropdownToggle {
+background: rgba(180, 166, 152, 0.06);
+color: var(--primary-tan);
+}
+
+.mobileNavButtonGroup .mobileNavLink.active {
+background: rgba(180, 166, 152, 0.08);
+color: var(--primary-tan);
+font-weight: 600;
 }
 
 .mobileDropdownButton {

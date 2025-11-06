@@ -256,18 +256,27 @@ return (
             >
               {item.dropdown ? (
                 <>
-                  <button
-                    type="button"
-                    className={`${styles.navButton}${isActiveSection(item.href.split('#')[0]) ? ` ${styles.active}` : ''}`}
-                    aria-expanded={openDropdown === item.name}
-                    aria-haspopup="true"
-                  >
-                    {item.name}
-                    <ChevronDown
-                      className={`${styles.chevronIcon}${openDropdown === item.name ? ` ${styles.rotated}` : ''}`}
-                      aria-hidden="true"
-                    />
-                  </button>
+                  <div className={styles.navButtonGroup}>
+                    <Link
+                      href={item.href}
+                      className={`${styles.navLink}${isActiveSection(item.href.split('#')[0]) ? ` ${styles.active}` : ''}`}
+                      onClick={handleNavClick}
+                    >
+                      {item.name}
+                    </Link>
+                    <button
+                      type="button"
+                      className={styles.navDropdownToggle}
+                      aria-expanded={openDropdown === item.name}
+                      aria-haspopup="true"
+                      aria-label={`${item.name} submenu`}
+                    >
+                      <ChevronDown
+                        className={`${styles.chevronIcon}${openDropdown === item.name ? ` ${styles.rotated}` : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
                   <div className={`${styles.dropdown}${openDropdown === item.name ? ` ${styles.visible}` : ''}`}>
                     <div className={styles.dropdownGlow}></div>
                     {item.dropdown.map((dropItem) => (
@@ -378,18 +387,27 @@ return (
               <li key={item.name} className={styles.mobileNavItem}>
                 {item.dropdown ? (
                   <>
-                    <button
-                      type="button"
-                      onClick={() => toggleMobileDropdown(item.name)}
-                      className={`${styles.mobileDropdownButton}${isActiveSection(item.href.split('#')[0]) ? ` ${styles.active}` : ''}`}
-                      aria-expanded={openMobileDropdown === item.name}
-                    >
-                      {item.name}
-                      <ChevronDown
-                        className={`${styles.chevronIcon}${openMobileDropdown === item.name ? ` ${styles.rotated}` : ''}`}
-                        aria-hidden="true"
-                      />
-                    </button>
+                    <div className={styles.mobileNavButtonGroup}>
+                      <Link
+                        href={item.href}
+                        onClick={handleNavClick}
+                        className={`${styles.mobileNavLink}${isActiveSection(item.href.split('#')[0]) ? ` ${styles.active}` : ''}`}
+                      >
+                        {item.name}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => toggleMobileDropdown(item.name)}
+                        className={styles.mobileDropdownToggle}
+                        aria-expanded={openMobileDropdown === item.name}
+                        aria-label={`Toggle ${item.name} submenu`}
+                      >
+                        <ChevronDown
+                          className={`${styles.chevronIcon}${openMobileDropdown === item.name ? ` ${styles.rotated}` : ''}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
                     <div className={`${styles.mobileDropdownContent}${openMobileDropdown === item.name ? ` ${styles.open}` : ''}`}>
                       <ul className={styles.mobileSubNavList}>
                         {item.dropdown.map((dropItem) => (
