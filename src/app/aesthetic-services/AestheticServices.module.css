@@ -365,13 +365,468 @@
 }
 
 /* ============================================
+   PRODUCT PAGE STYLES - PROFESSIONAL MEDICAL SPA
+   ============================================ */
+
+/* Hero Section */
+.productHeroSection {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  background: linear-gradient(135deg, #f8f7f4 0%, #EFEDE6 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.productPageTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+.productSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #5B615B;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  padding: 0 1rem;
+}
+
+/* Product Image */
+.productImageContainer {
+  margin: 3rem 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(91, 97, 91, 0.15);
+  border: 1px solid #C5C1BD;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Content Wrapper */
+.productContentWrapper {
+  margin-top: 3rem;
+}
+
+.productSection {
+  margin-bottom: 3rem;
+}
+
+.productSectionHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5B615B;
+  margin-bottom: 1.5rem;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  letter-spacing: 0.02em;
+  border-bottom: 3px solid #B4A698;
+  padding-bottom: 0.75rem;
+}
+
+.productSubheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6B5D52;
+  margin-bottom: 0.75rem;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* Content Cards */
+.productContentCard {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #C5C1BD;
+  box-shadow: 0 2px 12px rgba(180, 166, 152, 0.08);
+  transition: all 0.3s ease;
+}
+
+.productContentCard:hover {
+  box-shadow: 0 4px 20px rgba(180, 166, 152, 0.15);
+  transform: translateY(-2px);
+}
+
+.productHighlightCard {
+  background: linear-gradient(135deg, #B4A698 0%, #6B5D52 100%);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(91, 97, 91, 0.2);
+}
+
+.productHighlightCard .productParagraph {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Typography */
+.productParagraph {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  margin-bottom: 0;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.productList li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+.productList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #B4A698;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* Two-Column Layout */
+.productTwoColumn {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .productTwoColumn {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Call to Action Section */
+.productCTASection {
+  background: linear-gradient(135deg, #5B615B 0%, #6B5D52 100%);
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-top: 4rem;
+  box-shadow: 0 8px 30px rgba(91, 97, 91, 0.25);
+}
+
+.productCTAHeading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  letter-spacing: 0.02em;
+}
+
+.productCTAParagraph {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #EFEDE6;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+.productCTAButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #B4A698;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.productCTAButton:hover {
+  background-color: #a39385;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.productSecondaryButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.productSecondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive for Product Pages */
+@media (max-width: 640px) {
+  .productPageTitle {
+    font-size: 2rem;
+  }
+
+  .productSubtitle {
+    font-size: 1.05rem;
+  }
+
+  .productSectionHeading {
+    font-size: 1.5rem;
+  }
+
+  .productContentCard,
+  .productHighlightCard {
+    padding: 1.5rem;
+  }
+
+  .productCTASection {
+    padding: 2rem 1.5rem;
+  }
+
+  .productCTAHeading {
+    font-size: 1.75rem;
+  }
+
+  .productCTAParagraph {
+    font-size: 1rem;
+  }
+
+  .productCTAButton,
+  .productSecondaryButton {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+}
+
+/* ============================================
+   SERVICE PAGE STYLES
+   ============================================ */
+
+.serviceHeroSection {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  background: linear-gradient(135deg, #f8f7f4 0%, #EFEDE6 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.servicePageTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  line-height: 1.2;
+}
+
+.serviceSubtitle {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #5B615B;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  padding: 0 1rem;
+}
+
+/* Service Products Section */
+.serviceProductsSection {
+  margin: 4rem 0;
+}
+
+.serviceProductsHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #5B615B;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  letter-spacing: 0.02em;
+}
+
+.serviceProductsSubtext {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #4a4a4a;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* Products Grid */
+.serviceProductsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .serviceProductsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .serviceProductsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Product Card */
+.serviceProductCard {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #C5C1BD;
+  box-shadow: 0 4px 16px rgba(180, 166, 152, 0.1);
+  transition: all 0.4s ease;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.serviceProductCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(180, 166, 152, 0.25);
+  border-color: #B4A698;
+}
+
+.serviceProductImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background-color: #EFEDE6;
+}
+
+.serviceProductImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.serviceProductCard:hover .serviceProductImage {
+  transform: scale(1.08);
+}
+
+.serviceProductContent {
+  padding: 1.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceProductTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5B615B;
+  margin-bottom: 0.75rem;
+  font-family: 'Merilux', 'Playfair Display', serif;
+  letter-spacing: 0.02em;
+}
+
+.serviceProductDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin-bottom: 1.25rem;
+  flex: 1;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+.serviceProductLink {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #B4A698;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.serviceProductCard:hover .serviceProductLink {
+  color: #6B5D52;
+}
+
+/* Mobile Responsive for Service Pages */
+@media (max-width: 640px) {
+  .servicePageTitle {
+    font-size: 2rem;
+  }
+
+  .serviceSubtitle {
+    font-size: 1.05rem;
+  }
+
+  .serviceProductsHeading {
+    font-size: 1.75rem;
+  }
+
+  .serviceProductsSubtext {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .serviceProductImageWrapper {
+    height: 200px;
+  }
+
+  .serviceProductContent {
+    padding: 1.25rem;
+  }
+
+  .serviceProductTitle {
+    font-size: 1.25rem;
+  }
+
+  .serviceProductDescription {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
    ACCESSIBILITY - REDUCED MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   .aestheticServicesAccordionItem,
   .aestheticServicesAccordionContent,
   .aestheticServicesAccordionIcon,
-  .aestheticServicesNestedItem {
+  .aestheticServicesNestedItem,
+  .productContentCard {
     transition: none;
   }
 }
